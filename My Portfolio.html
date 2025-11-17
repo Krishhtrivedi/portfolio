@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krish Trivedi - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            overflow-x: hidden;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+        
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+        
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+        
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(255, 215, 0, 0.15), 0 0 0 1px rgba(255, 215, 0, 0.1);
+        }
+        
+        .skill-bar {
+            width: 0%;
+            transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 25%, #FF6B6B 50%, #4ECDC4 75%, #45B7D1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.4);
+        }
+        
+        .btn-secondary {
+            border: 2px solid #FFD700;
+            color: #FFD700;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 215, 0, 0.05);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #0a0a0a;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.3);
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover {
+            color: #FFD700;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .section-padding {
+            padding: 6rem 0;
+        }
+        
+        .hero-bg {
+            background: radial-gradient(ellipse at top, #1a1a2e 0%, #16213e 25%, #0f0f23 50%, #0a0a0a 100%);
+            position: relative;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="%23FFD700" stop-opacity="0.1"/><stop offset="100%" stop-color="%23FFD700" stop-opacity="0"/></radialGradient></defs><circle cx="20" cy="20" r="2" fill="url(%23a)"/><circle cx="80" cy="40" r="1" fill="url(%23a)"/><circle cx="40" cy="80" r="1.5" fill="url(%23a)"/><circle cx="90" cy="80" r="1" fill="url(%23a)"/><circle cx="10" cy="60" r="1" fill="url(%23a)"/></svg>') repeat;
+            opacity: 0.3;
+            animation: sparkle 20s linear infinite;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(180deg); }
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(2deg); }
+            66% { transform: translateY(-5px) rotate(-2deg); }
+        }
+        
+        .tech-icon {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .tech-icon:hover {
+            transform: scale(1.15) rotate(5deg);
+            background: rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+        }
+        
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 215, 0, 0.4);
+            box-shadow: 0 30px 60px rgba(255, 215, 0, 0.15);
+        }
+        
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .input-field {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            color: #ffffff;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .input-field:focus {
+            border-color: #FFD700;
+            background: rgba(255, 215, 0, 0.1);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+        }
+        
+        .input-field::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 16px;
+        }
+        
+        .premium-shadow {
+            box-shadow: 0 8px 32px rgba(255, 215, 0, 0.1);
+        }
+        
+        .luxury-text {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .glow-effect {
+            position: relative;
+        }
+        
+        .glow-effect::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FF6B6B, #4ECDC4);
+            border-radius: inherit;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .glow-effect:hover::before {
+            opacity: 0.7;
+        }
+        
+        .animated-bg {
+            background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #16213e, #0f0f23);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 smooth-scroll">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full glass-card backdrop-blur-xl z-50 border-b border-yellow-500/20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold gradient-text luxury-text">Krish Trivedi</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link font-medium">Home</a>
+                    <a href="#about" class="nav-link font-medium">About</a>
+                    <a href="#projects" class="nav-link font-medium">Projects</a>
+                    <a href="#skills" class="nav-link font-medium">Skills</a>
+                    <a href="#contact" class="nav-link font-medium">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-yellow-500/20">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#home" class="block py-3 text-white hover:text-yellow-400 font-medium">Home</a>
+                <a href="#about" class="block py-3 text-white hover:text-yellow-400 font-medium">About</a>
+                <a href="#projects" class="block py-3 text-white hover:text-yellow-400 font-medium">Projects</a>
+                <a href="#skills" class="block py-3 text-white hover:text-yellow-400 font-medium">Skills</a>
+                <a href="#contact" class="block py-3 text-white hover:text-yellow-400 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="fade-in">
+                <div class="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden floating shadow-2xl border-4 border-white">
+                    <img src="3174E9F7-3ADD-44F3-B961-F2D2F0E678D8.JPG" alt="Krish Trivedi - Full Stack Developer" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-5xl text-white\'>👨‍💻</div>';">
+                </div>
+                <h1 class="text-5xl md:text-8xl font-bold text-white mb-6 luxury-text">
+                    Hi, I'm <span class="gradient-text">Krish Trivedi</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                    Entrepreneur & Full Stack Developer crafting premium digital experiences that transform businesses
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#projects" class="btn-primary text-white px-8 py-4 rounded-full font-semibold inline-flex items-center">
+                        <span class="mr-2">🚀</span>
+                        View My Work
+                    </a>
+                    <a href="#contact" class="btn-secondary px-8 py-4 rounded-full font-semibold inline-flex items-center">
+                        <span class="mr-2">💬</span>
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Stats -->
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 fade-in" style="animation-delay: 0.3s;">
+                <div class="text-center glass-card p-8 premium-shadow glow-effect">
+                    <div class="text-5xl font-bold gradient-text mb-3 luxury-text">6+</div>
+                    <div class="text-gray-300 font-medium">Months Experience</div>
+                </div>
+                <div class="text-center glass-card p-8 premium-shadow glow-effect">
+                    <div class="text-5xl font-bold gradient-text mb-3 luxury-text">5+</div>
+                    <div class="text-gray-300 font-medium">Projects Completed</div>
+                </div>
+                <div class="text-center glass-card p-8 premium-shadow glow-effect">
+                    <div class="text-5xl font-bold gradient-text mb-3 luxury-text">100%</div>
+                    <div class="text-gray-300 font-medium">Client Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding animated-bg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold text-white mb-4 luxury-text">About Me</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Passionate about creating premium digital experiences that transform businesses
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="slide-in-left">
+                    <div class="relative">
+                        <div class="w-80 h-80 mx-auto rounded-3xl overflow-hidden shadow-2xl floating border-8 border-white">
+                            <img src="3174E9F7-3ADD-44F3-B961-F2D2F0E678D8.JPG" alt="Krish Trivedi - Professional Photo" class="w-full h-full object-cover" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'w-full h-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-8xl text-white\'>🎨</div>';">
+                        </div>
+                        <div class="absolute -top-4 -right-4 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center text-2xl floating" style="animation-delay: 0.5s;">
+                            ⚡
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 w-10 h-10 bg-pink-400 rounded-full flex items-center justify-center text-xl floating" style="animation-delay: 1s;">
+                            🚀
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slide-in-right">
+                    <h3 class="text-4xl font-bold text-white mb-8 luxury-text">
+                        Building the <span class="gradient-text">Future</span> of Web
+                    </h3>
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        I'm Krish Trivedi, an entrepreneur and tech enthusiast passionate about building businesses and delivering innovative solutions. 
+                        I founded <span class="font-semibold text-yellow-400">Helion Enterprise</span>, a retail electronics firm, where we provide customers with the latest and most reliable electronic products.
+                    </p>
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        Alongside my entrepreneurial journey, I work in the IT domain, specializing in website development, Microsoft solutions, and complete end-to-end IT services. 
+                        With hands-on experience in modern technologies, I help businesses streamline their operations and grow digitally.
+                    </p>
+                    <p class="text-lg text-gray-300 mb-6 leading-relaxed">
+                        I am also an <span class="font-semibold text-yellow-400">AWS Associate</span>, enabling me to leverage cloud technologies to deliver secure, scalable, and efficient solutions for clients.
+                    </p>
+                    <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                        My mission is to combine entrepreneurship with technology—creating value for businesses and enhancing everyday experiences through reliable services and innovative ideas.
+                    </p>
+                    
+                    <!-- Skills Grid -->
+                    <div class="grid grid-cols-2 gap-6 mb-8">
+                        <div class="glass-card p-6 premium-shadow glow-effect">
+                            <div class="text-4xl mb-4">💻</div>
+                            <h4 class="font-semibold text-white mb-2">Frontend Development</h4>
+                            <p class="text-gray-400 text-sm">React, Vue.js, TypeScript</p>
+                        </div>
+                        <div class="glass-card p-6 premium-shadow glow-effect">
+                            <div class="text-4xl mb-4">⚙️</div>
+                            <h4 class="font-semibold text-white mb-2">Backend Development</h4>
+                            <p class="text-gray-400 text-sm">Node.js, Python, Databases</p>
+                        </div>
+                        <div class="glass-card p-6 premium-shadow glow-effect">
+                            <div class="text-4xl mb-4">🎨</div>
+                            <h4 class="font-semibold text-white mb-2">UI/UX Design</h4>
+                            <p class="text-gray-400 text-sm">Figma, Adobe XD, Prototyping</p>
+                        </div>
+                        <div class="glass-card p-6 premium-shadow glow-effect">
+                            <div class="text-4xl mb-4">☁️</div>
+                            <h4 class="font-semibold text-white mb-2">Cloud & DevOps</h4>
+                            <p class="text-gray-400 text-sm">AWS, Docker, CI/CD</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center space-x-2 bg-green-50 text-green-700 px-4 py-2 rounded-full">
+                            <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                            <span class="text-sm font-medium">Available for projects</span>
+                        </div>
+                        <div class="flex items-center space-x-2 bg-blue-50 text-blue-700 px-4 py-2 rounded-full">
+                            <span>🌍</span>
+                            <span class="text-sm font-medium">Remote friendly</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-black">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold text-white mb-4 luxury-text">Featured Projects</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    A showcase of premium digital solutions and innovative experiences
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Project 1 -->
+                <div class="project-card card-hover fade-in">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-6xl text-white relative overflow-hidden">
+                        <div class="floating">👨‍⚕️</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-white mb-4 luxury-text">Dr. Imran Patel - Medical Practice</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            A professional medical practice website featuring appointment booking, patient information, and comprehensive healthcare services.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="px-4 py-2 glass-card text-blue-400 text-sm rounded-full font-medium border border-blue-400/30">React</span>
+                            <span class="px-4 py-2 glass-card text-green-400 text-sm rounded-full font-medium border border-green-400/30">Node.js</span>
+                            <span class="px-4 py-2 glass-card text-purple-400 text-sm rounded-full font-medium border border-purple-400/30">Healthcare</span>
+                        </div>
+                        <div class="flex space-x-6">
+                            <a href="https://www.drimranpatel.com/" target="_blank" class="text-yellow-400 hover:text-yellow-300 font-semibold transition-colors flex items-center">
+                                <span class="mr-2">🌐</span> Live Demo
+                            </a>
+                            <a href="https://github.com/Krishhtrivedi" target="_blank" class="text-gray-400 hover:text-white font-semibold transition-colors flex items-center">
+                                <span class="mr-2">📂</span> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card card-hover fade-in" style="animation-delay: 0.1s;">
+                    <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-6xl text-white relative overflow-hidden">
+                        <div class="floating">🏢</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-white mb-4 luxury-text">Society Management System</h3>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            A comprehensive system providing residents with online access to notices, facility booking, and transparent financial accounts management.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mb-8">
+                            <span class="px-4 py-2 glass-card text-emerald-400 text-sm rounded-full font-medium border border-emerald-400/30">React</span>
+                            <span class="px-4 py-2 glass-card text-blue-400 text-sm rounded-full font-medium border border-blue-400/30">Express</span>
+                            <span class="px-4 py-2 glass-card text-yellow-400 text-sm rounded-full font-medium border border-yellow-400/30">MySQL</span>
+                        </div>
+                        <div class="flex space-x-6">
+                            <button class="text-yellow-400 hover:text-yellow-300 font-semibold transition-colors flex items-center">
+                                <span class="mr-2">🌐</span> Live Demo
+                            </button>
+                            <a href="https://github.com/Krishhtrivedi" target="_blank" class="text-gray-400 hover:text-white font-semibold transition-colors flex items-center">
+                                <span class="mr-2">📂</span> GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="btn-primary text-white px-8 py-4 rounded-full font-semibold inline-flex items-center">
+                    <span class="mr-2">🎯</span>
+                    View All Projects
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding animated-bg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold text-white mb-4 luxury-text">Skills & Technologies</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Premium tools and cutting-edge technologies that power exceptional experiences
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-16">
+                <!-- Technical Skills -->
+                <div class="slide-in-left">
+                    <h3 class="text-3xl font-bold text-white mb-8 luxury-text">Technical Skills</h3>
+                    <div class="space-y-8">
+                        <div class="glass-card p-8 premium-shadow glow-effect">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="font-semibold text-white flex items-center">
+                                    <span class="mr-4 text-3xl">⚡</span>
+                                    JavaScript / TypeScript
+                                </span>
+                                <span class="gradient-text font-bold text-xl luxury-text">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-4">
+                                <div class="skill-bar bg-gradient-to-r from-yellow-400 to-orange-500 h-4 rounded-full" data-width="90"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card p-8 premium-shadow glow-effect">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="font-semibold text-white flex items-center">
+                                    <span class="mr-4 text-3xl">⚛️</span>
+                                    React / Vue.js
+                                </span>
+                                <span class="gradient-text font-bold text-xl luxury-text">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-4">
+                                <div class="skill-bar bg-gradient-to-r from-blue-400 to-cyan-400 h-4 rounded-full" data-width="85"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card p-8 premium-shadow glow-effect">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="font-semibold text-white flex items-center">
+                                    <span class="mr-4 text-3xl">🟢</span>
+                                    Node.js / Express
+                                </span>
+                                <span class="gradient-text font-bold text-xl luxury-text">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-4">
+                                <div class="skill-bar bg-gradient-to-r from-green-400 to-emerald-400 h-4 rounded-full" data-width="80"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card p-8 premium-shadow glow-effect">
+                            <div class="flex justify-between items-center mb-4">
+                                <span class="font-semibold text-white flex items-center">
+                                    <span class="mr-4 text-3xl">🗄️</span>
+                                    Database Design
+                                </span>
+                                <span class="gradient-text font-bold text-xl luxury-text">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-800 rounded-full h-4">
+                                <div class="skill-bar bg-gradient-to-r from-purple-400 to-pink-400 h-4 rounded-full" data-width="75"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tools & Technologies -->
+                <div class="slide-in-right">
+                    <h3 class="text-3xl font-bold text-white mb-8 luxury-text">Tools & Technologies</h3>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center p-8 rounded-xl card-hover tech-icon premium-shadow">
+                            <div class="text-5xl mb-4">⚛️</div>
+                            <div class="font-semibold text-white mb-2">React</div>
+                            <div class="text-sm text-gray-400">Frontend Framework</div>
+                        </div>
+                        
+                        <div class="text-center p-8 rounded-xl card-hover tech-icon premium-shadow">
+                            <div class="text-5xl mb-4">🟢</div>
+                            <div class="font-semibold text-white mb-2">Node.js</div>
+                            <div class="text-sm text-gray-400">Backend Runtime</div>
+                        </div>
+                        
+                        <div class="text-center p-8 rounded-xl card-hover tech-icon premium-shadow">
+                            <div class="text-5xl mb-4">🐳</div>
+                            <div class="font-semibold text-white mb-2">Docker</div>
+                            <div class="text-sm text-gray-400">Containerization</div>
+                        </div>
+                        
+                        <div class="text-center p-8 rounded-xl card-hover tech-icon premium-shadow">
+                            <div class="text-5xl mb-4">☁️</div>
+                            <div class="font-semibold text-white mb-2">AWS</div>
+                            <div class="text-sm text-gray-400">Cloud Platform</div>
+                        </div>
+                        
+                        <div class="text-center p-8 rounded-xl card-hover tech-icon premium-shadow">
+                            <div class="text-5xl mb-4">📱</div>
+                            <div class="font-semibold text-white mb-2">Mobile Dev</div>
+                            <div class="text-sm text-gray-400">React Native</div>
+                        </div>
+                        
+                        <div class="text-center p-8 rounded-xl card-hover tech-icon premium-shadow">
+                            <div class="text-5xl mb-4">🎨</div>
+                            <div class="font-semibold text-white mb-2">UI/UX</div>
+                            <div class="text-sm text-gray-400">Design Systems</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-black">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-6xl font-bold text-white mb-4 luxury-text">Get In Touch</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto mb-6"></div>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Let's create something extraordinary together - your premium digital experience awaits
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div class="slide-in-left">
+                    <h3 class="text-3xl font-bold text-white mb-8 luxury-text">Contact Information</h3>
+                    <div class="space-y-8">
+                        <div class="glass-card p-8 premium-shadow card-hover flex items-center glow-effect">
+                            <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mr-8 text-3xl text-black">
+                                📧
+                            </div>
+                            <div>
+                                <div class="font-semibold text-white text-xl mb-1">Email</div>
+                                <div class="text-gray-300">krish.trivedi@email.com</div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card p-8 premium-shadow card-hover flex items-center glow-effect">
+                            <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mr-8 text-3xl text-white">
+                                📱
+                            </div>
+                            <div>
+                                <div class="font-semibold text-white text-xl mb-1">Phone</div>
+                                <div class="text-gray-300">+1 (555) 123-4567</div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass-card p-8 premium-shadow card-hover flex items-center glow-effect">
+                            <div class="w-20 h-20 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full flex items-center justify-center mr-8 text-3xl text-white">
+                                📍
+                            </div>
+                            <div>
+                                <div class="font-semibold text-white text-xl mb-1">Location</div>
+                                <div class="text-gray-300">Ahmedabad, India</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="mt-12">
+                        <h4 class="font-semibold text-white mb-8 text-2xl luxury-text">Follow Me</h4>
+                        <div class="flex space-x-6">
+                            <button class="w-16 h-16 glass-card text-white rounded-full hover:bg-blue-600/20 transition-all duration-300 hover:scale-125 flex items-center justify-center text-2xl premium-shadow glow-effect">
+                                📘
+                            </button>
+                            <button class="w-16 h-16 glass-card text-white rounded-full hover:bg-sky-500/20 transition-all duration-300 hover:scale-125 flex items-center justify-center text-2xl premium-shadow glow-effect">
+                                🐦
+                            </button>
+                            <a href="https://www.linkedin.com/in/krish-trivedi-149915283/" target="_blank" class="w-16 h-16 glass-card text-white rounded-full hover:bg-blue-700/20 transition-all duration-300 hover:scale-125 flex items-center justify-center text-2xl premium-shadow glow-effect">
+                                💼
+                            </a>
+                            <a href="https://github.com/Krishhtrivedi" target="_blank" class="w-16 h-16 glass-card text-white rounded-full hover:bg-gray-800/20 transition-all duration-300 hover:scale-125 flex items-center justify-center text-2xl premium-shadow glow-effect">
+                                🐙
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="slide-in-right">
+                    <div class="contact-form p-10 premium-shadow glow-effect">
+                        <h3 class="text-2xl font-bold text-white mb-8 luxury-text">Send a Message</h3>
+                        <form class="space-y-8" onsubmit="handleSubmit(event)">
+                            <div>
+                                <label class="block text-white font-semibold mb-4 text-lg">Name</label>
+                                <input type="text" class="w-full px-6 py-4 input-field rounded-xl focus:outline-none" placeholder="Your Name" required>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-white font-semibold mb-4 text-lg">Email</label>
+                                <input type="email" class="w-full px-6 py-4 input-field rounded-xl focus:outline-none" placeholder="your.email@example.com" required>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-white font-semibold mb-4 text-lg">Message</label>
+                                <textarea rows="6" class="w-full px-6 py-4 input-field rounded-xl focus:outline-none resize-none" placeholder="Tell me about your premium project..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full btn-primary text-black py-5 rounded-xl font-bold text-lg inline-flex items-center justify-center luxury-text glow-effect">
+                                <span class="mr-3 text-xl">🚀</span>
+                                Send Premium Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-16 border-t border-yellow-500/20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="mb-10">
+                    <div class="text-4xl font-bold gradient-text mb-6 luxury-text">Krish Trivedi</div>
+                    <div class="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 mx-auto"></div>
+                </div>
+                
+                <div class="flex justify-center space-x-12 mb-12 text-lg">
+                    <a href="#home" class="text-gray-400 hover:text-yellow-400 transition-all duration-300 font-medium">Home</a>
+                    <a href="#about" class="text-gray-400 hover:text-yellow-400 transition-all duration-300 font-medium">About</a>
+                    <a href="#projects" class="text-gray-400 hover:text-yellow-400 transition-all duration-300 font-medium">Projects</a>
+                    <a href="#skills" class="text-gray-400 hover:text-yellow-400 transition-all duration-300 font-medium">Skills</a>
+                    <a href="#contact" class="text-gray-400 hover:text-yellow-400 transition-all duration-300 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex justify-center space-x-8 mb-12">
+                    <button class="w-14 h-14 glass-card text-white rounded-full hover:bg-blue-600/20 transition-all duration-300 hover:scale-125 flex items-center justify-center text-2xl premium-shadow glow-effect">
+                        📘
+                    </button>
+                    <button class="w-14 h-14 glass-card text-white rounded-full hover:bg-sky-500/20 transition-all duration-300 hover:scale-125 flex items-center justify-center text-2xl premium-shadow glow-effect">
+                        🐦
+                    </button>
+                    <a href="https://www.linkedin.com/in/krish-trivedi-149915283/" target="_blank" class="w-14 h-14 glass-card text-white rounded-full hover:bg-blue-700/20 transition-all duration-300 hover:scale-125 flex items-center justify-center text-2xl premium-shadow glow-effect">
+                        💼
+                    </a>
+                    <a href="https://github.com/Krishhtrivedi" target="_blank" class="w-14 h-14 glass-card text-white rounded-full hover:bg-gray-800/20 transition-all duration-300 hover:scale-125 flex items-center justify-center text-2xl premium-shadow glow-effect">
+                        🐙
+                    </a>
+                </div>
+                
+                <div class="border-t border-yellow-500/20 pt-10">
+                    <p class="text-gray-300 mb-3 text-lg">&copy; 2024 Krish Trivedi. All rights reserved.</p>
+                    <p class="text-gray-400">
+                        Crafted with <span class="text-red-400">❤️</span> Heart
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Animate skill bars when they come into view
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-bar');
+                    skillBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        setTimeout(() => {
+                            bar.style.width = width + '%';
+                        }, 200);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        const skillsSection = document.getElementById('skills');
+        if (skillsSection) {
+            observer.observe(skillsSection);
+        }
+
+        // Form submission handler
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const name = formData.get('name') || event.target.querySelector('input[type="text"]').value;
+            const email = formData.get('email') || event.target.querySelector('input[type="email"]').value;
+            const message = formData.get('message') || event.target.querySelector('textarea').value;
+            
+            // Show success message
+            alert(`Thank you ${name}! Your message has been received. I'll get back to you at ${email} soon.`);
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Add fade-in animation to elements as they come into view
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const fadeObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(el => {
+            el.style.animationPlayState = 'paused';
+            fadeObserver.observe(el);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97bdfd38d3783b34',t:'MTc1NzMyOTcxOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
