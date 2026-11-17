@@ -1,0 +1,21 @@
+{
+  "name": "krish-trivedi-portfolio",
+  "version": "1.0.0",
+  "description": "Personal Portfolio of Krish Trivedi - Technical Engineer & IT Operations Specialist",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "python3 -m http.server 3000",
+    "open": "open index.html"
+  },
+  "keywords": [
+    "portfolio",
+    "krish-trivedi",
+    "technical-engineer",
+    "microsoft-expert",
+    "it-operations",
+    "systems-administrator"
+  ],
+  "author": "Krish Trivedi <krish.trivedi28@gmail.com>",
+  "license": "MIT"
+}

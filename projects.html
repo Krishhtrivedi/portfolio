@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Featured Projects & Render Deployments | Krish Trivedi — AI Developer</title>
+  <meta name="description" content="Featured AI applications, Render live web deployments, machine learning models, and GitHub repositories by Krish Trivedi.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-[#05070e] text-[#c9d2de] font-sans selection:bg-[#00e5ff] selection:text-[#05070e] transition-colors duration-300 relative">
+
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute inset-0 blueprint-grid opacity-70"></div>
+    <div class="absolute inset-0 blueprint-radial"></div>
+    <div class="absolute -top-36 right-1/4 w-[550px] h-[550px] bg-[#00e5ff]/10 rounded-full blur-[150px]"></div>
+  </div>
+  <canvas id="neural-canvas" class="neural-canvas"></canvas>
+
+  <aside class="side-rail" aria-hidden="true">
+    <div class="side-rail-track"><div class="side-rail-thumb"></div></div>
+    <div class="side-rail-text">03 · PROJECTS</div>
+  </aside>
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#05070e]/80 border-b border-white/[0.08]" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00e5ff] to-[#8b5cf6] flex items-center justify-center font-display font-extrabold text-[#05070e] text-base">KT</div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-white text-base">KRISH TRIVEDI</span>
+          <span class="text-[11px] text-[#00e5ff] font-mono">03 // FEATURED PROJECTS</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1">
+        <a href="index.html" class="px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Home</a>
+        <a href="about.html" class="px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">About</a>
+        <a href="ai-lab.html" class="px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">AI Lab</a>
+        <a href="projects.html" class="px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-[#00e5ff] bg-white/[0.05] rounded-full">Projects</a>
+        <a href="skills.html" class="px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Skills</a>
+        <a href="experience.html" class="px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Experience</a>
+        <a href="services.html" class="px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Services</a>
+        <a href="contact.html" class="px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="contact.html" class="btn-primary text-xs py-2 px-4 sm:px-5">Let's Connect</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-10">
+      <div class="section-index text-[#00e5ff]">03 — PRODUCTION DEPLOYMENTS</div>
+      <h1 class="text-4xl sm:text-6xl font-display font-extrabold text-white mt-2">Featured Projects</h1>
+      <p class="text-sm font-mono text-[#00e5ff] uppercase tracking-wider mt-1">Live Applications on Render, AI Hackathon Systems & Machine Learning Models</p>
+    </div>
+
+    <!-- Category Filter Pills -->
+    <div class="flex flex-wrap items-center gap-2 mb-12">
+      <button class="filter-btn active" data-filter="all">All Projects</button>
+      <button class="filter-btn" data-filter="ai">Artificial Intelligence</button>
+      <button class="filter-btn" data-filter="ml">Machine Learning</button>
+      <button class="filter-btn" data-filter="automation">AI Automation</button>
+      <button class="filter-btn" data-filter="web">Web Applications</button>
+      <button class="filter-btn" data-filter="business">Business Solutions</button>
+    </div>
+
+    <!-- The Projects Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      
+      <!-- Project 1: KisanMitra -->
+      <div class="card-architect p-8 border-amber-500/30 project-card cat-ai" data-category="ai">
+        <div class="flex items-start justify-between mb-4">
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30">
+            SMART INDIA HACKATHON 2025
+          </span>
+          <span class="text-xs font-mono text-emerald-400 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            VERIFIED AI
+          </span>
+        </div>
+        <h2 class="text-2xl font-display font-bold text-white mb-2">KISANMITRA – AI KRISHI OFFICER</h2>
+        <div class="text-xs font-mono text-[#00e5ff] mb-4">AI-Powered Agricultural Assistant · Multilingual Voice Enabled</div>
+        <p class="text-sm text-[#79869c] leading-relaxed mb-6">
+          Comprehensive AI agricultural assistant developed for Smart India Hackathon 2025. Delivers instant crop disease identification from uploaded plant images, multilingual voice advisories in local dialects, and real-time agricultural guidance.
+        </p>
+
+        <div class="grid grid-cols-2 gap-2 text-xs font-mono text-[#c9d2de] py-4 border-y border-white/[0.08] mb-6">
+          <span>• Multilingual Voice Input</span>
+          <span>• Python Flask Backend</span>
+          <span>• Crop Disease Classifier</span>
+          <span>• OpenAI API Integration</span>
+          <span>• Image Upload Diagnostics</span>
+          <span>• SQLite Database Storage</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="btn-outline text-xs py-2 px-4">
+            <i data-lucide="github" class="w-3.5 h-3.5"></i>
+            <span>GitHub Repository</span>
+          </a>
+          <a href="ai-lab.html" class="btn-primary text-xs py-2 px-4">
+            <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+            <span>Test in AI Lab</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2: HPAD Travel System (LIVE ON RENDER) -->
+      <div class="card-architect p-8 border-[#46e3b7]/30 project-card cat-web cat-business" data-category="web">
+        <div class="flex items-start justify-between mb-4">
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#46e3b7]/10 text-[#46e3b7] border border-[#46e3b7]/30 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#46e3b7] animate-ping"></span>
+            LIVE ON RENDER
+          </span>
+          <span class="text-xs font-mono text-[#79869c]">PRODUCTION DEPLOYMENT</span>
+        </div>
+        <h2 class="text-2xl font-display font-bold text-white mb-2">HPAD — DIGITAL TRAVEL & SITE VISIT MANAGEMENT</h2>
+        <div class="text-xs font-mono text-[#46e3b7] mb-4">Enterprise Web Portal · Multi-Tier Authorization</div>
+        <p class="text-sm text-[#79869c] leading-relaxed mb-6">
+          Web-based enterprise management platform for employee corporate travel and engineering site visits. Built with multi-role access hierarchies, audit logs, trip expense approvals, and real-time site tracking.
+        </p>
+
+        <div class="grid grid-cols-2 gap-2 text-xs font-mono text-[#c9d2de] py-4 border-y border-white/[0.08] mb-6">
+          <span>• Employee Travel Dashboard</span>
+          <span>• Admin Approval Workflows</span>
+          <span>• Super Admin Master Control</span>
+          <span>• Site Visit Live Logging</span>
+          <span>• Automated Reporting</span>
+          <span>• Render CI/CD Deployment</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn-primary text-xs py-2 px-4 bg-gradient-to-r from-[#46e3b7] to-[#059669] text-white">
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            <span>Launch Live Render App</span>
+          </a>
+          <a href="https://github.com/Krishhtrivedi/hpad-travel" target="_blank" rel="noopener noreferrer" class="btn-outline text-xs py-2 px-4">
+            <i data-lucide="github" class="w-3.5 h-3.5"></i>
+            <span>GitHub Repo</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3: White Swan Holidays (LIVE ON RENDER) -->
+      <div class="card-architect p-8 border-[#f15c24]/30 hover:border-[#f15c24] project-card cat-web cat-business" data-category="web">
+        <div class="flex items-start justify-between mb-4">
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#f15c24]/10 text-[#f15c24] border border-[#f15c24]/30 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#f15c24] animate-ping"></span>
+            LIVE ON RENDER
+          </span>
+          <span class="text-xs font-mono text-[#79869c]">RENDER DEPLOYMENT</span>
+        </div>
+        <h2 class="text-2xl font-display font-bold text-white mb-2">WHITE SWAN HOLIDAYS — TRAVEL &amp; TOURISM PLATFORM</h2>
+        <div class="text-xs font-mono text-[#f15c24] mb-4">Custom Travel Web Application · GitHub &amp; Render Cloud Deployment</div>
+        <p class="text-sm text-[#79869c] leading-relaxed mb-6">
+          Custom-built travel and holiday booking web platform created for White Swan Holidays. Features domestic and international holiday package portfolios, dynamic customer inquiry routing, itinerary coordination, and continuous cloud deployment on Render.
+        </p>
+
+        <div class="grid grid-cols-2 gap-2 text-xs font-mono text-[#c9d2de] py-4 border-y border-white/[0.08] mb-6">
+          <span>• Responsive Frontend Design</span>
+          <span>• Tour Package Directory</span>
+          <span>• Dynamic Inquiry Workflows</span>
+          <span>• Render CI/CD Deployment</span>
+          <span>• Git Version Control</span>
+          <span>• Mobile-First Architecture</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn-primary text-xs py-2 px-4 bg-gradient-to-r from-[#f15c24] to-[#ea580c] hover:from-[#ea580c] hover:to-[#c2410c] text-white flex items-center gap-2">
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            <span>Launch Live Render App</span>
+          </a>
+          <a href="https://github.com/Krishhtrivedi/whiteswanholidays" target="_blank" rel="noopener noreferrer" class="btn-outline text-xs py-2 px-4 flex items-center gap-1.5">
+            <i data-lucide="github" class="w-3.5 h-3.5"></i>
+            <span>GitHub Repo</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 4: Society Management System -->
+      <div class="card-architect p-8 border-[#00e5ff]/20 project-card cat-business cat-web" data-category="business">
+        <div class="flex items-start justify-between mb-4">
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#00e5ff]/10 text-[#00e5ff] border border-[#00e5ff]/30">
+            OPERATIONAL PLATFORM
+          </span>
+          <span class="text-xs font-mono text-[#79869c]">ADMINISTRATION</span>
+        </div>
+        <h2 class="text-2xl font-display font-bold text-white mb-2">SOCIETY MANAGEMENT SYSTEM</h2>
+        <div class="text-xs font-mono text-[#00e5ff] mb-4">Residential Operations & Billing Platform</div>
+        <p class="text-sm text-[#79869c] leading-relaxed mb-6">
+          Digital residential society administration platform designed to simplify resident directories, automated maintenance invoice generation, complaint dispatch, and financial tracking for housing communities.
+        </p>
+
+        <div class="grid grid-cols-2 gap-2 text-xs font-mono text-[#c9d2de] py-4 border-y border-white/[0.08] mb-6">
+          <span>• Resident Ledger & Directory</span>
+          <span>• Automated Maintenance Bills</span>
+          <span>• Helpdesk Ticket Dispatch</span>
+          <span>• Security & Visitor Log</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="btn-outline text-xs py-2 px-4">
+            <i data-lucide="github" class="w-3.5 h-3.5"></i>
+            <span>GitHub Repo</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 4: Loan Default Prediction -->
+      <div class="card-architect p-8 border-[#8b5cf6]/30 project-card cat-ml cat-ai" data-category="ml">
+        <div class="flex items-start justify-between mb-4">
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#8b5cf6]/10 text-[#8b5cf6] border border-[#8b5cf6]/30">
+            MACHINE LEARNING
+          </span>
+          <span class="text-xs font-mono text-[#8b5cf6]">PREDICTIVE MODELING</span>
+        </div>
+        <h2 class="text-2xl font-display font-bold text-white mb-2">LOAN DEFAULT PREDICTION MODEL</h2>
+        <div class="text-xs font-mono text-[#8b5cf6] mb-4">Credit Risk Assessment · Predictive Analytics</div>
+        <p class="text-sm text-[#79869c] leading-relaxed mb-6">
+          Data science project leveraging statistical machine learning algorithms to assess borrower credit risk and predict likelihood of loan defaults using financial indicators and classification metrics.
+        </p>
+
+        <div class="grid grid-cols-2 gap-2 text-xs font-mono text-[#c9d2de] py-4 border-y border-white/[0.08] mb-6">
+          <span>• Exploratory Data Analysis (EDA)</span>
+          <span>• Feature Engineering & Scaling</span>
+          <span>• Scikit-learn Classifiers</span>
+          <span>• ROC-AUC & Confusion Matrix</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="btn-outline text-xs py-2 px-4">
+            <i data-lucide="github" class="w-3.5 h-3.5"></i>
+            <span>GitHub Repo</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 5: AI Psychology Chatbot -->
+      <div class="card-architect p-8 border-cyan-500/20 project-card cat-ai" data-category="ai">
+        <div class="flex items-start justify-between mb-4">
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+            CONVERSATIONAL AI
+          </span>
+          <span class="text-xs font-mono text-[#79869c]">PYTHON & LLM</span>
+        </div>
+        <h2 class="text-2xl font-display font-bold text-white mb-2">AI PSYCHOLOGY CHATBOT</h2>
+        <div class="text-xs font-mono text-cyan-400 mb-4">Empathetic Mental Wellness Assistant</div>
+        <p class="text-sm text-[#79869c] leading-relaxed mb-6">
+          Conversational assistant engineered using Python and OpenAI prompt architecture to offer active listening, structured reflective questioning, and stress de-escalation workflows with ethical boundaries.
+        </p>
+
+        <div class="grid grid-cols-2 gap-2 text-xs font-mono text-[#c9d2de] py-4 border-y border-white/[0.08] mb-6">
+          <span>• Contextual Conversation Memory</span>
+          <span>• Prompt Safety Guardrails</span>
+          <span>• Sentiment Analysis Trigger</span>
+          <span>• Python NLP Integration</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="btn-outline text-xs py-2 px-4">
+            <i data-lucide="github" class="w-3.5 h-3.5"></i>
+            <span>GitHub Repo</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 6: Web Scraping & Data Aggregation -->
+      <div class="card-architect p-8 border-emerald-500/20 project-card cat-automation cat-web" data-category="automation">
+        <div class="flex items-start justify-between mb-4">
+          <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+            AUTOMATION PIPELINE
+          </span>
+          <span class="text-xs font-mono text-emerald-400">DATA SCRAPING</span>
+        </div>
+        <h2 class="text-2xl font-display font-bold text-white mb-2">WEB SCRAPING & DATA AGGREGATION</h2>
+        <div class="text-xs font-mono text-emerald-400 mb-4">Automated Extraction & Pipeline Cleaning</div>
+        <p class="text-sm text-[#79869c] leading-relaxed mb-6">
+          Python-based high-throughput scraping engine built to extract structured data across disparate web platforms, sanitize unstructured HTML entities, and export clean datasets for analysis.
+        </p>
+
+        <div class="grid grid-cols-2 gap-2 text-xs font-mono text-[#c9d2de] py-4 border-y border-white/[0.08] mb-6">
+          <span>• Automated Multi-Site Extraction</span>
+          <span>• BeautifulSoup & Python Requests</span>
+          <span>• Data Cleansing & Deduplication</span>
+          <span>• CSV / JSON Pipeline Storage</span>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="btn-outline text-xs py-2 px-4">
+            <i data-lucide="github" class="w-3.5 h-3.5"></i>
+            <span>GitHub Repo</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="mt-16 pt-8 border-t border-white/[0.08] flex items-center justify-between">
+      <a href="ai-lab.html" class="btn-outline">← AI Lab</a>
+      <a href="skills.html" class="btn-primary"><span>Technical Skills</span><i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/[0.08] bg-[#030509] py-12 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-mono text-[#79869c]">
+      <div>KRISH TRIVEDI · FEATURED PROJECTS</div>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-white">Home</a>
+        <a href="about.html" class="hover:text-white">About</a>
+        <a href="ai-lab.html" class="hover:text-white">AI Lab</a>
+        <a href="projects.html" class="text-[#00e5ff]">Projects</a>
+        <a href="skills.html" class="hover:text-white">Skills</a>
+        <a href="contact.html" class="hover:text-white">Contact</a>
+      </div>
+      <div>© 2026 Krish Trivedi</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

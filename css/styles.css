@@ -1,0 +1,585 @@
+/* ==========================================================================
+   KRISH TRIVEDI — PREMIUM AI DEVELOPER PORTFOLIO DESIGN SYSTEM
+   Inspired by Meet Gajjar & Futuristic AI Technology Laboratories
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Syne:wght@500;600;700;800&display=swap');
+
+:root {
+  /* Core Deep Midnight & Obsidian Canvas */
+  --canvas: #05070e;
+  --canvas-secondary: #080d19;
+  --surface: #0d1424;
+  --surface-lift: #121c33;
+  --surface-sunken: #030509;
+  --surface-glass: rgba(13, 20, 36, 0.72);
+  --border-glass: rgba(255, 255, 255, 0.08);
+
+  /* Text & Inks */
+  --ink: #ffffff;
+  --copy: #c9d2de;
+  --copy-muted: #79869c;
+  --copy-faint: #445166;
+
+  /* AI Accents: Cyan, Violet, Blue & Meet-Gajjar Vermilion */
+  --cyan: #00e5ff;
+  --cyan-glow: rgba(0, 229, 255, 0.35);
+  --cyan-soft: rgba(0, 229, 255, 0.12);
+
+  --violet: #8b5cf6;
+  --violet-glow: rgba(139, 92, 246, 0.35);
+  --violet-soft: rgba(139, 92, 246, 0.12);
+
+  --blue: #3b82f6;
+  --blue-glow: rgba(59, 130, 246, 0.35);
+
+  --vermilion: #f15c24;
+  --vermilion-glow: rgba(241, 92, 36, 0.35);
+  --vermilion-soft: rgba(241, 92, 36, 0.12);
+
+  --render-green: #46e3b7;
+
+  /* Interactive Lines */
+  --line-subtle: rgba(255, 255, 255, 0.07);
+  --line-strong: rgba(255, 255, 255, 0.15);
+  --line-cyan: rgba(0, 229, 255, 0.4);
+  --line-accent: rgba(241, 92, 36, 0.45);
+}
+
+/* Light Mode Adaptations */
+html:not(.dark) {
+  --canvas: #f8fafc;
+  --canvas-secondary: #f1f5f9;
+  --surface: #ffffff;
+  --surface-lift: #ffffff;
+  --surface-sunken: #e2e8f0;
+  --surface-glass: rgba(255, 255, 255, 0.85);
+  --border-glass: rgba(15, 23, 42, 0.08);
+
+  --ink: #0a0f1d;
+  --copy: #334155;
+  --copy-muted: #64748b;
+  --copy-faint: #94a3b8;
+
+  --cyan: #0284c7;
+  --cyan-glow: rgba(2, 132, 199, 0.25);
+  --cyan-soft: rgba(2, 132, 199, 0.08);
+
+  --violet: #7c3aed;
+  --violet-glow: rgba(124, 58, 237, 0.25);
+  --violet-soft: rgba(124, 58, 237, 0.08);
+
+  --vermilion: #ea580c;
+  --vermilion-glow: rgba(234, 88, 12, 0.25);
+  --vermilion-soft: rgba(234, 88, 12, 0.08);
+
+  --render-green: #059669;
+
+  --line-subtle: rgba(15, 23, 42, 0.07);
+  --line-strong: rgba(15, 23, 42, 0.15);
+  --line-cyan: rgba(2, 132, 199, 0.35);
+  --line-accent: rgba(234, 88, 12, 0.35);
+}
+
+/* Base Document Styles */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--canvas);
+  color: var(--copy);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--canvas);
+  color: var(--copy);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan);
+}
+
+/* Typography Hierarchy */
+.font-display {
+  font-family: 'Syne', sans-serif;
+  letter-spacing: -0.025em;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Background Grids & Neural Particle Canvas */
+.blueprint-grid {
+  background-size: 44px 44px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+html:not(.dark) .blueprint-grid {
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+}
+
+.neural-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.85;
+}
+
+/* Radial Glow Backdrops */
+.blueprint-radial {
+  background: radial-gradient(circle at 50% 12%, rgba(0, 229, 255, 0.08) 0%, rgba(5, 7, 14, 0) 65%);
+}
+
+html:not(.dark) .blueprint-radial {
+  background: radial-gradient(circle at 50% 12%, rgba(2, 132, 199, 0.06) 0%, rgba(248, 250, 252, 0) 65%);
+}
+
+/* Section Index Indicator (e.g. 01 — ABOUT ME) */
+.section-index {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-index::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+  animation: pulseCyan 2s infinite ease-in-out;
+}
+
+@keyframes pulseCyan {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* Glassmorphism Cards */
+.card-architect {
+  background-color: var(--surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.card-architect:hover {
+  border-color: var(--line-cyan);
+  background-color: var(--surface-lift);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35), 0 0 24px var(--cyan-soft);
+}
+
+/* Glowing Border Shimmer for High-Priority Cards (e.g. AI Lab & Featured) */
+.card-glow-cyan {
+  border-color: rgba(0, 229, 255, 0.28);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.08);
+}
+.card-glow-cyan:hover {
+  border-color: var(--cyan);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 28px rgba(0, 229, 255, 0.22);
+}
+
+.card-glow-violet {
+  border-color: rgba(139, 92, 246, 0.28);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.08);
+}
+.card-glow-violet:hover {
+  border-color: var(--violet);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 28px rgba(139, 92, 246, 0.22);
+}
+
+/* Premium Primary Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #00e5ff 0%, #0099ff 100%);
+  color: #05070e !important;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.01em;
+  border-radius: 9999px;
+  padding: 0.75rem 1.65rem;
+  box-shadow: 0 4px 20px var(--cyan-glow);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 229, 255, 0.55);
+  background: linear-gradient(135deg, #2ae9ff 0%, #1ea6ff 100%);
+}
+
+.btn-vermilion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--vermilion);
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-radius: 9999px;
+  padding: 0.75rem 1.65rem;
+  box-shadow: 0 4px 18px var(--vermilion-glow);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-vermilion:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(241, 92, 36, 0.55);
+  background-color: #ff6830;
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.04);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 9999px;
+  padding: 0.75rem 1.65rem;
+  border: 1px solid var(--line-strong);
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+}
+
+.btn-outline:hover {
+  background-color: rgba(0, 229, 255, 0.08);
+  border-color: var(--cyan);
+  color: var(--cyan);
+  transform: translateY(-2px);
+}
+
+/* Category Filter Pills */
+.filter-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border-glass);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--copy-muted);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  color: var(--ink);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.filter-btn.active {
+  background: var(--cyan-soft);
+  color: var(--cyan);
+  border-color: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan-glow);
+}
+
+/* Follower Cursor (Meet Gajjar Style) */
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--cyan);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.04s ease;
+  box-shadow: 0 0 10px var(--cyan);
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(0, 229, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease, transform 0.12s ease-out;
+}
+
+body.cursor-hover .custom-cursor-ring {
+  width: 54px;
+  height: 54px;
+  border-color: var(--cyan);
+  background-color: rgba(0, 229, 255, 0.08);
+}
+
+@media (pointer: coarse) {
+  .custom-cursor-dot,
+  .custom-cursor-ring {
+    display: none !important;
+  }
+}
+
+/* Vertical Side Rail / Scroll Indicator */
+.side-rail {
+  position: fixed;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 40;
+  pointer-events: none;
+}
+
+.side-rail-text {
+  writing-mode: vertical-rl;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copy-muted);
+  transform: rotate(180deg);
+}
+
+.side-rail-track {
+  width: 2px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  position: relative;
+  overflow: hidden;
+}
+
+.side-rail-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 28px;
+  background: var(--cyan);
+  box-shadow: 0 0 10px var(--cyan);
+  border-radius: 9999px;
+  animation: railPulse 2.4s infinite ease-in-out;
+}
+
+@keyframes railPulse {
+  0% { top: 0%; }
+  50% { top: 65%; }
+  100% { top: 0%; }
+}
+
+@media (max-width: 1024px) {
+  .side-rail {
+    display: none;
+  }
+}
+
+/* Fullscreen Overlay Menu (Meet Gajjar Style) */
+.fullscreen-menu {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(5, 7, 14, 0.98);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fullscreen-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.5rem, 3.8vw, 2.75rem);
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+}
+
+.menu-item:hover {
+  color: var(--cyan);
+  padding-left: 14px;
+}
+
+.menu-item .menu-number {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--copy-muted);
+}
+
+.menu-item:hover .menu-number {
+  color: var(--cyan);
+}
+
+/* AI Lab Terminal Simulator */
+.terminal-window {
+  background: #04060b;
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(0, 229, 255, 0.1);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.terminal-header {
+  background: #090e18;
+  padding: 12px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.terminal-body {
+  padding: 20px;
+  max-height: 380px;
+  overflow-y: auto;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.terminal-prompt {
+  color: var(--cyan);
+}
+
+/* Audio Status Pill */
+.audio-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-glass);
+  color: var(--copy-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.audio-toggle-btn:hover {
+  color: var(--ink);
+  border-color: var(--cyan);
+}
+
+.audio-toggle-btn.active {
+  color: var(--cyan);
+  border-color: var(--cyan);
+  background: var(--cyan-soft);
+}
+
+/* Toast Box */
+.toast-box {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 80;
+  background: #0c1424;
+  border: 1px solid var(--cyan);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 16px var(--cyan-glow);
+  border-radius: 14px;
+  padding: 14px 20px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Print CSS */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #resumeModal,
+  #resumeModal * {
+    visibility: visible;
+  }
+  #resumeModal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    background: transparent !important;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+  }
+  .print-area {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    color: #000 !important;
+    background: #fff !important;
+  }
+  #resumeModal header,
+  #resumeModal button {
+    display: none !important;
+  }
+}

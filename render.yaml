@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: krish-trivedi-portfolio
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .

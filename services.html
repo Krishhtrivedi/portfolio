@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services & Solutions | Krish Trivedi — AI Developer</title>
+  <meta name="description" content="AI application development, custom chatbots, intelligent agents, and IT infrastructure consulting by Krish Trivedi.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-[#05070e] text-[#c9d2de] font-sans selection:bg-[#00e5ff] selection:text-[#05070e] transition-colors duration-300 relative">
+
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute inset-0 blueprint-grid opacity-70"></div>
+    <div class="absolute inset-0 blueprint-radial"></div>
+    <div class="absolute -top-36 right-1/4 w-[550px] h-[550px] bg-[#00e5ff]/10 rounded-full blur-[150px]"></div>
+  </div>
+  <canvas id="neural-canvas" class="neural-canvas"></canvas>
+
+  <aside class="side-rail" aria-hidden="true">
+    <div class="side-rail-track"><div class="side-rail-thumb"></div></div>
+    <div class="side-rail-text">06 · SERVICES</div>
+  </aside>
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#05070e]/80 border-b border-white/[0.08]" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00e5ff] to-[#8b5cf6] flex items-center justify-center font-display font-extrabold text-[#05070e] text-base">KT</div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-white text-base">KRISH TRIVEDI</span>
+          <span class="text-[11px] text-[#79869c] font-mono">06 // SERVICES</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1">
+        <a href="index.html" class="px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Home</a>
+        <a href="about.html" class="px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">About</a>
+        <a href="ai-lab.html" class="px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">AI Lab</a>
+        <a href="projects.html" class="px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Projects</a>
+        <a href="skills.html" class="px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Skills</a>
+        <a href="services.html" class="px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-[#00e5ff] bg-white/[0.05] rounded-full">Services</a>
+        <a href="contact.html" class="px-3.5 py-2 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="contact.html" class="btn-primary text-xs py-2 px-4 sm:px-5">Let's Connect</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-14">
+      <div class="section-index">06 — SOLUTIONS & CONSULTING</div>
+      <h1 class="text-4xl sm:text-6xl font-display font-extrabold text-white mt-2">What I Do — Services</h1>
+      <p class="text-sm font-mono text-[#00e5ff] uppercase tracking-wider mt-1">Specialized Engineering Services for AI Startups, Enterprises & Business Operations</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Service 1 -->
+      <div class="card-architect p-8 border-[#00e5ff]/20 hover:border-[#00e5ff]">
+        <div class="w-12 h-12 rounded-xl bg-[#00e5ff]/10 text-[#00e5ff] flex items-center justify-center mb-6">
+          <i data-lucide="bot" class="w-6 h-6"></i>
+        </div>
+        <h2 class="text-xl font-display font-bold text-white mb-2">AI Application Development</h2>
+        <p class="text-xs text-[#79869c] leading-relaxed mb-4">
+          Architecting complete, production-grade applications powered by generative AI, modern Python backend APIs, reliable databases, and intuitive user interfaces.
+        </p>
+        <div class="text-xs font-mono text-[#00e5ff] pt-4 border-t border-white/[0.08]">
+          • OpenAI API · Flask · REST Endpoints
+        </div>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="card-architect p-8 border-[#00e5ff]/20 hover:border-[#00e5ff]">
+        <div class="w-12 h-12 rounded-xl bg-[#00e5ff]/10 text-[#00e5ff] flex items-center justify-center mb-6">
+          <i data-lucide="message-square" class="w-6 h-6"></i>
+        </div>
+        <h2 class="text-xl font-display font-bold text-white mb-2">Custom AI Chatbot Development</h2>
+        <p class="text-xs text-[#79869c] leading-relaxed mb-4">
+          Developing bespoke multi-turn conversational agents with structured domain knowledge, prompt guardrails, and context-aware natural language dialogues.
+        </p>
+        <div class="text-xs font-mono text-[#00e5ff] pt-4 border-t border-white/[0.08]">
+          • Multi-turn Memory · Guardrails · Psychology Bots
+        </div>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="card-architect p-8 border-[#8b5cf6]/20 hover:border-[#8b5cf6]">
+        <div class="w-12 h-12 rounded-xl bg-[#8b5cf6]/10 text-[#8b5cf6] flex items-center justify-center mb-6">
+          <i data-lucide="user-check" class="w-6 h-6"></i>
+        </div>
+        <h2 class="text-xl font-display font-bold text-white mb-2">AI Assistant Development</h2>
+        <p class="text-xs text-[#79869c] leading-relaxed mb-4">
+          Building specialized copilots such as KisanMitra (Agricultural assistant) with voice input, computer vision image analysis, and localized advisory algorithms.
+        </p>
+        <div class="text-xs font-mono text-[#8b5cf6] pt-4 border-t border-white/[0.08]">
+          • Voice NLP · Image Pathology · Smart India Hackathon
+        </div>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="card-architect p-8 border-[#8b5cf6]/20 hover:border-[#8b5cf6]">
+        <div class="w-12 h-12 rounded-xl bg-[#8b5cf6]/10 text-[#8b5cf6] flex items-center justify-center mb-6">
+          <i data-lucide="cpu" class="w-6 h-6"></i>
+        </div>
+        <h2 class="text-xl font-display font-bold text-white mb-2">AI Agent Development</h2>
+        <p class="text-xs text-[#79869c] leading-relaxed mb-4">
+          Constructing autonomous and semi-autonomous tool-using agents capable of interpreting user goals, executing multi-step workflows, and integrating with external APIs.
+        </p>
+        <div class="text-xs font-mono text-[#8b5cf6] pt-4 border-t border-white/[0.08]">
+          • Autonomous Tools · Action Execution · Reasoning Loops
+        </div>
+      </div>
+
+      <!-- Service 5 -->
+      <div class="card-architect p-8 border-[#3b82f6]/20 hover:border-[#3b82f6]">
+        <div class="w-12 h-12 rounded-xl bg-[#3b82f6]/10 text-[#3b82f6] flex items-center justify-center mb-6">
+          <i data-lucide="sparkles" class="w-6 h-6"></i>
+        </div>
+        <h2 class="text-xl font-display font-bold text-white mb-2">Generative AI Integration</h2>
+        <p class="text-xs text-[#79869c] leading-relaxed mb-4">
+          Seamlessly embedding GPT-4 and modern LLMs into existing software platforms, providing structured JSON outputs, text summarization, and data categorization.
+        </p>
+        <div class="text-xs font-mono text-[#3b82f6] pt-4 border-t border-white/[0.08]">
+          • Structured Outputs · Prompt Templates · Model Tuning
+        </div>
+      </div>
+
+      <!-- Service 6 -->
+      <div class="card-architect p-8 border-[#3b82f6]/20 hover:border-[#3b82f6]">
+        <div class="w-12 h-12 rounded-xl bg-[#3b82f6]/10 text-[#3b82f6] flex items-center justify-center mb-6">
+          <i data-lucide="terminal" class="w-6 h-6"></i>
+        </div>
+        <h2 class="text-xl font-display font-bold text-white mb-2">Python Development & REST APIs</h2>
+        <p class="text-xs text-[#79869c] leading-relaxed mb-4">
+          Robust backend development utilizing Python and Flask to create performant, secure, and documented microservices for enterprise and startup workloads.
+        </p>
+        <div class="text-xs font-mono text-[#3b82f6] pt-4 border-t border-white/[0.08]">
+          • Python 3 · Flask Endpoints · JSON Schemas
+        </div>
+      </div>
+
+      <!-- Service 7 -->
+      <div class="card-architect p-8 border-emerald-500/20 hover:border-emerald-500">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6">
+          <i data-lucide="workflow" class="w-6 h-6"></i>
+        </div>
+        <h2 class="text-xl font-display font-bold text-white mb-2">AI Workflow Automation</h2>
+        <p class="text-xs text-[#79869c] leading-relaxed mb-4">
+          Automating repetitive enterprise operations through AI-powered classification, automated email parsing, scheduled data aggregations, and webhook triggers.
+        </p>
+        <div class="text-xs font-mono text-emerald-400 pt-4 border-t border-white/[0.08]">
+          • High-Throughput Scrapers · Document Parsing
+        </div>
+      </div>
+
+      <!-- Service 8 -->
+      <div class="card-architect p-8 border-amber-500/20 hover:border-amber-500">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center mb-6">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+        </div>
+        <h2 class="text-xl font-display font-bold text-white mb-2">IT Infrastructure Consulting</h2>
+        <p class="text-xs text-[#79869c] leading-relaxed mb-4">
+          Field-tested configuration of network firewalls (Sophos), perimeter defense policies, active directory controllers, and cloud environments (AWS).
+        </p>
+        <div class="text-xs font-mono text-amber-400 pt-4 border-t border-white/[0.08]">
+          • Sophos Firewalls · AWS Cloud · Active Directory
+        </div>
+      </div>
+
+      <!-- Service 9 -->
+      <div class="card-architect p-8 border-sky-500/20 hover:border-sky-500">
+        <div class="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-400 flex items-center justify-center mb-6">
+          <i data-lucide="mail-check" class="w-6 h-6"></i>
+        </div>
+        <h2 class="text-xl font-display font-bold text-white mb-2">Microsoft 365 Solutions</h2>
+        <p class="text-xs text-[#79869c] leading-relaxed mb-4">
+          Enterprise tenant setup, Outlook mail flow security, DNS anti-spoofing configurations (SPF, DKIM, DMARC), and corporate user provisioning.
+        </p>
+        <div class="text-xs font-mono text-sky-400 pt-4 border-t border-white/[0.08]">
+          • M365 Administration · Outlook Sync · Domain Policies
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="mt-16 pt-8 border-t border-white/[0.08] flex items-center justify-between">
+      <a href="experience.html" class="btn-outline">← Experience</a>
+      <a href="contact.html" class="btn-primary"><span>Get In Touch</span><i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/[0.08] bg-[#030509] py-12 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-mono text-[#79869c]">
+      <div>KRISH TRIVEDI · SERVICES & SOLUTIONS</div>
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="hover:text-white">Home</a>
+        <a href="about.html" class="hover:text-white">About</a>
+        <a href="ai-lab.html" class="hover:text-white">AI Lab</a>
+        <a href="projects.html" class="hover:text-white">Projects</a>
+        <a href="skills.html" class="hover:text-white">Skills</a>
+        <a href="contact.html" class="hover:text-white">Contact</a>
+      </div>
+      <div>© 2026 Krish Trivedi</div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
