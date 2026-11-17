@@ -9,19 +9,19 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Onest:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-[#05070e] text-[#c9d2de] font-sans selection:bg-[#00e5ff] selection:text-[#05070e] transition-colors duration-300 relative">
+<body class="bg-[#070b14] text-[#e2e8f0] font-sans selection:bg-[#f15c24] selection:text-[#070b14] transition-colors duration-300 relative">
 
   <!-- Background Ambience & Grid -->
   <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
     <div class="absolute inset-0 blueprint-grid opacity-70"></div>
     <div class="absolute inset-0 blueprint-radial"></div>
-    <div class="absolute -top-36 right-1/4 w-[550px] h-[550px] bg-[#00e5ff]/10 rounded-full blur-[150px]"></div>
-    <div class="absolute bottom-1/4 left-10 w-[450px] h-[450px] bg-[#8b5cf6]/10 rounded-full blur-[140px]"></div>
+    <div class="absolute -top-36 right-1/4 w-[550px] h-[550px] bg-[#f15c24]/10 rounded-full blur-[150px]"></div>
+    <div class="absolute bottom-1/4 left-10 w-[450px] h-[450px] bg-[#3ee0c5]/08 rounded-full blur-[140px]"></div>
   </div>
   <canvas id="neural-canvas" class="neural-canvas"></canvas>
 
@@ -35,10 +35,10 @@
     <div class="max-w-4xl mx-auto w-full flex flex-col justify-between h-full">
       <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00e5ff] to-[#8b5cf6] text-[#05070e] flex items-center justify-center font-display font-black text-sm shadow-lg shadow-[#00e5ff]/20">KT</div>
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#f15c24] to-[#ff7a45] text-[#070b14] flex items-center justify-center font-display font-black text-sm shadow-lg shadow-[#f15c24]/30">KT</div>
           <span class="font-display font-bold text-white text-base tracking-wide">PORTFOLIO INDEX</span>
         </div>
-        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#79869c] hover:text-white rounded-full bg-white/[0.05] transition-colors">
+        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#9aa6b8] hover:text-white rounded-full bg-white/[0.05] transition-colors">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
       </div>
@@ -64,7 +64,7 @@
           <span>05 SKILLS</span>
           <span class="menu-number">TECHNICAL ARSENAL</span>
         </a>
-        <a href="experience.html" class="menu-item group text-[#00e5ff]" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+        <a href="experience.html" class="menu-item group text-[#f15c24]" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
           <span>06 EXPERIENCE</span>
           <span class="menu-number">CAREER TIMELINE</span>
         </a>
@@ -86,7 +86,7 @@
         </a>
       </nav>
 
-      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#79869c]">
+      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#9aa6b8]">
         <span>KRISH TRIVEDI · AHMEDABAD, GUJARAT, INDIA</span>
         <div class="flex items-center gap-4">
           <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white">GITHUB</a>
@@ -98,20 +98,20 @@
   </div>
 
   <!-- FLOATING GLOBAL HEADER -->
-  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#05070e]/85 border-b border-white/[0.08]" id="navbar">
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#070b14]/85 border-b border-white/[0.08]" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Brand Logo -->
       <a href="index.html" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00e5ff] via-[#3b82f6] to-[#8b5cf6] flex items-center justify-center font-display font-extrabold text-[#05070e] text-base shadow-lg shadow-[#00e5ff]/25 group-hover:scale-105 transition-transform flex-shrink-0">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#f15c24] via-[#ff7a45] to-[#f15c24] flex items-center justify-center font-display font-extrabold text-[#070b14] text-base shadow-lg shadow-[#f15c24]/30 group-hover:scale-105 transition-transform flex-shrink-0">
           KT
         </div>
         <div class="flex flex-col">
           <div class="flex items-center gap-2">
-            <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-[#00e5ff] transition-colors">KRISH TRIVEDI</span>
-            <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-pulse"></span>
+            <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-[#f15c24] transition-colors">KRISH TRIVEDI</span>
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#3ee0c5] animate-pulse"></span>
           </div>
-          <span class="text-[11px] text-[#00e5ff] font-mono tracking-wider uppercase hidden sm:block">
+          <span class="text-[11px] text-[#3ee0c5] font-mono tracking-wider uppercase hidden sm:block">
             06 // CAREER TIMELINE
           </span>
         </div>
@@ -119,16 +119,16 @@
 
       <!-- Desktop Nav Menu (10 Pages) -->
       <nav class="hidden xl:flex items-center gap-1">
-        <a href="index.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Home</a>
-        <a href="about.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">About</a>
-        <a href="ai-lab.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">AI Lab</a>
-        <a href="projects.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Projects</a>
-        <a href="skills.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Skills</a>
-        <a href="experience.html" class="nav-link-item active px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#00e5ff] rounded-full">Experience</a>
-        <a href="services.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Services</a>
-        <a href="education.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Education</a>
-        <a href="resume.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Resume</a>
-        <a href="contact.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Contact</a>
+        <a href="index.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Home</a>
+        <a href="about.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">About</a>
+        <a href="ai-lab.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">AI Lab</a>
+        <a href="projects.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Projects</a>
+        <a href="skills.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Skills</a>
+        <a href="experience.html" class="nav-link-item active px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full">Experience</a>
+        <a href="services.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Services</a>
+        <a href="education.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Education</a>
+        <a href="resume.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Resume</a>
+        <a href="contact.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Contact</a>
       </nav>
 
       <!-- Right Action Controls -->
@@ -140,7 +140,7 @@
         </button>
 
         <!-- Theme Toggle -->
-        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-9 h-9 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-[#c9d2de] hover:text-white border border-white/[0.08] flex items-center justify-center transition-colors">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-9 h-9 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-[#e2e8f0] hover:text-white border border-white/[0.08] flex items-center justify-center transition-colors">
           <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-300"></i>
           <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
         </button>
@@ -162,9 +162,9 @@
   <!-- MAIN EXPERIENCE CONTENT -->
   <main class="relative z-10 pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-14">
-      <div class="section-index text-[#00e5ff]">06 — CAREER TRAJECTORY</div>
+      <div class="section-index text-[#3ee0c5]">06 — CAREER TRAJECTORY</div>
       <h1 class="text-4xl sm:text-6xl font-display font-extrabold text-white mt-2">Professional Experience</h1>
-      <p class="text-sm font-mono text-[#00e5ff] uppercase tracking-wider mt-1">Real-World Engineering · AI Systems · Enterprise IT Operations</p>
+      <p class="text-sm font-mono text-[#3ee0c5] uppercase tracking-wider mt-1">Real-World Engineering · AI Systems · Enterprise IT Operations</p>
     </div>
 
     <!-- Vertical Timeline Container -->
@@ -186,13 +186,13 @@
             </span>
           </div>
 
-          <p class="text-xs sm:text-sm text-[#79869c] leading-relaxed mb-5">
+          <p class="text-xs sm:text-sm text-[#9aa6b8] leading-relaxed mb-5">
             Spearheading end-to-end digital platform architecture, customer inquiry acquisition funnels, and international travel operation workflows. Modernized the online booking experience with zero-dependency native frontend code and automated deployment pipelines.
           </p>
 
           <div class="mb-6">
             <h4 class="text-xs font-mono text-white uppercase tracking-wider mb-3">Key Responsibilities & Achievements:</h4>
-            <div class="space-y-2 text-xs sm:text-sm font-mono text-[#c9d2de]">
+            <div class="space-y-2 text-xs sm:text-sm font-mono text-[#e2e8f0]">
               <div class="flex items-start gap-2.5">
                 <i data-lucide="check-circle" class="w-4 h-4 text-[#f15c24] mt-0.5 flex-shrink-0"></i>
                 <span><strong>Technology management and digital platform solutions:</strong> Overseeing hosting infrastructure, automated DNS routing, SSL compliance, and digital security.</span>
@@ -233,7 +233,7 @@
               <i data-lucide="github" class="w-3.5 h-3.5"></i>
               <span>GitHub Repo</span>
             </a>
-            <a href="projects/white-swan.html" class="btn-outline text-xs py-2 px-4 flex items-center gap-1.5 text-[#00e5ff] border-[#00e5ff]/30 hover:border-[#00e5ff]">
+            <a href="projects/white-swan.html" class="btn-outline text-xs py-2 px-4 flex items-center gap-1.5 text-[#3ee0c5] border-[#f15c24]/30 hover:border-[#f15c24]">
               <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
               <span>Read Case Study</span>
             </a>
@@ -244,39 +244,39 @@
       <!-- Item 2: ARTERIUS SOLUTIONS -->
       <div class="timeline-item">
         <div class="timeline-node"></div>
-        <div class="card-architect p-8 border-[#3b82f6]/30 hover:border-[#3b82f6] relative overflow-hidden group">
+        <div class="card-architect p-8 border-[#ff7a45]/30 hover:border-[#ff7a45] relative overflow-hidden group">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
             <div>
-              <span class="text-xs font-mono text-[#3b82f6] uppercase font-bold tracking-wider">02 // Enterprise IT & Security Engineering</span>
+              <span class="text-xs font-mono text-[#ff7a45] uppercase font-bold tracking-wider">02 // Enterprise IT & Security Engineering</span>
               <h2 class="text-2xl font-display font-bold text-white mt-0.5">Arterius Solutions</h2>
-              <div class="text-sm font-medium text-[#3b82f6]">Role: Technical Engineer</div>
+              <div class="text-sm font-medium text-[#ff7a45]">Role: Technical Engineer</div>
             </div>
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-[#3b82f6]/10 text-[#3b82f6] border border-[#3b82f6]/30 w-fit">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-[#ff7a45]/10 text-[#ff7a45] border border-[#ff7a45]/30 w-fit">
               05/2025 – 08/2025
             </span>
           </div>
 
-          <p class="text-xs sm:text-sm text-[#79869c] leading-relaxed mb-5">
+          <p class="text-xs sm:text-sm text-[#9aa6b8] leading-relaxed mb-5">
             Delivered enterprise technical consulting, perimeter network security defense, and unified Microsoft 365 cloud identity architectures for corporate clients across diverse industries.
           </p>
 
           <div class="mb-6">
             <h4 class="text-xs font-mono text-white uppercase tracking-wider mb-3">Key Responsibilities & Achievements:</h4>
-            <div class="space-y-2 text-xs sm:text-sm font-mono text-[#c9d2de]">
+            <div class="space-y-2 text-xs sm:text-sm font-mono text-[#e2e8f0]">
               <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#3b82f6] mt-0.5 flex-shrink-0"></i>
+                <i data-lucide="check-circle" class="w-4 h-4 text-[#ff7a45] mt-0.5 flex-shrink-0"></i>
                 <span><strong>Client technical consulting and responsive website development:</strong> Evaluated business IT prerequisites and engineered responsive corporate web portals with modern usability.</span>
               </div>
               <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#3b82f6] mt-0.5 flex-shrink-0"></i>
+                <i data-lucide="check-circle" class="w-4 h-4 text-[#ff7a45] mt-0.5 flex-shrink-0"></i>
                 <span><strong>Firewall configuration and Sophos perimeter security:</strong> Configured Sophos XGS appliances, deep packet inspection, IPS/IDS filters, and secure IPsec/SSL VPN tunnels.</span>
               </div>
               <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#3b82f6] mt-0.5 flex-shrink-0"></i>
+                <i data-lucide="check-circle" class="w-4 h-4 text-[#ff7a45] mt-0.5 flex-shrink-0"></i>
                 <span><strong>Microsoft 365 and Outlook email flow administration:</strong> Managed tenant security policies, Exchange Online mail routing, SPF/DKIM authentication, and multi-factor verification (MFA).</span>
               </div>
               <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#3b82f6] mt-0.5 flex-shrink-0"></i>
+                <i data-lucide="check-circle" class="w-4 h-4 text-[#ff7a45] mt-0.5 flex-shrink-0"></i>
                 <span><strong>Active Directory Domain Controllers, DNS/DHCP, and Group Policies (GPO):</strong> Designed domain schemas, organizational units (OUs), security baselines, and disaster recovery replication.</span>
               </div>
             </div>
@@ -310,13 +310,13 @@
             </span>
           </div>
 
-          <p class="text-xs sm:text-sm text-[#79869c] leading-relaxed mb-5">
+          <p class="text-xs sm:text-sm text-[#9aa6b8] leading-relaxed mb-5">
             Designed and engineered KisanMitra, an AI-powered agricultural advisory platform and computer vision crop pathology assistant competing at the national level in the Smart India Hackathon.
           </p>
 
           <div class="mb-6">
             <h4 class="text-xs font-mono text-white uppercase tracking-wider mb-3">Key Responsibilities & Achievements:</h4>
-            <div class="space-y-2 text-xs sm:text-sm font-mono text-[#c9d2de]">
+            <div class="space-y-2 text-xs sm:text-sm font-mono text-[#e2e8f0]">
               <div class="flex items-start gap-2.5">
                 <i data-lucide="check-circle" class="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0"></i>
                 <span><strong>Multilingual AI Krishi Officer design and architecture:</strong> Built a natural language advisory copilot supporting English, Hindi, and regional dialects with domain prompt guardrails.</span>
@@ -359,39 +359,39 @@
       <!-- Item 4: HELION ENTERPRISE -->
       <div class="timeline-item">
         <div class="timeline-node"></div>
-        <div class="card-architect p-8 border-[#00e5ff]/30 hover:border-[#00e5ff] relative overflow-hidden group">
+        <div class="card-architect p-8 border-[#f15c24]/30 hover:border-[#f15c24] relative overflow-hidden group">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
             <div>
-              <span class="text-xs font-mono text-[#00e5ff] uppercase font-bold tracking-wider">04 // Entrepreneurship & Technology Retail</span>
+              <span class="text-xs font-mono text-[#3ee0c5] uppercase font-bold tracking-wider">04 // Entrepreneurship & Technology Retail</span>
               <h2 class="text-2xl font-display font-bold text-white mt-0.5">Helion Enterprise</h2>
-              <div class="text-sm font-medium text-[#00e5ff]">Role: Founder / Entrepreneur</div>
+              <div class="text-sm font-medium text-[#3ee0c5]">Role: Founder / Entrepreneur</div>
             </div>
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-[#00e5ff]/10 text-[#00e5ff] border border-[#00e5ff]/30 w-fit">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-[#f15c24]/10 text-[#3ee0c5] border border-[#f15c24]/30 w-fit">
               Dec 2024 – Present
             </span>
           </div>
 
-          <p class="text-xs sm:text-sm text-[#79869c] leading-relaxed mb-5">
+          <p class="text-xs sm:text-sm text-[#9aa6b8] leading-relaxed mb-5">
             An electronics retail business founded by Krish Trivedi to provide quality technology hardware, accessories, and technology-driven retail management systems.
           </p>
 
           <div class="mb-6">
             <h4 class="text-xs font-mono text-white uppercase tracking-wider mb-3">Key Operational Scope:</h4>
-            <div class="space-y-2 text-xs sm:text-sm font-mono text-[#c9d2de]">
+            <div class="space-y-2 text-xs sm:text-sm font-mono text-[#e2e8f0]">
               <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#00e5ff] mt-0.5 flex-shrink-0"></i>
+                <i data-lucide="check-circle" class="w-4 h-4 text-[#3ee0c5] mt-0.5 flex-shrink-0"></i>
                 <span><strong>Business operations and commercial planning:</strong> Overseeing store budgeting, capital allocation, vendor relations, and revenue models.</span>
               </div>
               <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#00e5ff] mt-0.5 flex-shrink-0"></i>
+                <i data-lucide="check-circle" class="w-4 h-4 text-[#3ee0c5] mt-0.5 flex-shrink-0"></i>
                 <span><strong>Electronics retail procurement and inventory management:</strong> Streamlined procurement channels for premium consumer electronics and accessories.</span>
               </div>
               <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#00e5ff] mt-0.5 flex-shrink-0"></i>
+                <i data-lucide="check-circle" class="w-4 h-4 text-[#3ee0c5] mt-0.5 flex-shrink-0"></i>
                 <span><strong>Customer relationship management and support:</strong> Built repeat customer loyalty programs and reliable post-purchase warranty assistance.</span>
               </div>
               <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#00e5ff] mt-0.5 flex-shrink-0"></i>
+                <i data-lucide="check-circle" class="w-4 h-4 text-[#3ee0c5] mt-0.5 flex-shrink-0"></i>
                 <span><strong>Sales strategy and technology-driven business workflows:</strong> Implemented digital point-of-sale logging and stock forecasting.</span>
               </div>
             </div>
@@ -425,7 +425,7 @@
 
   <!-- Global Footer -->
   <footer class="border-t border-white/[0.08] bg-[#030509] py-12 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-mono text-[#79869c]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-mono text-[#9aa6b8]">
       <div>KRISH TRIVEDI · PROFESSIONAL EXPERIENCE</div>
       <div class="flex flex-wrap items-center gap-4">
         <a href="index.html" class="hover:text-white">Home</a>
@@ -433,7 +433,7 @@
         <a href="ai-lab.html" class="hover:text-white">AI Lab</a>
         <a href="projects.html" class="hover:text-white">Projects</a>
         <a href="skills.html" class="hover:text-white">Skills</a>
-        <a href="experience.html" class="text-[#00e5ff]">Experience</a>
+        <a href="experience.html" class="text-[#3ee0c5]">Experience</a>
         <a href="services.html" class="hover:text-white">Services</a>
         <a href="education.html" class="hover:text-white">Education</a>
         <a href="resume.html" class="hover:text-white">Resume</a>

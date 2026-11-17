@@ -9,19 +9,19 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Onest:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body class="bg-[#05070e] text-[#c9d2de] font-sans selection:bg-[#00e5ff] selection:text-[#05070e] transition-colors duration-300 relative">
+<body class="bg-[#070b14] text-[#e2e8f0] font-sans selection:bg-[#f15c24] selection:text-[#070b14] transition-colors duration-300 relative">
 
   <!-- Background Ambience & Grid -->
   <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
     <div class="absolute inset-0 blueprint-grid opacity-70"></div>
     <div class="absolute inset-0 blueprint-radial"></div>
-    <div class="absolute -top-36 right-1/4 w-[550px] h-[550px] bg-[#00e5ff]/10 rounded-full blur-[150px]"></div>
-    <div class="absolute bottom-1/4 left-10 w-[450px] h-[450px] bg-[#8b5cf6]/10 rounded-full blur-[140px]"></div>
+    <div class="absolute -top-36 right-1/4 w-[550px] h-[550px] bg-[#f15c24]/10 rounded-full blur-[150px]"></div>
+    <div class="absolute bottom-1/4 left-10 w-[450px] h-[450px] bg-[#3ee0c5]/08 rounded-full blur-[140px]"></div>
   </div>
   <canvas id="neural-canvas" class="neural-canvas"></canvas>
 
@@ -35,10 +35,10 @@
     <div class="max-w-4xl mx-auto w-full flex flex-col justify-between h-full">
       <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00e5ff] to-[#8b5cf6] text-[#05070e] flex items-center justify-center font-display font-black text-sm shadow-lg shadow-[#00e5ff]/20">KT</div>
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#f15c24] to-[#ff7a45] text-[#070b14] flex items-center justify-center font-display font-black text-sm shadow-lg shadow-[#f15c24]/30">KT</div>
           <span class="font-display font-bold text-white text-base tracking-wide">PORTFOLIO INDEX</span>
         </div>
-        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#79869c] hover:text-white rounded-full bg-white/[0.05] transition-colors">
+        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#9aa6b8] hover:text-white rounded-full bg-white/[0.05] transition-colors">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
       </div>
@@ -72,7 +72,7 @@
           <span>07 SERVICES</span>
           <span class="menu-number">SOLUTIONS OFFERED</span>
         </a>
-        <a href="../education.html" class="menu-item group text-[#00e5ff]" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+        <a href="../education.html" class="menu-item group text-[#f15c24]" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
           <span>08 EDUCATION</span>
           <span class="menu-number">ACADEMICS & AWS</span>
         </a>
@@ -86,7 +86,7 @@
         </a>
       </nav>
 
-      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#79869c]">
+      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#9aa6b8]">
         <span>KRISH TRIVEDI · AHMEDABAD, GUJARAT, INDIA</span>
         <div class="flex items-center gap-4">
           <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white">GITHUB</a>
@@ -98,20 +98,20 @@
   </div>
 
   <!-- FLOATING GLOBAL HEADER -->
-  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#05070e]/85 border-b border-white/[0.08]" id="navbar">
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#070b14]/85 border-b border-white/[0.08]" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Brand Logo -->
       <a href="../index.html" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00e5ff] via-[#3b82f6] to-[#8b5cf6] flex items-center justify-center font-display font-extrabold text-[#05070e] text-base shadow-lg shadow-[#00e5ff]/25 group-hover:scale-105 transition-transform flex-shrink-0">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#f15c24] via-[#ff7a45] to-[#f15c24] flex items-center justify-center font-display font-extrabold text-[#070b14] text-base shadow-lg shadow-[#f15c24]/30 group-hover:scale-105 transition-transform flex-shrink-0">
           KT
         </div>
         <div class="flex flex-col">
           <div class="flex items-center gap-2">
-            <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-[#00e5ff] transition-colors">KRISH TRIVEDI</span>
-            <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-pulse"></span>
+            <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-[#f15c24] transition-colors">KRISH TRIVEDI</span>
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#3ee0c5] animate-pulse"></span>
           </div>
-          <span class="text-[11px] text-[#00e5ff] font-mono tracking-wider uppercase hidden sm:block">
+          <span class="text-[11px] text-[#3ee0c5] font-mono tracking-wider uppercase hidden sm:block">
             08 // EDUCATION & CERTIFICATIONS
           </span>
         </div>
@@ -119,16 +119,16 @@
 
       <!-- Desktop Nav Menu (10 Pages) -->
       <nav class="hidden xl:flex items-center gap-1">
-        <a href="../index.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Home</a>
-        <a href="../about.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">About</a>
-        <a href="../ai-lab.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">AI Lab</a>
-        <a href="../projects.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Projects</a>
-        <a href="../skills.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Skills</a>
-        <a href="../experience.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Experience</a>
-        <a href="../services.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Services</a>
-        <a href="../education.html" class="nav-link-item active px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#00e5ff] rounded-full">Education</a>
-        <a href="../resume.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Resume</a>
-        <a href="../contact.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Contact</a>
+        <a href="../index.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Home</a>
+        <a href="../about.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">About</a>
+        <a href="../ai-lab.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">AI Lab</a>
+        <a href="../projects.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Projects</a>
+        <a href="../skills.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Skills</a>
+        <a href="../experience.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Experience</a>
+        <a href="../services.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Services</a>
+        <a href="../education.html" class="nav-link-item active px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full">Education</a>
+        <a href="../resume.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Resume</a>
+        <a href="../contact.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Contact</a>
       </nav>
 
       <!-- Right Action Controls -->
@@ -140,7 +140,7 @@
         </button>
 
         <!-- Theme Toggle -->
-        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-9 h-9 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-[#c9d2de] hover:text-white border border-white/[0.08] flex items-center justify-center transition-colors">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-9 h-9 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-[#e2e8f0] hover:text-white border border-white/[0.08] flex items-center justify-center transition-colors">
           <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-300"></i>
           <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
         </button>
@@ -162,52 +162,52 @@
   <!-- MAIN EDUCATION CONTENT -->
   <main class="relative z-10 pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-14">
-      <div class="section-index text-[#00e5ff]">08 — ACADEMICS & CREDENTIALS</div>
+      <div class="section-index text-[#3ee0c5]">08 — ACADEMICS & CREDENTIALS</div>
       <h1 class="text-4xl sm:text-6xl font-display font-extrabold text-white mt-2">Education & Certifications</h1>
-      <p class="text-sm font-mono text-[#00e5ff] uppercase tracking-wider mt-1">Formal University Degrees · Validated AWS Cloud Certification · Systems Foundation</p>
+      <p class="text-sm font-mono text-[#3ee0c5] uppercase tracking-wider mt-1">Formal University Degrees · Validated AWS Cloud Certification · Systems Foundation</p>
     </div>
 
     <!-- Credentials Grid (3 Core Requirements + CV CTA) -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-14">
       
       <!-- 1. B.Tech in IT - JG University -->
-      <div class="card-architect p-8 border-[#00e5ff]/30 hover:border-[#00e5ff] relative overflow-hidden group flex flex-col justify-between">
-        <div class="absolute top-0 right-0 w-44 h-44 bg-[#00e5ff]/5 rounded-full blur-2xl group-hover:bg-[#00e5ff]/10 transition-all pointer-events-none"></div>
+      <div class="card-architect p-8 border-[#f15c24]/30 hover:border-[#f15c24] relative overflow-hidden group flex flex-col justify-between">
+        <div class="absolute top-0 right-0 w-44 h-44 bg-[#f15c24]/5 rounded-full blur-2xl group-hover:bg-[#f15c24]/10 transition-all pointer-events-none"></div>
         <div>
           <div class="flex items-start justify-between mb-6">
-            <div class="w-14 h-14 rounded-2xl bg-[#00e5ff]/10 border border-[#00e5ff]/20 text-[#00e5ff] flex items-center justify-center">
+            <div class="w-14 h-14 rounded-2xl bg-[#f15c24]/10 border border-[#f15c24]/20 text-[#3ee0c5] flex items-center justify-center">
               <i data-lucide="graduation-cap" class="w-8 h-8"></i>
             </div>
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#00e5ff]/10 text-[#00e5ff] border border-[#00e5ff]/30">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-pulse"></span>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#f15c24]/10 text-[#3ee0c5] border border-[#f15c24]/30">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#3ee0c5] animate-pulse"></span>
               PURSUING DEGREE
             </span>
           </div>
 
-          <div class="text-xs font-mono text-[#79869c] uppercase mb-1">Bachelor of Technology · Undergraduate</div>
+          <div class="text-xs font-mono text-[#9aa6b8] uppercase mb-1">Bachelor of Technology · Undergraduate</div>
           <h2 class="text-2xl font-display font-bold text-white mb-1.5">Bachelor of Technology in Information Technology</h2>
-          <div class="text-sm font-semibold text-[#00e5ff] mb-4">JG University · Ahmedabad, Gujarat, India</div>
+          <div class="text-sm font-semibold text-[#3ee0c5] mb-4">JG University · Ahmedabad, Gujarat, India</div>
 
-          <p class="text-sm text-[#79869c] leading-relaxed mb-6">
+          <p class="text-sm text-[#9aa6b8] leading-relaxed mb-6">
             Current undergraduate degree program in Information Technology. Rigorous academic coursework focused on Artificial Intelligence algorithms, machine learning model architectures, distributed database systems, and modern software engineering paradigms.
           </p>
 
           <div class="space-y-3 pt-6 border-t border-white/[0.08] text-xs font-mono mb-6">
-            <div class="flex items-center justify-between text-[#c9d2de]">
-              <span class="text-[#79869c]">Institution:</span>
+            <div class="flex items-center justify-between text-[#e2e8f0]">
+              <span class="text-[#9aa6b8]">Institution:</span>
               <span class="text-white font-medium">JG University</span>
             </div>
-            <div class="flex items-center justify-between text-[#c9d2de]">
-              <span class="text-[#79869c]">Program:</span>
+            <div class="flex items-center justify-between text-[#e2e8f0]">
+              <span class="text-[#9aa6b8]">Program:</span>
               <span class="text-white font-medium">B.Tech in Information Technology</span>
             </div>
-            <div class="flex items-center justify-between text-[#c9d2de]">
-              <span class="text-[#79869c]">Academic Status:</span>
+            <div class="flex items-center justify-between text-[#e2e8f0]">
+              <span class="text-[#9aa6b8]">Academic Status:</span>
               <span class="text-emerald-400 font-medium">Current Undergraduate Student</span>
             </div>
-            <div class="flex items-center justify-between text-[#c9d2de]">
-              <span class="text-[#79869c]">Focus Area:</span>
-              <span class="text-[#00e5ff] font-medium">Artificial Intelligence & Cloud Systems</span>
+            <div class="flex items-center justify-between text-[#e2e8f0]">
+              <span class="text-[#9aa6b8]">Focus Area:</span>
+              <span class="text-[#3ee0c5] font-medium">Artificial Intelligence & Cloud Systems</span>
             </div>
           </div>
         </div>
@@ -234,29 +234,29 @@
             </span>
           </div>
 
-          <div class="text-xs font-mono text-[#79869c] uppercase mb-1">Industry Credential · Amazon Web Services</div>
+          <div class="text-xs font-mono text-[#9aa6b8] uppercase mb-1">Industry Credential · Amazon Web Services</div>
           <h2 class="text-2xl font-display font-bold text-white mb-1.5">AWS Certified Cloud Practitioner</h2>
           <div class="text-sm font-semibold text-amber-400 mb-4">Amazon Web Services (AWS) · Credential Validated</div>
 
-          <p class="text-sm text-[#79869c] leading-relaxed mb-6">
+          <p class="text-sm text-[#9aa6b8] leading-relaxed mb-6">
             Validated cloud computing foundational certification from Amazon Web Services. Demonstrates comprehensive fluency in core AWS Cloud architecture, security compliance, pricing models, and high-availability scalable services.
           </p>
 
           <div class="space-y-3 pt-6 border-t border-white/[0.08] text-xs font-mono mb-6">
-            <div class="flex items-center justify-between text-[#c9d2de]">
-              <span class="text-[#79869c]">Organization:</span>
+            <div class="flex items-center justify-between text-[#e2e8f0]">
+              <span class="text-[#9aa6b8]">Organization:</span>
               <span class="text-white font-medium">Amazon Web Services (AWS)</span>
             </div>
-            <div class="flex items-center justify-between text-[#c9d2de]">
-              <span class="text-[#79869c]">Certification:</span>
+            <div class="flex items-center justify-between text-[#e2e8f0]">
+              <span class="text-[#9aa6b8]">Certification:</span>
               <span class="text-amber-400 font-medium">Cloud Practitioner (CLF-C02)</span>
             </div>
-            <div class="flex items-center justify-between text-[#c9d2de]">
-              <span class="text-[#79869c]">Validation:</span>
+            <div class="flex items-center justify-between text-[#e2e8f0]">
+              <span class="text-[#9aa6b8]">Validation:</span>
               <span class="text-emerald-400 font-medium">Verified Cloud Computing Foundation</span>
             </div>
-            <div class="flex items-center justify-between text-[#c9d2de]">
-              <span class="text-[#79869c]">Domain Areas:</span>
+            <div class="flex items-center justify-between text-[#e2e8f0]">
+              <span class="text-[#9aa6b8]">Domain Areas:</span>
               <span class="text-white font-medium">Cloud Concepts · Security · Technology · Billing</span>
             </div>
           </div>
@@ -285,29 +285,29 @@
             </span>
           </div>
 
-          <div class="text-xs font-mono text-[#79869c] uppercase mb-1">Higher Technical Education · Completed</div>
+          <div class="text-xs font-mono text-[#9aa6b8] uppercase mb-1">Higher Technical Education · Completed</div>
           <h2 class="text-2xl font-display font-bold text-white mb-1.5">Diploma in Information Technology</h2>
           <div class="text-sm font-semibold text-[#f15c24] mb-4">L.J University · Ahmedabad, Gujarat, India</div>
 
-          <p class="text-sm text-[#79869c] leading-relaxed mb-6">
+          <p class="text-sm text-[#9aa6b8] leading-relaxed mb-6">
             Completed 3-year diploma in Information Technology with a strong 7.2 CGPA distinction. Established practical core engineering expertise in computer networking, server administration, relational database modeling, and structured programming.
           </p>
 
           <div class="space-y-3 pt-6 border-t border-white/[0.08] text-xs font-mono mb-6">
-            <div class="flex items-center justify-between text-[#c9d2de]">
-              <span class="text-[#79869c]">Institution:</span>
+            <div class="flex items-center justify-between text-[#e2e8f0]">
+              <span class="text-[#9aa6b8]">Institution:</span>
               <span class="text-white font-medium">L.J University</span>
             </div>
-            <div class="flex items-center justify-between text-[#c9d2de]">
-              <span class="text-[#79869c]">Grade Distinction:</span>
+            <div class="flex items-center justify-between text-[#e2e8f0]">
+              <span class="text-[#9aa6b8]">Grade Distinction:</span>
               <span class="text-white font-bold">7.2 CGPA</span>
             </div>
-            <div class="flex items-center justify-between text-[#c9d2de]">
-              <span class="text-[#79869c]">Completion Status:</span>
+            <div class="flex items-center justify-between text-[#e2e8f0]">
+              <span class="text-[#9aa6b8]">Completion Status:</span>
               <span class="text-emerald-400 font-medium">Successfully Graduated</span>
             </div>
-            <div class="flex items-center justify-between text-[#c9d2de]">
-              <span class="text-[#79869c]">Core Studies:</span>
+            <div class="flex items-center justify-between text-[#e2e8f0]">
+              <span class="text-[#9aa6b8]">Core Studies:</span>
               <span class="text-white font-medium">Computer Networks · OS · DBMS · C/C++</span>
             </div>
           </div>
@@ -326,25 +326,25 @@
       <div class="card-architect p-8 border-white/[0.15] relative overflow-hidden flex flex-col justify-between">
         <div>
           <div class="w-14 h-14 rounded-2xl bg-white/[0.05] border border-white/[0.1] text-white flex items-center justify-center mb-6">
-            <i data-lucide="file-check-2" class="w-8 h-8 text-[#00e5ff]"></i>
+            <i data-lucide="file-check-2" class="w-8 h-8 text-[#3ee0c5]"></i>
           </div>
-          <div class="text-xs font-mono text-[#00e5ff] uppercase mb-1">09 // CURRICULUM VITAE PREVIEW</div>
+          <div class="text-xs font-mono text-[#3ee0c5] uppercase mb-1">09 // CURRICULUM VITAE PREVIEW</div>
           <h2 class="text-2xl font-display font-bold text-white mb-2">Executive Curriculum Vitae</h2>
-          <p class="text-sm text-[#79869c] leading-relaxed mb-6">
+          <p class="text-sm text-[#9aa6b8] leading-relaxed mb-6">
             View the dedicated Curriculum Vitae page with an executive developer profile, structured technical skill matrix, full professional timeline, and printable documentation.
           </p>
 
           <div class="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] text-xs font-mono space-y-2 mb-6">
-            <div class="flex justify-between text-[#c9d2de]">
-              <span class="text-[#79869c]">Format:</span>
+            <div class="flex justify-between text-[#e2e8f0]">
+              <span class="text-[#9aa6b8]">Format:</span>
               <span class="text-white">PDF Document & Printable Web CV</span>
             </div>
-            <div class="flex justify-between text-[#c9d2de]">
-              <span class="text-[#79869c]">File Size:</span>
+            <div class="flex justify-between text-[#e2e8f0]">
+              <span class="text-[#9aa6b8]">File Size:</span>
               <span class="text-white">~120 KB</span>
             </div>
-            <div class="flex justify-between text-[#c9d2de]">
-              <span class="text-[#79869c]">Direct Action:</span>
+            <div class="flex justify-between text-[#e2e8f0]">
+              <span class="text-[#9aa6b8]">Direct Action:</span>
               <span class="text-emerald-400 font-semibold">Immediate PDF Download Verified</span>
             </div>
           </div>
@@ -355,7 +355,7 @@
             <i data-lucide="eye" class="w-4 h-4"></i>
             <span>View Full Resume Page</span>
           </a>
-          <a href="../Krish-Trivedi-Resume.pdf" download="Krish-Trivedi-Resume.pdf" class="btn-outline w-full sm:w-auto flex-1 justify-center py-3 text-[#00e5ff] border-[#00e5ff]/30 hover:border-[#00e5ff]">
+          <a href="../Krish-Trivedi-Resume.pdf" download="Krish-Trivedi-Resume.pdf" class="btn-outline w-full sm:w-auto flex-1 justify-center py-3 text-[#3ee0c5] border-[#f15c24]/30 hover:border-[#f15c24]">
             <i data-lucide="download" class="w-4 h-4"></i>
             <span>Download PDF</span>
           </a>
@@ -367,7 +367,7 @@
     <!-- Academic Journey Timeline Graphic -->
     <div class="card-architect p-8 border-white/[0.1]">
       <h3 class="text-xl font-display font-bold text-white mb-6 flex items-center gap-2">
-        <i data-lucide="milestone" class="w-5 h-5 text-[#00e5ff]"></i>
+        <i data-lucide="milestone" class="w-5 h-5 text-[#3ee0c5]"></i>
         <span>Academic Milestones & Timeline</span>
       </h3>
 
@@ -375,22 +375,22 @@
         <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/[0.08] relative">
           <div class="text-xs font-mono text-[#f15c24] font-bold mb-1">2021 – 2024</div>
           <h4 class="text-base font-bold text-white mb-1">Diploma in IT</h4>
-          <p class="text-xs text-[#79869c] mb-3">L.J University · Completed with 7.2 CGPA distinction in foundational IT & networking.</p>
+          <p class="text-xs text-[#9aa6b8] mb-3">L.J University · Completed with 7.2 CGPA distinction in foundational IT & networking.</p>
           <span class="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">Graduated (7.2 CGPA)</span>
         </div>
 
         <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/[0.08] relative">
           <div class="text-xs font-mono text-amber-400 font-bold mb-1">2024</div>
           <h4 class="text-base font-bold text-white mb-1">AWS Certified Cloud Practitioner</h4>
-          <p class="text-xs text-[#79869c] mb-3">Amazon Web Services · Official industry validation for core cloud compute, storage & security.</p>
+          <p class="text-xs text-[#9aa6b8] mb-3">Amazon Web Services · Official industry validation for core cloud compute, storage & security.</p>
           <span class="text-[11px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">Official AWS Credential</span>
         </div>
 
         <div class="p-5 rounded-2xl bg-white/[0.03] border border-white/[0.08] relative">
-          <div class="text-xs font-mono text-[#00e5ff] font-bold mb-1">2024 – PRESENT</div>
+          <div class="text-xs font-mono text-[#3ee0c5] font-bold mb-1">2024 – PRESENT</div>
           <h4 class="text-base font-bold text-white mb-1">B.Tech in IT</h4>
-          <p class="text-xs text-[#79869c] mb-3">JG University · Specializing in Artificial Intelligence algorithms, ML models & scalable systems.</p>
-          <span class="text-[11px] font-mono text-[#00e5ff] bg-[#00e5ff]/10 px-2 py-0.5 rounded border border-[#00e5ff]/20">Active Undergraduate</span>
+          <p class="text-xs text-[#9aa6b8] mb-3">JG University · Specializing in Artificial Intelligence algorithms, ML models & scalable systems.</p>
+          <span class="text-[11px] font-mono text-[#3ee0c5] bg-[#f15c24]/10 px-2 py-0.5 rounded border border-[#f15c24]/20">Active Undergraduate</span>
         </div>
       </div>
     </div>
@@ -410,7 +410,7 @@
 
   <!-- Global Footer -->
   <footer class="border-t border-white/[0.08] bg-[#030509] py-12 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-mono text-[#79869c]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-mono text-[#9aa6b8]">
       <div>KRISH TRIVEDI · EDUCATION & CERTIFICATIONS</div>
       <div class="flex flex-wrap items-center gap-4">
         <a href="../index.html" class="hover:text-white">Home</a>
@@ -420,7 +420,7 @@
         <a href="../skills.html" class="hover:text-white">Skills</a>
         <a href="../experience.html" class="hover:text-white">Experience</a>
         <a href="../services.html" class="hover:text-white">Services</a>
-        <a href="../education.html" class="text-[#00e5ff]">Education</a>
+        <a href="../education.html" class="text-[#3ee0c5]">Education</a>
         <a href="../resume.html" class="hover:text-white">Resume</a>
         <a href="../contact.html" class="hover:text-white">Contact</a>
       </div>

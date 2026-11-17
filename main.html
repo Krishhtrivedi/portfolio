@@ -24,7 +24,7 @@
   <!-- Web Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Onest:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -34,27 +34,36 @@
       theme: {
         extend: {
           colors: {
-            canvas: '#05070e',
+            canvas: '#070b14',
             surface: {
-              DEFAULT: '#0d1424',
-              lift: '#121c33',
-              glass: 'rgba(13, 20, 36, 0.72)',
+              DEFAULT: '#101828',
+              lift: '#152033',
+              glass: 'rgba(16, 24, 40, 0.75)',
+            },
+            vermilion: {
+              DEFAULT: '#f15c24',
+              hover: '#ff7a45',
+              glow: 'rgba(241, 92, 36, 0.35)',
+            },
+            aqua: {
+              DEFAULT: '#3ee0c5',
+              glow: 'rgba(62, 224, 197, 0.35)',
             },
             cyanAccent: {
-              DEFAULT: '#00e5ff',
-              glow: 'rgba(0, 229, 255, 0.35)',
+              DEFAULT: '#3ee0c5',
+              glow: 'rgba(62, 224, 197, 0.35)',
             },
-            violetAccent: '#8b5cf6',
-            vermilion: '#f15c24',
-            renderGreen: '#46e3b7',
+            violetAccent: '#ff7a45',
+            renderGreen: '#3ee0c5',
           },
           fontFamily: {
             display: ['Syne', 'sans-serif'],
-            sans: ['Inter', 'sans-serif'],
+            sans: ['Onest', 'system-ui', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
           }
         }
       }
+    }
     }
   </script>
 
@@ -64,14 +73,14 @@
   <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-[#05070e] text-[#c9d2de] font-sans selection:bg-[#00e5ff] selection:text-[#05070e] transition-colors duration-300 relative">
+<body class="bg-[#070b14] text-[#e2e8f0] font-sans selection:bg-[#f15c24] selection:text-[#070b14] transition-colors duration-300 relative">
 
   <!-- Blueprint CAD Grid & Interactive Neural Canvas -->
   <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
     <div class="absolute inset-0 blueprint-grid opacity-70"></div>
     <div class="absolute inset-0 blueprint-radial"></div>
-    <div class="absolute -top-36 right-1/4 w-[550px] h-[550px] bg-[#00e5ff]/10 rounded-full blur-[150px]"></div>
-    <div class="absolute top-1/2 -left-48 w-[500px] h-[500px] bg-[#8b5cf6]/10 rounded-full blur-[160px]"></div>
+    <div class="absolute -top-36 right-1/4 w-[550px] h-[550px] bg-[#f15c24]/10 rounded-full blur-[150px]"></div>
+    <div class="absolute top-1/2 -left-48 w-[500px] h-[500px] bg-[#3ee0c5]/08 rounded-full blur-[160px]"></div>
   </div>
   <canvas id="neural-canvas" class="neural-canvas"></canvas>
 
@@ -88,16 +97,16 @@
     <div class="max-w-4xl mx-auto w-full flex flex-col justify-between h-full">
       <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00e5ff] to-[#8b5cf6] text-[#05070e] flex items-center justify-center font-display font-black text-sm shadow-lg shadow-[#00e5ff]/20">KT</div>
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#f15c24] to-[#ff7a45] text-[#070b14] flex items-center justify-center font-display font-black text-sm shadow-lg shadow-[#f15c24]/30">KT</div>
           <span class="font-display font-bold text-white text-base tracking-wide">PORTFOLIO INDEX</span>
         </div>
-        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#79869c] hover:text-white rounded-full bg-white/[0.05] transition-colors">
+        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#9aa6b8] hover:text-white rounded-full bg-white/[0.05] transition-colors">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
       </div>
 
       <nav class="py-6 space-y-1">
-        <a href="index.html" class="menu-item group text-[#00e5ff]" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+        <a href="index.html" class="menu-item group text-[#f15c24]" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
           <span>01 HOME</span>
           <span class="menu-number">MAIN HUB</span>
         </a>
@@ -139,7 +148,7 @@
         </a>
       </nav>
 
-      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#79869c]">
+      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#9aa6b8]">
         <span>KRISH TRIVEDI · AHMEDABAD, GUJARAT, INDIA</span>
         <div class="flex items-center gap-4">
           <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white">GITHUB</a>
@@ -151,20 +160,20 @@
   </div>
 
   <!-- FLOATING GLOBAL HEADER -->
-  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#05070e]/85 border-b border-white/[0.08]" id="navbar">
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#070b14]/85 border-b border-white/[0.08]" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
       <!-- Brand Logo -->
       <a href="index.html" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00e5ff] via-[#3b82f6] to-[#8b5cf6] flex items-center justify-center font-display font-extrabold text-[#05070e] text-base shadow-lg shadow-[#00e5ff]/25 group-hover:scale-105 transition-transform flex-shrink-0">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#f15c24] via-[#ff7a45] to-[#f15c24] flex items-center justify-center font-display font-extrabold text-[#070b14] text-base shadow-lg shadow-[#f15c24]/30 group-hover:scale-105 transition-transform flex-shrink-0">
           KT
         </div>
         <div class="flex flex-col">
           <div class="flex items-center gap-2">
-            <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-[#00e5ff] transition-colors">KRISH TRIVEDI</span>
-            <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-pulse"></span>
+            <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-[#f15c24] transition-colors">KRISH TRIVEDI</span>
+            <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#3ee0c5] animate-pulse"></span>
           </div>
-          <span class="text-[11px] text-[#79869c] font-mono tracking-wider uppercase hidden sm:block">
+          <span class="text-[11px] text-[#9aa6b8] font-mono tracking-wider uppercase hidden sm:block">
             AI DEVELOPER // APPS & AUTOMATION
           </span>
         </div>
@@ -172,16 +181,16 @@
 
       <!-- Desktop Nav Menu (10 Pages) -->
       <nav class="hidden xl:flex items-center gap-1">
-        <a href="index.html" class="nav-link-item active px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#00e5ff] rounded-full">Home</a>
-        <a href="about.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">About</a>
-        <a href="ai-lab.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">AI Lab</a>
-        <a href="projects.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Projects</a>
-        <a href="skills.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Skills</a>
-        <a href="experience.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Experience</a>
-        <a href="services.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Services</a>
-        <a href="education.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Education</a>
-        <a href="resume.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Resume</a>
-        <a href="contact.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Contact</a>
+        <a href="index.html" class="nav-link-item active px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full">Home</a>
+        <a href="about.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">About</a>
+        <a href="ai-lab.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">AI Lab</a>
+        <a href="projects.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Projects</a>
+        <a href="skills.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Skills</a>
+        <a href="experience.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Experience</a>
+        <a href="services.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Services</a>
+        <a href="education.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Education</a>
+        <a href="resume.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Resume</a>
+        <a href="contact.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Contact</a>
       </nav>
 
       <!-- Right Action Controls -->
@@ -194,7 +203,7 @@
         </button>
 
         <!-- Theme Toggle -->
-        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-9 h-9 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-[#c9d2de] hover:text-white border border-white/[0.08] flex items-center justify-center transition-colors">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-9 h-9 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-[#e2e8f0] hover:text-white border border-white/[0.08] flex items-center justify-center transition-colors">
           <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-300"></i>
           <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
         </button>
@@ -227,35 +236,35 @@
         <div class="lg:col-span-7 space-y-6">
           
           <!-- Live AI Exploring Status Badge -->
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-[#00e5ff]/10 text-[#00e5ff] border border-[#00e5ff]/25 backdrop-blur-md">
-            <span class="w-2 h-2 rounded-full bg-[#00e5ff] animate-ping"></span>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-[#f15c24]/10 text-[#3ee0c5] border border-[#f15c24]/25 backdrop-blur-md">
+            <span class="w-2 h-2 rounded-full bg-[#f15c24] animate-ping"></span>
             <span>EXPLORING: MULTI-AGENT LLM ORCHESTRATION & AUTONOMOUS TOOLS</span>
           </div>
 
           <!-- Hero Name & Title -->
           <div>
-            <div class="text-xs sm:text-sm font-mono text-[#79869c] tracking-widest uppercase mb-1">Portfolio & Systems Architecture</div>
+            <div class="text-xs sm:text-sm font-mono text-[#9aa6b8] tracking-widest uppercase mb-1">Portfolio & Systems Architecture</div>
             <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-extrabold text-white tracking-tight leading-[1.08]">
               KRISH TRIVEDI
             </h1>
-            <div class="text-lg sm:text-2xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00e5ff] via-[#3b82f6] to-[#8b5cf6] mt-2">
+            <div class="text-lg sm:text-2xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#f15c24] via-[#ff7a45] to-[#3ee0c5] mt-2">
               AI DEVELOPER
             </div>
-            <div class="text-sm sm:text-base font-mono text-[#00e5ff] mt-1 font-semibold">
+            <div class="text-sm sm:text-base font-mono text-[#3ee0c5] mt-1 font-semibold">
               Building Intelligent Applications & AI-Powered Solutions.
             </div>
           </div>
 
           <!-- Main Headline & Supporting Description -->
           <div class="space-y-3">
-            <p class="text-base sm:text-lg font-body text-[#c9d2de] leading-relaxed max-w-2xl">
+            <p class="text-base sm:text-lg font-body text-[#e2e8f0] leading-relaxed max-w-2xl">
               I build intelligent applications, AI-powered solutions and automation systems that solve real-world business problems.
             </p>
           </div>
 
           <!-- Location & Availability Tag -->
-          <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-[#79869c]">
-            <i data-lucide="map-pin" class="w-4 h-4 text-[#00e5ff]"></i>
+          <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-[#9aa6b8]">
+            <i data-lucide="map-pin" class="w-4 h-4 text-[#3ee0c5]"></i>
             <span>Ahmedabad, Gujarat, India</span>
             <span class="text-white/20">|</span>
             <span class="text-emerald-400 font-medium">Available for AI Development & Engineering</span>
@@ -268,7 +277,7 @@
               <span>Explore Projects</span>
             </a>
             <a href="resume.html" class="btn-outline">
-              <i data-lucide="file-text" class="w-4 h-4 text-[#00e5ff]"></i>
+              <i data-lucide="file-text" class="w-4 h-4 text-[#3ee0c5]"></i>
               <span>Download Resume</span>
             </a>
             <a href="contact.html" class="btn-vermilion">
@@ -278,7 +287,7 @@
           </div>
 
           <!-- Social Shortcuts -->
-          <div class="flex flex-wrap items-center gap-4 pt-4 text-xs font-mono text-[#79869c]">
+          <div class="flex flex-wrap items-center gap-4 pt-4 text-xs font-mono text-[#9aa6b8]">
             <span>VERIFIED LINKS:</span>
             <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white flex items-center gap-1.5 transition-colors">
               <i data-lucide="github" class="w-4 h-4"></i>
@@ -292,7 +301,7 @@
               <i data-lucide="globe" class="w-4 h-4 text-[#f15c24]"></i>
               <span>White Swan Live</span>
             </a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#00e5ff] flex items-center gap-1.5 transition-colors">
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#3ee0c5] flex items-center gap-1.5 transition-colors">
               <i data-lucide="linkedin" class="w-4 h-4"></i>
               <span>LinkedIn</span>
             </a>
@@ -303,55 +312,55 @@
         <!-- Right Hero Animated AI Visual (5 cols) -->
         <div class="lg:col-span-5 flex justify-center">
           <div class="card-architect p-6 sm:p-8 w-full max-w-md card-glow-cyan relative">
-            <div class="absolute -top-3 -right-3 px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-[#00e5ff] text-[#05070e] uppercase shadow-lg shadow-[#00e5ff]/30">
+            <div class="absolute -top-3 -right-3 px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-[#f15c24] text-[#070b14] uppercase shadow-lg shadow-[#f15c24]/30">
               VERIFIED AI PROFILE
             </div>
 
             <div class="flex items-center gap-4 mb-6">
               <div class="relative">
-                <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-[#00e5ff]/20 via-[#3b82f6]/20 to-[#8b5cf6]/20 border border-[#00e5ff]/40 flex items-center justify-center font-display font-extrabold text-2xl text-white shadow-xl shadow-[#00e5ff]/20">
+                <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-[#f15c24]/20 via-[#ff7a45]/20 to-[#3ee0c5]/20 border border-[#f15c24]/40 flex items-center justify-center font-display font-extrabold text-2xl text-white shadow-xl shadow-[#f15c24]/30">
                   KT
                 </div>
-                <div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-emerald-500 border-2 border-[#0d1424] flex items-center justify-center" title="Online & Building">
+                <div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-emerald-500 border-2 border-[#101828] flex items-center justify-center" title="Online & Building">
                   <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
                 </div>
               </div>
               <div>
                 <h2 class="text-xl font-display font-bold text-white">Krish Trivedi</h2>
-                <div class="text-xs font-mono text-[#00e5ff]">AI Application Developer</div>
-                <div class="text-xs font-mono text-[#79869c]">JG University · B.Tech (IT)</div>
+                <div class="text-xs font-mono text-[#3ee0c5]">AI Application Developer</div>
+                <div class="text-xs font-mono text-[#9aa6b8]">JG University · B.Tech (IT)</div>
               </div>
             </div>
 
-            <div class="space-y-2.5 text-xs font-mono pt-4 border-t border-white/[0.08] text-[#c9d2de]">
+            <div class="space-y-2.5 text-xs font-mono pt-4 border-t border-white/[0.08] text-[#e2e8f0]">
               <div class="flex items-center justify-between">
-                <span class="text-[#79869c]">Specialization:</span>
+                <span class="text-[#9aa6b8]">Specialization:</span>
                 <span class="text-white">Generative AI & LLM Tools</span>
               </div>
               <div class="flex items-center justify-between">
-                <span class="text-[#79869c]">Backend & APIs:</span>
-                <span class="text-[#00e5ff]">Python · Flask · OpenAI API</span>
+                <span class="text-[#9aa6b8]">Backend & APIs:</span>
+                <span class="text-[#3ee0c5]">Python · Flask · OpenAI API</span>
               </div>
               <div class="flex items-center justify-between">
-                <span class="text-[#79869c]">Production Deployments:</span>
+                <span class="text-[#9aa6b8]">Production Deployments:</span>
                 <span class="text-[#46e3b7]">Render · Next.js 15 · Supabase</span>
               </div>
               <div class="flex items-center justify-between">
-                <span class="text-[#79869c]">Infrastructure:</span>
-                <span class="text-[#8b5cf6]">AWS Certified · M365 · Sophos</span>
+                <span class="text-[#9aa6b8]">Infrastructure:</span>
+                <span class="text-[#f15c24]">AWS Certified · M365 · Sophos</span>
               </div>
               <div class="flex items-center justify-between">
-                <span class="text-[#79869c]">SIH 2025 Nominee:</span>
+                <span class="text-[#9aa6b8]">SIH 2025 Nominee:</span>
                 <span class="text-amber-400">KisanMitra AI Krishi Officer</span>
               </div>
             </div>
 
             <div class="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between">
-              <a href="ai-lab.html" class="text-xs font-mono text-[#00e5ff] hover:underline flex items-center gap-1">
+              <a href="ai-lab.html" class="text-xs font-mono text-[#3ee0c5] hover:underline flex items-center gap-1">
                 <span>Enter AI Lab Simulator</span>
                 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
               </a>
-              <a href="resume.html" class="text-xs font-mono text-[#79869c] hover:text-white">
+              <a href="resume.html" class="text-xs font-mono text-[#9aa6b8] hover:text-white">
                 View Resume →
               </a>
             </div>
@@ -363,20 +372,20 @@
       <!-- Real Metrics Bar -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-8 border-t border-white/[0.08]">
         <div class="card-architect p-4 sm:p-5 text-center">
-          <div class="text-2xl sm:text-4xl font-display font-extrabold text-[#00e5ff]">3</div>
-          <div class="text-[11px] sm:text-xs text-[#79869c] font-mono uppercase tracking-wider mt-1">Live Cloud Deployments</div>
+          <div class="text-2xl sm:text-4xl font-display font-extrabold text-[#3ee0c5]">3</div>
+          <div class="text-[11px] sm:text-xs text-[#9aa6b8] font-mono uppercase tracking-wider mt-1">Live Cloud Deployments</div>
         </div>
         <div class="card-architect p-4 sm:p-5 text-center">
-          <div class="text-2xl sm:text-4xl font-display font-extrabold text-[#8b5cf6]">6+</div>
-          <div class="text-[11px] sm:text-xs text-[#79869c] font-mono uppercase tracking-wider mt-1">AI & Full-Stack Projects</div>
+          <div class="text-2xl sm:text-4xl font-display font-extrabold text-[#f15c24]">6+</div>
+          <div class="text-[11px] sm:text-xs text-[#9aa6b8] font-mono uppercase tracking-wider mt-1">AI & Full-Stack Projects</div>
         </div>
         <div class="card-architect p-4 sm:p-5 text-center">
           <div class="text-2xl sm:text-4xl font-display font-extrabold text-[#46e3b7]">Render</div>
-          <div class="text-[11px] sm:text-xs text-[#79869c] font-mono uppercase tracking-wider mt-1">Production Web Services</div>
+          <div class="text-[11px] sm:text-xs text-[#9aa6b8] font-mono uppercase tracking-wider mt-1">Production Web Services</div>
         </div>
         <div class="card-architect p-4 sm:p-5 text-center">
           <div class="text-2xl sm:text-4xl font-display font-extrabold text-[#f15c24]">AWS</div>
-          <div class="text-[11px] sm:text-xs text-[#79869c] font-mono uppercase tracking-wider mt-1">Certified Cloud Practitioner</div>
+          <div class="text-[11px] sm:text-xs text-[#9aa6b8] font-mono uppercase tracking-wider mt-1">Certified Cloud Practitioner</div>
         </div>
       </div>
     </section>
@@ -387,9 +396,9 @@
     <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative border-t border-white/[0.08]">
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
         <div>
-          <div class="section-index text-[#00e5ff]">FEATURED DEPLOYMENTS PREVIEW</div>
+          <div class="section-index text-[#3ee0c5]">FEATURED DEPLOYMENTS PREVIEW</div>
           <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-white mt-1">Live Projects & Applications</h2>
-          <p class="text-sm text-[#79869c] mt-2">A curated preview of production-grade platforms built and deployed by Krish Trivedi.</p>
+          <p class="text-sm text-[#9aa6b8] mt-2">A curated preview of production-grade platforms built and deployed by Krish Trivedi.</p>
         </div>
         <a href="projects.html" class="btn-primary text-xs self-start md:self-auto">
           <span>Explore All Projects (Catalog & Case Studies)</span>
@@ -405,7 +414,7 @@
             <img src="img/projects/portfolio-preview.jpg" alt="Krish Trivedi Personal Portfolio Preview" class="live-thumb-img" loading="lazy">
             <div class="live-thumb-overlay"></div>
             <div class="absolute top-3 left-3 z-10">
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#05070e]/80 text-[#00e5ff] border border-[#00e5ff]/40">AI / Web</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#070b14]/80 text-[#3ee0c5] border border-[#f15c24]/40">AI / Web</span>
             </div>
             <div class="absolute top-3 right-3 z-10">
               <span class="live-pulse-badge text-[9px] px-2 py-0.5"><span class="live-pulse-dot"></span>LIVE</span>
@@ -413,15 +422,15 @@
           </div>
           <div class="p-5 flex flex-col justify-between flex-grow space-y-4">
             <div>
-              <h3 class="text-lg font-display font-bold text-white group-hover:text-[#00e5ff] transition-colors">Krish Trivedi – Personal Portfolio</h3>
-              <p class="text-xs text-[#79869c] mt-1.5 leading-relaxed line-clamp-2">Interactive AI Developer hub featuring neural particle canvas, simulated lab terminal, and multi-page routing.</p>
+              <h3 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors">Krish Trivedi – Personal Portfolio</h3>
+              <p class="text-xs text-[#9aa6b8] mt-1.5 leading-relaxed line-clamp-2">Interactive AI Developer hub featuring neural particle canvas, simulated lab terminal, and multi-page routing.</p>
             </div>
             <div class="flex items-center justify-between pt-3 border-t border-white/[0.08]">
-              <a href="https://krishtrivedi.in/" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-[#00e5ff] hover:underline flex items-center gap-1">
+              <a href="https://krishtrivedi.in/" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-[#3ee0c5] hover:underline flex items-center gap-1">
                 <span>Live Demo (krishtrivedi.in)</span>
                 <i data-lucide="external-link" class="w-3 h-3"></i>
               </a>
-              <a href="projects.html" class="text-xs font-mono text-[#79869c] hover:text-white">Case Study →</a>
+              <a href="projects.html" class="text-xs font-mono text-[#9aa6b8] hover:text-white">Case Study →</a>
             </div>
           </div>
         </div>
@@ -432,7 +441,7 @@
             <img src="img/projects/whiteswan-preview.jpg" alt="White Swan Holidays Website Preview" class="live-thumb-img" loading="lazy">
             <div class="live-thumb-overlay"></div>
             <div class="absolute top-3 left-3 z-10">
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#05070e]/80 text-[#f15c24] border border-[#f15c24]/40">Web App</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#070b14]/80 text-[#f15c24] border border-[#f15c24]/40">Web App</span>
             </div>
             <div class="absolute top-3 right-3 z-10">
               <span class="live-pulse-badge text-[9px] px-2 py-0.5"><span class="live-pulse-dot"></span>LIVE</span>
@@ -441,14 +450,14 @@
           <div class="p-5 flex flex-col justify-between flex-grow space-y-4">
             <div>
               <h3 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors">White Swan Holidays</h3>
-              <p class="text-xs text-[#79869c] mt-1.5 leading-relaxed line-clamp-2">Tourism web platform with dynamic package portfolios, WhatsApp lead dispatch, and Render cloud deployment.</p>
+              <p class="text-xs text-[#9aa6b8] mt-1.5 leading-relaxed line-clamp-2">Tourism web platform with dynamic package portfolios, WhatsApp lead dispatch, and Render cloud deployment.</p>
             </div>
             <div class="flex items-center justify-between pt-3 border-t border-white/[0.08]">
               <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-[#f15c24] hover:underline flex items-center gap-1">
                 <span>Live Demo</span>
                 <i data-lucide="external-link" class="w-3 h-3"></i>
               </a>
-              <a href="projects/white-swan.html" class="text-xs font-mono text-[#79869c] hover:text-white">Case Study →</a>
+              <a href="projects/white-swan.html" class="text-xs font-mono text-[#9aa6b8] hover:text-white">Case Study →</a>
             </div>
           </div>
         </div>
@@ -459,7 +468,7 @@
             <img src="img/projects/hpad-preview.jpg" alt="HPAD Travel Management System Preview" class="live-thumb-img" loading="lazy">
             <div class="live-thumb-overlay"></div>
             <div class="absolute top-3 left-3 z-10">
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#05070e]/80 text-[#46e3b7] border border-[#46e3b7]/40">Business App</span>
+              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#070b14]/80 text-[#46e3b7] border border-[#46e3b7]/40">Business App</span>
             </div>
             <div class="absolute top-3 right-3 z-10">
               <span class="live-pulse-badge text-[9px] px-2 py-0.5"><span class="live-pulse-dot"></span>LIVE</span>
@@ -468,14 +477,14 @@
           <div class="p-5 flex flex-col justify-between flex-grow space-y-4">
             <div>
               <h3 class="text-lg font-display font-bold text-white group-hover:text-[#46e3b7] transition-colors">HPAD Travel System</h3>
-              <p class="text-xs text-[#79869c] mt-1.5 leading-relaxed line-clamp-2">Enterprise Next.js 15 platform with Supabase PostgreSQL, multi-role authorization, and PDF reporting.</p>
+              <p class="text-xs text-[#9aa6b8] mt-1.5 leading-relaxed line-clamp-2">Enterprise Next.js 15 platform with Supabase PostgreSQL, multi-role authorization, and PDF reporting.</p>
             </div>
             <div class="flex items-center justify-between pt-3 border-t border-white/[0.08]">
               <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-[#46e3b7] hover:underline flex items-center gap-1">
                 <span>Live Demo</span>
                 <i data-lucide="external-link" class="w-3 h-3"></i>
               </a>
-              <a href="projects/hpad-travel.html" class="text-xs font-mono text-[#79869c] hover:text-white">Case Study →</a>
+              <a href="projects/hpad-travel.html" class="text-xs font-mono text-[#9aa6b8] hover:text-white">Case Study →</a>
             </div>
           </div>
         </div>
@@ -493,33 +502,33 @@
         <div class="card-architect p-7 flex flex-col justify-between">
           <div class="space-y-4">
             <div class="flex items-center justify-between">
-              <div class="section-index text-[#00e5ff]">EXPERTISE PREVIEW</div>
-              <a href="skills.html" class="text-xs font-mono text-[#00e5ff] hover:underline flex items-center gap-1">
+              <div class="section-index text-[#3ee0c5]">EXPERTISE PREVIEW</div>
+              <a href="skills.html" class="text-xs font-mono text-[#3ee0c5] hover:underline flex items-center gap-1">
                 <span>View Full Matrix</span>
                 <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
               </a>
             </div>
             <h3 class="text-2xl font-display font-bold text-white">Technical Arsenal Overview</h3>
-            <p class="text-xs text-[#79869c] leading-relaxed">
+            <p class="text-xs text-[#9aa6b8] leading-relaxed">
               Specializing in the intersection of Generative AI, Python engineering, enterprise cloud infrastructure, and automated business workflows.
             </p>
 
             <div class="grid grid-cols-2 gap-3 pt-3">
               <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-                <div class="text-xs font-mono text-[#00e5ff] font-semibold mb-1">AI & Machine Learning</div>
-                <div class="text-[11px] text-[#79869c]">Python · OpenAI API · Prompt Engineering · Scikit-learn · KisanMitra SIH</div>
+                <div class="text-xs font-mono text-[#3ee0c5] font-semibold mb-1">AI & Machine Learning</div>
+                <div class="text-[11px] text-[#9aa6b8]">Python · OpenAI API · Prompt Engineering · Scikit-learn · KisanMitra SIH</div>
               </div>
               <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
                 <div class="text-xs font-mono text-[#46e3b7] font-semibold mb-1">Full-Stack & Cloud</div>
-                <div class="text-[11px] text-[#79869c]">Next.js 15 · React 19 · Flask · Supabase · Render · GitHub CI/CD</div>
+                <div class="text-[11px] text-[#9aa6b8]">Next.js 15 · React 19 · Flask · Supabase · Render · GitHub CI/CD</div>
               </div>
               <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-                <div class="text-xs font-mono text-[#8b5cf6] font-semibold mb-1">Cloud Infrastructure</div>
-                <div class="text-[11px] text-[#79869c]">AWS Certified Cloud Practitioner · M365 Exchange · Active Directory</div>
+                <div class="text-xs font-mono text-[#f15c24] font-semibold mb-1">Cloud Infrastructure</div>
+                <div class="text-[11px] text-[#9aa6b8]">AWS Certified Cloud Practitioner · M365 Exchange · Active Directory</div>
               </div>
               <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
                 <div class="text-xs font-mono text-[#f15c24] font-semibold mb-1">Systems & Automation</div>
-                <div class="text-[11px] text-[#79869c]">Sophos Firewall · Veeam Backup · Power Automate · Web Scraping</div>
+                <div class="text-[11px] text-[#9aa6b8]">Sophos Firewall · Veeam Backup · Power Automate · Web Scraping</div>
               </div>
             </div>
           </div>
@@ -543,7 +552,7 @@
               </a>
             </div>
             <h3 class="text-2xl font-display font-bold text-white">Career Trajectory Snapshot</h3>
-            <p class="text-xs text-[#79869c] leading-relaxed">
+            <p class="text-xs text-[#9aa6b8] leading-relaxed">
               Demonstrated track record spanning technology management, production software deployments, and enterprise systems engineering.
             </p>
 
@@ -553,21 +562,21 @@
                   <div class="text-white font-bold">White Swan Holidays</div>
                   <div class="text-[#f15c24] text-[11px]">Technology, Business Development & Operations</div>
                 </div>
-                <span class="text-[#79869c] text-[10px]">2023 – Present</span>
+                <span class="text-[#9aa6b8] text-[10px]">2023 – Present</span>
               </div>
               <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-start justify-between">
                 <div>
                   <div class="text-white font-bold">Arterius Solutions</div>
-                  <div class="text-[#00e5ff] text-[11px]">Technical Engineer (IT Systems & Security)</div>
+                  <div class="text-[#3ee0c5] text-[11px]">Technical Engineer (IT Systems & Security)</div>
                 </div>
-                <span class="text-[#79869c] text-[10px]">2022 – 2023</span>
+                <span class="text-[#9aa6b8] text-[10px]">2022 – 2023</span>
               </div>
               <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-start justify-between">
                 <div>
                   <div class="text-white font-bold">Smart India Hackathon (SIH 2025)</div>
                   <div class="text-amber-400 text-[11px]">Lead AI Project Developer – KisanMitra</div>
                 </div>
-                <span class="text-[#79869c] text-[10px]">Nominee Finalist</span>
+                <span class="text-[#9aa6b8] text-[10px]">Nominee Finalist</span>
               </div>
             </div>
           </div>
@@ -588,29 +597,29 @@
          ===================================================================== -->
     <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative border-t border-white/[0.08]">
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <div class="section-index text-[#00e5ff]">INDEPENDENT ARCHITECTURE</div>
+        <div class="section-index text-[#3ee0c5]">INDEPENDENT ARCHITECTURE</div>
         <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-white mt-1">Explore Every Dedicated Page</h2>
-        <p class="text-sm text-[#79869c] mt-2">Every major section is an independent webpage with its own URL, layout, and specialized content.</p>
+        <p class="text-sm text-[#9aa6b8] mt-2">Every major section is an independent webpage with its own URL, layout, and specialized content.</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         
-        <a href="about.html" class="card-architect p-6 group block hover:border-[#00e5ff] transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#00e5ff]/10 text-[#00e5ff] flex items-center justify-center mb-3">
+        <a href="about.html" class="card-architect p-6 group block hover:border-[#f15c24] transition-all">
+          <div class="w-9 h-9 rounded-xl bg-[#f15c24]/10 text-[#3ee0c5] flex items-center justify-center mb-3">
             <i data-lucide="user" class="w-4 h-4"></i>
           </div>
-          <div class="text-[11px] font-mono text-[#00e5ff] uppercase tracking-wider mb-1">/about</div>
-          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#00e5ff] transition-colors mb-1">About Me</h3>
-          <p class="text-xs text-[#79869c]">Biography, development philosophy, and what sets my AI approach apart.</p>
+          <div class="text-[11px] font-mono text-[#3ee0c5] uppercase tracking-wider mb-1">/about</div>
+          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors mb-1">About Me</h3>
+          <p class="text-xs text-[#9aa6b8]">Biography, development philosophy, and what sets my AI approach apart.</p>
         </a>
 
-        <a href="ai-lab.html" class="card-architect p-6 group block hover:border-[#8b5cf6] transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#8b5cf6]/10 text-[#8b5cf6] flex items-center justify-center mb-3">
+        <a href="ai-lab.html" class="card-architect p-6 group block hover:border-[#f15c24] transition-all">
+          <div class="w-9 h-9 rounded-xl bg-[#3ee0c5]/08 text-[#f15c24] flex items-center justify-center mb-3">
             <i data-lucide="terminal" class="w-4 h-4"></i>
           </div>
-          <div class="text-[11px] font-mono text-[#8b5cf6] uppercase tracking-wider mb-1">/ai-lab</div>
-          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#8b5cf6] transition-colors mb-1">AI Laboratory</h3>
-          <p class="text-xs text-[#79869c]">Interactive terminal simulator, prompt guardrails, and crop pathology engines.</p>
+          <div class="text-[11px] font-mono text-[#f15c24] uppercase tracking-wider mb-1">/ai-lab</div>
+          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors mb-1">AI Laboratory</h3>
+          <p class="text-xs text-[#9aa6b8]">Interactive terminal simulator, prompt guardrails, and crop pathology engines.</p>
         </a>
 
         <a href="projects.html" class="card-architect p-6 group block hover:border-[#46e3b7] transition-all">
@@ -619,16 +628,16 @@
           </div>
           <div class="text-[11px] font-mono text-[#46e3b7] uppercase tracking-wider mb-1">/projects</div>
           <h3 class="text-lg font-display font-bold text-white group-hover:text-[#46e3b7] transition-colors mb-1">Projects</h3>
-          <p class="text-xs text-[#79869c]">Full projects catalog with live category filters, screenshots, and case study links.</p>
+          <p class="text-xs text-[#9aa6b8]">Full projects catalog with live category filters, screenshots, and case study links.</p>
         </a>
 
-        <a href="skills.html" class="card-architect p-6 group block hover:border-[#00e5ff] transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#00e5ff]/10 text-[#00e5ff] flex items-center justify-center mb-3">
+        <a href="skills.html" class="card-architect p-6 group block hover:border-[#f15c24] transition-all">
+          <div class="w-9 h-9 rounded-xl bg-[#f15c24]/10 text-[#3ee0c5] flex items-center justify-center mb-3">
             <i data-lucide="cpu" class="w-4 h-4"></i>
           </div>
-          <div class="text-[11px] font-mono text-[#00e5ff] uppercase tracking-wider mb-1">/skills</div>
-          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#00e5ff] transition-colors mb-1">Skills & Technologies</h3>
-          <p class="text-xs text-[#79869c]">AI & ML, Web Development, Cloud & Infrastructure, and Automation.</p>
+          <div class="text-[11px] font-mono text-[#3ee0c5] uppercase tracking-wider mb-1">/skills</div>
+          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors mb-1">Skills & Technologies</h3>
+          <p class="text-xs text-[#9aa6b8]">AI & ML, Web Development, Cloud & Infrastructure, and Automation.</p>
         </a>
 
         <a href="experience.html" class="card-architect p-6 group block hover:border-[#f15c24] transition-all">
@@ -637,25 +646,25 @@
           </div>
           <div class="text-[11px] font-mono text-[#f15c24] uppercase tracking-wider mb-1">/experience</div>
           <h3 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors mb-1">Professional Experience</h3>
-          <p class="text-xs text-[#79869c]">Elegant vertical career timeline from White Swan Holidays and Arterius.</p>
+          <p class="text-xs text-[#9aa6b8]">Elegant vertical career timeline from White Swan Holidays and Arterius.</p>
         </a>
 
-        <a href="services.html" class="card-architect p-6 group block hover:border-[#00e5ff] transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#00e5ff]/10 text-[#00e5ff] flex items-center justify-center mb-3">
+        <a href="services.html" class="card-architect p-6 group block hover:border-[#f15c24] transition-all">
+          <div class="w-9 h-9 rounded-xl bg-[#f15c24]/10 text-[#3ee0c5] flex items-center justify-center mb-3">
             <i data-lucide="sparkles" class="w-4 h-4"></i>
           </div>
-          <div class="text-[11px] font-mono text-[#00e5ff] uppercase tracking-wider mb-1">/services</div>
-          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#00e5ff] transition-colors mb-1">Services</h3>
-          <p class="text-xs text-[#79869c]">End-to-end AI applications, API integration, and IT infrastructure consulting.</p>
+          <div class="text-[11px] font-mono text-[#3ee0c5] uppercase tracking-wider mb-1">/services</div>
+          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors mb-1">Services</h3>
+          <p class="text-xs text-[#9aa6b8]">End-to-end AI applications, API integration, and IT infrastructure consulting.</p>
         </a>
 
-        <a href="education.html" class="card-architect p-6 group block hover:border-[#8b5cf6] transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#8b5cf6]/10 text-[#8b5cf6] flex items-center justify-center mb-3">
+        <a href="education.html" class="card-architect p-6 group block hover:border-[#f15c24] transition-all">
+          <div class="w-9 h-9 rounded-xl bg-[#3ee0c5]/08 text-[#f15c24] flex items-center justify-center mb-3">
             <i data-lucide="graduation-cap" class="w-4 h-4"></i>
           </div>
-          <div class="text-[11px] font-mono text-[#8b5cf6] uppercase tracking-wider mb-1">/education</div>
-          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#8b5cf6] transition-colors mb-1">Education & Certifications</h3>
-          <p class="text-xs text-[#79869c]">JG University B.Tech, L.J University Diploma, and AWS Certification.</p>
+          <div class="text-[11px] font-mono text-[#f15c24] uppercase tracking-wider mb-1">/education</div>
+          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors mb-1">Education & Certifications</h3>
+          <p class="text-xs text-[#9aa6b8]">JG University B.Tech, L.J University Diploma, and AWS Certification.</p>
         </a>
 
         <a href="resume.html" class="card-architect p-6 group block hover:border-[#46e3b7] transition-all">
@@ -664,7 +673,7 @@
           </div>
           <div class="text-[11px] font-mono text-[#46e3b7] uppercase tracking-wider mb-1">/resume</div>
           <h3 class="text-lg font-display font-bold text-white group-hover:text-[#46e3b7] transition-colors mb-1">Resume</h3>
-          <p class="text-xs text-[#79869c]">Executive CV document, print formatting, and verified PDF download.</p>
+          <p class="text-xs text-[#9aa6b8]">Executive CV document, print formatting, and verified PDF download.</p>
         </a>
 
         <a href="contact.html" class="card-architect p-6 group block hover:border-[#10b981] transition-all">
@@ -673,7 +682,7 @@
           </div>
           <div class="text-[11px] font-mono text-[#10b981] uppercase tracking-wider mb-1">/contact</div>
           <h3 class="text-lg font-display font-bold text-white group-hover:text-[#10b981] transition-colors mb-1">Contact</h3>
-          <p class="text-xs text-[#79869c]">Validated message dispatch form, email, WhatsApp, and phone coordinates.</p>
+          <p class="text-xs text-[#9aa6b8]">Validated message dispatch form, email, WhatsApp, and phone coordinates.</p>
         </a>
 
       </div>
@@ -683,18 +692,18 @@
          CONTACT INFORMATION PREVIEW (SECTION 3 SPEC)
          ===================================================================== -->
     <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative border-t border-white/[0.08]">
-      <div class="card-architect p-8 sm:p-12 border-[#00e5ff]/30 relative overflow-hidden">
+      <div class="card-architect p-8 sm:p-12 border-[#f15c24]/30 relative overflow-hidden">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
           <div class="md:col-span-8 space-y-3">
-            <div class="section-index text-[#00e5ff]">INITIATE COMMUNICATION</div>
+            <div class="section-index text-[#3ee0c5]">INITIATE COMMUNICATION</div>
             <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-white">Let’s Build Something Intelligent.</h2>
-            <p class="text-sm text-[#c9d2de] leading-relaxed max-w-xl">
+            <p class="text-sm text-[#e2e8f0] leading-relaxed max-w-xl">
               Have an AI project, an automation challenge, or a full-stack engineering requirement? Let’s connect and transform your idea into a functional system.
             </p>
-            <div class="flex flex-wrap items-center gap-4 pt-2 text-xs font-mono text-[#79869c]">
-              <span>Email: <a href="mailto:krish.trivedi28@gmail.com" class="text-white hover:text-[#00e5ff]">krish.trivedi28@gmail.com</a></span>
+            <div class="flex flex-wrap items-center gap-4 pt-2 text-xs font-mono text-[#9aa6b8]">
+              <span>Email: <a href="mailto:krish.trivedi28@gmail.com" class="text-white hover:text-[#3ee0c5]">krish.trivedi28@gmail.com</a></span>
               <span>·</span>
-              <span>Phone: <a href="tel:+919428588528" class="text-white hover:text-[#00e5ff]">+91-9428588528</a></span>
+              <span>Phone: <a href="tel:+919428588528" class="text-white hover:text-[#3ee0c5]">+91-9428588528</a></span>
             </div>
           </div>
           <div class="md:col-span-4 flex flex-col sm:flex-row md:flex-col gap-3 justify-center">
@@ -716,20 +725,20 @@
   <!-- =====================================================================
        GLOBAL FOOTER
        ===================================================================== -->
-  <footer class="border-t border-white/[0.08] bg-[#05070e] relative z-10 py-12">
+  <footer class="border-t border-white/[0.08] bg-[#070b14] relative z-10 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
         
         <!-- Col 1: Bio -->
         <div class="space-y-3 md:col-span-1">
           <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#00e5ff] to-[#8b5cf6] text-[#05070e] font-display font-black flex items-center justify-center text-xs">KT</div>
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f15c24] to-[#ff7a45] text-[#070b14] font-display font-black flex items-center justify-center text-xs">KT</div>
             <span class="font-display font-bold text-white text-base">KRISH TRIVEDI</span>
           </div>
-          <p class="text-xs text-[#79869c] leading-relaxed">
+          <p class="text-xs text-[#9aa6b8] leading-relaxed">
             AI Developer. Building intelligent applications, AI-powered solutions, and automation systems that solve real-world business problems.
           </p>
-          <div class="text-xs font-mono text-[#00e5ff]">
+          <div class="text-xs font-mono text-[#3ee0c5]">
             Ahmedabad, Gujarat, India
           </div>
         </div>
@@ -737,21 +746,21 @@
         <!-- Col 2: Navigation Links -->
         <div class="space-y-2 text-xs font-mono">
           <div class="text-white font-semibold uppercase tracking-wider mb-2">Pages 01–05</div>
-          <div><a href="index.html" class="text-[#00e5ff]">01 // Home</a></div>
-          <div><a href="about.html" class="text-[#79869c] hover:text-[#00e5ff]">02 // About Me</a></div>
-          <div><a href="ai-lab.html" class="text-[#79869c] hover:text-[#00e5ff]">03 // AI Laboratory</a></div>
-          <div><a href="projects.html" class="text-[#79869c] hover:text-[#00e5ff]">04 // Projects</a></div>
-          <div><a href="skills.html" class="text-[#79869c] hover:text-[#00e5ff]">05 // Skills & Tech</a></div>
+          <div><a href="index.html" class="text-[#3ee0c5]">01 // Home</a></div>
+          <div><a href="about.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">02 // About Me</a></div>
+          <div><a href="ai-lab.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">03 // AI Laboratory</a></div>
+          <div><a href="projects.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">04 // Projects</a></div>
+          <div><a href="skills.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">05 // Skills & Tech</a></div>
         </div>
 
         <!-- Col 3: More Pages -->
         <div class="space-y-2 text-xs font-mono">
           <div class="text-white font-semibold uppercase tracking-wider mb-2">Pages 06–10</div>
-          <div><a href="experience.html" class="text-[#79869c] hover:text-[#00e5ff]">06 // Experience</a></div>
-          <div><a href="services.html" class="text-[#79869c] hover:text-[#00e5ff]">07 // Services</a></div>
-          <div><a href="education.html" class="text-[#79869c] hover:text-[#00e5ff]">08 // Education</a></div>
-          <div><a href="resume.html" class="text-[#79869c] hover:text-[#00e5ff]">09 // Resume</a></div>
-          <div><a href="contact.html" class="text-[#79869c] hover:text-[#00e5ff]">10 // Contact</a></div>
+          <div><a href="experience.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">06 // Experience</a></div>
+          <div><a href="services.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">07 // Services</a></div>
+          <div><a href="education.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">08 // Education</a></div>
+          <div><a href="resume.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">09 // Resume</a></div>
+          <div><a href="contact.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">10 // Contact</a></div>
         </div>
 
         <!-- Col 4: Verified Deployments & Social -->
@@ -759,13 +768,13 @@
           <div class="text-white font-semibold uppercase tracking-wider mb-2">Production Deployments</div>
           <div><a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="text-[#46e3b7] hover:underline flex items-center gap-1.5"><i data-lucide="external-link" class="w-3.5 h-3.5"></i><span>HPAD Travel on Render</span></a></div>
           <div><a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="text-[#f15c24] hover:underline flex items-center gap-1.5"><i data-lucide="external-link" class="w-3.5 h-3.5"></i><span>White Swan on Render</span></a></div>
-          <div><a href="https://krishtrivedi.in/" target="_blank" rel="noopener noreferrer" class="text-[#00e5ff] hover:underline flex items-center gap-1.5"><i data-lucide="external-link" class="w-3.5 h-3.5"></i><span>krishtrivedi.in (Personal Domain)</span></a></div>
-          <div><a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="text-[#c9d2de] hover:text-white flex items-center gap-1.5"><i data-lucide="github" class="w-3.5 h-3.5"></i><span>github.com/Krishhtrivedi</span></a></div>
+          <div><a href="https://krishtrivedi.in/" target="_blank" rel="noopener noreferrer" class="text-[#3ee0c5] hover:underline flex items-center gap-1.5"><i data-lucide="external-link" class="w-3.5 h-3.5"></i><span>krishtrivedi.in (Personal Domain)</span></a></div>
+          <div><a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="text-[#e2e8f0] hover:text-white flex items-center gap-1.5"><i data-lucide="github" class="w-3.5 h-3.5"></i><span>github.com/Krishhtrivedi</span></a></div>
         </div>
 
       </div>
 
-      <div class="pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#79869c] gap-4">
+      <div class="pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#9aa6b8] gap-4">
         <div>© 2026 Krish Trivedi. Handcrafted with modern web standards.</div>
         <div class="flex items-center gap-4">
           <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white">krish.trivedi28@gmail.com</a>
@@ -779,7 +788,7 @@
   <!-- Toast Notification Container -->
   <div id="toastNotification" class="toast-box hidden">
     <div class="flex items-center gap-2.5 text-xs font-mono text-white">
-      <i data-lucide="check" class="w-4 h-4 text-[#00e5ff]"></i>
+      <i data-lucide="check" class="w-4 h-4 text-[#3ee0c5]"></i>
       <span id="toastMessage">Notification</span>
     </div>
   </div>

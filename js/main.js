@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         this.vx = (Math.random() - 0.5) * 0.7;
         this.vy = (Math.random() - 0.5) * 0.7;
         this.radius = Math.random() * 1.8 + 1;
-        this.color = Math.random() > 0.4 ? '#00e5ff' : '#8b5cf6';
+        this.color = Math.random() > 0.4 ? '#f15c24' : '#3ee0c5';
       }
 
       update() {
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
             const alpha = (1 - dist / 110) * 0.22;
-            ctx.strokeStyle = `rgba(0, 229, 255, ${alpha})`;
+            ctx.strokeStyle = `rgba(241, 92, 36, ${alpha})`;
             ctx.lineWidth = 0.8;
             ctx.stroke();
           }
@@ -431,10 +431,10 @@ Input: "Need automated document categorization and M365 Outlook mail flow rules"
           card.href = repo.html_url;
           card.target = '_blank';
           card.rel = 'noopener noreferrer';
-          card.className = 'card-architect p-6 block group hover:border-[#00e5ff] transition-all';
+          card.className = 'card-architect p-6 block group hover:border-[#f15c24] transition-all';
           card.innerHTML = `
             <div class="flex items-center justify-between mb-3">
-              <span class="text-xs font-mono text-[#00e5ff] flex items-center gap-1.5">
+              <span class="text-xs font-mono text-[#3ee0c5] flex items-center gap-1.5">
                 <i data-lucide="git-branch" class="w-3.5 h-3.5"></i>
                 <span>${repo.language || 'Python'}</span>
               </span>
@@ -443,11 +443,11 @@ Input: "Need automated document categorization and M365 Outlook mail flow rules"
                 <span>${repo.stargazers_count}</span>
               </span>
             </div>
-            <h4 class="text-lg font-display font-bold text-white group-hover:text-[#00e5ff] transition-colors mb-2">${repo.name}</h4>
-            <p class="text-xs text-[#79869c] leading-relaxed mb-4 line-clamp-2">${repo.description || 'AI & systems engineering repository.'}</p>
-            <div class="flex items-center justify-between text-[11px] font-mono text-[#445166] pt-3 border-t border-white/[0.06]">
+            <h4 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors mb-2">${repo.name}</h4>
+            <p class="text-xs text-[#9aa6b8] leading-relaxed mb-4 line-clamp-2">${repo.description || 'AI & systems engineering repository.'}</p>
+            <div class="flex items-center justify-between text-[11px] font-mono text-[#64748b] pt-3 border-t border-white/[0.06]">
               <span>Updated: ${new Date(repo.updated_at).toLocaleDateString()}</span>
-              <span class="text-[#00e5ff] flex items-center gap-1 group-hover:translate-x-1 transition-transform">Explore →</span>
+              <span class="text-[#f15c24] flex items-center gap-1 group-hover:translate-x-1 transition-transform">Explore →</span>
             </div>
           `;
           githubContainer.appendChild(card);
