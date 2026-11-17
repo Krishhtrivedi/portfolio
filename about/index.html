@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Krish Trivedi — AI Developer | Background & Journey</title>
+  <meta name="description" content="Biography, development journey, technical background, and architectural manifesto of Krish Trivedi — AI Developer & Technology Enthusiast.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-[#05070e] text-[#c9d2de] font-sans selection:bg-[#00e5ff] selection:text-[#05070e] transition-colors duration-300 relative">
+
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute inset-0 blueprint-grid opacity-70"></div>
+    <div class="absolute inset-0 blueprint-radial"></div>
+    <div class="absolute -top-36 right-1/4 w-[550px] h-[550px] bg-[#00e5ff]/10 rounded-full blur-[150px]"></div>
+  </div>
+  <canvas id="neural-canvas" class="neural-canvas"></canvas>
+
+  <aside class="side-rail" aria-hidden="true">
+    <div class="side-rail-track"><div class="side-rail-thumb"></div></div>
+    <div class="side-rail-text">02 · ABOUT</div>
+  </aside>
+
+  <!-- FULLSCREEN OVERLAY MENU -->
+  <div id="fullscreenMenu" class="fullscreen-menu">
+    <div class="max-w-4xl mx-auto w-full flex flex-col justify-between h-full">
+      <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00e5ff] to-[#8b5cf6] text-[#05070e] flex items-center justify-center font-display font-black text-sm shadow-lg shadow-[#00e5ff]/20">KT</div>
+          <span class="font-display font-bold text-white text-base tracking-wide">PORTFOLIO INDEX</span>
+        </div>
+        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#79869c] hover:text-white rounded-full bg-white/[0.05] transition-colors">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <nav class="py-6 space-y-1">
+        <a href="../index.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>01 HOME</span>
+          <span class="menu-number">MAIN HUB</span>
+        </a>
+        <a href="../about.html" class="menu-item group text-[#00e5ff]" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>02 ABOUT ME</span>
+          <span class="menu-number">BIOGRAPHY & JOURNEY</span>
+        </a>
+        <a href="../ai-lab.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>03 AI LAB</span>
+          <span class="menu-number">INTELLIGENT EXPERIMENTS</span>
+        </a>
+        <a href="../projects.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>04 PROJECTS</span>
+          <span class="menu-number">LIVE DEPLOYMENTS</span>
+        </a>
+        <a href="../skills.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>05 SKILLS</span>
+          <span class="menu-number">TECHNICAL ARSENAL</span>
+        </a>
+        <a href="../experience.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>06 EXPERIENCE</span>
+          <span class="menu-number">CAREER TIMELINE</span>
+        </a>
+        <a href="../services.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>07 SERVICES</span>
+          <span class="menu-number">SOLUTIONS OFFERED</span>
+        </a>
+        <a href="../education.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>08 EDUCATION</span>
+          <span class="menu-number">ACADEMICS & AWS</span>
+        </a>
+        <a href="../resume.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>09 RESUME</span>
+          <span class="menu-number">CURRICULUM VITAE</span>
+        </a>
+        <a href="../contact.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>10 CONTACT</span>
+          <span class="menu-number">LET'S CONNECT</span>
+        </a>
+      </nav>
+
+      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#79869c]">
+        <span>KRISH TRIVEDI · AHMEDABAD, GUJARAT, INDIA</span>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white">GITHUB</a>
+          <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#46e3b7]">HPAD APP</a>
+          <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#f15c24]">WHITE SWAN RENDER</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#05070e]/85 border-b border-white/[0.08]" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00e5ff] to-[#8b5cf6] flex items-center justify-center font-display font-extrabold text-[#05070e] text-base shadow-lg shadow-[#00e5ff]/20">KT</div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-white text-base">KRISH TRIVEDI</span>
+          <span class="text-[11px] text-[#00e5ff] font-mono">02 // ABOUT ME</span>
+        </div>
+      </a>
+
+      <nav class="hidden xl:flex items-center gap-1">
+        <a href="../index.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Home</a>
+        <a href="../about.html" class="nav-link-item active px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#00e5ff] rounded-full">About</a>
+        <a href="../ai-lab.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">AI Lab</a>
+        <a href="../projects.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Projects</a>
+        <a href="../skills.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Skills</a>
+        <a href="../experience.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Experience</a>
+        <a href="../services.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Services</a>
+        <a href="../education.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Education</a>
+        <a href="../resume.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Resume</a>
+        <a href="../contact.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-9 h-9 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-[#c9d2de] hover:text-white border border-white/[0.08] flex items-center justify-center transition-colors">
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-300"></i>
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
+        </button>
+        <a href="../contact.html" class="btn-primary text-xs py-2 px-3.5 sm:px-4">Let's Connect</a>
+        <button id="menuToggleBtn" aria-label="Open Fullscreen Menu" class="p-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1] transition-colors">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Page Header -->
+    <div class="mb-14">
+      <div class="section-index text-[#00e5ff]">02 — BIOGRAPHICAL MANIFESTO</div>
+      <h1 class="text-4xl sm:text-6xl font-display font-extrabold text-white mt-2">About Krish Trivedi</h1>
+      <p class="text-sm font-mono text-[#00e5ff] uppercase tracking-wider mt-1">AI Developer · Systems Thinker · Full-Stack Builder</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <!-- Left Editorial Column (7 cols) -->
+      <div class="lg:col-span-7 space-y-8">
+        
+        <!-- Professional Introduction -->
+        <div class="card-architect p-8 space-y-5 text-base sm:text-lg leading-relaxed text-[#c9d2de]">
+          <h2 class="text-2xl font-display font-bold text-white mb-2">Professional Introduction</h2>
+          <p>
+            I’m <strong class="text-white font-semibold">Krish Trivedi</strong>, an AI Developer and Information Technology professional based in <span class="text-white">Ahmedabad, India</span>. My engineering journey is defined by a deep curiosity for building practical, autonomous applications and bridging the gap between cutting-edge Artificial Intelligence and enterprise software systems.
+          </p>
+          <p>
+            I am currently pursuing my <strong class="text-white font-semibold">B.Tech in Information Technology</strong> at <span class="text-[#00e5ff] font-medium">JG University</span>, after graduating with distinction in my <strong class="text-white font-semibold">Diploma in Information Technology</strong> (7.2 CGPA) from <span class="text-white">L.J University</span>.
+          </p>
+          <div class="border-l-2 border-[#00e5ff] pl-4 py-1 text-white font-medium italic">
+            “True software engineering is not merely writing code; it is crafting reliable, intelligent architectures that eliminate friction and solve tangible human challenges.”
+          </div>
+        </div>
+
+        <!-- Development Journey -->
+        <div class="card-architect p-8 space-y-6">
+          <div class="flex items-center gap-2">
+            <i data-lucide="compass" class="w-5 h-5 text-[#00e5ff]"></i>
+            <h2 class="text-2xl font-display font-bold text-white">Development Journey</h2>
+          </div>
+          
+          <div class="timeline-container space-y-8 text-sm">
+            <div class="timeline-line"></div>
+            
+            <div class="relative">
+              <div class="timeline-node"><div class="timeline-node-inner"></div></div>
+              <div class="text-xs font-mono text-[#00e5ff] font-semibold">2023 – PRESENT</div>
+              <div class="text-base font-display font-bold text-white mt-0.5">Technology, Operations & Full-Stack Cloud at White Swan Holidays</div>
+              <p class="text-[#79869c] mt-2 leading-relaxed">
+                Directing digital systems, architecting custom multi-page booking applications, optimizing customer lead pipelines with WhatsApp business integration, and deploying continuous production builds on Render.
+              </p>
+            </div>
+
+            <div class="relative">
+              <div class="timeline-node"><div class="timeline-node-inner"></div></div>
+              <div class="text-xs font-mono text-amber-400 font-semibold">2024 – 2025</div>
+              <div class="text-base font-display font-bold text-white mt-0.5">Smart India Hackathon (SIH 2025) Finalist — KisanMitra</div>
+              <p class="text-[#79869c] mt-2 leading-relaxed">
+                Spearheaded the development of KisanMitra, an AI agricultural advisory assistant integrating crop leaf pathology classification via deep learning, multilingual dialect translation, and voice response systems.
+              </p>
+            </div>
+
+            <div class="relative">
+              <div class="timeline-node"><div class="timeline-node-inner"></div></div>
+              <div class="text-xs font-mono text-[#8b5cf6] font-semibold">2022 – 2023</div>
+              <div class="text-base font-display font-bold text-white mt-0.5">Technical Engineer at Arterius Solutions</div>
+              <p class="text-[#79869c] mt-2 leading-relaxed">
+                Managed critical IT infrastructure: Microsoft 365 Exchange mail flow rules, Active Directory domain controllers, Sophos perimeter network firewalls, and automated Veeam backup disaster recovery.
+              </p>
+            </div>
+
+            <div class="relative">
+              <div class="timeline-node"><div class="timeline-node-inner"></div></div>
+              <div class="text-xs font-mono text-[#46e3b7] font-semibold">FOUNDATIONAL ROOTS</div>
+              <div class="text-base font-display font-bold text-white mt-0.5">L.J University Diploma in IT & AWS Cloud Practitioner</div>
+              <p class="text-[#79869c] mt-2 leading-relaxed">
+                Built foundational proficiencies in Python, Data Structures, Relational Database design, and earned the official AWS Certified Cloud Practitioner credential.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- What Makes My Approach Different -->
+        <div class="card-architect p-8 space-y-4">
+          <div class="flex items-center gap-2">
+            <i data-lucide="zap" class="w-5 h-5 text-amber-400"></i>
+            <h2 class="text-2xl font-display font-bold text-white">What Makes My Approach Different</h2>
+          </div>
+          <p class="text-sm text-[#c9d2de] leading-relaxed">
+            Many AI enthusiasts build demo prototypes that fail when subjected to production reality. My background as an IT Technical Engineer means I understand the entire lifecycle:
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+              <div class="text-xs font-mono text-[#00e5ff] font-bold mb-1">Production-Ready Reliability</div>
+              <p class="text-xs text-[#79869c]">I build AI tools that integrate directly into live backends (Next.js, Python Flask, PostgreSQL, Supabase) with zero downtime.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+              <div class="text-xs font-mono text-[#46e3b7] font-bold mb-1">Enterprise Security & Compliance</div>
+              <p class="text-xs text-[#79869c]">Deep knowledge of network firewalls, API token encryption, access control policies, and automated backup governance.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+              <div class="text-xs font-mono text-[#8b5cf6] font-bold mb-1">End-to-End Problem Solving</div>
+              <p class="text-xs text-[#79869c]">From requirements gathering and prompt engineering to cloud containerization on Render and client handoff.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+              <div class="text-xs font-mono text-[#f15c24] font-bold mb-1">Real Business Utility</div>
+              <p class="text-xs text-[#79869c]">Focusing strictly on tools that automate human labor, cut overhead, and accelerate operational turnarounds.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Editorial Column (5 cols) -->
+      <div class="lg:col-span-5 space-y-8">
+        
+        <!-- Professional Interests Card -->
+        <div class="card-architect p-8 space-y-5">
+          <div class="flex items-center gap-2">
+            <i data-lucide="cpu" class="w-5 h-5 text-[#00e5ff]"></i>
+            <h3 class="text-xl font-display font-bold text-white">Professional Interests</h3>
+          </div>
+          <p class="text-xs text-[#79869c] leading-relaxed">
+            Key areas of research, technical fascination, and continuous software experimentation:
+          </p>
+          <div class="space-y-3 text-xs font-mono">
+            <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+              <div class="text-white font-bold mb-0.5">Multi-Agent LLM Orchestration</div>
+              <div class="text-[#79869c]">Structuring autonomous agents that plan, verify, and execute complex workflows in tandem.</div>
+            </div>
+            <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+              <div class="text-[#00e5ff] font-bold mb-0.5">Computer Vision Pathology</div>
+              <div class="text-[#79869c]">Extracting diagnostic insight from mobile plant and crop photography in rural settings.</div>
+            </div>
+            <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+              <div class="text-[#46e3b7] font-bold mb-0.5">Full-Stack Cloud Systems</div>
+              <div class="text-[#79869c]">Building lightning-fast TypeScript, React 19, and Supabase platforms deployed continuously to cloud.</div>
+            </div>
+            <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+              <div class="text-[#f15c24] font-bold mb-0.5">Intelligent Process Automation</div>
+              <div class="text-[#79869c]">Automating document parsing, mail triage, and enterprise movements using Python scripts.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Career Objectives Card -->
+        <div class="card-architect p-8 space-y-4">
+          <div class="flex items-center gap-2">
+            <i data-lucide="target" class="w-5 h-5 text-[#f15c24]"></i>
+            <h3 class="text-xl font-display font-bold text-white">Career Objectives</h3>
+          </div>
+          <p class="text-sm text-[#c9d2de] leading-relaxed">
+            My primary goal is to join or consult for forward-thinking engineering teams, high-velocity AI startups, or enterprise innovation divisions as an <strong class="text-white">AI Developer / Software Engineer</strong>.
+          </p>
+          <p class="text-xs text-[#79869c] leading-relaxed">
+            I am driven to architect next-generation software where generative AI is not a gimmick, but a fundamental driver of intelligence, automation, and user satisfaction.
+          </p>
+          <div class="pt-3 border-t border-white/[0.08] flex items-center gap-3">
+            <a href="../contact.html" class="btn-primary text-xs py-2 px-4 w-full justify-center">
+              <span>Initiate Collaboration</span>
+              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Credentials Summary -->
+        <div class="card-architect p-8 space-y-4">
+          <h3 class="text-lg font-display font-bold text-white">Academic Credentials</h3>
+          <div class="space-y-3 text-xs font-mono">
+            <div class="flex items-center justify-between pb-2 border-b border-white/[0.06]">
+              <span class="text-[#79869c]">Current Degree:</span>
+              <span class="text-white font-semibold">B.Tech in IT (Pursuing)</span>
+            </div>
+            <div class="flex items-center justify-between pb-2 border-b border-white/[0.06]">
+              <span class="text-[#79869c]">University:</span>
+              <span class="text-[#00e5ff]">JG University, Ahmedabad</span>
+            </div>
+            <div class="flex items-center justify-between pb-2 border-b border-white/[0.06]">
+              <span class="text-[#79869c]">Prior Diploma:</span>
+              <span class="text-white">L.J University (7.2 CGPA)</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-[#79869c]">Certification:</span>
+              <span class="text-[#f15c24]">AWS Cloud Practitioner</span>
+            </div>
+          </div>
+          <div class="pt-2">
+            <a href="../education.html" class="text-xs font-mono text-[#00e5ff] hover:underline flex items-center gap-1">
+              <span>View Verified Education Details →</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Navigation Footer -->
+    <div class="mt-16 pt-8 border-t border-white/[0.08] flex items-center justify-between">
+      <a href="../index.html" class="btn-outline text-xs">← 01 // Home Hub</a>
+      <a href="../ai-lab.html" class="btn-primary text-xs"><span>03 // AI Laboratory</span><i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-white/[0.08] bg-[#030509] py-12 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-mono text-[#79869c]">
+      <div>KRISH TRIVEDI · ABOUT ME & MANIFESTO</div>
+      <div class="flex items-center gap-4">
+        <a href="../index.html" class="hover:text-white">Home</a>
+        <a href="../about.html" class="text-[#00e5ff]">About</a>
+        <a href="../ai-lab.html" class="hover:text-white">AI Lab</a>
+        <a href="../projects.html" class="hover:text-white">Projects</a>
+        <a href="../skills.html" class="hover:text-white">Skills</a>
+        <a href="../contact.html" class="hover:text-white">Contact</a>
+      </div>
+      <div>© 2026 Krish Trivedi</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

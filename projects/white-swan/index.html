@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>White Swan Holidays — Case Study | Krish Trivedi</title>
+  <meta name="description" content="Engineering case study of White Swan Holidays travel platform: semantic HTML5, CSS3 design system, WhatsApp lead integration, and Render cloud deployment.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-[#05070e] text-[#c9d2de] font-sans selection:bg-[#00e5ff] selection:text-[#05070e] transition-colors duration-300 relative">
+
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute inset-0 blueprint-grid opacity-70"></div>
+    <div class="absolute inset-0 blueprint-radial"></div>
+    <div class="absolute -top-36 right-1/4 w-[550px] h-[550px] bg-[#f15c24]/10 rounded-full blur-[150px]"></div>
+  </div>
+  <canvas id="neural-canvas" class="neural-canvas"></canvas>
+
+  <!-- FULLSCREEN OVERLAY MENU -->
+  <div id="fullscreenMenu" class="fullscreen-menu">
+    <div class="max-w-4xl mx-auto w-full flex flex-col justify-between h-full">
+      <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#00e5ff] to-[#8b5cf6] text-[#05070e] flex items-center justify-center font-display font-black text-sm shadow-lg shadow-[#00e5ff]/20">KT</div>
+          <span class="font-display font-bold text-white text-base tracking-wide">PORTFOLIO INDEX</span>
+        </div>
+        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#79869c] hover:text-white rounded-full bg-white/[0.05] transition-colors">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <nav class="py-6 space-y-1">
+        <a href="../index.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>01 HOME</span>
+          <span class="menu-number">MAIN HUB</span>
+        </a>
+        <a href="../about.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>02 ABOUT ME</span>
+          <span class="menu-number">BIOGRAPHY & JOURNEY</span>
+        </a>
+        <a href="../ai-lab.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>03 AI LAB</span>
+          <span class="menu-number">INTELLIGENT EXPERIMENTS</span>
+        </a>
+        <a href="../projects.html" class="menu-item group text-[#00e5ff]" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>04 PROJECTS</span>
+          <span class="menu-number">LIVE DEPLOYMENTS</span>
+        </a>
+        <a href="../skills.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>05 SKILLS</span>
+          <span class="menu-number">TECHNICAL ARSENAL</span>
+        </a>
+        <a href="../experience.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>06 EXPERIENCE</span>
+          <span class="menu-number">CAREER TIMELINE</span>
+        </a>
+        <a href="../services.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>07 SERVICES</span>
+          <span class="menu-number">SOLUTIONS OFFERED</span>
+        </a>
+        <a href="../education.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>08 EDUCATION</span>
+          <span class="menu-number">ACADEMICS & AWS</span>
+        </a>
+        <a href="../resume.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>09 RESUME</span>
+          <span class="menu-number">CURRICULUM VITAE</span>
+        </a>
+        <a href="../contact.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
+          <span>10 CONTACT</span>
+          <span class="menu-number">LET'S CONNECT</span>
+        </a>
+      </nav>
+
+      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#79869c]">
+        <span>KRISH TRIVEDI · AHMEDABAD, GUJARAT, INDIA</span>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white">GITHUB</a>
+          <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#46e3b7]">HPAD APP</a>
+          <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#f15c24]">WHITE SWAN RENDER</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#05070e]/85 border-b border-white/[0.08]" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00e5ff] to-[#8b5cf6] flex items-center justify-center font-display font-extrabold text-[#05070e] text-base shadow-lg shadow-[#00e5ff]/20">KT</div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-white text-base">KRISH TRIVEDI</span>
+          <span class="text-[11px] text-[#f15c24] font-mono">CASE STUDY // WHITE SWAN</span>
+        </div>
+      </a>
+
+      <nav class="hidden xl:flex items-center gap-1">
+        <a href="../index.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Home</a>
+        <a href="../about.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">About</a>
+        <a href="../ai-lab.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">AI Lab</a>
+        <a href="../projects.html" class="nav-link-item active px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#00e5ff] rounded-full">Projects</a>
+        <a href="../skills.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Skills</a>
+        <a href="../experience.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Experience</a>
+        <a href="../services.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Services</a>
+        <a href="../education.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Education</a>
+        <a href="../resume.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Resume</a>
+        <a href="../contact.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#c9d2de] hover:text-white rounded-full">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="../contact.html" class="btn-primary text-xs py-2 px-3.5 sm:px-4">Let's Connect</a>
+        <button id="menuToggleBtn" aria-label="Open Fullscreen Menu" class="p-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1] transition-colors">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="relative z-10 pt-32 pb-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Back to Projects Breadcrumb -->
+    <div class="mb-8">
+      <a href="../projects.html" class="inline-flex items-center gap-2 text-xs font-mono text-[#79869c] hover:text-[#00e5ff] transition-colors">
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        <span>Back to All Projects</span>
+      </a>
+    </div>
+
+    <!-- Case Study Header -->
+    <div class="space-y-4 mb-10">
+      <div class="flex flex-wrap items-center gap-2.5">
+        <span class="live-pulse-badge">
+          <span class="live-pulse-dot"></span>
+          <span>LIVE ON RENDER</span>
+        </span>
+        <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#f15c24]/10 text-[#f15c24] border border-[#f15c24]/30">
+          TRAVEL &amp; TOURISM PLATFORM
+        </span>
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
+        White Swan Holidays
+      </h1>
+      <p class="text-base sm:text-lg text-[#c9d2de] leading-relaxed max-w-3xl">
+        A professional travel and tourism website designed to showcase travel destinations, holiday packages, travel services and customer inquiries with tailor-made itinerary routing and WhatsApp lead integration.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-4 pt-3">
+        <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn-live-action btn-live-orange">
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+          <span>Launch Live Render App</span>
+        </a>
+        <a href="https://github.com/Krishhtrivedi/whiteswanholidays" target="_blank" rel="noopener noreferrer" class="btn-live-action btn-live-github">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span>GitHub Repository</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Screenshot Preview -->
+    <div class="case-study-hero mb-12">
+      <div class="browser-chrome">
+        <div class="browser-dots">
+          <span class="browser-dot bg-[#ef4444]"></span>
+          <span class="browser-dot bg-[#f59e0b]"></span>
+          <span class="browser-dot bg-[#10b981]"></span>
+        </div>
+        <div class="browser-url-bar">whiteswanholidays.onrender.com/</div>
+        <div class="text-[10px] font-mono text-[#f15c24]">Render Static Web Service</div>
+      </div>
+      <img src="../img/projects/whiteswan-preview.jpg" alt="White Swan Holidays Live Website Preview" class="w-full h-auto object-cover" loading="lazy">
+    </div>
+
+    <!-- Case Study Body Sections -->
+    <div class="space-y-12">
+      
+      <!-- Problem Statement & Objective -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="card-architect p-8 space-y-4 border-amber-500/20">
+          <div class="flex items-center gap-2 text-amber-400">
+            <i data-lucide="alert-circle" class="w-5 h-5"></i>
+            <h2 class="text-xl font-display font-bold text-white">Problem Statement</h2>
+          </div>
+          <p class="text-sm text-[#c9d2de] leading-relaxed">
+            Travel agency customers often struggle to explore comprehensive holiday itineraries on mobile devices. Inquiries collected through slow, static forms suffered high abandonment rates, while corporate group travel (MICE) and visa requirements lacked a dedicated digital hub.
+          </p>
+        </div>
+
+        <div class="card-architect p-8 space-y-4 border-[#f15c24]/20">
+          <div class="flex items-center gap-2 text-[#f15c24]">
+            <i data-lucide="target" class="w-5 h-5"></i>
+            <h2 class="text-xl font-display font-bold text-white">Project Objective</h2>
+          </div>
+          <p class="text-sm text-[#c9d2de] leading-relaxed">
+            Design and deploy a modern, high-conversion multi-page travel portal that showcases domestic and international holiday packages, integrates frictionless 1-click WhatsApp business lead dispatch, and maintains continuous deployment on Render.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Solution Overview -->
+      <div class="card-architect p-8 space-y-4">
+        <h2 class="text-2xl font-display font-bold text-white">Solution Overview</h2>
+        <p class="text-sm text-[#c9d2de] leading-relaxed">
+          Engineered a responsive multi-page web platform structured around key travel sectors: <strong class="text-white">Domestic Tours (Kashmir, Kerala, Himachal, Goa)</strong>, <strong class="text-white">International Holidays (Dubai, Bali, Europe, Thailand)</strong>, <strong class="text-white">Corporate MICE</strong>, and <strong class="text-white">Visa &amp; Air Ticket Services</strong>. Integrated Schema.org TravelAgency JSON-LD structured metadata to ensure strong local search visibility.
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+          <div class="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+            <div class="text-xs font-mono text-[#f15c24] font-bold mb-1">WhatsApp Lead Dispatch</div>
+            <p class="text-xs text-[#79869c]">Direct pre-filled WhatsApp links with selected destination details, eliminating friction for mobile clients.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+            <div class="text-xs font-mono text-[#00e5ff] font-bold mb-1">Semantic Multi-Page UI</div>
+            <p class="text-xs text-[#79869c]">Independent fast-loading HTML5 pages for international, domestic, corporate gifting, and gallery showcases.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+            <div class="text-xs font-mono text-emerald-400 font-bold mb-1">Render CI/CD Pipeline</div>
+            <p class="text-xs text-[#79869c]">Zero-downtime auto-deployment hooked directly to GitHub repository with Cloudflare CDN edge caching.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Features Grid -->
+      <div class="card-architect p-8 space-y-6">
+        <h2 class="text-2xl font-display font-bold text-white">Key Architectural Features</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-mono text-[#c9d2de]">
+          <div class="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02]">
+            <i data-lucide="compass" class="w-4 h-4 text-[#f15c24] flex-shrink-0 mt-0.5"></i>
+            <div>
+              <strong class="text-white block font-sans">Tour Package Directory:</strong>
+              Rich destination cards featuring itineraries, inclusions, exclusions, and pricing.
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02]">
+            <i data-lucide="message-circle" class="w-4 h-4 text-[#f15c24] flex-shrink-0 mt-0.5"></i>
+            <div>
+              <strong class="text-white block font-sans">WhatsApp Business Routing:</strong>
+              1-click inquiry mechanism connecting travelers directly with travel managers.
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02]">
+            <i data-lucide="search" class="w-4 h-4 text-[#f15c24] flex-shrink-0 mt-0.5"></i>
+            <div>
+              <strong class="text-white block font-sans">Schema.org Structured Data:</strong>
+              JSON-LD metadata embedded for rich Google Search Knowledge Graph appearance.
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02]">
+            <i data-lucide="cloud" class="w-4 h-4 text-[#f15c24] flex-shrink-0 mt-0.5"></i>
+            <div>
+              <strong class="text-white block font-sans">Cloud Deployment:</strong>
+              Render static web service with automatic SSL certificates and HTTP/2 acceleration.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Verified Technology Stack Badges -->
+      <div class="card-architect p-8 space-y-4">
+        <h2 class="text-2xl font-display font-bold text-white">Verified Technology Stack</h2>
+        <p class="text-xs text-[#79869c]">Identified directly from actual repository source code:</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="tech-badge-pill">HTML5 Semantic</span>
+          <span class="tech-badge-pill">CSS3 Custom System</span>
+          <span class="tech-badge-pill">JavaScript (ES6+)</span>
+          <span class="tech-badge-pill">Schema.org JSON-LD</span>
+          <span class="tech-badge-pill">WhatsApp Web API</span>
+          <span class="tech-badge-pill">Cloudflare CDN</span>
+          <span class="tech-badge-pill">Render Web Service</span>
+          <span class="tech-badge-pill">Git Version Control</span>
+        </div>
+      </div>
+
+      <!-- My Contribution & Status -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="card-architect p-8 space-y-3">
+          <h3 class="text-xl font-display font-bold text-white">My Engineering Contribution</h3>
+          <ul class="text-xs text-[#c9d2de] space-y-2 font-mono">
+            <li>• Architected and structured the complete multi-page web platform.</li>
+            <li>• Built responsive CSS layouts with Cormorant Garamond &amp; Inter typography.</li>
+            <li>• Programmed WhatsApp lead routing and client consultation triggers.</li>
+            <li>• Structured Schema.org TravelAgency JSON-LD metadata for Ahmedabad local SEO.</li>
+            <li>• Set up render.yaml configuration and continuous git deployment.</li>
+          </ul>
+        </div>
+
+        <div class="card-architect p-8 space-y-4 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-display font-bold text-white">Project Status & Telemetry</h3>
+            <div class="space-y-2 pt-2 text-xs font-mono">
+              <div class="flex items-center justify-between">
+                <span class="text-[#79869c]">Environment:</span>
+                <span class="text-emerald-400 font-bold">Production (Render Cloud)</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-[#79869c]">Repository:</span>
+                <a href="https://github.com/Krishhtrivedi/whiteswanholidays" target="_blank" rel="noopener noreferrer" class="text-[#f15c24] hover:underline">Krishhtrivedi/whiteswanholidays</a>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-[#79869c]">HTTP Health:</span>
+                <span class="text-emerald-400">200 OK (SSL Active)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-white/[0.08] flex items-center gap-3">
+            <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn-live-action btn-live-orange w-full">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+              <span>Open Live Platform</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Navigation Footer -->
+    <div class="mt-16 pt-8 border-t border-white/[0.08] flex items-center justify-between">
+      <a href="hpad-travel.html" class="btn-outline text-xs">← HPAD Travel System</a>
+      <a href="kisanmitra.html" class="btn-primary text-xs"><span>Next: KisanMitra AI Krishi</span><i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-white/[0.08] bg-[#030509] py-12 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-mono text-[#79869c]">
+      <div>KRISH TRIVEDI · WHITE SWAN HOLIDAYS CASE STUDY</div>
+      <div class="flex items-center gap-4">
+        <a href="../index.html" class="hover:text-white">Home</a>
+        <a href="../projects.html" class="text-[#00e5ff]">Projects</a>
+        <a href="../contact.html" class="hover:text-white">Contact</a>
+      </div>
+      <div>© 2026 Krish Trivedi</div>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

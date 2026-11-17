@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" width="1280" height="800">
+  <defs>
+    <linearGradient id="scBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050a0a"/>
+      <stop offset="50%" stop-color="#081717"/>
+      <stop offset="100%" stop-color="#050a0a"/>
+    </linearGradient>
+    <linearGradient id="emPill" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#00e5ff"/>
+    </linearGradient>
+    <pattern id="matrixPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(16, 185, 129, 0.05)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="800" fill="url(#scBg)"/>
+  <rect width="1280" height="800" fill="url(#matrixPattern)"/>
+
+  <!-- Top Chrome -->
+  <rect width="1280" height="44" fill="#071212" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <circle cx="28" cy="22" r="6" fill="#ef4444"/>
+  <circle cx="48" cy="22" r="6" fill="#f59e0b"/>
+  <circle cx="68" cy="22" r="6" fill="#10b981"/>
+  <rect x="110" y="10" width="380" height="24" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="130" y="26" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">pipeline.data-scraper.workers/stream</text>
+  <rect x="1110" y="10" width="140" height="24" rx="12" fill="rgba(16, 185, 129, 0.15)" stroke="rgba(16, 185, 129, 0.3)"/>
+  <text x="1124" y="26" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">ETL PIPELINE</text>
+
+  <!-- Header -->
+  <rect x="60" y="70" width="1160" height="70" rx="16" fill="rgba(8, 22, 22, 0.85)" stroke="rgba(16, 185, 129, 0.2)" stroke-width="1"/>
+  <circle cx="105" cy="105" r="22" fill="url(#emPill)"/>
+  <text x="96" y="112" fill="#050a0a" font-family="'Syne', sans-serif" font-weight="bold" font-size="20">ETL</text>
+  <text x="145" y="102" fill="#ffffff" font-family="'Syne', sans-serif" font-size="18" font-weight="bold">HIGH-THROUGHPUT WEB SCRAPING &amp; DATA AGGREGATION</text>
+  <text x="145" y="120" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11">PYTHON · BEAUTIFULSOUP · ASYNCIO REQUESTS · CSV/JSON PIPELINE</text>
+
+  <!-- Left: Live Ingestion Stream (Terminal Stream) -->
+  <rect x="60" y="160" width="700" height="580" rx="20" fill="rgba(8, 22, 22, 0.85)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  
+  <text x="90" y="200" fill="#ffffff" font-family="'Syne', sans-serif" font-size="18" font-weight="bold">REAL-TIME INGESTION STREAM</text>
+  <text x="90" y="220" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">PARALLEL THREADS: 16 · RATE LIMITING &amp; PROXY ROTATION ACTIVE</text>
+
+  <!-- Console Log Box -->
+  <rect x="90" y="240" width="640" height="460" rx="12" fill="#040808" stroke="rgba(16, 185, 129, 0.2)"/>
+  
+  <g transform="translate(110, 270)" font-family="'JetBrains Mono', monospace" font-size="11">
+    <text y="0" fill="#10b981">[INFO 14:15:02] Initializing thread pool worker_01 .. worker_16</text>
+    <text y="24" fill="#00e5ff">[EXTRACT 14:15:03] GET https://market.data/feed/page=1 .. 200 OK (112ms)</text>
+    <text y="48" fill="#c9d2de">[PARSER 14:15:03] BeautifulSoup extracted 48 item records. Sanitizing DOM nodes...</text>
+    <text y="72" fill="#f59e0b">[DEDUPE 14:15:04] Removed 6 duplicate hashing signatures across batch</text>
+    <text y="96" fill="#10b981">[COMMIT 14:15:04] Appended 42 structured rows into dataset_stream.parquet</text>
+    
+    <text y="130" fill="#00e5ff">[EXTRACT 14:15:05] GET https://market.data/feed/page=2 .. 200 OK (98ms)</text>
+    <text y="154" fill="#c9d2de">[PARSER 14:15:05] Structured schema validation: PASSED (Zod-like typed schema)</text>
+    <text y="178" fill="#10b981">[COMMIT 14:15:06] Ingestion rate: 418 records / sec. Error rate: 0.00%</text>
+
+    <text y="212" fill="#00e5ff">[TRANSFORM 14:15:07] Normalizing currency symbols and standardized ISO dates</text>
+    <text y="236" fill="#10b981">[EXPORT 14:15:08] Auto-generating consolidated JSON summary &amp; CSV export</text>
+    <text y="260" fill="#a7f3d0">✓ Pipeline complete. Total entities indexed: 14,890 in 35.6 seconds.</text>
+
+    <!-- Visual Progress Bar -->
+    <text y="310" fill="#ffffff" font-weight="bold">AGGREGATION BATCH PROGRESS: 100%</text>
+    <rect y="325" width="600" height="12" rx="6" fill="#132a2a"/>
+    <rect y="325" width="600" height="12" rx="6" fill="url(#emPill)"/>
+    <text y="360" fill="#94a3b8" font-size="10">Target: Multi-Domain Business Directory · Output: Ready for ML training</text>
+  </g>
+
+  <!-- Right: Metrics & Spec -->
+  <rect x="780" y="160" width="440" height="580" rx="20" fill="rgba(8, 22, 22, 0.85)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  
+  <text x="810" y="200" fill="#ffffff" font-family="'Syne', sans-serif" font-size="18" font-weight="bold">THROUGHPUT METRICS</text>
+  <text x="810" y="220" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">PIPELINE EFFICIENCY BENCHMARKS</text>
+
+  <!-- Metric Badges -->
+  <g transform="translate(810, 250)">
+    <rect width="380" height="85" rx="12" fill="#040808" stroke="rgba(16, 185, 129, 0.2)"/>
+    <text x="20" y="32" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">TOTAL RECORDS SCRAPED</text>
+    <text x="20" y="62" fill="#10b981" font-family="'Syne', sans-serif" font-size="26" font-weight="bold">14,890+</text>
+
+    <rect y="105" width="380" height="85" rx="12" fill="#040808" stroke="rgba(0, 229, 255, 0.2)"/>
+    <text x="20" y="137" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">AVERAGE EXTRACTION SPEED</text>
+    <text x="20" y="167" fill="#00e5ff" font-family="'Syne', sans-serif" font-size="26" font-weight="bold">418 rec / sec</text>
+
+    <rect y="210" width="380" height="85" rx="12" fill="#040808" stroke="rgba(245, 158, 11, 0.2)"/>
+    <text x="20" y="242" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">PARSER ERROR TOLERANCE</text>
+    <text x="20" y="272" fill="#f59e0b" font-family="'Syne', sans-serif" font-size="26" font-weight="bold">&lt; 0.05%</text>
+  </g>
+
+  <!-- Stack Details -->
+  <g transform="translate(810, 560)">
+    <rect width="380" height="140" rx="12" fill="#040808" stroke="rgba(255,255,255,0.06)"/>
+    <text x="20" y="30" fill="#ffffff" font-family="'Syne', sans-serif" font-size="13" font-weight="bold">PIPELINE ARCHITECTURE</text>
+    <text x="20" y="55" fill="#c9d2de" font-family="'Inter', sans-serif" font-size="11">• Asynchronous request pooling (Asyncio, Aiohttp)</text>
+    <text x="20" y="78" fill="#c9d2de" font-family="'Inter', sans-serif" font-size="11">• Resilient retry handlers with exponential backoff</text>
+    <text x="20" y="101" fill="#c9d2de" font-family="'Inter', sans-serif" font-size="11">• Automated CSV, JSON, and Parquet pipeline sinks</text>
+    <text x="20" y="124" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="10">Clean dataset delivered ready for model fine-tuning</text>
+  </g>
+</svg>

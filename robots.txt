@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://krishtrivedi.com/sitemap.xml
+Sitemap: https://krishhtrivedi.github.io/portfolio/sitemap.xml

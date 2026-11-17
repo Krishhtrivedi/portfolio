@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" width="1280" height="800">
+  <defs>
+    <linearGradient id="mlBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#060814"/>
+      <stop offset="50%" stop-color="#0e1329"/>
+      <stop offset="100%" stop-color="#060814"/>
+    </linearGradient>
+    <linearGradient id="violetGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00e5ff"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(139, 92, 246, 0.05)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1280" height="800" fill="url(#mlBg)"/>
+  <rect width="1280" height="800" fill="url(#gridPattern)"/>
+
+  <!-- Top Chrome -->
+  <rect width="1280" height="44" fill="#090d1e" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+  <circle cx="28" cy="22" r="6" fill="#ef4444"/>
+  <circle cx="48" cy="22" r="6" fill="#f59e0b"/>
+  <circle cx="68" cy="22" r="6" fill="#10b981"/>
+  <rect x="110" y="10" width="380" height="24" rx="12" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="130" y="26" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">analytics.loan-prediction.model/evaluate</text>
+  <rect x="1110" y="10" width="140" height="24" rx="12" fill="rgba(139, 92, 246, 0.15)" stroke="rgba(139, 92, 246, 0.3)"/>
+  <text x="1124" y="26" fill="#8b5cf6" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">SCIKIT-LEARN ML</text>
+
+  <!-- Header -->
+  <rect x="60" y="70" width="1160" height="70" rx="16" fill="rgba(14, 19, 41, 0.85)" stroke="rgba(139, 92, 246, 0.2)" stroke-width="1"/>
+  <circle cx="105" cy="105" r="22" fill="url(#violetGrad)"/>
+  <text x="96" y="112" fill="#ffffff" font-family="'Syne', sans-serif" font-weight="bold" font-size="20">ML</text>
+  <text x="145" y="102" fill="#ffffff" font-family="'Syne', sans-serif" font-size="18" font-weight="bold">LOAN DEFAULT PREDICTION &amp; CREDIT RISK MODEL</text>
+  <text x="145" y="120" fill="#8b5cf6" font-family="'JetBrains Mono', monospace" font-size="11">SUPERVISED LEARNING CLASSIFIER &amp; EXPLORATORY DATA ANALYSIS</text>
+
+  <!-- Left Chart: ROC-AUC Curve & Classification Matrix -->
+  <rect x="60" y="160" width="680" height="580" rx="20" fill="rgba(14, 19, 41, 0.85)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <text x="90" y="200" fill="#ffffff" font-family="'Syne', sans-serif" font-size="18" font-weight="bold">ROC-AUC CURVE &amp; CLASSIFICATION PERFORMANCE</text>
+  <text x="90" y="220" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">AREA UNDER CURVE: 0.884 · 5-FOLD STRATIFIED CROSS VALIDATION</text>
+
+  <!-- Chart Area -->
+  <rect x="90" y="245" width="620" height="340" rx="12" fill="#070a16" stroke="rgba(255,255,255,0.06)"/>
+  <!-- Chart Axes -->
+  <line x1="150" y1="540" x2="660" y2="540" stroke="#334155" stroke-width="1.5"/>
+  <line x1="150" y1="280" x2="150" y2="540" stroke="#334155" stroke-width="1.5"/>
+  
+  <!-- Diagonal Baseline -->
+  <line x1="150" y1="540" x2="660" y2="280" stroke="#475569" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+  <!-- ROC Curve (Curve bowing towards top left) -->
+  <path d="M 150 540 Q 180 320, 320 300 T 660 280" fill="none" stroke="url(#cyanGrad)" stroke-width="3.5"/>
+  <!-- Fill under curve -->
+  <path d="M 150 540 Q 180 320, 320 300 T 660 280 L 660 540 Z" fill="rgba(0, 229, 255, 0.08)"/>
+
+  <text x="110" y="290" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="10">1.0</text>
+  <text x="110" y="415" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="10">0.5</text>
+  <text x="110" y="540" fill="#64748b" font-family="'JetBrains Mono', monospace" font-size="10">0.0</text>
+  <text x="80" y="420" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10" transform="rotate(-90 80 420)">True Positive Rate</text>
+  <text x="360" y="565" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">False Positive Rate</text>
+
+  <!-- Confusion Matrix Strip -->
+  <g transform="translate(90, 610)">
+    <rect width="145" height="95" rx="8" fill="#070a16" stroke="rgba(16, 185, 129, 0.3)"/>
+    <text x="14" y="25" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">TRUE NEGATIVES</text>
+    <text x="14" y="55" fill="#10b981" font-family="'Syne', sans-serif" font-size="22" font-weight="bold">8,420</text>
+    <text x="14" y="80" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9">Non-Default Correct</text>
+
+    <rect x="158" width="145" height="95" rx="8" fill="#070a16" stroke="rgba(239, 68, 68, 0.3)"/>
+    <text x="172" y="25" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">FALSE POSITIVES</text>
+    <text x="172" y="55" fill="#ef4444" font-family="'Syne', sans-serif" font-size="22" font-weight="bold">412</text>
+    <text x="172" y="80" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9">Type I Error Rate</text>
+
+    <rect x="316" width="145" height="95" rx="8" fill="#070a16" stroke="rgba(245, 158, 11, 0.3)"/>
+    <text x="330" y="25" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">FALSE NEGATIVES</text>
+    <text x="330" y="55" fill="#f59e0b" font-family="'Syne', sans-serif" font-size="22" font-weight="bold">310</text>
+    <text x="330" y="80" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9">Type II Error Rate</text>
+
+    <rect x="474" width="145" height="95" rx="8" fill="#070a16" stroke="rgba(0, 229, 255, 0.3)"/>
+    <text x="488" y="25" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="10">TRUE POSITIVES</text>
+    <text x="488" y="55" fill="#00e5ff" font-family="'Syne', sans-serif" font-size="22" font-weight="bold">2,145</text>
+    <text x="488" y="80" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="9">Default Identified</text>
+  </g>
+
+  <!-- Right Column: Feature Importance & Model Params -->
+  <rect x="760" y="160" width="460" height="580" rx="20" fill="rgba(14, 19, 41, 0.85)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+  <text x="790" y="200" fill="#ffffff" font-family="'Syne', sans-serif" font-size="18" font-weight="bold">FEATURE IMPORTANCE MATRIX</text>
+  <text x="790" y="220" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="11">RANDOM FOREST GINI IMPURITY RANKINGS</text>
+
+  <!-- Feature Bars -->
+  <g transform="translate(790, 250)">
+    <!-- Feature 1 -->
+    <text x="0" y="15" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="11">Debt-to-Income (DTI) Ratio</text>
+    <text x="360" y="15" fill="#8b5cf6" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">0.342</text>
+    <rect x="0" y="25" width="400" height="8" rx="4" fill="#1e293b"/>
+    <rect x="0" y="25" width="342" height="8" rx="4" fill="#8b5cf6"/>
+
+    <!-- Feature 2 -->
+    <text x="0" y="60" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="11">Revolving Credit Line Utilization</text>
+    <text x="360" y="60" fill="#00e5ff" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">0.265</text>
+    <rect x="0" y="70" width="400" height="8" rx="4" fill="#1e293b"/>
+    <rect x="0" y="70" width="265" height="8" rx="4" fill="#00e5ff"/>
+
+    <!-- Feature 3 -->
+    <text x="0" y="105" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="11">Historical Delinquency Count</text>
+    <text x="360" y="105" fill="#10b981" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">0.198</text>
+    <rect x="0" y="115" width="400" height="8" rx="4" fill="#1e293b"/>
+    <rect x="0" y="115" width="198" height="8" rx="4" fill="#10b981"/>
+
+    <!-- Feature 4 -->
+    <text x="0" y="150" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="11">Annual Income (Log Scale)</text>
+    <text x="360" y="150" fill="#f59e0b" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">0.124</text>
+    <rect x="0" y="160" width="400" height="8" rx="4" fill="#1e293b"/>
+    <rect x="0" y="160" width="124" height="8" rx="4" fill="#f59e0b"/>
+
+    <!-- Feature 5 -->
+    <text x="0" y="195" fill="#ffffff" font-family="'JetBrains Mono', monospace" font-size="11">Employment Duration (Years)</text>
+    <text x="360" y="195" fill="#ef4444" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold">0.071</text>
+    <rect x="0" y="205" width="400" height="8" rx="4" fill="#1e293b"/>
+    <rect x="0" y="205" width="71" height="8" rx="4" fill="#ef4444"/>
+  </g>
+
+  <!-- Technical Spec Box -->
+  <rect x="790" y="500" width="400" height="200" rx="12" fill="#070a16" stroke="rgba(255,255,255,0.06)"/>
+  <text x="810" y="530" fill="#ffffff" font-family="'Syne', sans-serif" font-size="13" font-weight="bold">ENGINEERING METHODOLOGY</text>
+  <text x="810" y="555" fill="#c9d2de" font-family="'Inter', sans-serif" font-size="11" width="360">
+    • Data Cleansing: Imputed missing credit values via KNN
+  </text>
+  <text x="810" y="578" fill="#c9d2de" font-family="'Inter', sans-serif" font-size="11">
+    • Resampling: SMOTE for class imbalance mitigation
+  </text>
+  <text x="810" y="601" fill="#c9d2de" font-family="'Inter', sans-serif" font-size="11">
+    • Hyperparameter Tuning: GridSearchCV on Random Forest
+  </text>
+  <text x="810" y="624" fill="#c9d2de" font-family="'Inter', sans-serif" font-size="11">
+    • Libraries: Python, Pandas, NumPy, Scikit-learn, Seaborn
+  </text>
+
+  <rect x="810" y="645" width="120" height="28" rx="6" fill="rgba(139, 92, 246, 0.15)" stroke="#8b5cf6"/>
+  <text x="826" y="663" fill="#8b5cf6" font-family="'JetBrains Mono', monospace" font-size="10">Accuracy: 89.2%</text>
+
+  <rect x="940" y="645" width="120" height="28" rx="6" fill="rgba(0, 229, 255, 0.15)" stroke="#00e5ff"/>
+  <text x="956" y="663" fill="#00e5ff" font-family="'JetBrains Mono', monospace" font-size="10">ROC-AUC: 0.884</text>
+</svg>
