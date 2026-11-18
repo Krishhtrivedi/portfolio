@@ -488,6 +488,25 @@ body.loaded .img-reveal-frame.auto-reveal img {
   transform: translateY(0);
 }
 
+.btn-primary-gold {
+  background-color: var(--slider-accent);
+  color: #080D14;
+  border: 1px solid var(--slider-accent);
+  font-weight: 700;
+}
+
+.btn-primary-gold:hover {
+  background-color: #D6B990;
+  border-color: #D6B990;
+  color: #080D14;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(199, 167, 122, 0.45);
+}
+
+.btn-primary-gold:active {
+  transform: translateY(0);
+}
+
 .btn-accent {
   background-color: var(--accent);
   color: #FFFFFF;
