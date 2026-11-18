@@ -82,6 +82,10 @@ body {
   line-height: 1.65;
 }
 
+section[id] {
+  scroll-margin-top: calc(var(--header-height) + 20px);
+}
+
 ::selection {
   background: var(--text-primary);
   color: var(--bg-primary);
