@@ -7,9 +7,22 @@
   <meta name="description" content="Selected case studies and engineered systems by Krish Trivedi: KisanMitra (SIH 2025 Finalist), HPAD Travel Management System, White Swan Holidays, and Loan Default Machine Learning.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
+  <!-- Immediate Dark/Light Theme Initializer (Default: Premium Purplish-Black Dark Theme) -->
+  <script>
+    try {
+      const savedTheme = localStorage.getItem('kt_theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    } catch (e) {}
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -55,9 +68,15 @@
           <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-9 h-9">
           <span class="font-display font-bold text-white tracking-wider text-sm">KRISH TRIVEDI // INDEX</span>
         </div>
-        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
-          <i data-lucide="x" class="w-6 h-6"></i>
-        </button>
+        <div class="flex items-center gap-2">
+          <button class="theme-toggle-btn" aria-label="Toggle Dark / Light Theme" title="Toggle Theme">
+            <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
+            <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
+          </button>
+          <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
       </div>
 
       <nav class="py-8 space-y-1">
@@ -128,6 +147,11 @@
       </nav>
 
       <div class="flex items-center gap-3">
+        <!-- Theme Toggle Switcher -->
+        <button class="theme-toggle-btn" aria-label="Toggle Dark / Light Theme" title="Toggle Theme">
+          <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
+          <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
+        </button>
         <a href="Krish-Trivedi-Resume.pdf" target="_blank" class="hidden sm:inline-flex btn-luxury btn-outline-editorial text-xs py-2 px-4">
           <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
           <span>Resume</span>
@@ -160,14 +184,91 @@
 
     <!-- Filter Buttons -->
     <div class="flex flex-wrap items-center gap-2 mb-16">
-      <button class="filter-btn text-xs font-mono uppercase px-4 py-2 border rounded-sm transition-all bg-[#171717] text-white border-[#171717]" data-filter="all">All Projects (6)</button>
-      <button class="filter-btn text-xs font-mono uppercase px-4 py-2 border rounded-sm transition-all bg-white text-[#777777] border-[#E6E4DE] hover:border-[#171717]" data-filter="ai">AI & Machine Learning (3)</button>
-      <button class="filter-btn text-xs font-mono uppercase px-4 py-2 border rounded-sm transition-all bg-white text-[#777777] border-[#E6E4DE] hover:border-[#171717]" data-filter="web">Web & Cloud Systems (2)</button>
-      <button class="filter-btn text-xs font-mono uppercase px-4 py-2 border rounded-sm transition-all bg-white text-[#777777] border-[#E6E4DE] hover:border-[#171717]" data-filter="enterprise">Enterprise Ingestion (1)</button>
+      <button class="filter-btn text-xs font-mono uppercase px-4 py-2 border rounded-sm transition-all bg-[#171717] text-white border-[#171717]" data-filter="all">All Projects (7)</button>
+      <button class="filter-btn text-xs font-mono uppercase px-4 py-2 border rounded-sm transition-all bg-white text-[#777777] border-[#E6E4DE] hover:border-[#171717]" data-filter="ai">AI & Machine Learning (4)</button>
+      <button class="filter-btn text-xs font-mono uppercase px-4 py-2 border rounded-sm transition-all bg-white text-[#777777] border-[#E6E4DE] hover:border-[#171717]" data-filter="web">Web & Cloud Systems (3)</button>
+      <button class="filter-btn text-xs font-mono uppercase px-4 py-2 border rounded-sm transition-all bg-white text-[#777777] border-[#E6E4DE] hover:border-[#171717]" data-filter="enterprise">Enterprise Ingestion (2)</button>
     </div>
 
     <!-- Exhaustive Case Studies List -->
     <div class="space-y-16">
+
+      <!-- CASE STUDY 00: SmartFin AI -->
+      <article class="project-card luxury-card p-8 sm:p-12 bg-white" data-category="ai web enterprise">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-5 space-y-4">
+            <div class="project-image-frame aspect-[16/10] border border-[#E6E4DE] bg-[#0D2035] flex items-center justify-center p-6 text-center text-white">
+              <div class="space-y-2">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-sm bg-[#1A2F46] border border-[#E65909] text-[#E65909] mx-auto font-bold text-xl">
+                  VV
+                </div>
+                <h4 class="font-display font-bold text-lg text-white">SmartFin AI</h4>
+                <p class="font-mono text-[10px] text-[#8B97A3] uppercase tracking-wider">Vichar Vimarsh · ERP Platform</p>
+                <span class="inline-block mt-2 px-2 py-0.5 bg-[#E65909] text-white font-mono text-[10px] rounded-sm font-semibold">Live on Render</span>
+              </div>
+            </div>
+            <div class="p-4 bg-[#F5F3EE] border-editorial text-xs font-mono space-y-2">
+              <div class="flex justify-between">
+                <span class="text-[#777777]">Client:</span>
+                <span class="font-bold text-[#171717]">Vichar Vimarsh</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#777777]">Primary Stack:</span>
+                <span class="text-[#171717]">FastAPI, React 18, PostgreSQL</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#777777]">Deployment:</span>
+                <span class="font-bold text-emerald-600">Production Live (Render)</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-[#777777]">GitHub:</span>
+                <a href="https://github.com/Krishhtrivedi/smartfin-ai" target="_blank" class="text-[#526BFF] hover:underline">Krishhtrivedi/smartfin-ai ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 space-y-5">
+            <div class="flex items-center justify-between">
+              <span class="editorial-tag text-[#E65909] border-[#E65909]/30 font-bold">CASE STUDY 00 // FINANCIAL ERP AUTOMATION</span>
+              <span class="font-mono text-xs text-[#777777]">ENTERPRISE AI & SAAS</span>
+            </div>
+            <h2 class="font-display font-bold text-3xl text-[#171717]">SmartFin AI – Finance & Office Automation</h2>
+            
+            <div class="space-y-3 text-sm text-[#777777] leading-relaxed">
+              <p>
+                <strong class="text-[#171717]">Problem Statement:</strong> MSMEs struggle with severe owner-dependency and manual friction in 2-way GSTR-2B reconciliation, Input Tax Credit (ITC) tracking under Section 16(2)(aa), Section 194C/J TDS threshold auditing, and Bank Reconciliation Statements.
+              </p>
+              <p>
+                <strong class="text-[#171717]">Solution:</strong> Designed and deployed an enterprise automation SaaS built to Vichar Vimarsh's architectural systems design. Automates GST invoice matching (with ₹1 tolerance), automated bank BRS tolerance checks, vendor/customer aging ledgers, Excel cleaning pipelines, and a grounded AI copilot.
+              </p>
+              <p>
+                <strong class="text-[#171717]">My Contribution:</strong> Architected the entire full-stack system: FastAPI backend with 12 REST API modules, 17+ SQLAlchemy models, 5 algorithmic reconciliation engines, single-service multi-stage Docker deployment on Render, and React 18 dashboard.
+              </p>
+            </div>
+
+            <div class="pt-4 border-editorial-t flex flex-wrap items-center justify-between gap-4">
+              <div class="flex flex-wrap gap-2">
+                <span class="editorial-tag">FastAPI</span>
+                <span class="editorial-tag">React 18</span>
+                <span class="editorial-tag">TypeScript</span>
+                <span class="editorial-tag">PostgreSQL</span>
+                <span class="editorial-tag">Tailwind CSS</span>
+                <span class="editorial-tag">Docker</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <a href="https://smartfin-ai-kg6b.onrender.com" target="_blank" rel="noopener noreferrer" class="btn-luxury btn-primary-dark text-xs py-2 px-4">
+                  <span>Live App</span>
+                  <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                </a>
+                <a href="projects/smartfin-ai.html" class="btn-luxury btn-outline-dark text-xs py-2 px-4">
+                  <span>Detailed Case Study</span>
+                  <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
       
       <!-- CASE STUDY 1: KisanMitra -->
       <article class="project-card luxury-card p-8 sm:p-12 bg-white" data-category="ai">

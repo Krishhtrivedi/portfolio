@@ -7,9 +7,22 @@
   <meta name="description" content="Selected case studies and engineered systems by Krish Trivedi: KisanMitra (SIH 2025 Finalist), HPAD Travel Management System, White Swan Holidays, and Loan Default Machine Learning.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
+  <!-- Immediate Dark/Light Theme Initializer (Default: Premium Purplish-Black Dark Theme) -->
+  <script>
+    try {
+      const savedTheme = localStorage.getItem('kt_theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    } catch (e) {}
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -55,9 +68,15 @@
           <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-9 h-9">
           <span class="font-display font-bold text-white tracking-wider text-sm">KRISH TRIVEDI // INDEX</span>
         </div>
-        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
-          <i data-lucide="x" class="w-6 h-6"></i>
-        </button>
+        <div class="flex items-center gap-2">
+          <button class="theme-toggle-btn" aria-label="Toggle Dark / Light Theme" title="Toggle Theme">
+            <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
+            <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
+          </button>
+          <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
       </div>
 
       <nav class="py-8 space-y-1">
@@ -128,6 +147,11 @@
       </nav>
 
       <div class="flex items-center gap-3">
+        <!-- Theme Toggle Switcher -->
+        <button class="theme-toggle-btn" aria-label="Toggle Dark / Light Theme" title="Toggle Theme">
+          <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
+          <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
+        </button>
         <a href="Krish-Trivedi-Resume.pdf" target="_blank" class="hidden sm:inline-flex btn-luxury btn-outline-editorial text-xs py-2 px-4">
           <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
           <span>Resume</span>

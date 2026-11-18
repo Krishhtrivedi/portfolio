@@ -1416,54 +1416,67 @@ html.theme-transition *::after {
               box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* Dark Theme Root Token Overrides (Master Prompt Specification: HPAD & Purplish Obsidian) */
+/* Dark Theme Root Token Overrides (User Specification: Luxury Purplish Black Aesthetic) */
 html.dark {
-  --bg-primary: #080D14;       /* Primary background: Deep Obsidian Midnight */
-  --bg-secondary: #101820;     /* Secondary background: Amethyst Midnight */
-  --bg-white: #17212B;         /* Card background: Elevated Luxury Surface */
-  --text-primary: #F5F3EE;     /* Primary text: Warm Editorial White */
-  --text-secondary: #A5ADB5;   /* Secondary text: Architectural Muted Silver */
-  --text-tertiary: #757D8A;    /* Caption & Metadata */
-  --accent: #C7A77A;           /* Champagne Gold Accent */
+  --bg-primary: #0A0612;       /* Primary background: Deep Obsidian Purplish Black */
+  --bg-secondary: #181128;     /* Secondary background: Amethyst Midnight */
+  --bg-white: #130C22;         /* Card background: Elevated Luxury Purplish Black Surface */
+  --text-primary: #FAF7FD;     /* Primary text: Warm Editorial White with Lavender Undertone */
+  --text-secondary: #A69DBF;   /* Secondary text: Refined Lavender-Grey */
+  --text-tertiary: #796F94;    /* Caption & Metadata Muted Purple-Grey */
+  --accent: #C084FC;           /* Vibrant Violet Accent */
   --accent-purple: #A855F7;    /* Subtle Violet Highlight */
-  --border-light: rgba(255, 255, 255, 0.09); /* Hairline Border */
-  --border-subtle: rgba(255, 255, 255, 0.05);
-  --border-glow: rgba(199, 167, 122, 0.35);
+  --accent-gold: #C7A77A;      /* Editorial Champagne Gold */
+  --border-light: rgba(168, 85, 247, 0.14); /* Hairline Purple Border */
+  --border-subtle: rgba(168, 85, 247, 0.07);
+  --border-glow: rgba(168, 85, 247, 0.35);
+
+  /* Slider Tokens in Dark Mode */
+  --slider-bg: #0A0612;
+  --slider-bg-secondary: #181128;
+  --slider-card-bg: #130C22;
+  --slider-text-primary: #FAF7FD;
+  --slider-text-secondary: #A69DBF;
+  --slider-accent: #C084FC;
+  --slider-accent-glow: rgba(168, 85, 247, 0.35);
+  --slider-border: rgba(168, 85, 247, 0.16);
+  --slider-border-hover: rgba(192, 132, 252, 0.5);
   color-scheme: dark;
 }
 
 /* Base Body in Dark Mode */
 html.dark body {
-  background-color: #080D14 !important;
-  color: #F5F3EE !important;
+  background-color: #0A0612 !important;
+  color: #FAF7FD !important;
 }
 
 /* Text Selection in Dark Mode */
 html.dark ::selection {
-  background: #C7A77A !important;
-  color: #080D14 !important;
+  background: #A855F7 !important;
+  color: #FFFFFF !important;
 }
 
 /* Sticky Navbar & Header in Dark Mode */
 html.dark #navbar,
-html.dark header {
-  background-color: rgba(8, 13, 20, 0.94) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+html.dark header,
+html.dark .luxury-navbar {
+  background-color: rgba(10, 6, 18, 0.94) !important;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.14) !important;
 }
 
 /* Top Announcement Bar in Dark Mode */
 html.dark .border-editorial-b,
 html.dark .border-editorial-t,
 html.dark .border-editorial {
-  border-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(168, 85, 247, 0.14) !important;
 }
 
 html.dark .bg-white\/70,
 html.dark .bg-white\/80,
 html.dark .bg-white\/90 {
-  background-color: rgba(16, 24, 32, 0.9) !important;
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  color: #A5ADB5 !important;
+  background-color: rgba(19, 12, 34, 0.9) !important;
+  border-color: rgba(168, 85, 247, 0.14) !important;
+  color: #A69DBF !important;
 }
 
 /* Section Background Overrides */
@@ -1474,14 +1487,14 @@ html.dark section#intro,
 html.dark section#expertise,
 html.dark section#experience,
 html.dark div.bg-\[\#F5F3EE\] {
-  background-color: #080D14 !important;
+  background-color: #0A0612 !important;
 }
 
-/* Architectural Grid Pattern in Dark Mode */
+/* Architectural Grid Pattern in Dark Mode (Subtle Purple Tint) */
 html.dark .architectural-grid {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px) !important;
+    linear-gradient(to right, rgba(168, 85, 247, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(168, 85, 247, 0.045) 1px, transparent 1px) !important;
 }
 
 /* Cards & Surface Elevators in Dark Mode */
@@ -1490,98 +1503,119 @@ html.dark .architectural-studio-card,
 html.dark .bg-white.border,
 html.dark .bg-white.rounded-sm,
 html.dark div.bg-white:not(.slider-nav-btn) {
-  background-color: #17212B !important;
-  border-color: rgba(255, 255, 255, 0.09) !important;
-  color: #F5F3EE !important;
+  background-color: #130C22 !important;
+  border-color: rgba(168, 85, 247, 0.14) !important;
+  color: #FAF7FD !important;
 }
 
 html.dark .luxury-card:hover,
 html.dark .architectural-studio-card:hover {
-  border-color: rgba(199, 167, 122, 0.4) !important;
-  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7), 0 0 25px -5px rgba(199, 167, 122, 0.15) !important;
+  border-color: rgba(192, 132, 252, 0.45) !important;
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.85), 0 0 30px -5px rgba(168, 85, 247, 0.22) !important;
+}
+
+/* Slider Overrides for Dark Mode */
+html.dark .slider-project-card {
+  background-color: #130C22 !important;
+  border-color: rgba(168, 85, 247, 0.16) !important;
+}
+
+html.dark .slider-project-card.is-active {
+  border-color: rgba(192, 132, 252, 0.55) !important;
+  box-shadow: 0 30px 80px -15px rgba(0, 0, 0, 0.9),
+              0 0 60px rgba(168, 85, 247, 0.22),
+              inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+}
+
+html.dark .slider-card-thumb-overlay {
+  background: linear-gradient(to bottom, rgba(19, 12, 34, 0) 40%, #130C22 100%) !important;
+}
+
+html.dark .slider-card-body {
+  background-color: #130C22 !important;
 }
 
 /* Typography Overrides */
 html.dark .text-\[\#171717\],
 html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark h6 {
-  color: #F5F3EE !important;
+  color: #FAF7FD !important;
 }
 
 html.dark .text-\[\#777777\],
 html.dark p.text-\[\#777777\] {
-  color: #A5ADB5 !important;
+  color: #A69DBF !important;
 }
 
 html.dark .text-\[\#999999\] {
-  color: #757D8A !important;
+  color: #796F94 !important;
 }
 
 html.dark .border-\[\#E6E4DE\] {
-  border-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(168, 85, 247, 0.14) !important;
 }
 
 html.dark .divide-\[\#E6E4DE\] > :not([hidden]) ~ :not([hidden]) {
-  border-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(168, 85, 247, 0.14) !important;
 }
 
 /* Nav Links & Indicator */
 html.dark .nav-link {
-  color: #A5ADB5 !important;
+  color: #A69DBF !important;
 }
 html.dark .nav-link:hover,
 html.dark .nav-link.active {
-  color: #F5F3EE !important;
+  color: #FAF7FD !important;
 }
 html.dark .nav-link.active::after {
-  background-color: #C7A77A !important;
+  background-color: #C084FC !important;
 }
 
 /* Badges & Eyebrows */
 html.dark .inline-flex.bg-white,
 html.dark span.bg-white {
-  background-color: #101820 !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-  color: #C7A77A !important;
+  background-color: #181128 !important;
+  border-color: rgba(168, 85, 247, 0.2) !important;
+  color: #C084FC !important;
 }
 
 /* Section Tags */
 html.dark .section-tag {
-  color: #A5ADB5 !important;
+  color: #A69DBF !important;
 }
 html.dark .section-tag .tag-num {
-  color: #C7A77A !important;
+  color: #C084FC !important;
 }
 html.dark .section-tag .tag-line {
-  background-color: rgba(199, 167, 122, 0.35) !important;
+  background-color: rgba(168, 85, 247, 0.35) !important;
 }
 
 /* Interactive Hover States */
 html.dark .hover\:bg-\[\#FAF9F6\]:hover {
-  background-color: rgba(255, 255, 255, 0.035) !important;
+  background-color: rgba(168, 85, 247, 0.06) !important;
 }
 
 /* Primary Dark Buttons (inverts to crisp off-white for high contrast in dark mode) */
 html.dark .btn-primary-dark {
-  background-color: #F5F3EE !important;
-  color: #080D14 !important;
-  border-color: #F5F3EE !important;
+  background-color: #FAF7FD !important;
+  color: #0A0612 !important;
+  border-color: #FAF7FD !important;
   font-weight: 700;
 }
 html.dark .btn-primary-dark:hover {
   background-color: #FFFFFF !important;
-  color: #080D14 !important;
-  box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.25) !important;
+  color: #0A0612 !important;
+  box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.35) !important;
 }
 
 /* Outline Editorial Buttons */
 html.dark .btn-outline-editorial {
-  border-color: rgba(255, 255, 255, 0.16) !important;
-  color: #F5F3EE !important;
+  border-color: rgba(168, 85, 247, 0.25) !important;
+  color: #FAF7FD !important;
   background-color: transparent !important;
 }
 html.dark .btn-outline-editorial:hover {
-  background-color: rgba(255, 255, 255, 0.08) !important;
-  border-color: rgba(199, 167, 122, 0.45) !important;
+  background-color: rgba(168, 85, 247, 0.12) !important;
+  border-color: rgba(192, 132, 252, 0.5) !important;
   color: #FFFFFF !important;
 }
 

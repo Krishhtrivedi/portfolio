@@ -6,9 +6,22 @@
   <title>404 — Page Not Found | Krish Trivedi</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
+  <!-- Immediate Dark/Light Theme Initializer (Default: Premium Purplish-Black Dark Theme) -->
+  <script>
+    try {
+      const savedTheme = localStorage.getItem('kt_theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    } catch (e) {}
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
