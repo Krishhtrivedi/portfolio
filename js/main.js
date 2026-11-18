@@ -762,7 +762,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      // Connect proximal nodes with gold & cobalt filaments
+      const isDark = document.documentElement.classList.contains('dark');
+
+      // Connect proximal nodes with gold & cobalt / purple filaments
       const maxDist = RADIUS * 0.68;
       ctx.lineWidth = 0.8;
       for (let i = 0; i < projected.length; i++) {
@@ -775,7 +777,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
           if (dist < maxDist) {
             const linkAlpha = (1 - dist / maxDist) * Math.min(p1.alpha, p2.alpha) * 0.42;
-            ctx.strokeStyle = `rgba(199, 167, 122, ${linkAlpha})`;
+            ctx.strokeStyle = isDark
+              ? `rgba(168, 85, 247, ${linkAlpha * 1.3})`
+              : `rgba(199, 167, 122, ${linkAlpha})`;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
@@ -789,18 +793,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const p = projected[i];
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = p.color === '#C7A77A'
-          ? `rgba(199, 167, 122, ${p.alpha * 0.95})`
-          : `rgba(82, 107, 255, ${p.alpha * 0.85})`;
+        if (isDark) {
+          ctx.fillStyle = p.color === '#C7A77A'
+            ? `rgba(199, 167, 122, ${p.alpha * 0.95})`
+            : `rgba(192, 132, 252, ${p.alpha * 0.95})`;
+        } else {
+          ctx.fillStyle = p.color === '#C7A77A'
+            ? `rgba(199, 167, 122, ${p.alpha * 0.95})`
+            : `rgba(82, 107, 255, ${p.alpha * 0.85})`;
+        }
         ctx.fill();
 
         // Ambient depth glow for foreground points
         if (p.z > 0) {
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.size * 2.2, 0, Math.PI * 2);
-          ctx.fillStyle = p.color === '#C7A77A'
-            ? `rgba(199, 167, 122, ${p.alpha * 0.18})`
-            : `rgba(82, 107, 255, ${p.alpha * 0.18})`;
+          if (isDark) {
+            ctx.fillStyle = p.color === '#C7A77A'
+              ? `rgba(199, 167, 122, ${p.alpha * 0.22})`
+              : `rgba(168, 85, 247, ${p.alpha * 0.28})`;
+          } else {
+            ctx.fillStyle = p.color === '#C7A77A'
+              ? `rgba(199, 167, 122, ${p.alpha * 0.18})`
+              : `rgba(82, 107, 255, ${p.alpha * 0.18})`;
+          }
           ctx.fill();
         }
       }
