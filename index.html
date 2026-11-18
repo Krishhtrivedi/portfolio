@@ -21,15 +21,14 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <!-- Immediate Dark/Light Theme Initializer (Zero FOUC) -->
+  <!-- Immediate Dark/Light Theme Initializer (Default: Premium Dark HPAD Theme) -->
   <script>
     try {
       const savedTheme = localStorage.getItem('kt_theme');
-      const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      if (savedTheme === 'dark' || (!savedTheme && systemDark)) {
-        document.documentElement.classList.add('dark');
-      } else {
+      if (savedTheme === 'light') {
         document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
       }
     } catch (e) {}
   </script>
@@ -247,15 +246,19 @@
             I build intelligent applications, AI-powered solutions, and automation systems that transform complex ideas into meaningful digital experiences.
           </p>
 
-          <!-- Primary Action CTAs -->
-          <div class="flex flex-wrap items-center gap-4 hero-fade-reveal delay-400">
+          <!-- Primary Action CTAs (Master Prompt Specification) -->
+          <div class="flex flex-wrap items-center gap-3 sm:gap-4 hero-fade-reveal delay-400">
             <a href="#projects" class="btn-luxury btn-primary-dark">
               <span>Explore My Work</span>
               <i data-lucide="arrow-down" class="w-4 h-4"></i>
             </a>
-            <a href="contact.html" class="btn-luxury btn-outline-editorial">
-              <span>Get in Touch</span>
+            <a href="about.html" class="btn-luxury btn-outline-editorial">
+              <span>About Me</span>
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a href="resume.html" class="btn-luxury btn-outline-editorial">
+              <i data-lucide="file-text" class="w-4 h-4"></i>
+              <span>Download Resume</span>
             </a>
           </div>
 
@@ -356,6 +359,18 @@
 
       </div>
 
+      <!-- Subtle Scroll Down Interaction Indicator -->
+      <div class="mt-12 pt-6 border-t border-[#E6E4DE] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono text-[#777777] hero-fade-reveal delay-500">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>AVAILABLE FOR SELECTIVE AI ARCHITECTURE · 2026</span>
+        </div>
+        <a href="#intro" class="inline-flex items-center gap-2 hover:text-[#C7A77A] transition-colors group">
+          <span>SCROLL TO EXPLORE</span>
+          <i data-lucide="arrow-down" class="w-3.5 h-3.5 transition-transform group-hover:translate-y-1"></i>
+        </a>
+      </div>
+
     </div>
   </section>
 
@@ -442,7 +457,7 @@
           <div class="slider-counter font-mono text-xs sm:text-sm tracking-wider flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#101820] border border-white/[0.1]">
             <span class="slider-current text-[#C7A77A] font-bold">01</span>
             <span class="text-[#A5ADB5]/50">/</span>
-            <span class="slider-total text-[#A5ADB5]">04</span>
+            <span class="slider-total text-[#A5ADB5]">06</span>
           </div>
           <div class="flex items-center gap-2">
             <button id="sliderPrevBtn" aria-label="Previous Project Slide" class="slider-nav-btn">
@@ -455,12 +470,12 @@
         </div>
       </div>
 
-      <!-- 3D Overlapping Project Slider Stage (4 Premier Projects) -->
+      <!-- 3D Overlapping Project Slider Stage (6 Master Featured Projects) -->
       <div id="projectSliderStage" class="project-slider-stage select-none" aria-label="Interactive Project Carousel">
         <div id="projectSliderTrack" class="project-slider-track">
           
           <!-- Slide 1: KisanMitra -->
-          <article class="slider-project-card" data-index="0">
+          <article class="slider-project-card" data-index="0" data-href="projects/kisanmitra.html">
             <div class="slider-card-media">
               <img src="img/projects/kisanmitra-preview.svg" alt="KisanMitra AI Agricultural Platform" loading="lazy">
               <div class="slider-card-media-gradient"></div>
@@ -468,7 +483,7 @@
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                 <span>SIH '25 FINALIST</span>
               </span>
-              <span class="slider-card-num">01 / 04</span>
+              <span class="slider-card-num">01 / 06</span>
             </div>
             <div class="slider-card-body">
               <div>
@@ -495,7 +510,7 @@
           </article>
 
           <!-- Slide 2: HPAD Travel Management -->
-          <article class="slider-project-card" data-index="1">
+          <article class="slider-project-card" data-index="1" data-href="projects/hpad-travel.html">
             <div class="slider-card-media">
               <img src="img/projects/hpad-preview.jpg" alt="HPAD Travel Management System" loading="lazy">
               <div class="slider-card-media-gradient"></div>
@@ -503,7 +518,7 @@
                 <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
                 <span>ENTERPRISE PRODUCTION</span>
               </span>
-              <span class="slider-card-num">02 / 04</span>
+              <span class="slider-card-num">02 / 06</span>
             </div>
             <div class="slider-card-body">
               <div>
@@ -530,7 +545,7 @@
           </article>
 
           <!-- Slide 3: White Swan Holidays -->
-          <article class="slider-project-card" data-index="2">
+          <article class="slider-project-card" data-index="2" data-href="projects/white-swan.html">
             <div class="slider-card-media">
               <img src="img/projects/whiteswan-preview.jpg" alt="White Swan Holidays Platform" loading="lazy">
               <div class="slider-card-media-gradient"></div>
@@ -538,7 +553,7 @@
                 <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
                 <span>LIVE ON RENDER</span>
               </span>
-              <span class="slider-card-num">03 / 04</span>
+              <span class="slider-card-num">03 / 06</span>
             </div>
             <div class="slider-card-body">
               <div>
@@ -564,35 +579,105 @@
             </div>
           </article>
 
-          <!-- Slide 4: SmartFin AI -->
-          <article class="slider-project-card" data-index="3">
+          <!-- Slide 4: Loan Default Prediction -->
+          <article class="slider-project-card" data-index="3" data-href="projects.html#loandefault">
             <div class="slider-card-media">
-              <img src="img/projects/loandefault-preview.svg" alt="SmartFin AI Platform" loading="lazy">
+              <img src="img/projects/loandefault-preview.svg" alt="Loan Default Prediction & Risk Model" loading="lazy">
               <div class="slider-card-media-gradient"></div>
               <span class="slider-card-badge">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#E65909]"></span>
-                <span>FINANCIAL AUTOMATION</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                <span>ROC-AUC 0.884</span>
               </span>
-              <span class="slider-card-num">04 / 04</span>
+              <span class="slider-card-num">04 / 06</span>
             </div>
             <div class="slider-card-body">
               <div>
-                <span class="font-mono text-[10px] text-[#C7A77A] uppercase tracking-wider block mb-1">FastAPI &amp; Financial ERP</span>
-                <h3 class="slider-card-title">SmartFin AI – Finance Automation</h3>
+                <span class="font-mono text-[10px] text-[#C7A77A] uppercase tracking-wider block mb-1">Scikit-Learn ML &amp; Credit Analytics</span>
+                <h3 class="slider-card-title">Loan Default Prediction</h3>
                 <p class="slider-card-desc">
-                  Enterprise accounting and reconciliation engine: 2-way GST matching, TDS 26Q compliance, Bank BRS statement processing, and ledger-grounded AI copilot.
+                  Supervised machine learning classification pipeline with 5-fold stratified cross-validation, feature importance attribution, and real-time risk scoring.
                 </p>
                 <div class="slider-card-tags">
+                  <span class="slider-card-tag">Python</span>
+                  <span class="slider-card-tag">Scikit-Learn</span>
+                  <span class="slider-card-tag">Pandas</span>
+                  <span class="slider-card-tag">Classification</span>
+                </div>
+              </div>
+              <div class="slider-card-footer">
+                <span class="font-mono text-[11px] text-[#A5ADB5]">Credit Risk Model</span>
+                <a href="projects.html#loandefault" class="slider-card-btn group">
+                  <span>View Details</span>
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 5: AI Psychology & Wellness Chatbot -->
+          <article class="slider-project-card" data-index="4" data-href="projects.html#psychology">
+            <div class="slider-card-media">
+              <img src="img/projects/psychology-preview.svg" alt="AI Psychology & Wellness Chatbot" loading="lazy">
+              <div class="slider-card-media-gradient"></div>
+              <span class="slider-card-badge">
+                <span class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>
+                <span>CONVERSATIONAL NLP</span>
+              </span>
+              <span class="slider-card-num">05 / 06</span>
+            </div>
+            <div class="slider-card-body">
+              <div>
+                <span class="font-mono text-[10px] text-[#C7A77A] uppercase tracking-wider block mb-1">Conversational NLP &amp; Empathy AI</span>
+                <h3 class="slider-card-title">AI Psychology &amp; Wellness Chatbot</h3>
+                <p class="slider-card-desc">
+                  Empathetic conversational AI assistant featuring emotion sentiment classification, distress escalation triage, and guided cognitive reframing prompts.
+                </p>
+                <div class="slider-card-tags">
+                  <span class="slider-card-tag">Python</span>
+                  <span class="slider-card-tag">Transformers</span>
                   <span class="slider-card-tag">FastAPI</span>
-                  <span class="slider-card-tag">React 18</span>
-                  <span class="slider-card-tag">Docker</span>
+                  <span class="slider-card-tag">Streamlit</span>
+                </div>
+              </div>
+              <div class="slider-card-footer">
+                <span class="font-mono text-[11px] text-[#A5ADB5]">Empathetic AI</span>
+                <a href="projects.html#psychology" class="slider-card-btn group">
+                  <span>View Details</span>
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 6: Web Scraping & Data Aggregation -->
+          <article class="slider-project-card" data-index="5" data-href="projects.html#scraping">
+            <div class="slider-card-media">
+              <img src="img/projects/scraping-preview.svg" alt="Distributed Web Scraping & Data Ingestion" loading="lazy">
+              <div class="slider-card-media-gradient"></div>
+              <span class="slider-card-badge">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>
+                <span>RESILIENT PIPELINE</span>
+              </span>
+              <span class="slider-card-num">06 / 06</span>
+            </div>
+            <div class="slider-card-body">
+              <div>
+                <span class="font-mono text-[10px] text-[#C7A77A] uppercase tracking-wider block mb-1">Distributed ETL &amp; Data Pipelines</span>
+                <h3 class="slider-card-title">Web Scraping &amp; Data Aggregation</h3>
+                <p class="slider-card-desc">
+                  High-concurrency data extraction pipeline with automated rate-limiting, proxy rotation, schema normalization, and automated PostgreSQL storage.
+                </p>
+                <div class="slider-card-tags">
+                  <span class="slider-card-tag">Python</span>
+                  <span class="slider-card-tag">BeautifulSoup</span>
+                  <span class="slider-card-tag">Playwright</span>
                   <span class="slider-card-tag">PostgreSQL</span>
                 </div>
               </div>
               <div class="slider-card-footer">
-                <span class="font-mono text-[11px] text-[#A5ADB5]">ERP Automation</span>
-                <a href="projects/smartfin-ai.html" class="slider-card-btn group">
-                  <span>View Project</span>
+                <span class="font-mono text-[11px] text-[#A5ADB5]">Data Extraction</span>
+                <a href="projects.html#scraping" class="slider-card-btn group">
+                  <span>View Details</span>
                   <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                 </a>
               </div>

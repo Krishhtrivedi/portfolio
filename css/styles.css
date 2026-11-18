@@ -1416,52 +1416,54 @@ html.theme-transition *::after {
               box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* Dark Theme Root Token Overrides (Purplish Black Master Aesthetic) */
+/* Dark Theme Root Token Overrides (Master Prompt Specification: HPAD & Purplish Obsidian) */
 html.dark {
-  --bg-primary: #0A0612;       /* Deep Obsidian Purplish Black */
-  --bg-white: #120C1F;         /* Elevated Deep Amethyst Black Surface */
-  --bg-secondary: #181128;     /* Subtle Purplish Black Surface */
-  --text-primary: #FAF7FD;     /* Crisp Warm White with Lavender Undertone */
-  --text-secondary: #A69DBF;   /* Refined Lavender-Grey Secondary */
-  --text-tertiary: #796F94;    /* Muted Caption Purple-Grey */
-  --border-light: rgba(168, 85, 247, 0.12); /* Hairline Purple Border */
-  --border-subtle: rgba(168, 85, 247, 0.06);
-  --border-glow: rgba(168, 85, 247, 0.3);
+  --bg-primary: #080D14;       /* Primary background: Deep Obsidian Midnight */
+  --bg-secondary: #101820;     /* Secondary background: Amethyst Midnight */
+  --bg-white: #17212B;         /* Card background: Elevated Luxury Surface */
+  --text-primary: #F5F3EE;     /* Primary text: Warm Editorial White */
+  --text-secondary: #A5ADB5;   /* Secondary text: Architectural Muted Silver */
+  --text-tertiary: #757D8A;    /* Caption & Metadata */
+  --accent: #C7A77A;           /* Champagne Gold Accent */
+  --accent-purple: #A855F7;    /* Subtle Violet Highlight */
+  --border-light: rgba(255, 255, 255, 0.09); /* Hairline Border */
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-glow: rgba(199, 167, 122, 0.35);
   color-scheme: dark;
 }
 
 /* Base Body in Dark Mode */
 html.dark body {
-  background-color: #0A0612 !important;
-  color: #FAF7FD !important;
+  background-color: #080D14 !important;
+  color: #F5F3EE !important;
 }
 
 /* Text Selection in Dark Mode */
 html.dark ::selection {
-  background: #A855F7 !important;
-  color: #FFFFFF !important;
+  background: #C7A77A !important;
+  color: #080D14 !important;
 }
 
 /* Sticky Navbar & Header in Dark Mode */
 html.dark #navbar,
 html.dark header {
-  background-color: rgba(10, 6, 18, 0.94) !important;
-  border-bottom: 1px solid rgba(168, 85, 247, 0.12) !important;
+  background-color: rgba(8, 13, 20, 0.94) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
 }
 
 /* Top Announcement Bar in Dark Mode */
 html.dark .border-editorial-b,
 html.dark .border-editorial-t,
 html.dark .border-editorial {
-  border-color: rgba(168, 85, 247, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 html.dark .bg-white\/70,
 html.dark .bg-white\/80,
 html.dark .bg-white\/90 {
-  background-color: rgba(18, 12, 31, 0.9) !important;
-  border-color: rgba(168, 85, 247, 0.12) !important;
-  color: #A69DBF !important;
+  background-color: rgba(16, 24, 32, 0.9) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #A5ADB5 !important;
 }
 
 /* Section Background Overrides */
@@ -1472,14 +1474,14 @@ html.dark section#intro,
 html.dark section#expertise,
 html.dark section#experience,
 html.dark div.bg-\[\#F5F3EE\] {
-  background-color: #0A0612 !important;
+  background-color: #080D14 !important;
 }
 
-/* Architectural Grid Pattern in Dark Mode (Purplish Tinted) */
+/* Architectural Grid Pattern in Dark Mode */
 html.dark .architectural-grid {
   background-image: 
-    linear-gradient(to right, rgba(168, 85, 247, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(168, 85, 247, 0.04) 1px, transparent 1px) !important;
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px) !important;
 }
 
 /* Cards & Surface Elevators in Dark Mode */
@@ -1488,98 +1490,98 @@ html.dark .architectural-studio-card,
 html.dark .bg-white.border,
 html.dark .bg-white.rounded-sm,
 html.dark div.bg-white:not(.slider-nav-btn) {
-  background-color: #120C1F !important;
-  border-color: rgba(168, 85, 247, 0.12) !important;
-  color: #FAF7FD !important;
+  background-color: #17212B !important;
+  border-color: rgba(255, 255, 255, 0.09) !important;
+  color: #F5F3EE !important;
 }
 
 html.dark .luxury-card:hover,
 html.dark .architectural-studio-card:hover {
-  border-color: rgba(192, 132, 252, 0.4) !important;
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 25px -5px rgba(168, 85, 247, 0.15) !important;
+  border-color: rgba(199, 167, 122, 0.4) !important;
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.7), 0 0 25px -5px rgba(199, 167, 122, 0.15) !important;
 }
 
 /* Typography Overrides */
 html.dark .text-\[\#171717\],
 html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark h6 {
-  color: #FAF7FD !important;
+  color: #F5F3EE !important;
 }
 
 html.dark .text-\[\#777777\],
 html.dark p.text-\[\#777777\] {
-  color: #A69DBF !important;
+  color: #A5ADB5 !important;
 }
 
 html.dark .text-\[\#999999\] {
-  color: #796F94 !important;
+  color: #757D8A !important;
 }
 
 html.dark .border-\[\#E6E4DE\] {
-  border-color: rgba(168, 85, 247, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 html.dark .divide-\[\#E6E4DE\] > :not([hidden]) ~ :not([hidden]) {
-  border-color: rgba(168, 85, 247, 0.12) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
 /* Nav Links & Indicator */
 html.dark .nav-link {
-  color: #A69DBF !important;
+  color: #A5ADB5 !important;
 }
 html.dark .nav-link:hover,
 html.dark .nav-link.active {
-  color: #FAF7FD !important;
+  color: #F5F3EE !important;
 }
 html.dark .nav-link.active::after {
-  background-color: #A855F7 !important;
+  background-color: #C7A77A !important;
 }
 
 /* Badges & Eyebrows */
 html.dark .inline-flex.bg-white,
 html.dark span.bg-white {
-  background-color: #181128 !important;
-  border-color: rgba(168, 85, 247, 0.18) !important;
-  color: #C084FC !important;
+  background-color: #101820 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #C7A77A !important;
 }
 
 /* Section Tags */
 html.dark .section-tag {
-  color: #A69DBF !important;
+  color: #A5ADB5 !important;
 }
 html.dark .section-tag .tag-num {
-  color: #C084FC !important;
+  color: #C7A77A !important;
 }
 html.dark .section-tag .tag-line {
-  background-color: rgba(168, 85, 247, 0.25) !important;
+  background-color: rgba(199, 167, 122, 0.35) !important;
 }
 
 /* Interactive Hover States */
 html.dark .hover\:bg-\[\#FAF9F6\]:hover {
-  background-color: rgba(168, 85, 247, 0.05) !important;
+  background-color: rgba(255, 255, 255, 0.035) !important;
 }
 
 /* Primary Dark Buttons (inverts to crisp off-white for high contrast in dark mode) */
 html.dark .btn-primary-dark {
-  background-color: #FAF7FD !important;
-  color: #0A0612 !important;
-  border-color: #FAF7FD !important;
+  background-color: #F5F3EE !important;
+  color: #080D14 !important;
+  border-color: #F5F3EE !important;
   font-weight: 700;
 }
 html.dark .btn-primary-dark:hover {
   background-color: #FFFFFF !important;
-  color: #0A0612 !important;
-  box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.35) !important;
+  color: #080D14 !important;
+  box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.25) !important;
 }
 
 /* Outline Editorial Buttons */
 html.dark .btn-outline-editorial {
-  border-color: rgba(168, 85, 247, 0.25) !important;
-  color: #FAF7FD !important;
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  color: #F5F3EE !important;
   background-color: transparent !important;
 }
 html.dark .btn-outline-editorial:hover {
-  background-color: rgba(168, 85, 247, 0.12) !important;
-  border-color: rgba(192, 132, 252, 0.45) !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(199, 167, 122, 0.45) !important;
   color: #FFFFFF !important;
 }
 

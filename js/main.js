@@ -4,15 +4,14 @@
  * Advanced Scroll-Triggered Animation & Responsive Interaction Architecture
  */
 
-// 0. IMMEDIATE THEME REHYDRATION (PREVENT FLASH OF UNSTYLED THEME)
+// 0. IMMEDIATE THEME REHYDRATION (DEFAULT: PREMIUM DARK HPAD THEME)
 (function() {
   try {
     const saved = localStorage.getItem('kt_theme');
-    const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (saved === 'dark' || (!saved && systemDark)) {
-      document.documentElement.classList.add('dark');
-    } else {
+    if (saved === 'light') {
       document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
     }
   } catch (e) {}
 })();
@@ -21,6 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // GLOBAL THEME MANAGER (DARK / LIGHT LUXURY ARCHITECTURAL SWITCH)
   function initThemeManager() {
+    const savedTheme = localStorage.getItem('kt_theme');
+    if (savedTheme === 'light') {
+      document.documentElement.classList.remove('dark');
+    } else {
+      document.documentElement.classList.add('dark');
+    }
     function applyTheme(theme) {
       document.documentElement.classList.add('theme-transition');
       if (theme === 'dark') {
@@ -452,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
       updateSlider(0);
     }
 
-    // Direct click on side cards to advance
+    // Direct click on side cards to advance, or on center card to open project details
     cards.forEach((card, idx) => {
       card.addEventListener('click', (e) => {
         if (Math.abs(currentDeltaX) > 8) return; // Prevent navigation during drag
@@ -468,6 +473,13 @@ document.addEventListener('DOMContentLoaded', () => {
           e.preventDefault();
           prevSlide();
           resetAutoPlay();
+        } else if (d === 0) {
+          if (!e.target.closest('a, button')) {
+            const href = card.getAttribute('data-href');
+            if (href) {
+              window.location.href = href;
+            }
+          }
         }
       });
     });
