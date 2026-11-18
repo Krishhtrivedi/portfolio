@@ -1,221 +1,164 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Primary Meta Tags -->
-  <title>Krish Trivedi — AI Developer | Building Intelligent Applications & AI-Powered Solutions</title>
-  <meta name="title" content="Krish Trivedi — AI Developer">
-  <meta name="description" content="I build intelligent applications, AI-powered solutions and automation systems that solve real-world business problems.">
-  <meta name="keywords" content="Krish Trivedi, AI Developer, Generative AI, Python, Machine Learning, Automation, Ahmedabad, JG University, SIH 2025, HPAD Render, White Swan Holidays">
+  <title>KRISH TRIVEDI — AI Developer | Intelligent Applications & Automation</title>
+  <meta name="title" content="KRISH TRIVEDI — AI Developer">
+  <meta name="description" content="Independent AI Developer based in Ahmedabad, India. Building intelligent applications, AI-powered solutions, and automation systems that transform complex ideas into meaningful digital experiences.">
+  <meta name="keywords" content="Krish Trivedi, AI Developer, Machine Learning, Generative AI, Python, Ahmedabad, Next.js, Supabase, HPAD, KisanMitra, White Swan Holidays">
   <meta name="author" content="Krish Trivedi">
 
-  <!-- Open Graph / Facebook -->
+  <!-- Open Graph / Meta -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://krishtrivedi.in/">
-  <meta property="og:title" content="Krish Trivedi — AI Developer">
-  <meta property="og:description" content="Building Intelligent Applications & AI-Powered Solutions.">
+  <meta property="og:title" content="KRISH TRIVEDI — AI Developer">
+  <meta property="og:description" content="Building Intelligence. Creating What’s Next. Portfolio of Krish Trivedi.">
   <meta property="og:image" content="https://krishtrivedi.in/favicon.svg">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <!-- Web Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Onest:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            canvas: '#070b14',
-            surface: {
-              DEFAULT: '#101828',
-              lift: '#152033',
-              glass: 'rgba(16, 24, 40, 0.75)',
-            },
-            vermilion: {
-              DEFAULT: '#f15c24',
-              hover: '#ff7a45',
-              glow: 'rgba(241, 92, 36, 0.35)',
-            },
-            aqua: {
-              DEFAULT: '#3ee0c5',
-              glow: 'rgba(62, 224, 197, 0.35)',
-            },
-            cyanAccent: {
-              DEFAULT: '#3ee0c5',
-              glow: 'rgba(62, 224, 197, 0.35)',
-            },
-            violetAccent: '#ff7a45',
-            renderGreen: '#3ee0c5',
+            paper: '#F5F3EE',
+            graphite: '#171717',
+            secondary: '#777777',
+            cobalt: '#526BFF',
+            obsidian: '#10131D',
+            hairline: '#E6E4DE',
           },
           fontFamily: {
-            display: ['Syne', 'sans-serif'],
-            sans: ['Onest', 'system-ui', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Manrope', 'Inter', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
           }
         }
       }
-    }
     }
   </script>
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Custom Stylesheet -->
+  <!-- Custom Design System Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-[#070b14] text-[#e2e8f0] font-sans selection:bg-[#f15c24] selection:text-[#070b14] transition-colors duration-300 relative">
+<body class="bg-[#F5F3EE] text-[#171717] font-sans antialiased relative">
 
-  <!-- Blueprint CAD Grid & Interactive Neural Canvas -->
-  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-    <div class="absolute inset-0 blueprint-grid opacity-70"></div>
-    <div class="absolute inset-0 blueprint-radial"></div>
-    <div class="absolute -top-36 right-1/4 w-[550px] h-[550px] bg-[#f15c24]/10 rounded-full blur-[150px]"></div>
-    <div class="absolute top-1/2 -left-48 w-[500px] h-[500px] bg-[#3ee0c5]/08 rounded-full blur-[160px]"></div>
-  </div>
-  <canvas id="neural-canvas" class="neural-canvas"></canvas>
-
-  <!-- Vertical Side Rail (Meet Gajjar Style) -->
-  <aside class="side-rail" aria-hidden="true">
-    <div class="side-rail-track">
-      <div class="side-rail-thumb"></div>
+  <!-- Side Progress Rail (HPAD / Meet Gajjar Aesthetic) -->
+  <aside class="side-progress-rail" aria-hidden="true">
+    <div class="rail-track">
+      <div class="rail-thumb"></div>
     </div>
-    <div class="side-rail-text">KRISH · AI DEVELOPER</div>
+    <div class="rail-text">KRISH TRIVEDI · AI DEVELOPER</div>
   </aside>
 
-  <!-- FULLSCREEN OVERLAY MENU (MEET GAJJAR STYLE) -->
+  <!-- Fullscreen Editorial Menu Overlay -->
   <div id="fullscreenMenu" class="fullscreen-menu">
-    <div class="max-w-4xl mx-auto w-full flex flex-col justify-between h-full">
+    <div class="max-w-5xl mx-auto w-full flex flex-col justify-between h-full py-4">
+      <!-- Menu Header -->
       <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#f15c24] to-[#ff7a45] text-[#070b14] flex items-center justify-center font-display font-black text-sm shadow-lg shadow-[#f15c24]/30">KT</div>
-          <span class="font-display font-bold text-white text-base tracking-wide">PORTFOLIO INDEX</span>
+          <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-9 h-9">
+          <span class="font-display font-bold text-white tracking-wider text-sm">KRISH TRIVEDI // INDEX</span>
         </div>
-        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#9aa6b8] hover:text-white rounded-full bg-white/[0.05] transition-colors">
+        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
       </div>
 
-      <nav class="py-6 space-y-1">
-        <a href="index.html" class="menu-item group text-[#f15c24]" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>01 HOME</span>
-          <span class="menu-number">MAIN HUB</span>
+      <!-- Menu Navigation Links -->
+      <nav class="py-8 space-y-1">
+        <a href="index.html" class="menu-item-editorial group text-[#526BFF]">
+          <span class="item-title">01 HOME</span>
+          <span class="item-sub">MAIN HUB</span>
         </a>
-        <a href="about.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>02 ABOUT ME</span>
-          <span class="menu-number">BIOGRAPHY & JOURNEY</span>
+        <a href="about.html" class="menu-item-editorial group">
+          <span class="item-title">02 ABOUT</span>
+          <span class="item-sub">BIOGRAPHY & PHILOSOPHY</span>
         </a>
-        <a href="ai-lab.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>03 AI LAB</span>
-          <span class="menu-number">INTELLIGENT EXPERIMENTS</span>
+        <a href="projects.html" class="menu-item-editorial group">
+          <span class="item-title">03 PROJECTS</span>
+          <span class="item-sub">SELECTED CASE STUDIES</span>
         </a>
-        <a href="projects.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>04 PROJECTS</span>
-          <span class="menu-number">LIVE DEPLOYMENTS</span>
+        <a href="ai-lab.html" class="menu-item-editorial group">
+          <span class="item-title">04 AI LAB</span>
+          <span class="item-sub">INTERACTIVE DEMOS & CLI</span>
         </a>
-        <a href="skills.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>05 SKILLS</span>
-          <span class="menu-number">TECHNICAL ARSENAL</span>
+        <a href="services.html" class="menu-item-editorial group">
+          <span class="item-title">05 SERVICES</span>
+          <span class="item-sub">SOLUTIONS & EXPERTISE</span>
         </a>
-        <a href="experience.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>06 EXPERIENCE</span>
-          <span class="menu-number">CAREER TIMELINE</span>
+        <a href="experience.html" class="menu-item-editorial group">
+          <span class="item-title">06 EXPERIENCE</span>
+          <span class="item-sub">CAREER & SYSTEMS TIMELINE</span>
         </a>
-        <a href="services.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>07 SERVICES</span>
-          <span class="menu-number">SOLUTIONS OFFERED</span>
+        <a href="resume.html" class="menu-item-editorial group">
+          <span class="item-title">07 RESUME</span>
+          <span class="item-sub">CURRICULUM VITAE</span>
         </a>
-        <a href="education.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>08 EDUCATION</span>
-          <span class="menu-number">ACADEMICS & AWS</span>
-        </a>
-        <a href="resume.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>09 RESUME</span>
-          <span class="menu-number">CURRICULUM VITAE</span>
-        </a>
-        <a href="contact.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>10 CONTACT</span>
-          <span class="menu-number">LET'S CONNECT</span>
+        <a href="contact.html" class="menu-item-editorial group">
+          <span class="item-title">08 CONTACT</span>
+          <span class="item-sub">LET'S CONNECT</span>
         </a>
       </nav>
 
-      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#9aa6b8]">
-        <span>KRISH TRIVEDI · AHMEDABAD, GUJARAT, INDIA</span>
-        <div class="flex items-center gap-4">
-          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white">GITHUB</a>
-          <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#46e3b7]">HPAD APP</a>
-          <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#f15c24]">WHITE SWAN RENDER</a>
+      <!-- Menu Footer Coordinates -->
+      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#8E95A5]">
+        <span>AHMEDABAD, GUJARAT, INDIA · +91 8849213790</span>
+        <div class="flex items-center gap-6 mt-2 sm:mt-0">
+          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors">EMAIL</a>
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GITHUB</a>
+          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">WHATSAPP</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- FLOATING GLOBAL HEADER -->
-  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#070b14]/85 border-b border-white/[0.08]" id="navbar">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+  <!-- Navigation Bar -->
+  <header class="luxury-navbar" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
       
-      <!-- Brand Logo -->
-      <a href="index.html" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#f15c24] via-[#ff7a45] to-[#f15c24] flex items-center justify-center font-display font-extrabold text-[#070b14] text-base shadow-lg shadow-[#f15c24]/30 group-hover:scale-105 transition-transform flex-shrink-0">
-          KT
-        </div>
+      <!-- Brand Logo & Wordmark -->
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <img src="img/logo-kt-dark.svg" alt="KT Monogram" class="w-10 h-10 transition-transform group-hover:scale-105">
         <div class="flex flex-col">
-          <div class="flex items-center gap-2">
-            <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-[#f15c24] transition-colors">KRISH TRIVEDI</span>
-            <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#3ee0c5] animate-pulse"></span>
-          </div>
-          <span class="text-[11px] text-[#9aa6b8] font-mono tracking-wider uppercase hidden sm:block">
-            AI DEVELOPER // APPS & AUTOMATION
-          </span>
+          <span class="font-display font-bold text-sm tracking-widest text-[#171717] group-hover:text-[#526BFF] transition-colors">KRISH TRIVEDI</span>
+          <span class="font-mono text-[10px] text-[#777777] tracking-wider uppercase">AI Developer · Ahmedabad</span>
         </div>
       </a>
 
-      <!-- Desktop Nav Menu (10 Pages) -->
-      <nav class="hidden xl:flex items-center gap-1">
-        <a href="index.html" class="nav-link-item active px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full">Home</a>
-        <a href="about.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">About</a>
-        <a href="ai-lab.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">AI Lab</a>
-        <a href="projects.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Projects</a>
-        <a href="skills.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Skills</a>
-        <a href="experience.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Experience</a>
-        <a href="services.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Services</a>
-        <a href="education.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Education</a>
-        <a href="resume.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Resume</a>
-        <a href="contact.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Contact</a>
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-1">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="ai-lab.html" class="nav-link">AI Lab</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
-      <!-- Right Action Controls -->
-      <div class="flex items-center gap-2 sm:gap-3">
-        
-        <!-- Audio Status Pill -->
-        <button id="audioToggleBtn" class="audio-toggle-btn hidden md:inline-flex" title="Toggle Futuristic Sound Effects">
-          <i data-lucide="volume-x" class="w-3.5 h-3.5"></i>
-          <span>AUDIO: OFF</span>
-        </button>
-
-        <!-- Theme Toggle -->
-        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-9 h-9 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-[#e2e8f0] hover:text-white border border-white/[0.08] flex items-center justify-center transition-colors">
-          <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-300"></i>
-          <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
-        </button>
-
-        <!-- Let's Connect CTA -->
-        <a href="contact.html" class="btn-primary text-xs py-2 px-3.5 sm:px-4">
-          <span>Let’s Connect</span>
-          <i data-lucide="arrow-right" class="w-3.5 h-3.5 hidden sm:inline"></i>
+      <!-- Right Action Area -->
+      <div class="flex items-center gap-3">
+        <a href="Krish-Trivedi-Resume.pdf" target="_blank" class="hidden sm:inline-flex btn-luxury btn-outline-editorial text-xs py-2 px-4">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+          <span>Resume</span>
         </a>
-
-        <!-- Hamburger Menu Button -->
-        <button id="menuToggleBtn" aria-label="Open Fullscreen Menu" class="p-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1] transition-colors">
+        <a href="contact.html" class="inline-flex btn-luxury btn-primary-dark text-xs py-2 px-4">
+          <span>Let's Talk</span>
+        </a>
+        <!-- Hamburger Menu Toggle Button -->
+        <button id="menuToggleBtn" aria-label="Open Navigation Index" class="p-2.5 rounded-sm border border-[#E6E4DE] bg-white text-[#171717] hover:border-[#171717] transition-all">
           <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
       </div>
@@ -223,576 +166,1115 @@
     </div>
   </header>
 
-  <!-- MAIN WRAPPER -->
-  <main class="relative z-10 pt-28">
-
-    <!-- =====================================================================
-         HERO SECTION (SECTION 3)
-         ===================================================================== -->
-    <section class="min-h-[82vh] flex flex-col justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+  <!-- ========================================================================
+       HERO SECTION — EDITORIAL LUXURY & INTELLIGENT TECHNOLOGY
+       ======================================================================== -->
+  <section class="relative pt-36 pb-20 lg:pt-44 lg:pb-32 border-editorial-b architectural-grid">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         
-        <!-- Left Hero Copy (7 cols) -->
-        <div class="lg:col-span-7 space-y-6">
+        <!-- Left Hero Typography (7 cols) -->
+        <div class="lg:col-span-7 space-y-8">
           
-          <!-- Live AI Exploring Status Badge -->
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-medium bg-[#f15c24]/10 text-[#3ee0c5] border border-[#f15c24]/25 backdrop-blur-md">
-            <span class="w-2 h-2 rounded-full bg-[#f15c24] animate-ping"></span>
-            <span>EXPLORING: MULTI-AGENT LLM ORCHESTRATION & AUTONOMOUS TOOLS</span>
+          <!-- Small Label -->
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#E6E4DE] bg-white text-xs font-mono text-[#171717] tracking-wider uppercase">
+            <span class="w-2 h-2 rounded-full bg-[#526BFF] animate-pulse"></span>
+            <span>INDEPENDENT AI DEVELOPER · AHMEDABAD, INDIA</span>
           </div>
 
-          <!-- Hero Name & Title -->
-          <div>
-            <div class="text-xs sm:text-sm font-mono text-[#9aa6b8] tracking-widest uppercase mb-1">Portfolio & Systems Architecture</div>
-            <h1 class="text-4xl sm:text-6xl md:text-7xl font-display font-extrabold text-white tracking-tight leading-[1.08]">
-              KRISH TRIVEDI
-            </h1>
-            <div class="text-lg sm:text-2xl font-display font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#f15c24] via-[#ff7a45] to-[#3ee0c5] mt-2">
-              AI DEVELOPER
+          <!-- Main Headline -->
+          <h1 class="headline-hero">
+            Building Intelligence.<br>
+            <span class="font-serif italic font-normal text-[#526BFF]">Creating</span> What’s Next.
+          </h1>
+
+          <!-- Supporting Text -->
+          <p class="text-lg sm:text-xl text-[#777777] font-normal leading-relaxed max-w-2xl">
+            “I build intelligent applications, AI-powered solutions and automation systems that transform complex ideas into meaningful digital experiences.”
+          </p>
+
+          <!-- Buttons -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <a href="#projects" class="btn-luxury btn-primary-dark text-xs">
+              <span>EXPLORE MY WORK</span>
+              <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+            </a>
+            <a href="Krish-Trivedi-Resume.pdf" download="Krish-Trivedi-Resume.pdf" class="btn-luxury btn-outline-editorial text-xs">
+              <i data-lucide="download" class="w-4 h-4"></i>
+              <span>DOWNLOAD RESUME</span>
+            </a>
+            <a href="contact.html" class="btn-luxury btn-accent text-xs">
+              <span>LET’S CONNECT</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+          <!-- Key Metadata Metrics -->
+          <div class="grid grid-cols-3 gap-6 pt-8 border-editorial-t">
+            <div>
+              <div class="font-display font-bold text-2xl sm:text-3xl text-[#171717]">SIH '25</div>
+              <div class="font-mono text-xs text-[#777777] uppercase mt-0.5">Finalist (KisanMitra)</div>
             </div>
-            <div class="text-sm sm:text-base font-mono text-[#3ee0c5] mt-1 font-semibold">
-              Building Intelligent Applications & AI-Powered Solutions.
+            <div>
+              <div class="font-display font-bold text-2xl sm:text-3xl text-[#171717]">99.8%</div>
+              <div class="font-mono text-xs text-[#777777] uppercase mt-0.5">Cloud Uptime</div>
             </div>
-          </div>
-
-          <!-- Main Headline & Supporting Description -->
-          <div class="space-y-3">
-            <p class="text-base sm:text-lg font-body text-[#e2e8f0] leading-relaxed max-w-2xl">
-              I build intelligent applications, AI-powered solutions and automation systems that solve real-world business problems.
-            </p>
-          </div>
-
-          <!-- Location & Availability Tag -->
-          <div class="flex flex-wrap items-center gap-2 text-xs font-mono text-[#9aa6b8]">
-            <i data-lucide="map-pin" class="w-4 h-4 text-[#3ee0c5]"></i>
-            <span>Ahmedabad, Gujarat, India</span>
-            <span class="text-white/20">|</span>
-            <span class="text-emerald-400 font-medium">Available for AI Development & Engineering</span>
-          </div>
-
-          <!-- Hero Action Buttons (Specified in Requirement 3) -->
-          <div class="flex flex-wrap items-center gap-3 pt-2">
-            <a href="projects.html" class="btn-primary">
-              <i data-lucide="folder-code" class="w-4 h-4"></i>
-              <span>Explore Projects</span>
-            </a>
-            <a href="resume.html" class="btn-outline">
-              <i data-lucide="file-text" class="w-4 h-4 text-[#3ee0c5]"></i>
-              <span>Download Resume</span>
-            </a>
-            <a href="contact.html" class="btn-vermilion">
-              <span>Let’s Connect</span>
-              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-            </a>
-          </div>
-
-          <!-- Social Shortcuts -->
-          <div class="flex flex-wrap items-center gap-4 pt-4 text-xs font-mono text-[#9aa6b8]">
-            <span>VERIFIED LINKS:</span>
-            <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white flex items-center gap-1.5 transition-colors">
-              <i data-lucide="github" class="w-4 h-4"></i>
-              <span>GitHub</span>
-            </a>
-            <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#46e3b7] flex items-center gap-1.5 transition-colors">
-              <i data-lucide="server" class="w-4 h-4"></i>
-              <span>HPAD Live</span>
-            </a>
-            <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#f15c24] flex items-center gap-1.5 transition-colors">
-              <i data-lucide="globe" class="w-4 h-4 text-[#f15c24]"></i>
-              <span>White Swan Live</span>
-            </a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-[#3ee0c5] flex items-center gap-1.5 transition-colors">
-              <i data-lucide="linkedin" class="w-4 h-4"></i>
-              <span>LinkedIn</span>
-            </a>
+            <div>
+              <div class="font-display font-bold text-2xl sm:text-3xl text-[#171717]">6+</div>
+              <div class="font-mono text-xs text-[#777777] uppercase mt-0.5">Deployments</div>
+            </div>
           </div>
 
         </div>
 
-        <!-- Right Hero Animated AI Visual (5 cols) -->
-        <div class="lg:col-span-5 flex justify-center">
-          <div class="card-architect p-6 sm:p-8 w-full max-w-md card-glow-cyan relative">
-            <div class="absolute -top-3 -right-3 px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-[#f15c24] text-[#070b14] uppercase shadow-lg shadow-[#f15c24]/30">
-              VERIFIED AI PROFILE
+        <!-- Right Hero Architectural Composition (5 cols) -->
+        <div class="lg:col-span-5 relative">
+          
+          <!-- Editorial Card -->
+          <div class="luxury-card p-8 relative overflow-hidden bg-white shadow-xl shadow-black/[0.03]">
+            
+            <!-- Top Status Bar -->
+            <div class="flex items-center justify-between pb-5 border-b border-[#E6E4DE] text-xs font-mono text-[#777777]">
+              <span class="flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span class="text-[#171717] font-semibold">AI INFERENCE ENGINE ACTIVE</span>
+              </span>
+              <span>v3.4.0</span>
             </div>
 
-            <div class="flex items-center gap-4 mb-6">
-              <div class="relative">
-                <div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-[#f15c24]/20 via-[#ff7a45]/20 to-[#3ee0c5]/20 border border-[#f15c24]/40 flex items-center justify-center font-display font-extrabold text-2xl text-white shadow-xl shadow-[#f15c24]/30">
-                  KT
+            <!-- Profile Imagery & Monogram Composition -->
+            <div class="my-6 relative rounded-sm overflow-hidden bg-[#ECE9E2] border border-[#E6E4DE] aspect-[4/3] flex items-center justify-center">
+              <img src="img/projects/portfolio-preview.jpg" alt="Krish Trivedi Engineering Portfolio" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-[#10131D]/80 via-transparent to-transparent flex items-end p-5">
+                <div>
+                  <div class="text-xs font-mono text-white/70 uppercase tracking-widest">Lead Engineer & Architect</div>
+                  <div class="text-xl font-display font-bold text-white">Krish Trivedi</div>
                 </div>
-                <div class="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-emerald-500 border-2 border-[#101828] flex items-center justify-center" title="Online & Building">
-                  <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
-                </div>
+              </div>
+            </div>
+
+            <!-- Engineering Badges -->
+            <div class="space-y-3 font-mono text-xs">
+              <div class="flex items-center justify-between p-3 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE]">
+                <span class="text-[#777777]">Architecture:</span>
+                <span class="font-bold text-[#171717]">Multi-Agent RAG + Next.js 15</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE]">
+                <span class="text-[#777777]">Credentials:</span>
+                <span class="font-bold text-[#171717]">B.Tech IT (JG University) · AWS</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE]">
+                <span class="text-[#777777]">Current Focus:</span>
+                <span class="font-bold text-[#526BFF]">Autonomous Business Workflows</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       01 — INTRODUCTION (BIOGRAPHY & PHILOSOPHY)
+       ======================================================================== -->
+  <section class="py-24 border-editorial-b bg-white" id="introduction">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="mb-14">
+        <div class="section-tag">
+          <span class="tag-num">01</span>
+          <span class="tag-line"></span>
+          <span>Introduction</span>
+        </div>
+        <h2 class="headline-section mt-3">
+          Engineering Autonomous Intelligence<br class="hidden sm:inline">
+          <span class="font-serif italic font-normal text-[#526BFF]">&</span> Enterprise Software Systems.
+        </h2>
+      </div>
+
+      <!-- Editorial Grid: 2 Columns -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left Column: Biography (7 cols) -->
+        <div class="lg:col-span-7 space-y-6 text-base sm:text-lg text-[#171717] leading-relaxed">
+          <p>
+            I am <strong class="font-semibold text-black">Krish Trivedi</strong>, an AI developer and software systems engineer based in Ahmedabad, India. My work bridges the gap between deep algorithmic machine learning and robust, production-grade enterprise software.
+          </p>
+          <p class="text-[#777777]">
+            Currently completing my <strong class="text-[#171717] font-semibold">B.Tech in Information Technology</strong> at <strong class="text-[#171717]">JG University</strong>, I previously earned my <strong class="text-[#171717]">Diploma in Information Technology</strong> with distinction (7.2 CGPA) from L.J University. My professional foundation spans hands-on systems engineering at <strong class="text-[#171717]">Arterius Solutions</strong> (firewall administration, Microsoft 365, network infrastructure) and technology operations at <strong class="text-[#171717]">White Swan Holidays</strong>.
+          </p>
+          
+          <!-- Career Philosophy Quote (HPAD Style) -->
+          <div class="p-6 bg-[#F5F3EE] border-editorial border-l-4 border-l-[#526BFF] my-8">
+            <p class="font-serif italic text-xl text-[#171717] leading-relaxed">
+              “True engineering is not merely writing code; it is crafting reliable, intelligent architectures that eliminate friction, protect data integrity, and solve tangible human challenges.”
+            </p>
+            <div class="mt-3 font-mono text-xs text-[#777777] uppercase tracking-wider">— Krish Trivedi, Career Philosophy</div>
+          </div>
+
+          <div class="pt-2">
+            <a href="about.html" class="inline-flex items-center gap-2 font-display text-sm font-semibold text-[#171717] hover:text-[#526BFF] transition-colors group">
+              <span>Read complete biography & educational background</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: 4 Engineering Pillars (5 cols) -->
+        <div class="lg:col-span-5 space-y-4">
+          
+          <div class="p-6 border-editorial bg-[#F5F3EE] rounded-sm">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="w-7 h-7 rounded-sm bg-[#171717] text-white flex items-center justify-center font-mono text-xs font-bold">01</span>
+              <h3 class="font-display font-bold text-base text-[#171717]">Autonomous AI Systems</h3>
+            </div>
+            <p class="text-xs text-[#777777] leading-relaxed">
+              Designing self-healing, multi-agent workflows, stateful conversational agents, and high-accuracy vector retrieval (RAG) engines.
+            </p>
+          </div>
+
+          <div class="p-6 border-editorial bg-[#F5F3EE] rounded-sm">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="w-7 h-7 rounded-sm bg-[#526BFF] text-white flex items-center justify-center font-mono text-xs font-bold">02</span>
+              <h3 class="font-display font-bold text-base text-[#171717]">Full-Stack Modern Web</h3>
+            </div>
+            <p class="text-xs text-[#777777] leading-relaxed">
+              High-performance React 19, Next.js 15, and FastAPI backends connected to Supabase PostgreSQL with strict Row-Level Security.
+            </p>
+          </div>
+
+          <div class="p-6 border-editorial bg-[#F5F3EE] rounded-sm">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="w-7 h-7 rounded-sm bg-[#171717] text-white flex items-center justify-center font-mono text-xs font-bold">03</span>
+              <h3 class="font-display font-bold text-base text-[#171717]">Enterprise Infrastructure</h3>
+            </div>
+            <p class="text-xs text-[#777777] leading-relaxed">
+              Hardened firewall configurations, Microsoft 365 tenant governance, automated patch management, and AWS Cloud Practitioner compliance.
+            </p>
+          </div>
+
+          <div class="p-6 border-editorial bg-[#F5F3EE] rounded-sm">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="w-7 h-7 rounded-sm bg-[#526BFF] text-white flex items-center justify-center font-mono text-xs font-bold">04</span>
+              <h3 class="font-display font-bold text-base text-[#171717]">Real Business Utility</h3>
+            </div>
+            <p class="text-xs text-[#777777] leading-relaxed">
+              Zero tolerance for shallow hype prototypes. Every solution is engineered for 99.9% uptime, measurable ROI, and automated operation.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       02 — SELECTED PROJECTS (INTERNATIONAL DESIGN GALLERY)
+       ======================================================================== -->
+  <section class="py-24 border-editorial-b bg-[#F5F3EE]" id="projects">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header & Filter Controls -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="section-tag">
+            <span class="tag-num">02</span>
+            <span class="tag-line"></span>
+            <span>Selected Projects</span>
+          </div>
+          <h2 class="headline-section mt-3">
+            Crafted for Impact.<br>
+            <span class="font-serif italic font-normal text-[#526BFF]">Engineered</span> for Scale.
+          </h2>
+        </div>
+
+        <!-- Filter Buttons (International Portfolio Style) -->
+        <div class="flex flex-wrap items-center gap-2">
+          <button class="filter-btn text-xs font-mono uppercase px-4 py-2 border rounded-sm transition-all bg-[#171717] text-white border-[#171717]" data-filter="all">All (6)</button>
+          <button class="filter-btn text-xs font-mono uppercase px-4 py-2 border rounded-sm transition-all bg-white text-[#777777] border-[#E6E4DE] hover:border-[#171717]" data-filter="ai">AI & ML (3)</button>
+          <button class="filter-btn text-xs font-mono uppercase px-4 py-2 border rounded-sm transition-all bg-white text-[#777777] border-[#E6E4DE] hover:border-[#171717]" data-filter="web">Web & Cloud (2)</button>
+          <button class="filter-btn text-xs font-mono uppercase px-4 py-2 border rounded-sm transition-all bg-white text-[#777777] border-[#E6E4DE] hover:border-[#171717]" data-filter="enterprise">Enterprise (1)</button>
+        </div>
+      </div>
+
+      <!-- Asymmetrical Project Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
+        
+        <!-- PROJECT 1: KisanMitra (Span 7) -->
+        <div class="project-card lg:col-span-7 luxury-card p-6 sm:p-8 flex flex-col justify-between" data-category="ai">
+          <div>
+            <div class="project-image-frame aspect-[16/9] mb-6">
+              <img src="img/projects/kisanmitra-preview.svg" alt="KisanMitra AI Agricultural Platform" class="w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="editorial-tag text-[#526BFF] border-[#526BFF]/30 font-bold">SMART INDIA HACKATHON '25 FINALIST</span>
+              <span class="font-mono text-xs text-[#777777]">01 // AI & COMPUTER VISION</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-[#171717] mb-2">KisanMitra – AI Krishi Officer</h3>
+            <p class="text-sm text-[#777777] leading-relaxed mb-4">
+              AI-driven agricultural platform delivering multilingual voice conversational assistance in Hindi, Gujarati, and English, paired with crop disease diagnostics via Gemini 1.5 Flash Vision.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="editorial-tag">Python</span>
+              <span class="editorial-tag">FastAPI</span>
+              <span class="editorial-tag">Gemini Vision</span>
+              <span class="editorial-tag">Whisper AI</span>
+              <span class="editorial-tag">LangChain</span>
+            </div>
+          </div>
+          <div class="pt-4 border-editorial-t flex items-center justify-between text-xs font-mono">
+            <span class="text-[#777777]">Multimodal Agricultural LLM</span>
+            <a href="projects/kisanmitra.html" class="inline-flex items-center gap-1.5 font-bold text-[#171717] hover:text-[#526BFF] transition-colors">
+              <span>View Case Study</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- PROJECT 2: HPAD Travel Management System (Span 5) -->
+        <div class="project-card lg:col-span-5 luxury-card p-6 sm:p-8 flex flex-col justify-between" data-category="web enterprise">
+          <div>
+            <div class="project-image-frame aspect-[16/9] mb-6">
+              <img src="img/projects/hpad-preview.jpg" alt="HPAD Travel Management System" class="w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="editorial-tag text-emerald-600 border-emerald-500/30 font-bold">ENTERPRISE PRODUCTION DEPLOYED</span>
+              <span class="font-mono text-xs text-[#777777]">02 // WEB & CLOUD</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-[#171717] mb-2">HPAD Travel Management System</h3>
+            <p class="text-sm text-[#777777] leading-relaxed mb-4">
+              Corporate travel logistics platform engineered for Hiren Patel Architects & Design (HPAD). Multi-role authorization, driver dispatching, and Supabase PostgreSQL.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="editorial-tag">Next.js 15</span>
+              <span class="editorial-tag">React 19</span>
+              <span class="editorial-tag">Supabase</span>
+              <span class="editorial-tag">Render Cloud</span>
+            </div>
+          </div>
+          <div class="pt-4 border-editorial-t flex items-center justify-between text-xs font-mono">
+            <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" class="text-emerald-600 hover:underline">Live Application ↗</a>
+            <a href="projects/hpad-travel.html" class="inline-flex items-center gap-1.5 font-bold text-[#171717] hover:text-[#526BFF] transition-colors">
+              <span>View Case Study</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- PROJECT 3: White Swan Holidays (Span 5) -->
+        <div class="project-card lg:col-span-5 luxury-card p-6 sm:p-8 flex flex-col justify-between" data-category="web">
+          <div>
+            <div class="project-image-frame aspect-[16/9] mb-6">
+              <img src="img/projects/whiteswan-preview.jpg" alt="White Swan Holidays Booking Platform" class="w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="editorial-tag text-[#171717]">COMMERCIAL PLATFORM</span>
+              <span class="font-mono text-xs text-[#777777]">03 // FULL-STACK</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-[#171717] mb-2">White Swan Holidays</h3>
+            <p class="text-sm text-[#777777] leading-relaxed mb-4">
+              Digital customer booking portal for a luxury travel consultancy with automated itinerary generation and WhatsApp Business lead integration.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="editorial-tag">React</span>
+              <span class="editorial-tag">Node.js</span>
+              <span class="editorial-tag">Express</span>
+              <span class="editorial-tag">Render</span>
+            </div>
+          </div>
+          <div class="pt-4 border-editorial-t flex items-center justify-between text-xs font-mono">
+            <a href="https://whiteswanholidays.onrender.com/" target="_blank" class="text-[#526BFF] hover:underline">Live Site ↗</a>
+            <a href="projects/white-swan.html" class="inline-flex items-center gap-1.5 font-bold text-[#171717] hover:text-[#526BFF] transition-colors">
+              <span>View Case Study</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- PROJECT 4: Loan Default Prediction ML (Span 7) -->
+        <div class="project-card lg:col-span-7 luxury-card p-6 sm:p-8 flex flex-col justify-between" data-category="ai">
+          <div>
+            <div class="project-image-frame aspect-[16/9] mb-6">
+              <img src="img/projects/loandefault-preview.svg" alt="Loan Default Prediction Machine Learning" class="w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="editorial-tag text-purple-700 border-purple-300">PREDICTIVE ML PIPELINE</span>
+              <span class="font-mono text-xs text-[#777777]">04 // MACHINE LEARNING</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-[#171717] mb-2">Financial Loan Default Prediction</h3>
+            <p class="text-sm text-[#777777] leading-relaxed mb-4">
+              Production credit risk assessment pipeline featuring automated SMOTE class imbalance compensation, XGBoost ensemble classification, and interactive Streamlit inference.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="editorial-tag">Python</span>
+              <span class="editorial-tag">Scikit-learn</span>
+              <span class="editorial-tag">XGBoost</span>
+              <span class="editorial-tag">Pandas</span>
+              <span class="editorial-tag">Streamlit</span>
+            </div>
+          </div>
+          <div class="pt-4 border-editorial-t flex items-center justify-between text-xs font-mono">
+            <span class="text-[#777777]">ROC-AUC: 0.894</span>
+            <a href="projects.html" class="inline-flex items-center gap-1.5 font-bold text-[#171717] hover:text-[#526BFF] transition-colors">
+              <span>Explore Architecture</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- PROJECT 5: AI Psychology & Wellness Chatbot (Span 6) -->
+        <div class="project-card lg:col-span-6 luxury-card p-6 sm:p-8 flex flex-col justify-between" data-category="ai">
+          <div>
+            <div class="project-image-frame aspect-[16/9] mb-6">
+              <img src="img/projects/psychology-preview.svg" alt="AI Psychology Chatbot" class="w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="editorial-tag text-teal-700">RAG & EMOTIONAL NLP</span>
+              <span class="font-mono text-xs text-[#777777]">05 // GENERATIVE AI</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-[#171717] mb-2">AI Psychology & Wellness Companion</h3>
+            <p class="text-sm text-[#777777] leading-relaxed mb-4">
+              Empathic mental wellness companion integrating Cognitive Behavioral Therapy (CBT) conversational frameworks and vector similarity retrieval for coping strategies.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="editorial-tag">FastAPI</span>
+              <span class="editorial-tag">LangChain</span>
+              <span class="editorial-tag">FAISS</span>
+              <span class="editorial-tag">Llama 3</span>
+            </div>
+          </div>
+          <div class="pt-4 border-editorial-t flex items-center justify-between text-xs font-mono">
+            <span class="text-[#777777]">Privacy-Preserving Architecture</span>
+            <a href="projects.html" class="inline-flex items-center gap-1.5 font-bold text-[#171717] hover:text-[#526BFF] transition-colors">
+              <span>View Specs</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- PROJECT 6: Web Scraping & Data Ingestion (Span 6) -->
+        <div class="project-card lg:col-span-6 luxury-card p-6 sm:p-8 flex flex-col justify-between" data-category="enterprise">
+          <div>
+            <div class="project-image-frame aspect-[16/9] mb-6">
+              <img src="img/projects/scraping-preview.svg" alt="Distributed Web Scraping Pipeline" class="w-full h-full object-cover">
+            </div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="editorial-tag text-blue-700">AUTOMATION & INGESTION</span>
+              <span class="font-mono text-xs text-[#777777]">06 // DATA SYSTEMS</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-[#171717] mb-2">Distributed Web Scraping Pipeline</h3>
+            <p class="text-sm text-[#777777] leading-relaxed mb-4">
+              High-concurrency headless extraction cluster utilizing Playwright and Scrapy with rotating proxy topologies and automated database normalization.
+            </p>
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="editorial-tag">Python</span>
+              <span class="editorial-tag">Playwright</span>
+              <span class="editorial-tag">Scrapy</span>
+              <span class="editorial-tag">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="pt-4 border-editorial-t flex items-center justify-between text-xs font-mono">
+            <span class="text-[#777777]">Resilient Anti-Bot Defense</span>
+            <a href="projects.html" class="inline-flex items-center gap-1.5 font-bold text-[#171717] hover:text-[#526BFF] transition-colors">
+              <span>View Details</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Link -->
+      <div class="mt-12 text-center">
+        <a href="projects.html" class="btn-luxury btn-outline-editorial text-xs">
+          <span>VIEW ALL CASE STUDIES & TECHNICAL ARCHITECTURE</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       03 — WHAT I DO (SERVICES & SOLUTIONS)
+       ======================================================================== -->
+  <section class="py-24 border-editorial-b bg-white" id="services">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="mb-16">
+        <div class="section-tag">
+          <span class="tag-num">03</span>
+          <span class="tag-line"></span>
+          <span>What I Do</span>
+        </div>
+        <h2 class="headline-section mt-3">
+          Specialized Engineering Services<br>
+          <span class="font-serif italic font-normal text-[#526BFF]">For Modern</span> Intelligent Enterprises.
+        </h2>
+      </div>
+
+      <!-- Services Grid: 9 Areas -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="luxury-card p-8 border-editorial">
+          <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6">
+            <i data-lucide="cpu" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-[#171717] mb-2">AI Application Development</h3>
+          <p class="text-sm text-[#777777] leading-relaxed">
+            Architecting bespoke software applications infused with machine intelligence, custom neural pipelines, and scalable APIs.
+          </p>
+        </div>
+
+        <div class="luxury-card p-8 border-editorial">
+          <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6">
+            <i data-lucide="sparkles" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-[#171717] mb-2">Generative AI Integration</h3>
+          <p class="text-sm text-[#777777] leading-relaxed">
+            Integrating LLMs (Gemini, OpenAI, Llama 3) into existing enterprise stacks with structured output enforcement and safety guardrails.
+          </p>
+        </div>
+
+        <div class="luxury-card p-8 border-editorial">
+          <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6">
+            <i data-lucide="message-square" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-[#171717] mb-2">Intelligent Chatbots</h3>
+          <p class="text-sm text-[#777777] leading-relaxed">
+            Building conversational agents powered by Retrieval-Augmented Generation (RAG) that securely query internal company documentation.
+          </p>
+        </div>
+
+        <div class="luxury-card p-8 border-editorial">
+          <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6">
+            <i data-lucide="workflow" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-[#171717] mb-2">Business Process Automation</h3>
+          <p class="text-sm text-[#777777] leading-relaxed">
+            Eliminating repetitive human labor by connecting CRMs, automated booking engines, messaging channels, and data parsers.
+          </p>
+        </div>
+
+        <div class="luxury-card p-8 border-editorial">
+          <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6">
+            <i data-lucide="terminal" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-[#171717] mb-2">Python Systems Development</h3>
+          <p class="text-sm text-[#777777] leading-relaxed">
+            Building clean, asynchronous Python backends with FastAPI, robust data manipulation pipelines, and distributed task queues.
+          </p>
+        </div>
+
+        <div class="luxury-card p-8 border-editorial">
+          <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6">
+            <i data-lucide="network" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-[#171717] mb-2">API Integration & Architecture</h3>
+          <p class="text-sm text-[#777777] leading-relaxed">
+            Designing secure RESTful and WebSocket endpoints with strict schema validation, rate-limiting, and error tolerance.
+          </p>
+        </div>
+
+        <div class="luxury-card p-8 border-editorial">
+          <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6">
+            <i data-lucide="layout" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-[#171717] mb-2">Web Application Development</h3>
+          <p class="text-sm text-[#777777] leading-relaxed">
+            Modern, accessible frontend engineering using React 19, Next.js 15, and Tailwind CSS optimized for sub-second page loads.
+          </p>
+        </div>
+
+        <div class="luxury-card p-8 border-editorial">
+          <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-[#171717] mb-2">IT Infrastructure Consulting</h3>
+          <p class="text-sm text-[#777777] leading-relaxed">
+            Enterprise firewall configuration (Sophos), perimeter security, network routing, and automated disaster recovery governance.
+          </p>
+        </div>
+
+        <div class="luxury-card p-8 border-editorial">
+          <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6">
+            <i data-lucide="cloud" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-[#171717] mb-2">Microsoft 365 Solutions</h3>
+          <p class="text-sm text-[#777777] leading-relaxed">
+            Tenant administration, Exchange mail flow rules, identity governance, access tiering, and enterprise collaboration setups.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       AI LAB SHOWCASE — CONTRAST OBSIDIAN SECTION (#10131D)
+       ======================================================================== -->
+  <section class="py-24 bg-[#10131D] text-[#F5F3EE] border-editorial-b architectural-grid-dark" id="ai-lab">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="section-tag text-[#8E95A5]">
+            <span class="tag-num text-[#526BFF]">LAB</span>
+            <span class="tag-line bg-white/20"></span>
+            <span class="text-white">Experimental Technology Studio</span>
+          </div>
+          <h2 class="headline-section text-white mt-3">
+            The AI Laboratory.<br>
+            <span class="font-serif italic font-normal text-[#526BFF]">Live Models</span> & Interactive Workflows.
+          </h2>
+        </div>
+        <div>
+          <a href="ai-lab.html" class="btn-luxury btn-outline-dark text-xs">
+            <span>OPEN FULLSCREEN LAB</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Interactive Playground Container -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Left Column: Interactive ML Credit Calculator (6 cols) -->
+        <div class="lg:col-span-6 luxury-card-dark p-6 sm:p-8">
+          <div class="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-6">
+            <div class="flex items-center gap-2">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span class="font-display font-bold text-white text-base">Interactive ML Credit Risk Scoring</span>
+            </div>
+            <span class="font-mono text-xs text-[#526BFF]">XGBoost Ensemble</span>
+          </div>
+
+          <p class="text-xs text-[#8E95A5] leading-relaxed mb-6">
+            Adjust the sliders below to run real-time inference through a client-side mathematical logistic scoring engine modeled after the production Loan Default algorithm.
+          </p>
+
+          <!-- Sliders -->
+          <div class="space-y-5">
+            <div>
+              <div class="flex justify-between text-xs font-mono mb-1.5">
+                <span class="text-[#8E95A5]">Loan Amount:</span>
+                <span id="mlLoanVal" class="text-white font-bold">$25,000</span>
+              </div>
+              <input type="range" id="mlLoanAmount" min="5000" max="100000" step="5000" value="25000" class="w-full accent-[#526BFF] cursor-pointer">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-mono mb-1.5">
+                <span class="text-[#8E95A5]">Annual Income:</span>
+                <span id="mlIncomeVal" class="text-white font-bold">$75,000</span>
+              </div>
+              <input type="range" id="mlAnnualIncome" min="15000" max="250000" step="5000" value="75000" class="w-full accent-[#526BFF] cursor-pointer">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-mono mb-1.5">
+                <span class="text-[#8E95A5]">Credit Score (FICO):</span>
+                <span id="mlCreditVal" class="text-white font-bold">720</span>
+              </div>
+              <input type="range" id="mlCreditScore" min="300" max="850" step="10" value="720" class="w-full accent-[#526BFF] cursor-pointer">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs font-mono mb-1.5">
+                <span class="text-[#8E95A5]">Debt-to-Income (DTI %):</span>
+                <span id="mlDTIVal" class="text-white font-bold">18%</span>
+              </div>
+              <input type="range" id="mlDTI" min="5" max="60" step="1" value="18" class="w-full accent-[#526BFF] cursor-pointer">
+            </div>
+          </div>
+
+          <!-- Dynamic Output Gauge -->
+          <div class="mt-8 pt-6 border-t border-white/[0.08]">
+            <div class="flex items-center justify-between text-xs font-mono mb-2">
+              <span class="text-[#8E95A5]">MODEL INFERENCE RESULT:</span>
+              <div id="mlRiskVerdict" class="text-sm">Calculating...</div>
+            </div>
+            
+            <div class="w-full h-3 bg-white/10 rounded-full overflow-hidden p-0.5">
+              <div id="mlRiskMeter" class="h-full rounded-full transition-all duration-300" style="width: 20%; background-color: #10B981;"></div>
+            </div>
+            
+            <div id="mlRiskConfidence" class="text-[11px] font-mono text-[#8E95A5] mt-2.5">
+              Predicted Default Probability: 18% · Model Confidence: 94.6%
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Interactive CLI Terminal (6 cols) -->
+        <div class="lg:col-span-6 ai-lab-terminal overflow-hidden flex flex-col h-[520px]">
+          
+          <!-- Terminal Header -->
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <div class="terminal-dot red"></div>
+              <div class="terminal-dot yellow"></div>
+              <div class="terminal-dot green"></div>
+            </div>
+            <span class="text-xs text-[#8E95A5] font-mono">krish@ai-lab:~ (zsh)</span>
+            <span class="text-[10px] text-emerald-400 font-mono">ONLINE</span>
+          </div>
+
+          <!-- Terminal Quick Action Chips -->
+          <div class="p-3 bg-[#0E121D] border-b border-white/[0.06] flex flex-wrap gap-2 text-[11px] font-mono">
+            <span class="text-[#8E95A5] self-center">Quick commands:</span>
+            <button class="terminal-quick-chip px-2 py-1 rounded bg-white/[0.05] hover:bg-[#526BFF]/20 text-[#526BFF] border border-white/[0.08] transition-colors" data-cmd="skills">skills</button>
+            <button class="terminal-quick-chip px-2 py-1 rounded bg-white/[0.05] hover:bg-[#526BFF]/20 text-[#526BFF] border border-white/[0.08] transition-colors" data-cmd="projects">projects</button>
+            <button class="terminal-quick-chip px-2 py-1 rounded bg-white/[0.05] hover:bg-[#526BFF]/20 text-[#526BFF] border border-white/[0.08] transition-colors" data-cmd="hpad --status">hpad --status</button>
+            <button class="terminal-quick-chip px-2 py-1 rounded bg-white/[0.05] hover:bg-[#526BFF]/20 text-[#526BFF] border border-white/[0.08] transition-colors" data-cmd="whiteswan --status">whiteswan --status</button>
+          </div>
+
+          <!-- Terminal Body Scroll Area -->
+          <div id="terminalBody" class="flex-1 p-4 overflow-y-auto font-mono text-xs text-[#F5F3EE] space-y-2">
+            <div class="text-[#8E95A5]">Krish Trivedi AI Laboratory Environment initialized.</div>
+            <div class="text-[#8E95A5]">Type <span class="text-[#526BFF] font-bold">'help'</span> to inspect available laboratory tools.</div>
+          </div>
+
+          <!-- Terminal Input Row -->
+          <div class="p-3 bg-[#121622] border-t border-white/[0.08] flex items-center gap-2">
+            <span class="text-[#526BFF] font-mono text-xs">krish@ai-lab:~$</span>
+            <input type="text" id="terminalInput" placeholder="Type command here (e.g. skills, projects, clear)..." class="flex-1 bg-transparent border-0 outline-none text-xs font-mono text-white placeholder-white/30">
+            <button id="terminalRunBtn" class="px-3 py-1 bg-[#526BFF] text-white text-xs font-mono rounded hover:bg-[#3E54E6] transition-colors">Run</button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       04 — TECHNICAL EXPERTISE (SKILLS & ARSENAL)
+       ======================================================================== -->
+  <section class="py-24 border-editorial-b bg-white" id="skills">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="mb-16">
+        <div class="section-tag">
+          <span class="tag-num">04</span>
+          <span class="tag-line"></span>
+          <span>Technical Expertise</span>
+        </div>
+        <h2 class="headline-section mt-3">
+          The Technical Arsenal.<br>
+          <span class="font-serif italic font-normal text-[#526BFF]">Battle-Tested</span> Languages & Frameworks.
+        </h2>
+      </div>
+
+      <!-- 4 Core Competency Categories -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Category 1 -->
+        <div class="luxury-card p-6 border-editorial">
+          <div class="font-mono text-xs text-[#526BFF] font-bold uppercase tracking-wider mb-2">01 // AI & DATA SCIENCE</div>
+          <h3 class="font-display font-bold text-lg text-[#171717] mb-4">Machine Intelligence</h3>
+          <ul class="space-y-2.5 font-mono text-xs text-[#777777]">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Python (Advanced)</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>LangChain & RAG</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Gemini 1.5 Flash Vision</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Scikit-learn & XGBoost</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>FAISS & pgvector</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Whisper AI (Audio)</li>
+          </ul>
+        </div>
+
+        <!-- Category 2 -->
+        <div class="luxury-card p-6 border-editorial">
+          <div class="font-mono text-xs text-[#526BFF] font-bold uppercase tracking-wider mb-2">02 // WEB & BACKEND</div>
+          <h3 class="font-display font-bold text-lg text-[#171717] mb-4">Full-Stack Architecture</h3>
+          <ul class="space-y-2.5 font-mono text-xs text-[#777777]">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Next.js 15 & React 19</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>FastAPI & Python REST</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Node.js & Express</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Supabase PostgreSQL</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Tailwind CSS 3 / 4</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>WebSocket Streaming</li>
+          </ul>
+        </div>
+
+        <!-- Category 3 -->
+        <div class="luxury-card p-6 border-editorial">
+          <div class="font-mono text-xs text-[#526BFF] font-bold uppercase tracking-wider mb-2">03 // AUTOMATION & SCRAPING</div>
+          <h3 class="font-display font-bold text-lg text-[#171717] mb-4">Ingestion & Workflows</h3>
+          <ul class="space-y-2.5 font-mono text-xs text-[#777777]">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Playwright Automation</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Scrapy Spider Clusters</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Selenium WebDriver</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Pandas & NumPy</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>BeautifulSoup 4</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>ETL Data Pipelines</li>
+          </ul>
+        </div>
+
+        <!-- Category 4 -->
+        <div class="luxury-card p-6 border-editorial">
+          <div class="font-mono text-xs text-[#526BFF] font-bold uppercase tracking-wider mb-2">04 // CLOUD & SECURITY</div>
+          <h3 class="font-display font-bold text-lg text-[#171717] mb-4">IT & Cloud Systems</h3>
+          <ul class="space-y-2.5 font-mono text-xs text-[#777777]">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>AWS Certified Practitioner</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Sophos Firewall Systems</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Microsoft 365 Admin</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Render Cloud Deployments</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Linux/Unix Server Admin</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-[#171717]"></span>Git & GitHub Actions</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Live GitHub Activity Feed -->
+      <div class="mt-16 pt-12 border-editorial-t">
+        <div class="flex items-center justify-between mb-8">
+          <div>
+            <span class="font-mono text-xs text-[#526BFF] uppercase tracking-wider">LIVE ACTIVITY</span>
+            <h3 class="font-display font-bold text-xl text-[#171717]">Public Engineering Repositories</h3>
+          </div>
+          <a href="https://github.com/Krishhtrivedi" target="_blank" class="font-mono text-xs text-[#171717] hover:text-[#526BFF] flex items-center gap-1">
+            <span>github.com/Krishhtrivedi ↗</span>
+          </a>
+        </div>
+
+        <div id="githubReposGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Populated dynamically via JS or cached projects -->
+          <div class="luxury-card p-6">
+            <span class="text-xs font-mono text-[#526BFF] font-semibold">Python</span>
+            <h4 class="text-base font-display font-bold text-[#171717] mt-1 mb-2">KisanMitra-AI-Platform</h4>
+            <p class="text-xs text-[#777777] line-clamp-2">Smart India Hackathon 2025 agricultural voice & vision advisory assistant.</p>
+          </div>
+          <div class="luxury-card p-6">
+            <span class="text-xs font-mono text-[#526BFF] font-semibold">JavaScript</span>
+            <h4 class="text-base font-display font-bold text-[#171717] mt-1 mb-2">HPAD-Travel-Management</h4>
+            <p class="text-xs text-[#777777] line-clamp-2">Full-stack corporate travel dispatching portal built with Next.js & Supabase.</p>
+          </div>
+          <div class="luxury-card p-6">
+            <span class="text-xs font-mono text-[#526BFF] font-semibold">Jupyter Notebook</span>
+            <h4 class="text-base font-display font-bold text-[#171717] mt-1 mb-2">Loan-Default-Prediction</h4>
+            <p class="text-xs text-[#777777] line-clamp-2">End-to-end credit risk modeling with XGBoost and interactive Streamlit UI.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       05 — PROFESSIONAL JOURNEY (EXPERIENCE & EDUCATION)
+       ======================================================================== -->
+  <section class="py-24 border-editorial-b bg-[#F5F3EE]" id="experience">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="mb-16">
+        <div class="section-tag">
+          <span class="tag-num">05</span>
+          <span class="tag-line"></span>
+          <span>Professional Journey</span>
+        </div>
+        <h2 class="headline-section mt-3">
+          Experience & Education.<br>
+          <span class="font-serif italic font-normal text-[#526BFF]">Proven Track Record</span> in Enterprise IT & AI.
+        </h2>
+      </div>
+
+      <!-- 2 Column Editorial Timeline Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Professional Work Experience (7 cols) -->
+        <div class="lg:col-span-7 space-y-8">
+          <h3 class="font-display font-bold text-xl text-[#171717] pb-3 border-editorial-b flex items-center justify-between">
+            <span>Work Experience</span>
+            <span class="font-mono text-xs text-[#777777]">2022 — PRESENT</span>
+          </h3>
+
+          <!-- Role 1: White Swan Holidays -->
+          <div class="luxury-card p-6 sm:p-8 bg-white">
+            <div class="flex items-center justify-between text-xs font-mono mb-2">
+              <span class="text-[#526BFF] font-bold">2023 — PRESENT · AHMEDABAD</span>
+              <span class="text-[#777777]">FULL-TIME / CONTRACT</span>
+            </div>
+            <h4 class="font-display font-bold text-xl text-[#171717]">Technology, Business Development & Operations</h4>
+            <div class="font-mono text-xs text-[#777777] mb-4">White Swan Holidays</div>
+            <ul class="space-y-2 text-xs sm:text-sm text-[#777777] leading-relaxed list-disc list-inside">
+              <li>Directing website architecture and customer inquiry pipelines deployed on Render.</li>
+              <li>Engineered automated WhatsApp lead workflows, reducing response latency from hours to seconds.</li>
+              <li>Managing digital tour operations, client booking databases, and payment reconciliations.</li>
+              <li>Accelerated customer digital acquisition through optimized SEO and technical marketing.</li>
+            </ul>
+          </div>
+
+          <!-- Role 2: Arterius Solutions -->
+          <div class="luxury-card p-6 sm:p-8 bg-white">
+            <div class="flex items-center justify-between text-xs font-mono mb-2">
+              <span class="text-[#171717] font-bold">2022 — 2023 · AHMEDABAD</span>
+              <span class="text-[#777777]">TECHNICAL ROLE</span>
+            </div>
+            <h4 class="font-display font-bold text-xl text-[#171717]">Technical Engineer</h4>
+            <div class="font-mono text-xs text-[#777777] mb-4">Arterius Solutions</div>
+            <ul class="space-y-2 text-xs sm:text-sm text-[#777777] leading-relaxed list-disc list-inside">
+              <li>Administered client website infrastructure, DNS configurations, and SSL certificate maintenance.</li>
+              <li>Configured and managed enterprise perimeter security on Sophos firewalls and network routers.</li>
+              <li>Administered Microsoft 365, Outlook Exchange mail flow, user licensing, and Active Directory.</li>
+              <li>Conducted system patching, backup automation, and mission-critical hardware/software support.</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Academic Foundation & Certifications (5 cols) -->
+        <div class="lg:col-span-5 space-y-8">
+          <h3 class="font-display font-bold text-xl text-[#171717] pb-3 border-editorial-b flex items-center justify-between">
+            <span>Education & Honors</span>
+            <span class="font-mono text-xs text-[#777777]">ACADEMICS</span>
+          </h3>
+
+          <!-- Degree 1 -->
+          <div class="luxury-card p-6 bg-white">
+            <div class="text-xs font-mono text-[#526BFF] font-semibold mb-1">ENROLLED · GRADUATING 2026</div>
+            <h4 class="font-display font-bold text-lg text-[#171717]">B.Tech in Information Technology</h4>
+            <div class="text-xs font-mono text-[#777777] mb-2">JG University, Ahmedabad</div>
+            <p class="text-xs text-[#777777] leading-relaxed">
+              Focus areas: Artificial Intelligence, Deep Learning, Cloud Computing, Distributed Systems, Software Engineering.
+            </p>
+          </div>
+
+          <!-- Degree 2 -->
+          <div class="luxury-card p-6 bg-white">
+            <div class="text-xs font-mono text-[#171717] font-semibold mb-1">COMPLETED WITH DISTINCTION</div>
+            <h4 class="font-display font-bold text-lg text-[#171717]">Diploma in Information Technology</h4>
+            <div class="text-xs font-mono text-[#777777] mb-2">L.J University, Ahmedabad · 7.2 CGPA</div>
+            <p class="text-xs text-[#777777] leading-relaxed">
+              Foundational computer science, object-oriented programming in Python/C++, Relational Databases, and Network Architecture.
+            </p>
+          </div>
+
+          <!-- Certification -->
+          <div class="p-6 bg-white border-editorial rounded-sm">
+            <div class="flex items-center gap-3 mb-2">
+              <i data-lucide="award" class="w-5 h-5 text-amber-500"></i>
+              <h4 class="font-display font-bold text-base text-[#171717]">AWS Certified Cloud Practitioner</h4>
+            </div>
+            <p class="text-xs text-[#777777] leading-relaxed">
+              Demonstrated mastery of Amazon Web Services cloud architecture, security compliance, IAM governance, and billing operations.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       06 — CONTACT (HAVE AN IDEA? LET'S BUILD SOMETHING INTELLIGENT)
+       ======================================================================== -->
+  <section class="py-24 border-editorial-b bg-white" id="contact">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="mb-16">
+        <div class="section-tag">
+          <span class="tag-num">06</span>
+          <span class="tag-line"></span>
+          <span>Contact</span>
+        </div>
+        <h2 class="headline-section mt-3">
+          Have an idea?<br>
+          <span class="font-serif italic font-normal text-[#526BFF]">Let’s build</span> something intelligent.
+        </h2>
+      </div>
+
+      <!-- Contact Grid: Coordinates & Form -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <!-- Left Column: Coordinates (5 cols) -->
+        <div class="lg:col-span-5 space-y-6">
+          
+          <!-- Email Box -->
+          <div class="luxury-card p-6 border-editorial">
+            <div class="flex items-center justify-between text-xs font-mono text-[#777777] mb-2">
+              <span>PRIMARY EMAIL</span>
+              <i data-lucide="mail" class="w-4 h-4 text-[#526BFF]"></i>
+            </div>
+            <a href="mailto:krish.trivedi28@gmail.com" class="text-lg font-display font-bold text-[#171717] hover:text-[#526BFF] transition-colors break-all">
+              krish.trivedi28@gmail.com
+            </a>
+            <div class="mt-4 pt-3 border-editorial-t flex items-center gap-2">
+              <button class="copy-btn btn-luxury btn-outline-editorial text-xs py-1.5 px-3 flex-1 justify-center" data-copy="krish.trivedi28@gmail.com">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span>Copy</span>
+              </button>
+              <a href="mailto:krish.trivedi28@gmail.com" class="btn-luxury btn-primary-dark text-xs py-1.5 px-3 flex-1 justify-center">
+                <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                <span>Compose</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Phone Box -->
+          <div class="luxury-card p-6 border-editorial">
+            <div class="flex items-center justify-between text-xs font-mono text-[#777777] mb-2">
+              <span>TELEPHONE & WHATSAPP</span>
+              <i data-lucide="phone" class="w-4 h-4 text-emerald-500"></i>
+            </div>
+            <a href="tel:+918849213790" class="text-lg font-display font-bold text-[#171717] hover:text-emerald-600 transition-colors">
+              +91 8849213790
+            </a>
+            <div class="mt-4 pt-3 border-editorial-t flex items-center gap-2">
+              <button class="copy-btn btn-luxury btn-outline-editorial text-xs py-1.5 px-3 flex-1 justify-center" data-copy="+918849213790">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span>Copy</span>
+              </button>
+              <a href="https://wa.me/918849213790" target="_blank" class="btn-luxury btn-outline-editorial text-xs py-1.5 px-3 flex-1 justify-center text-emerald-600 border-emerald-300 hover:border-emerald-600">
+                <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Location & Socials -->
+          <div class="luxury-card p-6 border-editorial space-y-4">
+            <div class="flex items-center gap-3">
+              <i data-lucide="map-pin" class="w-4 h-4 text-[#777777]"></i>
+              <span class="text-sm font-mono text-[#171717]">Ahmedabad, Gujarat, India</span>
+            </div>
+            <div class="flex items-center justify-between pt-3 border-editorial-t text-xs font-mono">
+              <a href="https://github.com/Krishhtrivedi" target="_blank" class="text-[#171717] hover:text-[#526BFF] flex items-center gap-1 font-semibold">
+                <i data-lucide="github" class="w-4 h-4"></i>
+                <span>GitHub Profile ↗</span>
+              </a>
+              <a href="https://www.linkedin.com" target="_blank" class="text-[#171717] hover:text-[#526BFF] flex items-center gap-1 font-semibold">
+                <i data-lucide="linkedin" class="w-4 h-4"></i>
+                <span>LinkedIn Profile ↗</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Clean Editorial Form (7 cols) -->
+        <div class="lg:col-span-7 luxury-card p-8 border-editorial bg-[#F5F3EE]">
+          <h3 class="font-display font-bold text-xl text-[#171717] mb-2">Send an Inquiry</h3>
+          <p class="text-xs text-[#777777] mb-6 font-mono">I usually reply within 24 hours.</p>
+
+          <form id="contactForm" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="contactName" class="block font-mono text-xs text-[#171717] uppercase mb-1.5">Your Name *</label>
+                <input type="text" id="contactName" required placeholder="Alexander Vance" class="w-full px-4 py-3 bg-white border border-[#E6E4DE] text-sm text-[#171717] outline-none focus:border-[#171717] rounded-sm transition-colors">
               </div>
               <div>
-                <h2 class="text-xl font-display font-bold text-white">Krish Trivedi</h2>
-                <div class="text-xs font-mono text-[#3ee0c5]">AI Application Developer</div>
-                <div class="text-xs font-mono text-[#9aa6b8]">JG University · B.Tech (IT)</div>
+                <label for="contactEmail" class="block font-mono text-xs text-[#171717] uppercase mb-1.5">Your Email *</label>
+                <input type="email" id="contactEmail" required placeholder="alex@company.com" class="w-full px-4 py-3 bg-white border border-[#E6E4DE] text-sm text-[#171717] outline-none focus:border-[#171717] rounded-sm transition-colors">
               </div>
             </div>
 
-            <div class="space-y-2.5 text-xs font-mono pt-4 border-t border-white/[0.08] text-[#e2e8f0]">
-              <div class="flex items-center justify-between">
-                <span class="text-[#9aa6b8]">Specialization:</span>
-                <span class="text-white">Generative AI & LLM Tools</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-[#9aa6b8]">Backend & APIs:</span>
-                <span class="text-[#3ee0c5]">Python · Flask · OpenAI API</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-[#9aa6b8]">Production Deployments:</span>
-                <span class="text-[#46e3b7]">Render · Next.js 15 · Supabase</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-[#9aa6b8]">Infrastructure:</span>
-                <span class="text-[#f15c24]">AWS Certified · M365 · Sophos</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-[#9aa6b8]">SIH 2025 Nominee:</span>
-                <span class="text-amber-400">KisanMitra AI Krishi Officer</span>
-              </div>
-            </div>
-
-            <div class="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between">
-              <a href="ai-lab.html" class="text-xs font-mono text-[#3ee0c5] hover:underline flex items-center gap-1">
-                <span>Enter AI Lab Simulator</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
-              <a href="resume.html" class="text-xs font-mono text-[#9aa6b8] hover:text-white">
-                View Resume →
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Real Metrics Bar -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-8 border-t border-white/[0.08]">
-        <div class="card-architect p-4 sm:p-5 text-center">
-          <div class="text-2xl sm:text-4xl font-display font-extrabold text-[#3ee0c5]">3</div>
-          <div class="text-[11px] sm:text-xs text-[#9aa6b8] font-mono uppercase tracking-wider mt-1">Live Cloud Deployments</div>
-        </div>
-        <div class="card-architect p-4 sm:p-5 text-center">
-          <div class="text-2xl sm:text-4xl font-display font-extrabold text-[#f15c24]">6+</div>
-          <div class="text-[11px] sm:text-xs text-[#9aa6b8] font-mono uppercase tracking-wider mt-1">AI & Full-Stack Projects</div>
-        </div>
-        <div class="card-architect p-4 sm:p-5 text-center">
-          <div class="text-2xl sm:text-4xl font-display font-extrabold text-[#46e3b7]">Render</div>
-          <div class="text-[11px] sm:text-xs text-[#9aa6b8] font-mono uppercase tracking-wider mt-1">Production Web Services</div>
-        </div>
-        <div class="card-architect p-4 sm:p-5 text-center">
-          <div class="text-2xl sm:text-4xl font-display font-extrabold text-[#f15c24]">AWS</div>
-          <div class="text-[11px] sm:text-xs text-[#9aa6b8] font-mono uppercase tracking-wider mt-1">Certified Cloud Practitioner</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         CURATED PREVIEW 1: FEATURED PROJECTS PREVIEW (SMALL PREVIEW ONLY)
-         ===================================================================== -->
-    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative border-t border-white/[0.08]">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-        <div>
-          <div class="section-index text-[#3ee0c5]">FEATURED DEPLOYMENTS PREVIEW</div>
-          <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-white mt-1">Live Projects & Applications</h2>
-          <p class="text-sm text-[#9aa6b8] mt-2">A curated preview of production-grade platforms built and deployed by Krish Trivedi.</p>
-        </div>
-        <a href="projects.html" class="btn-primary text-xs self-start md:self-auto">
-          <span>Explore All Projects (Catalog & Case Studies)</span>
-          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-        </a>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- Live Card 1: Portfolio -->
-        <div class="live-project-card live-card-cyan group">
-          <div class="live-thumb-wrap">
-            <img src="img/projects/portfolio-preview.jpg" alt="Krish Trivedi Personal Portfolio Preview" class="live-thumb-img" loading="lazy">
-            <div class="live-thumb-overlay"></div>
-            <div class="absolute top-3 left-3 z-10">
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#070b14]/80 text-[#3ee0c5] border border-[#f15c24]/40">AI / Web</span>
-            </div>
-            <div class="absolute top-3 right-3 z-10">
-              <span class="live-pulse-badge text-[9px] px-2 py-0.5"><span class="live-pulse-dot"></span>LIVE</span>
-            </div>
-          </div>
-          <div class="p-5 flex flex-col justify-between flex-grow space-y-4">
             <div>
-              <h3 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors">Krish Trivedi – Personal Portfolio</h3>
-              <p class="text-xs text-[#9aa6b8] mt-1.5 leading-relaxed line-clamp-2">Interactive AI Developer hub featuring neural particle canvas, simulated lab terminal, and multi-page routing.</p>
+              <label for="contactSubject" class="block font-mono text-xs text-[#171717] uppercase mb-1.5">Subject / Project Type</label>
+              <input type="text" id="contactSubject" placeholder="AI Application / Generative RAG Integration" class="w-full px-4 py-3 bg-white border border-[#E6E4DE] text-sm text-[#171717] outline-none focus:border-[#171717] rounded-sm transition-colors">
             </div>
-            <div class="flex items-center justify-between pt-3 border-t border-white/[0.08]">
-              <a href="https://krishtrivedi.in/" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-[#3ee0c5] hover:underline flex items-center gap-1">
-                <span>Live Demo (krishtrivedi.in)</span>
-                <i data-lucide="external-link" class="w-3 h-3"></i>
-              </a>
-              <a href="projects.html" class="text-xs font-mono text-[#9aa6b8] hover:text-white">Case Study →</a>
-            </div>
-          </div>
-        </div>
 
-        <!-- Live Card 2: White Swan Holidays -->
-        <div class="live-project-card live-card-orange group">
-          <div class="live-thumb-wrap">
-            <img src="img/projects/whiteswan-preview.jpg" alt="White Swan Holidays Website Preview" class="live-thumb-img" loading="lazy">
-            <div class="live-thumb-overlay"></div>
-            <div class="absolute top-3 left-3 z-10">
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#070b14]/80 text-[#f15c24] border border-[#f15c24]/40">Web App</span>
-            </div>
-            <div class="absolute top-3 right-3 z-10">
-              <span class="live-pulse-badge text-[9px] px-2 py-0.5"><span class="live-pulse-dot"></span>LIVE</span>
-            </div>
-          </div>
-          <div class="p-5 flex flex-col justify-between flex-grow space-y-4">
             <div>
-              <h3 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors">White Swan Holidays</h3>
-              <p class="text-xs text-[#9aa6b8] mt-1.5 leading-relaxed line-clamp-2">Tourism web platform with dynamic package portfolios, WhatsApp lead dispatch, and Render cloud deployment.</p>
+              <label for="contactMessage" class="block font-mono text-xs text-[#171717] uppercase mb-1.5">Message / Requirements *</label>
+              <textarea id="contactMessage" rows="5" required placeholder="Tell me about your project goals, timelines, or systems architecture requirements..." class="w-full px-4 py-3 bg-white border border-[#E6E4DE] text-sm text-[#171717] outline-none focus:border-[#171717] rounded-sm transition-colors resize-none"></textarea>
             </div>
-            <div class="flex items-center justify-between pt-3 border-t border-white/[0.08]">
-              <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-[#f15c24] hover:underline flex items-center gap-1">
-                <span>Live Demo</span>
-                <i data-lucide="external-link" class="w-3 h-3"></i>
-              </a>
-              <a href="projects/white-swan.html" class="text-xs font-mono text-[#9aa6b8] hover:text-white">Case Study →</a>
-            </div>
-          </div>
-        </div>
 
-        <!-- Live Card 3: HPAD Travel Management -->
-        <div class="live-project-card live-card-green group">
-          <div class="live-thumb-wrap">
-            <img src="img/projects/hpad-preview.jpg" alt="HPAD Travel Management System Preview" class="live-thumb-img" loading="lazy">
-            <div class="live-thumb-overlay"></div>
-            <div class="absolute top-3 left-3 z-10">
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold bg-[#070b14]/80 text-[#46e3b7] border border-[#46e3b7]/40">Business App</span>
-            </div>
-            <div class="absolute top-3 right-3 z-10">
-              <span class="live-pulse-badge text-[9px] px-2 py-0.5"><span class="live-pulse-dot"></span>LIVE</span>
-            </div>
-          </div>
-          <div class="p-5 flex flex-col justify-between flex-grow space-y-4">
-            <div>
-              <h3 class="text-lg font-display font-bold text-white group-hover:text-[#46e3b7] transition-colors">HPAD Travel System</h3>
-              <p class="text-xs text-[#9aa6b8] mt-1.5 leading-relaxed line-clamp-2">Enterprise Next.js 15 platform with Supabase PostgreSQL, multi-role authorization, and PDF reporting.</p>
-            </div>
-            <div class="flex items-center justify-between pt-3 border-t border-white/[0.08]">
-              <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-[#46e3b7] hover:underline flex items-center gap-1">
-                <span>Live Demo</span>
-                <i data-lucide="external-link" class="w-3 h-3"></i>
-              </a>
-              <a href="projects/hpad-travel.html" class="text-xs font-mono text-[#9aa6b8] hover:text-white">Case Study →</a>
-            </div>
-          </div>
+            <button type="submit" class="btn-luxury btn-primary-dark w-full py-4 text-xs">
+              <span>SEND INQUIRY TO KRISH</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </form>
         </div>
 
       </div>
-    </section>
 
-    <!-- =====================================================================
-         CURATED PREVIEWS 2 & 3: TECHNICAL EXPERTISE & EXPERIENCE SNAPSHOT
-         ===================================================================== -->
-    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative border-t border-white/[0.08]">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        
-        <!-- Technical Expertise Preview -->
-        <div class="card-architect p-7 flex flex-col justify-between">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <div class="section-index text-[#3ee0c5]">EXPERTISE PREVIEW</div>
-              <a href="skills.html" class="text-xs font-mono text-[#3ee0c5] hover:underline flex items-center gap-1">
-                <span>View Full Matrix</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
-            </div>
-            <h3 class="text-2xl font-display font-bold text-white">Technical Arsenal Overview</h3>
-            <p class="text-xs text-[#9aa6b8] leading-relaxed">
-              Specializing in the intersection of Generative AI, Python engineering, enterprise cloud infrastructure, and automated business workflows.
-            </p>
+    </div>
+  </section>
 
-            <div class="grid grid-cols-2 gap-3 pt-3">
-              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-                <div class="text-xs font-mono text-[#3ee0c5] font-semibold mb-1">AI & Machine Learning</div>
-                <div class="text-[11px] text-[#9aa6b8]">Python · OpenAI API · Prompt Engineering · Scikit-learn · KisanMitra SIH</div>
-              </div>
-              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-                <div class="text-xs font-mono text-[#46e3b7] font-semibold mb-1">Full-Stack & Cloud</div>
-                <div class="text-[11px] text-[#9aa6b8]">Next.js 15 · React 19 · Flask · Supabase · Render · GitHub CI/CD</div>
-              </div>
-              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-                <div class="text-xs font-mono text-[#f15c24] font-semibold mb-1">Cloud Infrastructure</div>
-                <div class="text-[11px] text-[#9aa6b8]">AWS Certified Cloud Practitioner · M365 Exchange · Active Directory</div>
-              </div>
-              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-                <div class="text-xs font-mono text-[#f15c24] font-semibold mb-1">Systems & Automation</div>
-                <div class="text-[11px] text-[#9aa6b8]">Sophos Firewall · Veeam Backup · Power Automate · Web Scraping</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="pt-6 mt-6 border-t border-white/[0.08]">
-            <a href="skills.html" class="btn-outline text-xs w-full justify-center">
-              <span>Explore Complete Skills & Technologies Page</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Professional Experience Snapshot -->
-        <div class="card-architect p-7 flex flex-col justify-between">
-          <div class="space-y-4">
-            <div class="flex items-center justify-between">
-              <div class="section-index text-[#f15c24]">TRAJECTORY SNAPSHOT</div>
-              <a href="experience.html" class="text-xs font-mono text-[#f15c24] hover:underline flex items-center gap-1">
-                <span>View Full Timeline</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
-            </div>
-            <h3 class="text-2xl font-display font-bold text-white">Career Trajectory Snapshot</h3>
-            <p class="text-xs text-[#9aa6b8] leading-relaxed">
-              Demonstrated track record spanning technology management, production software deployments, and enterprise systems engineering.
-            </p>
-
-            <div class="space-y-3 pt-3 text-xs font-mono">
-              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-start justify-between">
-                <div>
-                  <div class="text-white font-bold">White Swan Holidays</div>
-                  <div class="text-[#f15c24] text-[11px]">Technology, Business Development & Operations</div>
-                </div>
-                <span class="text-[#9aa6b8] text-[10px]">2023 – Present</span>
-              </div>
-              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-start justify-between">
-                <div>
-                  <div class="text-white font-bold">Arterius Solutions</div>
-                  <div class="text-[#3ee0c5] text-[11px]">Technical Engineer (IT Systems & Security)</div>
-                </div>
-                <span class="text-[#9aa6b8] text-[10px]">2022 – 2023</span>
-              </div>
-              <div class="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-start justify-between">
-                <div>
-                  <div class="text-white font-bold">Smart India Hackathon (SIH 2025)</div>
-                  <div class="text-amber-400 text-[11px]">Lead AI Project Developer – KisanMitra</div>
-                </div>
-                <span class="text-[#9aa6b8] text-[10px]">Nominee Finalist</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="pt-6 mt-6 border-t border-white/[0.08]">
-            <a href="experience.html" class="btn-outline text-xs w-full justify-center">
-              <span>View Professional Experience Page</span>
-              <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         TEN INDEPENDENT WEBPAGES DIRECTORY
-         ===================================================================== -->
-    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative border-t border-white/[0.08]">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <div class="section-index text-[#3ee0c5]">INDEPENDENT ARCHITECTURE</div>
-        <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-white mt-1">Explore Every Dedicated Page</h2>
-        <p class="text-sm text-[#9aa6b8] mt-2">Every major section is an independent webpage with its own URL, layout, and specialized content.</p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        
-        <a href="about.html" class="card-architect p-6 group block hover:border-[#f15c24] transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#f15c24]/10 text-[#3ee0c5] flex items-center justify-center mb-3">
-            <i data-lucide="user" class="w-4 h-4"></i>
-          </div>
-          <div class="text-[11px] font-mono text-[#3ee0c5] uppercase tracking-wider mb-1">/about</div>
-          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors mb-1">About Me</h3>
-          <p class="text-xs text-[#9aa6b8]">Biography, development philosophy, and what sets my AI approach apart.</p>
-        </a>
-
-        <a href="ai-lab.html" class="card-architect p-6 group block hover:border-[#f15c24] transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#3ee0c5]/08 text-[#f15c24] flex items-center justify-center mb-3">
-            <i data-lucide="terminal" class="w-4 h-4"></i>
-          </div>
-          <div class="text-[11px] font-mono text-[#f15c24] uppercase tracking-wider mb-1">/ai-lab</div>
-          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors mb-1">AI Laboratory</h3>
-          <p class="text-xs text-[#9aa6b8]">Interactive terminal simulator, prompt guardrails, and crop pathology engines.</p>
-        </a>
-
-        <a href="projects.html" class="card-architect p-6 group block hover:border-[#46e3b7] transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#46e3b7]/10 text-[#46e3b7] flex items-center justify-center mb-3">
-            <i data-lucide="folder-git-2" class="w-4 h-4"></i>
-          </div>
-          <div class="text-[11px] font-mono text-[#46e3b7] uppercase tracking-wider mb-1">/projects</div>
-          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#46e3b7] transition-colors mb-1">Projects</h3>
-          <p class="text-xs text-[#9aa6b8]">Full projects catalog with live category filters, screenshots, and case study links.</p>
-        </a>
-
-        <a href="skills.html" class="card-architect p-6 group block hover:border-[#f15c24] transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#f15c24]/10 text-[#3ee0c5] flex items-center justify-center mb-3">
-            <i data-lucide="cpu" class="w-4 h-4"></i>
-          </div>
-          <div class="text-[11px] font-mono text-[#3ee0c5] uppercase tracking-wider mb-1">/skills</div>
-          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors mb-1">Skills & Technologies</h3>
-          <p class="text-xs text-[#9aa6b8]">AI & ML, Web Development, Cloud & Infrastructure, and Automation.</p>
-        </a>
-
-        <a href="experience.html" class="card-architect p-6 group block hover:border-[#f15c24] transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#f15c24]/10 text-[#f15c24] flex items-center justify-center mb-3">
-            <i data-lucide="briefcase" class="w-4 h-4"></i>
-          </div>
-          <div class="text-[11px] font-mono text-[#f15c24] uppercase tracking-wider mb-1">/experience</div>
-          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors mb-1">Professional Experience</h3>
-          <p class="text-xs text-[#9aa6b8]">Elegant vertical career timeline from White Swan Holidays and Arterius.</p>
-        </a>
-
-        <a href="services.html" class="card-architect p-6 group block hover:border-[#f15c24] transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#f15c24]/10 text-[#3ee0c5] flex items-center justify-center mb-3">
-            <i data-lucide="sparkles" class="w-4 h-4"></i>
-          </div>
-          <div class="text-[11px] font-mono text-[#3ee0c5] uppercase tracking-wider mb-1">/services</div>
-          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors mb-1">Services</h3>
-          <p class="text-xs text-[#9aa6b8]">End-to-end AI applications, API integration, and IT infrastructure consulting.</p>
-        </a>
-
-        <a href="education.html" class="card-architect p-6 group block hover:border-[#f15c24] transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#3ee0c5]/08 text-[#f15c24] flex items-center justify-center mb-3">
-            <i data-lucide="graduation-cap" class="w-4 h-4"></i>
-          </div>
-          <div class="text-[11px] font-mono text-[#f15c24] uppercase tracking-wider mb-1">/education</div>
-          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#f15c24] transition-colors mb-1">Education & Certifications</h3>
-          <p class="text-xs text-[#9aa6b8]">JG University B.Tech, L.J University Diploma, and AWS Certification.</p>
-        </a>
-
-        <a href="resume.html" class="card-architect p-6 group block hover:border-[#46e3b7] transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#46e3b7]/10 text-[#46e3b7] flex items-center justify-center mb-3">
-            <i data-lucide="file-text" class="w-4 h-4"></i>
-          </div>
-          <div class="text-[11px] font-mono text-[#46e3b7] uppercase tracking-wider mb-1">/resume</div>
-          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#46e3b7] transition-colors mb-1">Resume</h3>
-          <p class="text-xs text-[#9aa6b8]">Executive CV document, print formatting, and verified PDF download.</p>
-        </a>
-
-        <a href="contact.html" class="card-architect p-6 group block hover:border-[#10b981] transition-all">
-          <div class="w-9 h-9 rounded-xl bg-[#10b981]/10 text-[#10b981] flex items-center justify-center mb-3">
-            <i data-lucide="mail" class="w-4 h-4"></i>
-          </div>
-          <div class="text-[11px] font-mono text-[#10b981] uppercase tracking-wider mb-1">/contact</div>
-          <h3 class="text-lg font-display font-bold text-white group-hover:text-[#10b981] transition-colors mb-1">Contact</h3>
-          <p class="text-xs text-[#9aa6b8]">Validated message dispatch form, email, WhatsApp, and phone coordinates.</p>
-        </a>
-
-      </div>
-    </section>
-
-    <!-- =====================================================================
-         CONTACT INFORMATION PREVIEW (SECTION 3 SPEC)
-         ===================================================================== -->
-    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative border-t border-white/[0.08]">
-      <div class="card-architect p-8 sm:p-12 border-[#f15c24]/30 relative overflow-hidden">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-          <div class="md:col-span-8 space-y-3">
-            <div class="section-index text-[#3ee0c5]">INITIATE COMMUNICATION</div>
-            <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-white">Let’s Build Something Intelligent.</h2>
-            <p class="text-sm text-[#e2e8f0] leading-relaxed max-w-xl">
-              Have an AI project, an automation challenge, or a full-stack engineering requirement? Let’s connect and transform your idea into a functional system.
-            </p>
-            <div class="flex flex-wrap items-center gap-4 pt-2 text-xs font-mono text-[#9aa6b8]">
-              <span>Email: <a href="mailto:krish.trivedi28@gmail.com" class="text-white hover:text-[#3ee0c5]">krish.trivedi28@gmail.com</a></span>
-              <span>·</span>
-              <span>Phone: <a href="tel:+918849213790" class="text-white hover:text-[#3ee0c5]">+91-8849213790</a></span>
-            </div>
-          </div>
-          <div class="md:col-span-4 flex flex-col sm:flex-row md:flex-col gap-3 justify-center">
-            <a href="contact.html" class="btn-primary text-xs py-3 px-5 text-center">
-              <i data-lucide="send" class="w-4 h-4"></i>
-              <span>Open Contact Page</span>
-            </a>
-            <a href="resume.html" class="btn-outline text-xs py-3 px-5 text-center">
-              <i data-lucide="download" class="w-4 h-4"></i>
-              <span>View & Download CV</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- =====================================================================
-       GLOBAL FOOTER
-       ===================================================================== -->
-  <footer class="border-t border-white/[0.08] bg-[#070b14] relative z-10 py-12">
+  <!-- ========================================================================
+       FOOTER — SOPHISTICATED OBSIDIAN FINISH (#10131D)
+       ======================================================================== -->
+  <footer class="bg-[#10131D] text-[#F5F3EE] py-16 border-t border-white/[0.08]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+      
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/[0.08]">
         
-        <!-- Col 1: Bio -->
-        <div class="space-y-3 md:col-span-1">
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-[#f15c24] to-[#ff7a45] text-[#070b14] font-display font-black flex items-center justify-center text-xs">KT</div>
-            <span class="font-display font-bold text-white text-base">KRISH TRIVEDI</span>
+        <!-- Brand Summary (5 cols) -->
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-10 h-10">
+            <div>
+              <span class="font-display font-bold text-base tracking-wider text-white">KRISH TRIVEDI</span>
+              <div class="font-mono text-[10px] text-[#8E95A5] uppercase">AI Developer · Systems Architect</div>
+            </div>
           </div>
-          <p class="text-xs text-[#9aa6b8] leading-relaxed">
-            AI Developer. Building intelligent applications, AI-powered solutions, and automation systems that solve real-world business problems.
+          <p class="text-xs text-[#8E95A5] leading-relaxed max-w-sm">
+            Building intelligent applications, automated machine learning pipelines, and robust enterprise software architectures.
           </p>
-          <div class="text-xs font-mono text-[#3ee0c5]">
-            Ahmedabad, Gujarat, India
+          <div class="pt-2">
+            <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.05] border border-white/[0.08] text-[11px] font-mono text-emerald-400">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Available for Selective AI & Engineering Inquiries</span>
+            </span>
           </div>
         </div>
 
-        <!-- Col 2: Navigation Links -->
-        <div class="space-y-2 text-xs font-mono">
-          <div class="text-white font-semibold uppercase tracking-wider mb-2">Pages 01–05</div>
-          <div><a href="index.html" class="text-[#3ee0c5]">01 // Home</a></div>
-          <div><a href="about.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">02 // About Me</a></div>
-          <div><a href="ai-lab.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">03 // AI Laboratory</a></div>
-          <div><a href="projects.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">04 // Projects</a></div>
-          <div><a href="skills.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">05 // Skills & Tech</a></div>
+        <!-- Quick Links (3 cols) -->
+        <div class="md:col-span-3 space-y-3 font-mono text-xs">
+          <div class="text-white font-bold uppercase tracking-wider mb-2">INDEX</div>
+          <div><a href="index.html" class="text-[#8E95A5] hover:text-white transition-colors">Home</a></div>
+          <div><a href="about.html" class="text-[#8E95A5] hover:text-white transition-colors">Biography & Philosophy</a></div>
+          <div><a href="projects.html" class="text-[#8E95A5] hover:text-white transition-colors">Case Studies</a></div>
+          <div><a href="ai-lab.html" class="text-[#8E95A5] hover:text-white transition-colors">Interactive AI Lab</a></div>
+          <div><a href="services.html" class="text-[#8E95A5] hover:text-white transition-colors">Services Offered</a></div>
+          <div><a href="experience.html" class="text-[#8E95A5] hover:text-white transition-colors">Career Timeline</a></div>
         </div>
 
-        <!-- Col 3: More Pages -->
-        <div class="space-y-2 text-xs font-mono">
-          <div class="text-white font-semibold uppercase tracking-wider mb-2">Pages 06–10</div>
-          <div><a href="experience.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">06 // Experience</a></div>
-          <div><a href="services.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">07 // Services</a></div>
-          <div><a href="education.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">08 // Education</a></div>
-          <div><a href="resume.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">09 // Resume</a></div>
-          <div><a href="contact.html" class="text-[#9aa6b8] hover:text-[#3ee0c5]">10 // Contact</a></div>
-        </div>
-
-        <!-- Col 4: Verified Deployments & Social -->
-        <div class="space-y-2 text-xs font-mono">
-          <div class="text-white font-semibold uppercase tracking-wider mb-2">Production Deployments</div>
-          <div><a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="text-[#46e3b7] hover:underline flex items-center gap-1.5"><i data-lucide="external-link" class="w-3.5 h-3.5"></i><span>HPAD Travel on Render</span></a></div>
-          <div><a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="text-[#f15c24] hover:underline flex items-center gap-1.5"><i data-lucide="external-link" class="w-3.5 h-3.5"></i><span>White Swan on Render</span></a></div>
-          <div><a href="https://krishtrivedi.in/" target="_blank" rel="noopener noreferrer" class="text-[#3ee0c5] hover:underline flex items-center gap-1.5"><i data-lucide="external-link" class="w-3.5 h-3.5"></i><span>krishtrivedi.in (Personal Domain)</span></a></div>
-          <div><a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="text-[#e2e8f0] hover:text-white flex items-center gap-1.5"><i data-lucide="github" class="w-3.5 h-3.5"></i><span>github.com/Krishhtrivedi</span></a></div>
+        <!-- Direct Coordinates (4 cols) -->
+        <div class="md:col-span-4 space-y-3 font-mono text-xs">
+          <div class="text-white font-bold uppercase tracking-wider mb-2">COORDINATES</div>
+          <div><span class="text-[#8E95A5]">Email:</span> <a href="mailto:krish.trivedi28@gmail.com" class="text-white hover:text-[#526BFF]">krish.trivedi28@gmail.com</a></div>
+          <div><span class="text-[#8E95A5]">Phone:</span> <a href="tel:+918849213790" class="text-white hover:text-emerald-400">+91 8849213790</a></div>
+          <div><span class="text-[#8E95A5]">Location:</span> <span class="text-white">Ahmedabad, Gujarat, India</span></div>
+          <div><span class="text-[#8E95A5]">GitHub:</span> <a href="https://github.com/Krishhtrivedi" target="_blank" class="text-[#526BFF]">@Krishhtrivedi ↗</a></div>
+          <div><span class="text-[#8E95A5]">Domain:</span> <a href="https://krishtrivedi.in/" class="text-white">krishtrivedi.in (HTTPS Enforced)</a></div>
         </div>
 
       </div>
 
-      <div class="pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#9aa6b8] gap-4">
-        <div>© 2026 Krish Trivedi. Handcrafted with modern web standards.</div>
-        <div class="flex items-center gap-4">
-          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white">krish.trivedi28@gmail.com</a>
-          <span>·</span>
-          <span>+91-8849213790</span>
+      <!-- Copyright & Back to Top -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#8E95A5] gap-4">
+        <div>
+          © 2026 KRISH TRIVEDI. ALL RIGHTS RESERVED. DESIGNED WITH PRECISION & INTELLIGENCE.
         </div>
+        <a href="#navbar" class="hover:text-white flex items-center gap-1 transition-colors">
+          <span>BACK TO TOP</span>
+          <i data-lucide="arrow-up" class="w-3.5 h-3.5"></i>
+        </a>
       </div>
+
     </div>
   </footer>
 
-  <!-- Toast Notification Container -->
-  <div id="toastNotification" class="toast-box hidden">
-    <div class="flex items-center gap-2.5 text-xs font-mono text-white">
-      <i data-lucide="check" class="w-4 h-4 text-[#3ee0c5]"></i>
-      <span id="toastMessage">Notification</span>
-    </div>
-  </div>
-
+  <!-- Scripts -->
   <script src="js/main.js"></script>
 </body>
 </html>

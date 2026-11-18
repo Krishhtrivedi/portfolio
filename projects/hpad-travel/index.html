@@ -1,347 +1,248 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HPAD Travel Management System — Case Study | Krish Trivedi</title>
-  <meta name="description" content="Detailed engineering case study of HPAD Travel Management System: Next.js 15, React 19, Supabase PostgreSQL, role-based workflows, and Render cloud deployment.">
+  <meta name="description" content="Engineering case study of the HPAD Travel Management System: Next.js 15, React 19, Supabase PostgreSQL, and Render cloud deployment for Hiren Patel Architects & Design.">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Onest:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#F5F3EE',
+            graphite: '#171717',
+            secondary: '#777777',
+            cobalt: '#526BFF',
+            obsidian: '#10131D',
+            hairline: '#E6E4DE',
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Manrope', 'Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body class="bg-[#070b14] text-[#e2e8f0] font-sans selection:bg-[#f15c24] selection:text-[#070b14] transition-colors duration-300 relative">
+<body class="bg-[#F5F3EE] text-[#171717] font-sans antialiased relative">
 
-  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-    <div class="absolute inset-0 blueprint-grid opacity-70"></div>
-    <div class="absolute inset-0 blueprint-radial"></div>
-    <div class="absolute -top-36 right-1/4 w-[550px] h-[550px] bg-[#46e3b7]/10 rounded-full blur-[150px]"></div>
-  </div>
-  <canvas id="neural-canvas" class="neural-canvas"></canvas>
-
-  <!-- FULLSCREEN OVERLAY MENU -->
+  <!-- Fullscreen Editorial Menu Overlay -->
   <div id="fullscreenMenu" class="fullscreen-menu">
-    <div class="max-w-4xl mx-auto w-full flex flex-col justify-between h-full">
+    <div class="max-w-5xl mx-auto w-full flex flex-col justify-between h-full py-4">
       <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#f15c24] to-[#ff7a45] text-[#070b14] flex items-center justify-center font-display font-black text-sm shadow-lg shadow-[#f15c24]/30">KT</div>
-          <span class="font-display font-bold text-white text-base tracking-wide">PORTFOLIO INDEX</span>
+          <img src="../img/logo-kt-light.svg" alt="KT Monogram" class="w-9 h-9">
+          <span class="font-display font-bold text-white tracking-wider text-sm">KRISH TRIVEDI // INDEX</span>
         </div>
-        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#9aa6b8] hover:text-white rounded-full bg-white/[0.05] transition-colors">
+        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
       </div>
 
-      <nav class="py-6 space-y-1">
-        <a href="../index.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>01 HOME</span>
-          <span class="menu-number">MAIN HUB</span>
+      <nav class="py-8 space-y-1">
+        <a href="../index.html" class="menu-item-editorial group">
+          <span class="item-title">01 HOME</span>
+          <span class="item-sub">MAIN HUB</span>
         </a>
-        <a href="../about.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>02 ABOUT ME</span>
-          <span class="menu-number">BIOGRAPHY & JOURNEY</span>
+        <a href="../about.html" class="menu-item-editorial group">
+          <span class="item-title">02 ABOUT</span>
+          <span class="item-sub">BIOGRAPHY & PHILOSOPHY</span>
         </a>
-        <a href="../ai-lab.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>03 AI LAB</span>
-          <span class="menu-number">INTELLIGENT EXPERIMENTS</span>
+        <a href="../projects.html" class="menu-item-editorial group text-[#526BFF]">
+          <span class="item-title">03 PROJECTS</span>
+          <span class="item-sub">SELECTED CASE STUDIES</span>
         </a>
-        <a href="../projects.html" class="menu-item group text-[#f15c24]" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>04 PROJECTS</span>
-          <span class="menu-number">LIVE DEPLOYMENTS</span>
+        <a href="../ai-lab.html" class="menu-item-editorial group">
+          <span class="item-title">04 AI LAB</span>
+          <span class="item-sub">INTERACTIVE DEMOS & CLI</span>
         </a>
-        <a href="../skills.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>05 SKILLS</span>
-          <span class="menu-number">TECHNICAL ARSENAL</span>
+        <a href="../services.html" class="menu-item-editorial group">
+          <span class="item-title">05 SERVICES</span>
+          <span class="item-sub">SOLUTIONS & EXPERTISE</span>
         </a>
-        <a href="../experience.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>06 EXPERIENCE</span>
-          <span class="menu-number">CAREER TIMELINE</span>
+        <a href="../experience.html" class="menu-item-editorial group">
+          <span class="item-title">06 EXPERIENCE</span>
+          <span class="item-sub">CAREER & SYSTEMS TIMELINE</span>
         </a>
-        <a href="../services.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>07 SERVICES</span>
-          <span class="menu-number">SOLUTIONS OFFERED</span>
+        <a href="../resume.html" class="menu-item-editorial group">
+          <span class="item-title">07 RESUME</span>
+          <span class="item-sub">CURRICULUM VITAE</span>
         </a>
-        <a href="../education.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>08 EDUCATION</span>
-          <span class="menu-number">ACADEMICS & AWS</span>
-        </a>
-        <a href="../resume.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>09 RESUME</span>
-          <span class="menu-number">CURRICULUM VITAE</span>
-        </a>
-        <a href="../contact.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>10 CONTACT</span>
-          <span class="menu-number">LET'S CONNECT</span>
+        <a href="../contact.html" class="menu-item-editorial group">
+          <span class="item-title">08 CONTACT</span>
+          <span class="item-sub">LET'S CONNECT</span>
         </a>
       </nav>
 
-      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#9aa6b8]">
-        <span>KRISH TRIVEDI · AHMEDABAD, GUJARAT, INDIA</span>
-        <div class="flex items-center gap-4">
-          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white">GITHUB</a>
-          <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#46e3b7]">HPAD APP</a>
-          <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#f15c24]">WHITE SWAN RENDER</a>
+      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#8E95A5]">
+        <span>AHMEDABAD, GUJARAT, INDIA · +91 8849213790</span>
+        <div class="flex items-center gap-6 mt-2 sm:mt-0">
+          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors">EMAIL</a>
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GITHUB</a>
+          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">WHATSAPP</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#070b14]/85 border-b border-white/[0.08]" id="navbar">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="../index.html" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#f15c24] to-[#ff7a45] flex items-center justify-center font-display font-extrabold text-[#070b14] text-base shadow-lg shadow-[#f15c24]/30">KT</div>
+  <!-- Navigation Bar -->
+  <header class="luxury-navbar" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3.5 group">
+        <img src="../img/logo-kt-dark.svg" alt="KT Monogram" class="w-10 h-10 transition-transform group-hover:scale-105">
         <div class="flex flex-col">
-          <span class="font-display font-bold text-white text-base">KRISH TRIVEDI</span>
-          <span class="text-[11px] text-[#46e3b7] font-mono">CASE STUDY // HPAD TRAVEL</span>
+          <span class="font-display font-bold text-sm tracking-widest text-[#171717] group-hover:text-[#526BFF] transition-colors">KRISH TRIVEDI</span>
+          <span class="font-mono text-[10px] text-[#777777] tracking-wider uppercase">Case Study // HPAD Travel</span>
         </div>
       </a>
 
-      <nav class="hidden xl:flex items-center gap-1">
-        <a href="../index.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Home</a>
-        <a href="../about.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">About</a>
-        <a href="../ai-lab.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">AI Lab</a>
-        <a href="../projects.html" class="nav-link-item active px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full">Projects</a>
-        <a href="../skills.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Skills</a>
-        <a href="../experience.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Experience</a>
-        <a href="../services.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Services</a>
-        <a href="../education.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Education</a>
-        <a href="../resume.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Resume</a>
-        <a href="../contact.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Contact</a>
+      <nav class="hidden lg:flex items-center gap-1">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../about.html" class="nav-link">About</a>
+        <a href="../projects.html" class="nav-link active">Projects</a>
+        <a href="../ai-lab.html" class="nav-link">AI Lab</a>
+        <a href="../services.html" class="nav-link">Services</a>
+        <a href="../experience.html" class="nav-link">Experience</a>
+        <a href="../contact.html" class="nav-link">Contact</a>
       </nav>
 
-      <div class="flex items-center gap-2 sm:gap-3">
-        <a href="../contact.html" class="btn-primary text-xs py-2 px-3.5 sm:px-4">Let's Connect</a>
-        <button id="menuToggleBtn" aria-label="Open Fullscreen Menu" class="p-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1] transition-colors">
+      <div class="flex items-center gap-3">
+        <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" class="btn-luxury btn-primary-dark text-xs py-2 px-4">
+          <span>Live App</span>
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </a>
+        <button id="menuToggleBtn" aria-label="Open Navigation Index" class="p-2.5 rounded-sm border border-[#E6E4DE] bg-white text-[#171717] hover:border-[#171717] transition-all">
           <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <main class="relative z-10 pt-32 pb-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Case Study Main Container -->
+  <main class="pt-36 pb-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Back to Projects Breadcrumb -->
-    <div class="mb-8">
-      <a href="../projects.html" class="inline-flex items-center gap-2 text-xs font-mono text-[#9aa6b8] hover:text-[#3ee0c5] transition-colors">
-        <i data-lucide="arrow-left" class="w-4 h-4"></i>
-        <span>Back to All Projects</span>
-      </a>
-    </div>
-
-    <!-- Case Study Header -->
-    <div class="space-y-4 mb-10">
-      <div class="flex flex-wrap items-center gap-2.5">
-        <span class="live-pulse-badge">
-          <span class="live-pulse-dot"></span>
-          <span>LIVE ON RENDER</span>
-        </span>
-        <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#46e3b7]/10 text-[#46e3b7] border border-[#46e3b7]/30">
-          ENTERPRISE BUSINESS APPLICATION
-        </span>
+    <!-- Header -->
+    <div class="mb-12">
+      <div class="section-tag">
+        <span class="tag-num">02</span>
+        <span class="tag-line"></span>
+        <span>Case Study // Corporate Deployment</span>
       </div>
-
-      <h1 class="text-3xl sm:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
+      <h1 class="headline-hero mt-3">
         HPAD Travel Management System
       </h1>
-      <p class="text-base sm:text-lg text-[#e2e8f0] leading-relaxed max-w-3xl">
-        A web-based employee travel and site visit management platform designed to digitalize travel requests, flight bookings, employee movements and centralized administrative management with multi-tier role authorization.
+      <p class="text-lg text-[#777777] mt-3 max-w-2xl leading-relaxed">
+        Enterprise corporate travel logistics and vehicle dispatching platform engineered for Hiren Patel Architects & Design (HPAD).
       </p>
+    </div>
 
-      <div class="flex flex-wrap items-center gap-4 pt-3">
-        <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn-live-action btn-live-green">
-          <i data-lucide="external-link" class="w-4 h-4"></i>
-          <span>Launch Live Render App</span>
-        </a>
-        <a href="https://github.com/Krishhtrivedi/hpad-travel" target="_blank" rel="noopener noreferrer" class="btn-live-action btn-live-github">
-          <i data-lucide="github" class="w-4 h-4"></i>
-          <span>GitHub Repository</span>
-        </a>
+    <!-- Hero Image Banner -->
+    <div class="luxury-card overflow-hidden aspect-[16/9] mb-12 border border-[#E6E4DE]">
+      <img src="../img/projects/hpad-preview.jpg" alt="HPAD Travel Management System Dashboard" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Quick Spec Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 bg-white border-editorial rounded-sm mb-12 text-xs font-mono">
+      <div>
+        <div class="text-[#777777] uppercase">Client</div>
+        <div class="font-bold text-[#171717] mt-1">Hiren Patel Architects (HPAD)</div>
+      </div>
+      <div>
+        <div class="text-[#777777] uppercase">Frontend</div>
+        <div class="font-bold text-[#526BFF] mt-1">Next.js 15 & React 19</div>
+      </div>
+      <div>
+        <div class="text-[#777777] uppercase">Database</div>
+        <div class="font-bold text-[#171717] mt-1">Supabase PostgreSQL RLS</div>
+      </div>
+      <div>
+        <div class="text-[#777777] uppercase">Production URL</div>
+        <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" class="font-bold text-emerald-600 hover:underline mt-1 block">Live on Render ↗</a>
       </div>
     </div>
 
-    <!-- Hero Screenshot Preview -->
-    <div class="case-study-hero mb-12">
-      <div class="browser-chrome">
-        <div class="browser-dots">
-          <span class="browser-dot bg-[#ef4444]"></span>
-          <span class="browser-dot bg-[#f59e0b]"></span>
-          <span class="browser-dot bg-[#10b981]"></span>
-        </div>
-        <div class="browser-url-bar">hpad-travel-jyxx.onrender.com/</div>
-        <div class="text-[10px] font-mono text-[#46e3b7]">Next.js 15 App Router</div>
-      </div>
-      <img src="../img/projects/hpad-preview.jpg" alt="HPAD Travel Management System Live Screenshot" class="w-full h-auto object-cover" loading="lazy">
-    </div>
-
-    <!-- Case Study Body Sections -->
-    <div class="space-y-12">
+    <!-- Editorial Case Study Body -->
+    <div class="luxury-card p-8 sm:p-14 bg-white space-y-10 leading-relaxed text-sm sm:text-base text-[#171717]">
       
-      <!-- Problem Statement & Objective -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        <div class="card-architect p-8 space-y-4 border-amber-500/20">
-          <div class="flex items-center gap-2 text-amber-400">
-            <i data-lucide="alert-circle" class="w-5 h-5"></i>
-            <h2 class="text-xl font-display font-bold text-white">Problem Statement</h2>
-          </div>
-          <p class="text-sm text-[#e2e8f0] leading-relaxed">
-            Corporate engineering teams and site engineers frequently travel to remote project sites. Managing travel requests through fragmented email chains, Excel spreadsheets, and manual approvals resulted in delayed flight bookings, lost travel vouchers, zero visibility into employee movements, and administrative chaos.
-          </p>
-        </div>
-
-        <div class="card-architect p-8 space-y-4 border-[#46e3b7]/20">
-          <div class="flex items-center gap-2 text-[#46e3b7]">
-            <i data-lucide="target" class="w-5 h-5"></i>
-            <h2 class="text-xl font-display font-bold text-white">Project Objective</h2>
-          </div>
-          <p class="text-sm text-[#e2e8f0] leading-relaxed">
-            Engineer a centralized, secure web platform to digitalize the entire travel lifecycle: from initial employee travel requests and multi-tier managerial approval workflows to automated PDF ticket voucher issuance, expense tracking, and real-time administrative analytics.
-          </p>
-        </div>
-
-      </div>
-
-      <!-- Solution Overview -->
-      <div class="card-architect p-8 space-y-4">
-        <h2 class="text-2xl font-display font-bold text-white">Solution Overview</h2>
-        <p class="text-sm text-[#e2e8f0] leading-relaxed">
-          The HPAD Travel Management System was architected using <strong class="text-white">Next.js 15 (Turbopack, App Router)</strong> and <strong class="text-white">React 19</strong>, backed by <strong class="text-white">Supabase (PostgreSQL)</strong> with strict Row-Level Security (RLS) policies. The platform provides a unified portal with three distinct access roles:
+      <!-- Section 1 -->
+      <div>
+        <h2 class="font-display font-bold text-2xl text-[#171717] mb-3">01 // Problem Statement</h2>
+        <p class="text-[#777777] leading-relaxed">
+          Hiren Patel Architects & Design (HPAD), one of India's premier luxury architecture firms, manages dozens of active construction and interior sites across Gujarat. Managing daily travel requisitions, vehicle driver assignments, mileage verification, and fuel reimbursement logs via phone calls and WhatsApp groups caused scheduling collisions, delayed site inspections, and billing discrepancies.
         </p>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-          <div class="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-            <div class="text-xs font-mono text-[#3ee0c5] font-bold mb-1">Employee Role</div>
-            <p class="text-xs text-[#9aa6b8]">Submit trip requests, select destinations and travel dates, upload receipts, and download generated PDF travel vouchers.</p>
-          </div>
-          <div class="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-            <div class="text-xs font-mono text-amber-400 font-bold mb-1">Admin Approver</div>
-            <p class="text-xs text-[#9aa6b8]">Review pending trip requests, verify travel budgets, approve or reject movements with comments, and coordinate logistics.</p>
-          </div>
-          <div class="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-            <div class="text-xs font-mono text-[#46e3b7] font-bold mb-1">Super Admin Control</div>
-            <p class="text-xs text-[#9aa6b8]">Master control dashboard with real-time Recharts visualizations, employee directory management, and one-click Excel data export.</p>
-          </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div>
+        <h2 class="font-display font-bold text-2xl text-[#171717] mb-3">02 // The Engineering Solution</h2>
+        <p class="text-[#777777] leading-relaxed">
+          I designed and deployed an end-to-end corporate travel management system with multi-tiered role authorization (Architect, Project Manager, Operations Director, Driver). Employees can submit detailed travel requisitions with automated routing suggestions, managers approve or modify itineraries in real time, and drivers receive dispatch notifications with navigation directions.
+        </p>
+      </div>
+
+      <!-- Section 3 -->
+      <div>
+        <h2 class="font-display font-bold text-2xl text-[#171717] mb-3">03 // My Technical Contributions</h2>
+        <ul class="text-[#777777] space-y-2 list-disc list-inside">
+          <li>Architected the frontend using Next.js 15 App Router with React 19 server components and Tailwind CSS.</li>
+          <li>Engineered the relational database schema in Supabase PostgreSQL, enforcing strict Row-Level Security (RLS) policies so employees only access their authorized division records.</li>
+          <li>Designed driver assignment algorithms and automated status progression (Pending → Approved → Dispatched → Completed → Audited).</li>
+          <li>Set up continuous deployment on Render Cloud web services with custom healthcheck pings ensuring 100% reliability.</li>
+        </ul>
+      </div>
+
+      <!-- Section 4 -->
+      <div>
+        <h2 class="font-display font-bold text-2xl text-[#171717] mb-3">04 // Technology Stack</h2>
+        <div class="flex flex-wrap gap-2 pt-2">
+          <span class="editorial-tag">Next.js 15</span>
+          <span class="editorial-tag">React 19</span>
+          <span class="editorial-tag">Supabase</span>
+          <span class="editorial-tag">PostgreSQL</span>
+          <span class="editorial-tag">Row-Level Security</span>
+          <span class="editorial-tag">Tailwind CSS</span>
+          <span class="editorial-tag">Render Cloud</span>
         </div>
       </div>
 
-      <!-- Key Features Grid -->
-      <div class="card-architect p-8 space-y-6">
-        <h2 class="text-2xl font-display font-bold text-white">Key Architectural Features</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-mono text-[#e2e8f0]">
-          <div class="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02]">
-            <i data-lucide="shield-check" class="w-4 h-4 text-[#46e3b7] flex-shrink-0 mt-0.5"></i>
-            <div>
-              <strong class="text-white block font-sans">Role-Based Access Control (RBAC):</strong>
-              Strict middleware authentication and Supabase SSR session validation.
-            </div>
-          </div>
-          <div class="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02]">
-            <i data-lucide="bar-chart-3" class="w-4 h-4 text-[#46e3b7] flex-shrink-0 mt-0.5"></i>
-            <div>
-              <strong class="text-white block font-sans">Real-Time Analytics Dashboard:</strong>
-              Interactive expense charts and employee site distribution via Recharts.
-            </div>
-          </div>
-          <div class="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02]">
-            <i data-lucide="file-spreadsheet" class="w-4 h-4 text-[#46e3b7] flex-shrink-0 mt-0.5"></i>
-            <div>
-              <strong class="text-white block font-sans">Automated Excel Reporting:</strong>
-              Dynamic spreadsheet generation using ExcelJS for payroll and audit reconciliation.
-            </div>
-          </div>
-          <div class="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02]">
-            <i data-lucide="file-text" class="w-4 h-4 text-[#46e3b7] flex-shrink-0 mt-0.5"></i>
-            <div>
-              <strong class="text-white block font-sans">PDF Voucher Issuance:</strong>
-              Client-side and server-side travel ticket voucher rendering via jsPDF &amp; AutoTable.
-            </div>
-          </div>
-        </div>
+      <!-- Next Project Link -->
+      <div class="pt-8 border-editorial-t flex items-center justify-between">
+        <a href="kisanmitra.html" class="btn-luxury btn-outline-editorial text-xs">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          <span>Previous: KisanMitra</span>
+        </a>
+        <a href="white-swan.html" class="btn-luxury btn-primary-dark text-xs">
+          <span>Next: White Swan Holidays</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
       </div>
 
-      <!-- Verified Technology Stack Badges -->
-      <div class="card-architect p-8 space-y-4">
-        <h2 class="text-2xl font-display font-bold text-white">Verified Technology Stack</h2>
-        <p class="text-xs text-[#9aa6b8]">Identified directly from actual repository source code (package.json):</p>
-        <div class="flex flex-wrap gap-2">
-          <span class="tech-badge-pill">Next.js 15.5</span>
-          <span class="tech-badge-pill">React 19.1</span>
-          <span class="tech-badge-pill">TypeScript 5</span>
-          <span class="tech-badge-pill">Supabase SSR</span>
-          <span class="tech-badge-pill">PostgreSQL</span>
-          <span class="tech-badge-pill">Tailwind CSS v4</span>
-          <span class="tech-badge-pill">Recharts</span>
-          <span class="tech-badge-pill">ExcelJS</span>
-          <span class="tech-badge-pill">jsPDF</span>
-          <span class="tech-badge-pill">Zod Validation</span>
-          <span class="tech-badge-pill">Render Web Service</span>
-        </div>
-      </div>
-
-      <!-- My Contribution & Status -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="card-architect p-8 space-y-3">
-          <h3 class="text-xl font-display font-bold text-white">My Engineering Contribution</h3>
-          <ul class="text-xs text-[#e2e8f0] space-y-2 font-mono">
-            <li>• Architected Next.js App Router layout and client/server component boundaries.</li>
-            <li>• Designed relational database schema and Supabase RLS security policies.</li>
-            <li>• Implemented end-to-end travel request submission and approval workflows.</li>
-            <li>• Engineered ExcelJS export and jsPDF voucher rendering routines.</li>
-            <li>• Configured render.yaml and continuous deployment pipeline from GitHub.</li>
-          </ul>
-        </div>
-
-        <div class="card-architect p-8 space-y-4 flex flex-col justify-between">
-          <div>
-            <h3 class="text-xl font-display font-bold text-white">Project Status & Telemetry</h3>
-            <div class="space-y-2 pt-2 text-xs font-mono">
-              <div class="flex items-center justify-between">
-                <span class="text-[#9aa6b8]">Environment:</span>
-                <span class="text-emerald-400 font-bold">Production (Render Cloud)</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-[#9aa6b8]">Repository:</span>
-                <a href="https://github.com/Krishhtrivedi/hpad-travel" target="_blank" rel="noopener noreferrer" class="text-[#3ee0c5] hover:underline">Krishhtrivedi/hpad-travel</a>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-[#9aa6b8]">HTTP Health:</span>
-                <span class="text-emerald-400">200 OK (SSL Active)</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="pt-4 border-t border-white/[0.08] flex items-center gap-3">
-            <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn-live-action btn-live-green w-full">
-              <i data-lucide="external-link" class="w-4 h-4"></i>
-              <span>Open Live Platform</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Navigation Footer -->
-    <div class="mt-16 pt-8 border-t border-white/[0.08] flex items-center justify-between">
-      <a href="../projects.html" class="btn-outline text-xs">← All Projects</a>
-      <a href="white-swan.html" class="btn-primary text-xs"><span>Next: White Swan Holidays</span><i data-lucide="arrow-right" class="w-4 h-4"></i></a>
     </div>
 
   </main>
 
-  <footer class="border-t border-white/[0.08] bg-[#030509] py-12 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-mono text-[#9aa6b8]">
-      <div>KRISH TRIVEDI · HPAD CASE STUDY</div>
-      <div class="flex items-center gap-4">
+  <!-- Footer -->
+  <footer class="bg-[#10131D] text-[#F5F3EE] py-12 border-t border-white/[0.08]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#8E95A5] gap-4">
+      <div class="flex items-center gap-3">
+        <img src="../img/logo-kt-light.svg" alt="KT Monogram" class="w-7 h-7">
+        <span>© 2026 KRISH TRIVEDI · AI DEVELOPER</span>
+      </div>
+      <div class="flex items-center gap-6">
         <a href="../index.html" class="hover:text-white">Home</a>
-        <a href="../projects.html" class="text-[#3ee0c5]">Projects</a>
+        <a href="../projects.html" class="hover:text-white">Projects</a>
+        <a href="../ai-lab.html" class="hover:text-white">AI Lab</a>
         <a href="../contact.html" class="hover:text-white">Contact</a>
       </div>
-      <div>© 2026 Krish Trivedi</div>
     </div>
   </footer>
 

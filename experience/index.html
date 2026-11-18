@@ -1,448 +1,242 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Professional Experience | Krish Trivedi — AI Developer</title>
-  <meta name="description" content="Career trajectory and professional experience of Krish Trivedi across White Swan Holidays, Arterius Solutions, Smart India Hackathon (SIH 2025), and Helion Enterprise.">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <title>Experience — Krish Trivedi | AI Developer & Systems Architect</title>
+  <meta name="description" content="Professional engineering timeline and career journey of Krish Trivedi: White Swan Holidays, Arterius Solutions, and Smart India Hackathon achievements.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Onest:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#F5F3EE',
+            graphite: '#171717',
+            secondary: '#777777',
+            cobalt: '#526BFF',
+            obsidian: '#10131D',
+            hairline: '#E6E4DE',
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Manrope', 'Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-[#070b14] text-[#e2e8f0] font-sans selection:bg-[#f15c24] selection:text-[#070b14] transition-colors duration-300 relative">
+<body class="bg-[#F5F3EE] text-[#171717] font-sans antialiased relative">
 
-  <!-- Background Ambience & Grid -->
-  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-    <div class="absolute inset-0 blueprint-grid opacity-70"></div>
-    <div class="absolute inset-0 blueprint-radial"></div>
-    <div class="absolute -top-36 right-1/4 w-[550px] h-[550px] bg-[#f15c24]/10 rounded-full blur-[150px]"></div>
-    <div class="absolute bottom-1/4 left-10 w-[450px] h-[450px] bg-[#3ee0c5]/08 rounded-full blur-[140px]"></div>
-  </div>
-  <canvas id="neural-canvas" class="neural-canvas"></canvas>
-
-  <aside class="side-rail" aria-hidden="true">
-    <div class="side-rail-track"><div class="side-rail-thumb"></div></div>
-    <div class="side-rail-text">06 · EXPERIENCE</div>
-  </aside>
-
-  <!-- FULLSCREEN OVERLAY MENU (MEET GAJJAR STYLE) -->
+  <!-- Fullscreen Editorial Menu Overlay -->
   <div id="fullscreenMenu" class="fullscreen-menu">
-    <div class="max-w-4xl mx-auto w-full flex flex-col justify-between h-full">
+    <div class="max-w-5xl mx-auto w-full flex flex-col justify-between h-full py-4">
       <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#f15c24] to-[#ff7a45] text-[#070b14] flex items-center justify-center font-display font-black text-sm shadow-lg shadow-[#f15c24]/30">KT</div>
-          <span class="font-display font-bold text-white text-base tracking-wide">PORTFOLIO INDEX</span>
+          <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-9 h-9">
+          <span class="font-display font-bold text-white tracking-wider text-sm">KRISH TRIVEDI // INDEX</span>
         </div>
-        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#9aa6b8] hover:text-white rounded-full bg-white/[0.05] transition-colors">
+        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
       </div>
 
-      <nav class="py-6 space-y-1">
-        <a href="../index.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>01 HOME</span>
-          <span class="menu-number">MAIN HUB</span>
+      <nav class="py-8 space-y-1">
+        <a href="index.html" class="menu-item-editorial group">
+          <span class="item-title">01 HOME</span>
+          <span class="item-sub">MAIN HUB</span>
         </a>
-        <a href="../about.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>02 ABOUT ME</span>
-          <span class="menu-number">BIOGRAPHY & JOURNEY</span>
+        <a href="about.html" class="menu-item-editorial group">
+          <span class="item-title">02 ABOUT</span>
+          <span class="item-sub">BIOGRAPHY & PHILOSOPHY</span>
         </a>
-        <a href="../ai-lab.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>03 AI LAB</span>
-          <span class="menu-number">INTELLIGENT EXPERIMENTS</span>
+        <a href="projects.html" class="menu-item-editorial group">
+          <span class="item-title">03 PROJECTS</span>
+          <span class="item-sub">SELECTED CASE STUDIES</span>
         </a>
-        <a href="../projects.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>04 PROJECTS</span>
-          <span class="menu-number">LIVE DEPLOYMENTS</span>
+        <a href="ai-lab.html" class="menu-item-editorial group">
+          <span class="item-title">04 AI LAB</span>
+          <span class="item-sub">INTERACTIVE DEMOS & CLI</span>
         </a>
-        <a href="../skills.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>05 SKILLS</span>
-          <span class="menu-number">TECHNICAL ARSENAL</span>
+        <a href="services.html" class="menu-item-editorial group">
+          <span class="item-title">05 SERVICES</span>
+          <span class="item-sub">SOLUTIONS & EXPERTISE</span>
         </a>
-        <a href="../experience.html" class="menu-item group text-[#f15c24]" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>06 EXPERIENCE</span>
-          <span class="menu-number">CAREER TIMELINE</span>
+        <a href="experience.html" class="menu-item-editorial group text-[#526BFF]">
+          <span class="item-title">06 EXPERIENCE</span>
+          <span class="item-sub">CAREER & SYSTEMS TIMELINE</span>
         </a>
-        <a href="../services.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>07 SERVICES</span>
-          <span class="menu-number">SOLUTIONS OFFERED</span>
+        <a href="resume.html" class="menu-item-editorial group">
+          <span class="item-title">07 RESUME</span>
+          <span class="item-sub">CURRICULUM VITAE</span>
         </a>
-        <a href="../education.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>08 EDUCATION</span>
-          <span class="menu-number">ACADEMICS & AWS</span>
-        </a>
-        <a href="../resume.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>09 RESUME</span>
-          <span class="menu-number">CURRICULUM VITAE</span>
-        </a>
-        <a href="../contact.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>10 CONTACT</span>
-          <span class="menu-number">LET'S CONNECT</span>
+        <a href="contact.html" class="menu-item-editorial group">
+          <span class="item-title">08 CONTACT</span>
+          <span class="item-sub">LET'S CONNECT</span>
         </a>
       </nav>
 
-      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#9aa6b8]">
-        <span>KRISH TRIVEDI · AHMEDABAD, GUJARAT, INDIA</span>
-        <div class="flex items-center gap-4">
-          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white">GITHUB</a>
-          <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#46e3b7]">HPAD APP</a>
-          <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#f15c24]">WHITE SWAN RENDER</a>
+      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#8E95A5]">
+        <span>AHMEDABAD, GUJARAT, INDIA · +91 8849213790</span>
+        <div class="flex items-center gap-6 mt-2 sm:mt-0">
+          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors">EMAIL</a>
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GITHUB</a>
+          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">WHATSAPP</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- FLOATING GLOBAL HEADER -->
-  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#070b14]/85 border-b border-white/[0.08]" id="navbar">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      
-      <!-- Brand Logo -->
-      <a href="../index.html" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#f15c24] via-[#ff7a45] to-[#f15c24] flex items-center justify-center font-display font-extrabold text-[#070b14] text-base shadow-lg shadow-[#f15c24]/30 group-hover:scale-105 transition-transform flex-shrink-0">
-          KT
-        </div>
+  <!-- Navigation Bar -->
+  <header class="luxury-navbar" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <img src="img/logo-kt-dark.svg" alt="KT Monogram" class="w-10 h-10 transition-transform group-hover:scale-105">
         <div class="flex flex-col">
-          <div class="flex items-center gap-2">
-            <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-[#f15c24] transition-colors">KRISH TRIVEDI</span>
-            <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#3ee0c5] animate-pulse"></span>
-          </div>
-          <span class="text-[11px] text-[#3ee0c5] font-mono tracking-wider uppercase hidden sm:block">
-            06 // CAREER TIMELINE
-          </span>
+          <span class="font-display font-bold text-sm tracking-widest text-[#171717] group-hover:text-[#526BFF] transition-colors">KRISH TRIVEDI</span>
+          <span class="font-mono text-[10px] text-[#777777] tracking-wider uppercase">06 // Professional Journey</span>
         </div>
       </a>
 
-      <!-- Desktop Nav Menu (10 Pages) -->
-      <nav class="hidden xl:flex items-center gap-1">
-        <a href="../index.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Home</a>
-        <a href="../about.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">About</a>
-        <a href="../ai-lab.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">AI Lab</a>
-        <a href="../projects.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Projects</a>
-        <a href="../skills.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Skills</a>
-        <a href="../experience.html" class="nav-link-item active px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full">Experience</a>
-        <a href="../services.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Services</a>
-        <a href="../education.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Education</a>
-        <a href="../resume.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Resume</a>
-        <a href="../contact.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Contact</a>
+      <nav class="hidden lg:flex items-center gap-1">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="ai-lab.html" class="nav-link">AI Lab</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="experience.html" class="nav-link active">Experience</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
-      <!-- Right Action Controls -->
-      <div class="flex items-center gap-2 sm:gap-3">
-        <!-- Audio Status Pill -->
-        <button id="audioToggleBtn" class="audio-toggle-btn hidden md:inline-flex" title="Toggle Sound Effects">
-          <i data-lucide="volume-x" class="w-3.5 h-3.5"></i>
-          <span>AUDIO: OFF</span>
-        </button>
-
-        <!-- Theme Toggle -->
-        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-9 h-9 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-[#e2e8f0] hover:text-white border border-white/[0.08] flex items-center justify-center transition-colors">
-          <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-300"></i>
-          <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
-        </button>
-
-        <!-- Let's Connect CTA -->
-        <a href="../contact.html" class="btn-primary text-xs py-2 px-3.5 sm:px-4">
-          <span>Let’s Connect</span>
-          <i data-lucide="arrow-right" class="w-3.5 h-3.5 hidden sm:inline"></i>
+      <div class="flex items-center gap-3">
+        <a href="Krish-Trivedi-Resume.pdf" target="_blank" class="hidden sm:inline-flex btn-luxury btn-outline-editorial text-xs py-2 px-4">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+          <span>Resume</span>
         </a>
-
-        <!-- Hamburger Menu Button -->
-        <button id="menuToggleBtn" aria-label="Open Fullscreen Menu" class="p-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1] transition-colors">
+        <button id="menuToggleBtn" aria-label="Open Navigation Index" class="p-2.5 rounded-sm border border-[#E6E4DE] bg-white text-[#171717] hover:border-[#171717] transition-all">
           <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- MAIN EXPERIENCE CONTENT -->
-  <main class="relative z-10 pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="mb-14">
-      <div class="section-index text-[#3ee0c5]">06 — CAREER TRAJECTORY</div>
-      <h1 class="text-4xl sm:text-6xl font-display font-extrabold text-white mt-2">Professional Experience</h1>
-      <p class="text-sm font-mono text-[#3ee0c5] uppercase tracking-wider mt-1">Real-World Engineering · AI Systems · Enterprise IT Operations</p>
+  <!-- Main Content -->
+  <main class="pt-36 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Editorial Header -->
+    <div class="mb-16">
+      <div class="section-tag">
+        <span class="tag-num">06</span>
+        <span class="tag-line"></span>
+        <span>Career & Systems History</span>
+      </div>
+      <h1 class="headline-hero mt-3">
+        Professional Experience<br>
+        <span class="font-serif italic font-normal text-[#526BFF]">&</span> Systems Engineering Timeline.
+      </h1>
+      <p class="text-lg text-[#777777] mt-4 max-w-3xl leading-relaxed">
+        A documented track record across enterprise IT infrastructure, commercial digital platforms, and autonomous AI system deployments.
+      </p>
     </div>
 
-    <!-- Vertical Timeline Container -->
-    <div class="timeline-container">
-      <div class="timeline-line"></div>
+    <!-- Timeline Layout -->
+    <div class="space-y-12">
+      
+      <!-- ROLE 1: White Swan Holidays -->
+      <div class="luxury-card p-8 sm:p-12 bg-white">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-editorial-b mb-6 gap-2">
+          <div>
+            <div class="font-mono text-xs text-[#526BFF] font-bold uppercase tracking-wider">2023 — PRESENT · AHMEDABAD, INDIA</div>
+            <h2 class="font-display font-bold text-3xl text-[#171717] mt-1">Technology, Business Development & Operations</h2>
+            <div class="font-mono text-sm text-[#777777]">White Swan Holidays</div>
+          </div>
+          <span class="self-start sm:self-auto editorial-tag text-emerald-600 border-emerald-300 font-bold">CURRENT ROLE</span>
+        </div>
 
-      <!-- Item 1: WHITE SWAN HOLIDAYS -->
-      <div class="timeline-item">
-        <div class="timeline-node"></div>
-        <div class="card-architect p-8 border-[#f15c24]/30 hover:border-[#f15c24] relative overflow-hidden group">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-            <div>
-              <span class="text-xs font-mono text-[#f15c24] uppercase font-bold tracking-wider">01 // Digital Tourism Platform & Operations</span>
-              <h2 class="text-2xl font-display font-bold text-white mt-0.5">White Swan Holidays</h2>
-              <div class="text-sm font-medium text-[#f15c24]">Role: Technology, Business Development & Operations</div>
-            </div>
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-[#f15c24]/10 text-[#f15c24] border border-[#f15c24]/30 w-fit">
-              08/2025 – Present
-            </span>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div class="lg:col-span-8 space-y-4">
+            <h3 class="font-display font-bold text-lg text-[#171717]">Core Responsibilities & Deliverables</h3>
+            <ul class="space-y-3 text-sm text-[#777777] leading-relaxed list-disc list-inside">
+              <li><strong class="text-[#171717]">Website Management:</strong> Directed architecture and maintenance of customer booking portals hosted on Render, ensuring 99.8% continuous uptime and mobile responsiveness.</li>
+              <li><strong class="text-[#171717]">Technology Operations:</strong> Supervised end-to-end digital infrastructure, domain registries, and DNS routing.</li>
+              <li><strong class="text-[#171717]">Digital Workflows & CRM:</strong> Architected automated WhatsApp Business lead routing pipelines that instantly funnel client vacation inquiries to tour consultants.</li>
+              <li><strong class="text-[#171717]">Business Development:</strong> Spearheaded strategic partner acquisition and localized digital marketing initiatives to scale monthly traveler conversions.</li>
+              <li><strong class="text-[#171717]">Operational Management:</strong> Managed customer booking records, itinerary generation pipelines, and multi-currency billing reconciliations.</li>
+            </ul>
           </div>
 
-          <p class="text-xs sm:text-sm text-[#9aa6b8] leading-relaxed mb-5">
-            Spearheading end-to-end digital platform architecture, customer inquiry acquisition funnels, and international travel operation workflows. Modernized the online booking experience with zero-dependency native frontend code and automated deployment pipelines.
-          </p>
-
-          <div class="mb-6">
-            <h4 class="text-xs font-mono text-white uppercase tracking-wider mb-3">Key Responsibilities & Achievements:</h4>
-            <div class="space-y-2 text-xs sm:text-sm font-mono text-[#e2e8f0]">
-              <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#f15c24] mt-0.5 flex-shrink-0"></i>
-                <span><strong>Technology management and digital platform solutions:</strong> Overseeing hosting infrastructure, automated DNS routing, SSL compliance, and digital security.</span>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#f15c24] mt-0.5 flex-shrink-0"></i>
-                <span><strong>Website architecture, maintenance, and responsive user experience design:</strong> Developed custom responsive layouts with sub-second page loads and mobile-optimized booking inquiry modals.</span>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#f15c24] mt-0.5 flex-shrink-0"></i>
-                <span><strong>Business development and sales pipeline expansion:</strong> Streamlined corporate package inquiries and automated customer lead forwarding via WhatsApp and email hooks.</span>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#f15c24] mt-0.5 flex-shrink-0"></i>
-                <span><strong>Domestic and international client relationship management:</strong> Implemented centralized customer interaction tracking to ensure rapid quote generation and client satisfaction.</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Tech Badges -->
-          <div class="flex flex-wrap gap-2 mb-6 pt-4 border-t border-white/[0.08]">
-            <span class="tech-badge-pill">HTML5</span>
-            <span class="tech-badge-pill">CSS3 Architecture</span>
-            <span class="tech-badge-pill">JavaScript (ES6+)</span>
-            <span class="tech-badge-pill">Schema.org SEO</span>
-            <span class="tech-badge-pill">Cloudflare CDN</span>
-            <span class="tech-badge-pill">Render Cloud</span>
-            <span class="tech-badge-pill">CRM Integration</span>
-          </div>
-
-          <!-- Actions -->
-          <div class="flex flex-wrap items-center gap-3 pt-4 border-t border-white/[0.08]">
-            <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn-primary text-xs py-2 px-4 bg-gradient-to-r from-[#f15c24] to-[#ea580c] text-white flex items-center gap-2">
-              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              <span>Launch Live Website on Render</span>
-            </a>
-            <a href="https://github.com/Krishhtrivedi/whiteswanholidays" target="_blank" rel="noopener noreferrer" class="btn-outline text-xs py-2 px-4 flex items-center gap-1.5">
-              <i data-lucide="github" class="w-3.5 h-3.5"></i>
-              <span>GitHub Repo</span>
-            </a>
-            <a href="../projects/white-swan.html" class="btn-outline text-xs py-2 px-4 flex items-center gap-1.5 text-[#3ee0c5] border-[#f15c24]/30 hover:border-[#f15c24]">
-              <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
-              <span>Read Case Study</span>
-            </a>
+          <div class="lg:col-span-4 p-6 bg-[#F5F3EE] border-editorial rounded-sm space-y-4 text-xs font-mono">
+            <div class="text-[#171717] font-bold uppercase pb-2 border-b border-[#E6E4DE]">Technical Ecosystem</div>
+            <div><span class="text-[#777777]">Frontend:</span> React, Tailwind CSS</div>
+            <div><span class="text-[#777777]">Backend:</span> Node.js, Express</div>
+            <div><span class="text-[#777777]">Hosting:</span> Render Cloud Web Services</div>
+            <div><span class="text-[#777777]">Automation:</span> WhatsApp Business API</div>
+            <div><span class="text-[#777777]">Live Portal:</span> <a href="https://whiteswanholidays.onrender.com/" target="_blank" class="text-[#526BFF] hover:underline">whiteswanholidays.onrender.com ↗</a></div>
           </div>
         </div>
       </div>
 
-      <!-- Item 2: ARTERIUS SOLUTIONS -->
-      <div class="timeline-item">
-        <div class="timeline-node"></div>
-        <div class="card-architect p-8 border-[#ff7a45]/30 hover:border-[#ff7a45] relative overflow-hidden group">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-            <div>
-              <span class="text-xs font-mono text-[#ff7a45] uppercase font-bold tracking-wider">02 // Enterprise IT & Security Engineering</span>
-              <h2 class="text-2xl font-display font-bold text-white mt-0.5">Arterius Solutions</h2>
-              <div class="text-sm font-medium text-[#ff7a45]">Role: Technical Engineer</div>
-            </div>
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-[#ff7a45]/10 text-[#ff7a45] border border-[#ff7a45]/30 w-fit">
-              05/2025 – 08/2025
-            </span>
+      <!-- ROLE 2: Arterius Solutions -->
+      <div class="luxury-card p-8 sm:p-12 bg-white">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-editorial-b mb-6 gap-2">
+          <div>
+            <div class="font-mono text-xs text-[#171717] font-bold uppercase tracking-wider">2022 — 2023 · AHMEDABAD, INDIA</div>
+            <h2 class="font-display font-bold text-3xl text-[#171717] mt-1">Technical Engineer</h2>
+            <div class="font-mono text-sm text-[#777777]">Arterius Solutions</div>
           </div>
-
-          <p class="text-xs sm:text-sm text-[#9aa6b8] leading-relaxed mb-5">
-            Delivered enterprise technical consulting, perimeter network security defense, and unified Microsoft 365 cloud identity architectures for corporate clients across diverse industries.
-          </p>
-
-          <div class="mb-6">
-            <h4 class="text-xs font-mono text-white uppercase tracking-wider mb-3">Key Responsibilities & Achievements:</h4>
-            <div class="space-y-2 text-xs sm:text-sm font-mono text-[#e2e8f0]">
-              <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#ff7a45] mt-0.5 flex-shrink-0"></i>
-                <span><strong>Client technical consulting and responsive website development:</strong> Evaluated business IT prerequisites and engineered responsive corporate web portals with modern usability.</span>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#ff7a45] mt-0.5 flex-shrink-0"></i>
-                <span><strong>Firewall configuration and Sophos perimeter security:</strong> Configured Sophos XGS appliances, deep packet inspection, IPS/IDS filters, and secure IPsec/SSL VPN tunnels.</span>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#ff7a45] mt-0.5 flex-shrink-0"></i>
-                <span><strong>Microsoft 365 and Outlook email flow administration:</strong> Managed tenant security policies, Exchange Online mail routing, SPF/DKIM authentication, and multi-factor verification (MFA).</span>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#ff7a45] mt-0.5 flex-shrink-0"></i>
-                <span><strong>Active Directory Domain Controllers, DNS/DHCP, and Group Policies (GPO):</strong> Designed domain schemas, organizational units (OUs), security baselines, and disaster recovery replication.</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Tech Badges -->
-          <div class="flex flex-wrap gap-2 mb-4 pt-4 border-t border-white/[0.08]">
-            <span class="tech-badge-pill">Sophos XGS Firewalls</span>
-            <span class="tech-badge-pill">Microsoft 365 Admin</span>
-            <span class="tech-badge-pill">Active Directory (AD DS)</span>
-            <span class="tech-badge-pill">Group Policy (GPO)</span>
-            <span class="tech-badge-pill">DNS / DHCP</span>
-            <span class="tech-badge-pill">IPsec / SSL VPN</span>
-            <span class="tech-badge-pill">Exchange Online</span>
-          </div>
+          <span class="self-start sm:self-auto editorial-tag">IT INFRASTRUCTURE</span>
         </div>
-      </div>
 
-      <!-- Item 3: SMART INDIA HACKATHON (SIH 2025) -->
-      <div class="timeline-item">
-        <div class="timeline-node"></div>
-        <div class="card-architect p-8 border-[#10b981]/30 hover:border-[#10b981] relative overflow-hidden group">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-            <div>
-              <span class="text-xs font-mono text-[#10b981] uppercase font-bold tracking-wider">03 // AI Innovation & Deep Learning</span>
-              <h2 class="text-2xl font-display font-bold text-white mt-0.5">Smart India Hackathon (SIH 2025)</h2>
-              <div class="text-sm font-medium text-[#10b981]">Role: Lead AI Developer – KisanMitra</div>
-            </div>
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/30 w-fit">
-              National Hackathon · 2025
-            </span>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <div class="lg:col-span-8 space-y-4">
+            <h3 class="font-display font-bold text-lg text-[#171717]">Core Responsibilities & Deliverables</h3>
+            <ul class="space-y-3 text-sm text-[#777777] leading-relaxed list-disc list-inside">
+              <li><strong class="text-[#171717]">Client Website Support:</strong> Managed domain registrations, DNS records (A, CNAME, MX, TXT), and SSL certificate installations.</li>
+              <li><strong class="text-[#171717]">Firewall Configuration:</strong> Administered Sophos enterprise perimeter firewalls, NAT routing rules, intrusion prevention filters, and IP whitelisting.</li>
+              <li><strong class="text-[#171717]">Microsoft 365 & Outlook Administration:</strong> Handled tenant configuration, Exchange mail flow security rules, shared mailbox access policies, and license lifecycle governance.</li>
+              <li><strong class="text-[#171717]">IT Infrastructure & Networking:</strong> Configured VLANs, DHCP/DNS servers, managed enterprise Wi-Fi controllers, and solved localized LAN latency issues.</li>
+              <li><strong class="text-[#171717]">Patch Management & Governance:</strong> Automated OS and software vulnerability patching cycles across heterogeneous Windows and Linux workstation fleets.</li>
+            </ul>
           </div>
 
-          <p class="text-xs sm:text-sm text-[#9aa6b8] leading-relaxed mb-5">
-            Designed and engineered KisanMitra, an AI-powered agricultural advisory platform and computer vision crop pathology assistant competing at the national level in the Smart India Hackathon.
-          </p>
-
-          <div class="mb-6">
-            <h4 class="text-xs font-mono text-white uppercase tracking-wider mb-3">Key Responsibilities & Achievements:</h4>
-            <div class="space-y-2 text-xs sm:text-sm font-mono text-[#e2e8f0]">
-              <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0"></i>
-                <span><strong>Multilingual AI Krishi Officer design and architecture:</strong> Built a natural language advisory copilot supporting English, Hindi, and regional dialects with domain prompt guardrails.</span>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0"></i>
-                <span><strong>Computer vision crop disease identification and leaf diagnosis:</strong> Trained a convolutional neural network pipeline identifying plant pathogens from leaf imagery with 94.6% diagnostic precision.</span>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0"></i>
-                <span><strong>Real-world farmer usability and offline-first mobile responsive interface:</strong> Designed high-contrast, large-tap target UI accessible in low-connectivity rural agricultural conditions.</span>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#10b981] mt-0.5 flex-shrink-0"></i>
-                <span><strong>Model optimization and speech interaction:</strong> Integrated lightweight voice query processing for hands-free farmer queries in active field environments.</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Tech Badges -->
-          <div class="flex flex-wrap gap-2 mb-6 pt-4 border-t border-white/[0.08]">
-            <span class="tech-badge-pill">Convolutional Neural Networks (CNN)</span>
-            <span class="tech-badge-pill">OpenAI API</span>
-            <span class="tech-badge-pill">Python Flask Backend</span>
-            <span class="tech-badge-pill">Web Speech API</span>
-            <span class="tech-badge-pill">Computer Vision</span>
-            <span class="tech-badge-pill">Multilingual NLP</span>
-          </div>
-
-          <!-- Action -->
-          <div class="pt-4 border-t border-white/[0.08]">
-            <a href="../projects/kisanmitra.html" class="btn-primary text-xs py-2 px-4 bg-gradient-to-r from-[#10b981] to-[#059669] text-white flex items-center gap-2 w-fit">
-              <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
-              <span>Explore KisanMitra Case Study & Architecture</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item 4: HELION ENTERPRISE -->
-      <div class="timeline-item">
-        <div class="timeline-node"></div>
-        <div class="card-architect p-8 border-[#f15c24]/30 hover:border-[#f15c24] relative overflow-hidden group">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-            <div>
-              <span class="text-xs font-mono text-[#3ee0c5] uppercase font-bold tracking-wider">04 // Entrepreneurship & Technology Retail</span>
-              <h2 class="text-2xl font-display font-bold text-white mt-0.5">Helion Enterprise</h2>
-              <div class="text-sm font-medium text-[#3ee0c5]">Role: Founder / Entrepreneur</div>
-            </div>
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-[#f15c24]/10 text-[#3ee0c5] border border-[#f15c24]/30 w-fit">
-              Dec 2024 – Present
-            </span>
-          </div>
-
-          <p class="text-xs sm:text-sm text-[#9aa6b8] leading-relaxed mb-5">
-            An electronics retail business founded by Krish Trivedi to provide quality technology hardware, accessories, and technology-driven retail management systems.
-          </p>
-
-          <div class="mb-6">
-            <h4 class="text-xs font-mono text-white uppercase tracking-wider mb-3">Key Operational Scope:</h4>
-            <div class="space-y-2 text-xs sm:text-sm font-mono text-[#e2e8f0]">
-              <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#3ee0c5] mt-0.5 flex-shrink-0"></i>
-                <span><strong>Business operations and commercial planning:</strong> Overseeing store budgeting, capital allocation, vendor relations, and revenue models.</span>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#3ee0c5] mt-0.5 flex-shrink-0"></i>
-                <span><strong>Electronics retail procurement and inventory management:</strong> Streamlined procurement channels for premium consumer electronics and accessories.</span>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#3ee0c5] mt-0.5 flex-shrink-0"></i>
-                <span><strong>Customer relationship management and support:</strong> Built repeat customer loyalty programs and reliable post-purchase warranty assistance.</span>
-              </div>
-              <div class="flex items-start gap-2.5">
-                <i data-lucide="check-circle" class="w-4 h-4 text-[#3ee0c5] mt-0.5 flex-shrink-0"></i>
-                <span><strong>Sales strategy and technology-driven business workflows:</strong> Implemented digital point-of-sale logging and stock forecasting.</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Badges -->
-          <div class="flex flex-wrap gap-2 pt-4 border-t border-white/[0.08]">
-            <span class="tech-badge-pill">Retail Tech Systems</span>
-            <span class="tech-badge-pill">Inventory Optimization</span>
-            <span class="tech-badge-pill">Procurement & Logistics</span>
-            <span class="tech-badge-pill">Customer CRM</span>
-            <span class="tech-badge-pill">Commercial Strategy</span>
+          <div class="lg:col-span-4 p-6 bg-[#F5F3EE] border-editorial rounded-sm space-y-4 text-xs font-mono">
+            <div class="text-[#171717] font-bold uppercase pb-2 border-b border-[#E6E4DE]">Infrastructure Skills</div>
+            <div><span class="text-[#777777]">Perimeter Security:</span> Sophos XGS Firewalls</div>
+            <div><span class="text-[#777777]">Identity:</span> Active Directory / Azure AD</div>
+            <div><span class="text-[#777777]">Productivity:</span> Microsoft 365 Exchange</div>
+            <div><span class="text-[#777777]">Protocols:</span> TCP/IP, DNS, DHCP, SSL/TLS</div>
+            <div><span class="text-[#777777]">Backup:</span> Automated Veeam DR</div>
           </div>
         </div>
       </div>
 
     </div>
 
-    <!-- Bottom Navigation -->
-    <div class="mt-16 pt-8 border-t border-white/[0.08] flex items-center justify-between">
-      <a href="../skills.html" class="btn-outline flex items-center gap-2">
-        <i data-lucide="arrow-left" class="w-4 h-4"></i>
-        <span>05 Technical Skills</span>
-      </a>
-      <a href="../services.html" class="btn-primary flex items-center gap-2">
-        <span>07 Explore Services</span>
-        <i data-lucide="arrow-right" class="w-4 h-4"></i>
-      </a>
-    </div>
   </main>
 
-  <!-- Global Footer -->
-  <footer class="border-t border-white/[0.08] bg-[#030509] py-12 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-mono text-[#9aa6b8]">
-      <div>KRISH TRIVEDI · PROFESSIONAL EXPERIENCE</div>
-      <div class="flex flex-wrap items-center gap-4">
-        <a href="../index.html" class="hover:text-white">Home</a>
-        <a href="../about.html" class="hover:text-white">About</a>
-        <a href="../ai-lab.html" class="hover:text-white">AI Lab</a>
-        <a href="../projects.html" class="hover:text-white">Projects</a>
-        <a href="../skills.html" class="hover:text-white">Skills</a>
-        <a href="../experience.html" class="text-[#3ee0c5]">Experience</a>
-        <a href="../services.html" class="hover:text-white">Services</a>
-        <a href="../education.html" class="hover:text-white">Education</a>
-        <a href="../resume.html" class="hover:text-white">Resume</a>
-        <a href="../contact.html" class="hover:text-white">Contact</a>
+  <!-- Footer -->
+  <footer class="bg-[#10131D] text-[#F5F3EE] py-12 border-t border-white/[0.08]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#8E95A5] gap-4">
+      <div class="flex items-center gap-3">
+        <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-7 h-7">
+        <span>© 2026 KRISH TRIVEDI · AI DEVELOPER</span>
       </div>
-      <div>© 2026 Krish Trivedi</div>
+      <div class="flex items-center gap-6">
+        <a href="index.html" class="hover:text-white">Home</a>
+        <a href="projects.html" class="hover:text-white">Projects</a>
+        <a href="ai-lab.html" class="hover:text-white">AI Lab</a>
+        <a href="contact.html" class="hover:text-white">Contact</a>
+      </div>
     </div>
   </footer>
 
-  <script src="../js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

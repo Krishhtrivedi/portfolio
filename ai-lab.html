@@ -1,289 +1,389 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Laboratory — Intelligent Experiments & Interactive Terminal | Krish Trivedi</title>
-  <meta name="description" content="Interactive AI Laboratory of Krish Trivedi. Test the KisanMitra crop classifier, production deployment telemetry, generative AI agents, and prompt pipelines.">
+  <title>AI Lab — Krish Trivedi | Experimental Technology Studio</title>
+  <meta name="description" content="Interactive AI Laboratory of Krish Trivedi: Live prompt engineering playground, real-time machine learning inference calculator, agent pipeline visualizer, and CLI terminal.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Onest:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#F5F3EE',
+            graphite: '#171717',
+            secondary: '#8E95A5',
+            cobalt: '#526BFF',
+            obsidian: '#10131D',
+            cardDark: '#171C28',
+            hairline: 'rgba(255, 255, 255, 0.08)',
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Manrope', 'Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-[#070b14] text-[#e2e8f0] font-sans selection:bg-[#f15c24] selection:text-[#070b14] transition-colors duration-300 relative">
+<body class="bg-[#10131D] text-[#F5F3EE] font-sans antialiased relative architectural-grid-dark">
 
-  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-    <div class="absolute inset-0 blueprint-grid opacity-70"></div>
-    <div class="absolute inset-0 blueprint-radial"></div>
-    <div class="absolute -top-36 right-1/4 w-[550px] h-[550px] bg-[#f15c24]/10 rounded-full blur-[150px]"></div>
-    <div class="absolute top-1/2 -left-48 w-[500px] h-[500px] bg-[#3ee0c5]/08 rounded-full blur-[160px]"></div>
-  </div>
-  <canvas id="neural-canvas" class="neural-canvas"></canvas>
-
-  <aside class="side-rail" aria-hidden="true">
-    <div class="side-rail-track"><div class="side-rail-thumb"></div></div>
-    <div class="side-rail-text">03 · AI LAB</div>
-  </aside>
-
-  <!-- FULLSCREEN OVERLAY MENU -->
+  <!-- Fullscreen Editorial Menu Overlay -->
   <div id="fullscreenMenu" class="fullscreen-menu">
-    <div class="max-w-4xl mx-auto w-full flex flex-col justify-between h-full">
+    <div class="max-w-5xl mx-auto w-full flex flex-col justify-between h-full py-4">
       <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#f15c24] to-[#ff7a45] text-[#070b14] flex items-center justify-center font-display font-black text-sm shadow-lg shadow-[#f15c24]/30">KT</div>
-          <span class="font-display font-bold text-white text-base tracking-wide">PORTFOLIO INDEX</span>
+          <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-9 h-9">
+          <span class="font-display font-bold text-white tracking-wider text-sm">KRISH TRIVEDI // INDEX</span>
         </div>
-        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#9aa6b8] hover:text-white rounded-full bg-white/[0.05] transition-colors">
+        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
       </div>
 
-      <nav class="py-6 space-y-1">
-        <a href="index.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>01 HOME</span>
-          <span class="menu-number">MAIN HUB</span>
+      <nav class="py-8 space-y-1">
+        <a href="index.html" class="menu-item-editorial group">
+          <span class="item-title">01 HOME</span>
+          <span class="item-sub">MAIN HUB</span>
         </a>
-        <a href="about.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>02 ABOUT ME</span>
-          <span class="menu-number">BIOGRAPHY & JOURNEY</span>
+        <a href="about.html" class="menu-item-editorial group">
+          <span class="item-title">02 ABOUT</span>
+          <span class="item-sub">BIOGRAPHY & PHILOSOPHY</span>
         </a>
-        <a href="ai-lab.html" class="menu-item group text-[#f15c24]" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>03 AI LAB</span>
-          <span class="menu-number">INTELLIGENT EXPERIMENTS</span>
+        <a href="projects.html" class="menu-item-editorial group">
+          <span class="item-title">03 PROJECTS</span>
+          <span class="item-sub">SELECTED CASE STUDIES</span>
         </a>
-        <a href="projects.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>04 PROJECTS</span>
-          <span class="menu-number">LIVE DEPLOYMENTS</span>
+        <a href="ai-lab.html" class="menu-item-editorial group text-[#526BFF]">
+          <span class="item-title">04 AI LAB</span>
+          <span class="item-sub">INTERACTIVE DEMOS & CLI</span>
         </a>
-        <a href="skills.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>05 SKILLS</span>
-          <span class="menu-number">TECHNICAL ARSENAL</span>
+        <a href="services.html" class="menu-item-editorial group">
+          <span class="item-title">05 SERVICES</span>
+          <span class="item-sub">SOLUTIONS & EXPERTISE</span>
         </a>
-        <a href="experience.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>06 EXPERIENCE</span>
-          <span class="menu-number">CAREER TIMELINE</span>
+        <a href="experience.html" class="menu-item-editorial group">
+          <span class="item-title">06 EXPERIENCE</span>
+          <span class="item-sub">CAREER & SYSTEMS TIMELINE</span>
         </a>
-        <a href="services.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>07 SERVICES</span>
-          <span class="menu-number">SOLUTIONS OFFERED</span>
+        <a href="resume.html" class="menu-item-editorial group">
+          <span class="item-title">07 RESUME</span>
+          <span class="item-sub">CURRICULUM VITAE</span>
         </a>
-        <a href="education.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>08 EDUCATION</span>
-          <span class="menu-number">ACADEMICS & AWS</span>
-        </a>
-        <a href="resume.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>09 RESUME</span>
-          <span class="menu-number">CURRICULUM VITAE</span>
-        </a>
-        <a href="contact.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>10 CONTACT</span>
-          <span class="menu-number">LET'S CONNECT</span>
+        <a href="contact.html" class="menu-item-editorial group">
+          <span class="item-title">08 CONTACT</span>
+          <span class="item-sub">LET'S CONNECT</span>
         </a>
       </nav>
 
-      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#9aa6b8]">
-        <span>KRISH TRIVEDI · AHMEDABAD, GUJARAT, INDIA</span>
-        <div class="flex items-center gap-4">
-          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white">GITHUB</a>
-          <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#46e3b7]">HPAD APP</a>
-          <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#f15c24]">WHITE SWAN RENDER</a>
+      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#8E95A5]">
+        <span>AHMEDABAD, GUJARAT, INDIA · +91 8849213790</span>
+        <div class="flex items-center gap-6 mt-2 sm:mt-0">
+          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors">EMAIL</a>
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GITHUB</a>
+          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">WHATSAPP</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#070b14]/85 border-b border-white/[0.08]" id="navbar">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#f15c24] to-[#ff7a45] flex items-center justify-center font-display font-extrabold text-[#070b14] text-base shadow-lg shadow-[#f15c24]/30">KT</div>
+  <!-- Navigation Bar (Dark Styled for AI Lab) -->
+  <header class="luxury-navbar bg-[#10131D]/90 border-b border-white/[0.08]" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-10 h-10 transition-transform group-hover:scale-105">
         <div class="flex flex-col">
-          <span class="font-display font-bold text-white text-base">KRISH TRIVEDI</span>
-          <span class="text-[11px] text-[#3ee0c5] font-mono">03 // AI LABORATORY</span>
+          <span class="font-display font-bold text-sm tracking-widest text-white group-hover:text-[#526BFF] transition-colors">KRISH TRIVEDI</span>
+          <span class="font-mono text-[10px] text-[#8E95A5] tracking-wider uppercase">04 // Experimental AI Lab</span>
         </div>
       </a>
 
-      <nav class="hidden xl:flex items-center gap-1">
-        <a href="index.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Home</a>
-        <a href="about.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">About</a>
-        <a href="ai-lab.html" class="nav-link-item active px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full">AI Lab</a>
-        <a href="projects.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Projects</a>
-        <a href="skills.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Skills</a>
-        <a href="experience.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Experience</a>
-        <a href="services.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Services</a>
-        <a href="education.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Education</a>
-        <a href="resume.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Resume</a>
-        <a href="contact.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Contact</a>
+      <nav class="hidden lg:flex items-center gap-1">
+        <a href="index.html" class="nav-link text-white/80 hover:text-white">Home</a>
+        <a href="about.html" class="nav-link text-white/80 hover:text-white">About</a>
+        <a href="projects.html" class="nav-link text-white/80 hover:text-white">Projects</a>
+        <a href="ai-lab.html" class="nav-link active text-[#526BFF]">AI Lab</a>
+        <a href="services.html" class="nav-link text-white/80 hover:text-white">Services</a>
+        <a href="experience.html" class="nav-link text-white/80 hover:text-white">Experience</a>
+        <a href="contact.html" class="nav-link text-white/80 hover:text-white">Contact</a>
       </nav>
 
-      <div class="flex items-center gap-2 sm:gap-3">
-        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-9 h-9 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-[#e2e8f0] hover:text-white border border-white/[0.08] flex items-center justify-center transition-colors">
-          <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-300"></i>
-          <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
-        </button>
-        <a href="contact.html" class="btn-primary text-xs py-2 px-3.5 sm:px-4">Let's Connect</a>
-        <button id="menuToggleBtn" aria-label="Open Fullscreen Menu" class="p-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1] transition-colors">
+      <div class="flex items-center gap-3">
+        <span class="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.05] border border-white/[0.1] text-xs font-mono text-emerald-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>Inference Online</span>
+        </span>
+        <button id="menuToggleBtn" aria-label="Open Navigation Index" class="p-2.5 rounded-sm border border-white/[0.15] bg-white/[0.05] text-white hover:border-white transition-all">
           <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <main class="relative z-10 pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Main Content -->
+  <main class="pt-36 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Page Header -->
-    <div class="mb-14">
-      <div class="section-index text-[#3ee0c5]">03 — INTELLIGENT EXPERIMENTS & TERMINAL</div>
-      <h1 class="text-4xl sm:text-6xl font-display font-extrabold text-white mt-2">AI Laboratory</h1>
-      <p class="text-sm font-mono text-[#3ee0c5] uppercase tracking-wider mt-1">Generative AI · Autonomous Assistants · Machine Learning Pipelines</p>
-    </div>
-
-    <!-- Overview Text -->
-    <div class="max-w-3xl mb-12 text-sm sm:text-base text-[#e2e8f0] leading-relaxed">
-      Welcome to the Krish Trivedi AI Laboratory. This sandbox showcases applied machine learning models, OpenAI API prompt pipelines, and deployment telemetry from my live systems. Use the interactive terminal below to test commands or explore the architecture blueprints.
-    </div>
-
-    <!-- INTERACTIVE TERMINAL WINDOW (ACTUAL WORKING TERMINAL) -->
+    <!-- Lab Header -->
     <div class="mb-16">
-      <div class="terminal-window">
-        <!-- Terminal Header Bar -->
-        <div class="terminal-header">
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-[#ef4444]"></span>
-            <span class="w-3 h-3 rounded-full bg-[#f59e0b]"></span>
-            <span class="w-3 h-3 rounded-full bg-[#10b981]"></span>
-            <span class="text-xs font-mono text-[#9aa6b8] ml-2 font-medium">krish@ai-lab:~ (Interactive Simulator v2.4)</span>
-          </div>
-          <div class="flex items-center gap-3 text-xs font-mono text-[#3ee0c5]">
-            <span class="w-2 h-2 rounded-full bg-[#f15c24] animate-ping"></span>
-            <span>ENGINE ONLINE</span>
-          </div>
-        </div>
-
-        <!-- Terminal Output Body -->
-        <div id="aiTerminalLog" class="terminal-body space-y-2 min-h-[220px]">
-          <div class="text-[#9aa6b8] font-mono text-xs">
-            [Krish Trivedi AI Engine v2.4 initialized. Ready for inputs.]<br>
-            Type <span class="text-[#3ee0c5] font-bold">'help'</span> to view available laboratory tools or click any quick command below.
-          </div>
-        </div>
-
-        <!-- Terminal Input Bar -->
-        <div class="p-3 bg-[#080d19] border-t border-white/[0.08] flex items-center gap-2">
-          <span class="terminal-prompt text-xs font-mono font-bold pl-2">krish@ai-lab:~$</span>
-          <input type="text" id="aiTerminalInput" placeholder="e.g. kisanmitra --diagnose, hpad --status, help" class="bg-transparent border-none text-white text-xs font-mono focus:outline-none flex-grow">
-          <button id="terminalRunBtn" class="btn-primary text-xs py-1.5 px-4">Run</button>
-        </div>
+      <div class="section-tag text-[#8E95A5]">
+        <span class="tag-num text-[#526BFF]">04</span>
+        <span class="tag-line bg-white/20"></span>
+        <span class="text-white">Experimental Technology Studio</span>
       </div>
-
-      <!-- Quick Command Chips -->
-      <div class="mt-4 flex flex-wrap items-center gap-2 text-xs font-mono">
-        <span class="text-[#9aa6b8]">Quick Executables:</span>
-        <button class="cmd-chip filter-btn" data-cmd="kisanmitra --diagnose">kisanmitra --diagnose</button>
-        <button class="cmd-chip filter-btn" data-cmd="hpad --status">hpad --status</button>
-        <button class="cmd-chip filter-btn" data-cmd="whiteswan --status">whiteswan --status</button>
-        <button class="cmd-chip filter-btn" data-cmd="ai-agent --run triage">ai-agent --run triage</button>
-        <button class="cmd-chip filter-btn" data-cmd="firewalls --check">firewalls --check</button>
-        <button class="cmd-chip filter-btn" data-cmd="clear">clear</button>
-      </div>
+      <h1 class="headline-hero text-white mt-3">
+        The Autonomous AI Lab.<br>
+        <span class="font-serif italic font-normal text-[#526BFF]">Interactive Models</span> & Live Workflows.
+      </h1>
+      <p class="text-lg text-[#8E95A5] mt-4 max-w-3xl leading-relaxed">
+        Test, inspect, and evaluate real intelligent tools in real time. Every demonstration below is functional and powered by live client-side algorithms.
+      </p>
     </div>
 
-    <!-- =====================================================================
-         AI EXPERIMENTS & ARCHITECTURES SHOWCASE
-         ===================================================================== -->
-    <div class="mb-12">
-      <div class="section-index text-[#f15c24]">LABORATORY ARCHITECTURES</div>
-      <h2 class="text-3xl font-display font-bold text-white mt-1">AI Systems & Model Architectures</h2>
-    </div>
+    <!-- 1. INTERACTIVE PROMPT PLAYGROUND -->
+    <section class="mb-16">
+      <div class="luxury-card-dark p-8 sm:p-10">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-white/[0.08] mb-6 gap-4">
+          <div>
+            <div class="text-xs font-mono text-[#526BFF] uppercase tracking-wider">LABORATORY EXPERIMENT 01</div>
+            <h2 class="font-display font-bold text-2xl text-white mt-1">Prompt Playground & Architecture Synthesizer</h2>
+          </div>
+          <div class="flex items-center gap-4 text-xs font-mono text-[#8E95A5]">
+            <div>Processed: <span id="aiLabTokenCount" class="text-white font-bold">245 tokens</span></div>
+            <div>Latency: <span id="aiLabLatency" class="text-emerald-400 font-bold">142 ms</span></div>
+          </div>
+        </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <p class="text-xs sm:text-sm text-[#8E95A5] leading-relaxed mb-4">
+          Choose a pre-configured architecture prompt preset below or type your own custom engineering inquiry:
+        </p>
+
+        <!-- Presets -->
+        <div class="flex flex-wrap gap-2 mb-4">
+          <button class="prompt-preset-chip px-3 py-1.5 rounded-sm bg-white/[0.06] hover:bg-[#526BFF]/20 border border-white/[0.1] text-xs font-mono text-[#F5F3EE] transition-colors" data-preset="agent-architect">
+            🤖 Multi-Agent RAG Topology
+          </button>
+          <button class="prompt-preset-chip px-3 py-1.5 rounded-sm bg-white/[0.06] hover:bg-[#526BFF]/20 border border-white/[0.1] text-xs font-mono text-[#F5F3EE] transition-colors" data-preset="security-audit">
+            🛡️ LLM Token & Security Audit
+          </button>
+          <button class="prompt-preset-chip px-3 py-1.5 rounded-sm bg-white/[0.06] hover:bg-[#526BFF]/20 border border-white/[0.1] text-xs font-mono text-[#F5F3EE] transition-colors" data-preset="data-pipeline">
+            ⚡ Playwright Ingestion Cluster
+          </button>
+        </div>
+
+        <!-- Input Box -->
+        <div class="space-y-4">
+          <textarea id="aiLabPromptInput" rows="3" placeholder="Enter an AI systems prompt or click a preset above..." class="w-full px-4 py-3 bg-[#0E121D] border border-white/[0.1] rounded-sm text-sm font-mono text-white placeholder-white/30 outline-none focus:border-[#526BFF] transition-colors resize-none">Design a resilient multi-agent architecture for enterprise customer logistics and invoice reconciliation.</textarea>
+          
+          <div class="flex justify-end">
+            <button id="aiLabRunPromptBtn" class="btn-luxury btn-accent text-xs py-2.5 px-6">
+              <span>RUN INFERENCE PIPELINE</span>
+              <i data-lucide="play" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Output Terminal -->
+        <div class="mt-6">
+          <div class="text-xs font-mono text-[#8E95A5] uppercase tracking-wider mb-2">SYNTHESIZED ARCHITECTURE OUTPUT:</div>
+          <pre id="aiLabPromptOutput" class="p-6 bg-[#0B0E17] border border-white/[0.08] rounded-sm font-mono text-xs sm:text-sm text-emerald-400 overflow-x-auto leading-relaxed whitespace-pre-wrap">[ARCHITECTURE BLUEPRINT: DUAL-AGENT RAG TOPOLOGY]
+------------------------------------------------------------
+1. INGESTION AGENT:
+   - Polling: AWS S3 bucket / Webhook listener for incoming PDF invoices.
+   - Processing: OCR via PyMuPDF + layout-aware tokenization.
+   - Guardrail: PII and PCI-DSS redaction pipeline prior to vectorization.
+
+2. VECTOR RETRIEVAL (FAISS / PGVECTOR):
+   - Embedding: text-embedding-3-small (1536-dim).
+   - Hybrid Search: Dense cosine similarity + BM25 sparse keyword weighting.
+
+3. REASONING & EXTRACTION AGENT (Gemini 1.5 Pro / GPT-4o):
+   - Structured JSON output schema enforced by Pydantic.
+   - Cross-checks line items against Supabase ERP database records.
+
+4. AUDIT & HUMAN-IN-THE-LOOP AGENT:
+   - Discrepancy threshold > $50 triggers Slack notification to finance lead.
+   - Idempotency key: SHA256(invoice_hash) to prevent duplicate ledger writes.</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. REAL-TIME ML CREDIT RISK DEMONSTRATION & CLI -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
       
-      <!-- Experiment 1: KisanMitra Pathology Pipeline -->
-      <div class="card-architect p-7 border-amber-500/20 space-y-4">
-        <div class="flex items-center justify-between">
-          <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-amber-500/10 text-amber-400 border border-amber-500/30">
-            SIH 2025 AI ENGINE
-          </span>
-          <i data-lucide="leaf" class="w-4 h-4 text-amber-400"></i>
+      <!-- Left: Real ML Scoring Model (6 cols) -->
+      <div class="lg:col-span-6 luxury-card-dark p-8">
+        <div class="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-6">
+          <div>
+            <div class="text-xs font-mono text-[#526BFF] uppercase tracking-wider">LABORATORY EXPERIMENT 02</div>
+            <h2 class="font-display font-bold text-xl text-white mt-0.5">Real-Time ML Credit Risk Inference</h2>
+          </div>
+          <span class="font-mono text-xs text-emerald-400">Active</span>
         </div>
-        <h3 class="text-xl font-display font-bold text-white">Crop Pathology Classifier</h3>
-        <p class="text-xs text-[#9aa6b8] leading-relaxed">
-          Deep learning computer vision architecture tailored for rural farmer mobile uploads. Categorizes blight, fungal spot, and rust with early stage detection metrics.
+
+        <p class="text-xs text-[#8E95A5] leading-relaxed mb-6">
+          Interactive production risk scoring. Move the sliders to test the model's multi-factor decision boundary:
         </p>
-        <div class="p-3 rounded-xl bg-black/40 border border-white/[0.05] text-[11px] font-mono text-[#e2e8f0] space-y-1">
-          <div>• Input: JPEG foliage photos</div>
-          <div>• Model: ResNet/CNN Transfer Learning</div>
-          <div>• Latency: &lt;1.8s per diagnostic query</div>
-          <div>• Audio Dispatch: Gujarati &amp; Hindi TTS</div>
+
+        <div class="space-y-5">
+          <div>
+            <div class="flex justify-between text-xs font-mono mb-1.5">
+              <span class="text-[#8E95A5]">Loan Amount:</span>
+              <span id="mlLoanVal" class="text-white font-bold">$25,000</span>
+            </div>
+            <input type="range" id="mlLoanAmount" min="5000" max="100000" step="5000" value="25000" class="w-full accent-[#526BFF] cursor-pointer">
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-mono mb-1.5">
+              <span class="text-[#8E95A5]">Annual Income:</span>
+              <span id="mlIncomeVal" class="text-white font-bold">$75,000</span>
+            </div>
+            <input type="range" id="mlAnnualIncome" min="15000" max="250000" step="5000" value="75000" class="w-full accent-[#526BFF] cursor-pointer">
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-mono mb-1.5">
+              <span class="text-[#8E95A5]">Credit Score (FICO):</span>
+              <span id="mlCreditVal" class="text-white font-bold">720</span>
+            </div>
+            <input type="range" id="mlCreditScore" min="300" max="850" step="10" value="720" class="w-full accent-[#526BFF] cursor-pointer">
+          </div>
+
+          <div>
+            <div class="flex justify-between text-xs font-mono mb-1.5">
+              <span class="text-[#8E95A5]">Debt-to-Income (DTI %):</span>
+              <span id="mlDTIVal" class="text-white font-bold">18%</span>
+            </div>
+            <input type="range" id="mlDTI" min="5" max="60" step="1" value="18" class="w-full accent-[#526BFF] cursor-pointer">
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/[0.08]">
+          <div class="flex items-center justify-between text-xs font-mono mb-2">
+            <span class="text-[#8E95A5]">VERDICT:</span>
+            <div id="mlRiskVerdict" class="text-sm">Calculating...</div>
+          </div>
+          <div class="w-full h-3 bg-white/10 rounded-full overflow-hidden p-0.5">
+            <div id="mlRiskMeter" class="h-full rounded-full transition-all duration-300" style="width: 20%; background-color: #10B981;"></div>
+          </div>
+          <div id="mlRiskConfidence" class="text-[11px] font-mono text-[#8E95A5] mt-2.5">
+            Predicted Default Probability: 18% · Model Confidence: 94.6%
+          </div>
         </div>
       </div>
 
-      <!-- Experiment 2: Generative AI Triage Agent -->
-      <div class="card-architect p-7 border-[#f15c24]/20 space-y-4">
-        <div class="flex items-center justify-between">
-          <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-[#f15c24]/10 text-[#3ee0c5] border border-[#f15c24]/30">
-            OPENAI API PIPELINE
-          </span>
-          <i data-lucide="bot" class="w-4 h-4 text-[#3ee0c5]"></i>
+      <!-- Right: Interactive CLI Terminal (6 cols) -->
+      <div class="lg:col-span-6 ai-lab-terminal overflow-hidden flex flex-col h-[520px]">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <div class="terminal-dot red"></div>
+            <div class="terminal-dot yellow"></div>
+            <div class="terminal-dot green"></div>
+          </div>
+          <span class="text-xs text-[#8E95A5] font-mono">krish@ai-lab:~ (zsh)</span>
+          <span class="text-[10px] text-emerald-400 font-mono">ONLINE</span>
         </div>
-        <h3 class="text-xl font-display font-bold text-white">Autonomous Inquiry Triage</h3>
-        <p class="text-xs text-[#9aa6b8] leading-relaxed">
-          Structured prompt engineering pipeline converting messy natural language messages into typed JSON data structures for automated database dispatch.
-        </p>
-        <div class="p-3 rounded-xl bg-black/40 border border-white/[0.05] text-[11px] font-mono text-[#e2e8f0] space-y-1">
-          <div>• Engine: OpenAI GPT-4o-mini API</div>
-          <div>• Schema: Zod / JSON Schema Mode</div>
-          <div>• Features: Intent &amp; Urgency scoring</div>
-          <div>• Integration: Native Python Flask</div>
-        </div>
-      </div>
 
-      <!-- Experiment 3: Loan Risk Prediction Model -->
-      <div class="card-architect p-7 border-[#f15c24]/20 space-y-4">
-        <div class="flex items-center justify-between">
-          <span class="px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-[#3ee0c5]/08 text-[#f15c24] border border-[#f15c24]/30">
-            SCIKIT-LEARN ML
-          </span>
-          <i data-lucide="line-chart" class="w-4 h-4 text-[#f15c24]"></i>
+        <div class="p-3 bg-[#0E121D] border-b border-white/[0.06] flex flex-wrap gap-2 text-[11px] font-mono">
+          <span class="text-[#8E95A5] self-center">Commands:</span>
+          <button class="terminal-quick-chip px-2 py-1 rounded bg-white/[0.05] hover:bg-[#526BFF]/20 text-[#526BFF] border border-white/[0.08]" data-cmd="skills">skills</button>
+          <button class="terminal-quick-chip px-2 py-1 rounded bg-white/[0.05] hover:bg-[#526BFF]/20 text-[#526BFF] border border-white/[0.08]" data-cmd="projects">projects</button>
+          <button class="terminal-quick-chip px-2 py-1 rounded bg-white/[0.05] hover:bg-[#526BFF]/20 text-[#526BFF] border border-white/[0.08]" data-cmd="hpad --status">hpad --status</button>
+          <button class="terminal-quick-chip px-2 py-1 rounded bg-white/[0.05] hover:bg-[#526BFF]/20 text-[#526BFF] border border-white/[0.08]" data-cmd="kisanmitra --status">kisanmitra</button>
         </div>
-        <h3 class="text-xl font-display font-bold text-white">Credit Default Predictor</h3>
-        <p class="text-xs text-[#9aa6b8] leading-relaxed">
-          Supervised learning classification model trained on credit attributes, debt-to-income ratios, and payment histories to forecast probability of default.
-        </p>
-        <div class="p-3 rounded-xl bg-black/40 border border-white/[0.05] text-[11px] font-mono text-[#e2e8f0] space-y-1">
-          <div>• Algorithms: Random Forest &amp; Logistic Reg</div>
-          <div>• Validation: K-Fold Stratified Split</div>
-          <div>• Evaluation: ROC-AUC 0.88, F1-Score</div>
-          <div>• Pipeline: Preprocessing + Scaling</div>
+
+        <div id="terminalBody" class="flex-1 p-4 overflow-y-auto font-mono text-xs text-[#F5F3EE] space-y-2">
+          <div class="text-[#8E95A5]">Krish Trivedi AI Laboratory Environment initialized.</div>
+          <div class="text-[#8E95A5]">Type <span class="text-[#526BFF] font-bold">'help'</span> to inspect available laboratory tools.</div>
+        </div>
+
+        <div class="p-3 bg-[#121622] border-t border-white/[0.08] flex items-center gap-2">
+          <span class="text-[#526BFF] font-mono text-xs">krish@ai-lab:~$</span>
+          <input type="text" id="terminalInput" placeholder="Type command here..." class="flex-1 bg-transparent border-0 outline-none text-xs font-mono text-white placeholder-white/30">
+          <button id="terminalRunBtn" class="px-3 py-1 bg-[#526BFF] text-white text-xs font-mono rounded hover:bg-[#3E54E6]">Run</button>
         </div>
       </div>
 
     </div>
 
-    <!-- Navigation Footer -->
-    <div class="pt-8 border-t border-white/[0.08] flex items-center justify-between">
-      <a href="about.html" class="btn-outline text-xs">← 02 // About Me</a>
-      <a href="projects.html" class="btn-primary text-xs"><span>04 // Projects &amp; Live Apps</span><i data-lucide="arrow-right" class="w-4 h-4"></i></a>
-    </div>
+    <!-- 3. NODE-BASED AGENT PIPELINE VISUALIZER -->
+    <section class="luxury-card-dark p-8 sm:p-10 mb-16">
+      <div class="pb-6 border-b border-white/[0.08] mb-8">
+        <div class="text-xs font-mono text-[#526BFF] uppercase tracking-wider">LABORATORY EXPERIMENT 03</div>
+        <h2 class="font-display font-bold text-2xl text-white mt-1">Intelligent Workflow & Agent Pipeline Architecture</h2>
+        <p class="text-xs sm:text-sm text-[#8E95A5] mt-1">
+          Click any stage of the neural pipeline below to inspect its data contract, transformations, and runtime technologies:
+        </p>
+      </div>
+
+      <!-- 5-Stage Pipeline Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+        <div class="pipeline-step active" data-step="1">
+          <div class="font-mono text-[10px] text-[#526BFF] uppercase mb-1">STAGE 01</div>
+          <div class="font-display font-bold text-white text-sm">Multimodal Ingestion</div>
+          <div class="text-[11px] font-mono text-[#8E95A5] mt-1">Voice / PDF / Images</div>
+        </div>
+
+        <div class="pipeline-step" data-step="2">
+          <div class="font-mono text-[10px] text-[#526BFF] uppercase mb-1">STAGE 02</div>
+          <div class="font-display font-bold text-white text-sm">Dense Embeddings</div>
+          <div class="text-[11px] font-mono text-[#8E95A5] mt-1">1536-dim Vectors</div>
+        </div>
+
+        <div class="pipeline-step" data-step="3">
+          <div class="font-mono text-[10px] text-[#526BFF] uppercase mb-1">STAGE 03</div>
+          <div class="font-display font-bold text-white text-sm">RAG Retrieval</div>
+          <div class="text-[11px] font-mono text-[#8E95A5] mt-1">FAISS / pgvector</div>
+        </div>
+
+        <div class="pipeline-step" data-step="4">
+          <div class="font-mono text-[10px] text-[#526BFF] uppercase mb-1">STAGE 04</div>
+          <div class="font-display font-bold text-white text-sm">Multi-Agent Reasoner</div>
+          <div class="text-[11px] font-mono text-[#8E95A5] mt-1">Gemini / Claude</div>
+        </div>
+
+        <div class="pipeline-step" data-step="5">
+          <div class="font-mono text-[10px] text-[#526BFF] uppercase mb-1">STAGE 05</div>
+          <div class="font-display font-bold text-white text-sm">Guardrails & Delivery</div>
+          <div class="text-[11px] font-mono text-[#8E95A5] mt-1">Schema Validation</div>
+        </div>
+      </div>
+
+      <!-- Pipeline Inspector Box -->
+      <div id="pipelineInspector" class="p-6 bg-[#0B0E17] border border-white/[0.08] rounded-sm">
+        <div class="text-xs font-mono text-[#526BFF] uppercase tracking-wider mb-1">01 // MULTIMODAL INGESTION & PARSING</div>
+        <p class="text-sm text-[#F5F3EE] leading-relaxed mb-3">
+          Raw user prompts, PDFs, voice audio, or tabular data are received. Text is cleaned, sanitized against prompt injection, and normalized into UTF-8 token sequences.
+        </p>
+        <div class="text-[11px] font-mono text-[#8E95A5] pt-2 border-t border-white/[0.08]">
+          <span class="text-white font-semibold">Underlying Technologies:</span> FastAPI · Whisper AI · PyMuPDF · Pydantic
+        </div>
+      </div>
+    </section>
 
   </main>
 
-  <footer class="border-t border-white/[0.08] bg-[#030509] py-12 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-mono text-[#9aa6b8]">
-      <div>KRISH TRIVEDI · AI LABORATORY ENGINE</div>
-      <div class="flex items-center gap-4">
+  <!-- Footer -->
+  <footer class="bg-[#0B0E17] text-[#F5F3EE] py-12 border-t border-white/[0.08]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#8E95A5] gap-4">
+      <div class="flex items-center gap-3">
+        <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-7 h-7">
+        <span>© 2026 KRISH TRIVEDI · AI LABORATORY</span>
+      </div>
+      <div class="flex items-center gap-6">
         <a href="index.html" class="hover:text-white">Home</a>
-        <a href="about.html" class="hover:text-white">About</a>
-        <a href="ai-lab.html" class="text-[#3ee0c5]">AI Lab</a>
         <a href="projects.html" class="hover:text-white">Projects</a>
-        <a href="skills.html" class="hover:text-white">Skills</a>
+        <a href="about.html" class="hover:text-white">About</a>
         <a href="contact.html" class="hover:text-white">Contact</a>
       </div>
-      <div>© 2026 Krish Trivedi</div>
     </div>
   </footer>
 

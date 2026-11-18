@@ -1,51 +1,75 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 — Neural Node Not Found | Krish Trivedi</title>
+  <title>404 — Page Not Found | Krish Trivedi</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Onest:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#F5F3EE',
+            graphite: '#171717',
+            secondary: '#777777',
+            cobalt: '#526BFF',
+            obsidian: '#10131D',
+            hairline: '#E6E4DE',
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Manrope', 'Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-[#070b14] text-[#e2e8f0] font-sans selection:bg-[#f15c24] selection:text-[#070b14] transition-colors duration-300 relative">
-  <canvas id="neural-canvas" class="neural-canvas"></canvas>
+<body class="bg-[#F5F3EE] text-[#171717] font-sans antialiased min-h-screen flex flex-col justify-between">
 
-  <header class="p-6 relative z-10">
+  <header class="p-8">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#f15c24] via-[#ff7a45] to-[#f15c24] flex items-center justify-center font-display font-extrabold text-[#070b14] text-base">KT</div>
-        <span class="font-display font-bold text-white tracking-tight">KRISH TRIVEDI</span>
+        <img src="img/logo-kt-dark.svg" alt="KT Monogram" class="w-10 h-10">
+        <span class="font-display font-bold text-sm tracking-widest text-[#171717]">KRISH TRIVEDI</span>
+      </a>
+      <a href="index.html" class="btn-luxury btn-outline-editorial text-xs py-2 px-4">
+        <span>Back to Home</span>
       </a>
     </div>
   </header>
 
-  <main class="relative z-10 max-w-2xl mx-auto px-6 text-center my-auto">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#f15c24]/10 text-[#3ee0c5] border border-[#f15c24]/20 mb-6">
-      <span class="w-2 h-2 rounded-full bg-[#f15c24] animate-ping"></span>
-      ERROR 404 // ROUTE DISCONNECTED
+  <main class="max-w-xl mx-auto px-6 text-center my-auto py-16">
+    <div class="section-tag mb-4">
+      <span class="tag-num">404</span>
+      <span class="tag-line"></span>
+      <span>Route Disconnected</span>
     </div>
-    <h1 class="text-6xl sm:text-8xl font-display font-extrabold text-white mb-4 tracking-tight">404</h1>
-    <h2 class="text-2xl font-display font-bold text-white mb-4">Neural Vector Not Found</h2>
-    <p class="text-sm font-body text-[#9aa6b8] mb-8 leading-relaxed">
-      The coordinates you requested do not correlate to any known repository, AI laboratory node, or page in this portfolio network.
+    <h1 class="headline-hero mb-4">Page Not Found</h1>
+    <p class="text-base text-[#777777] mb-8 leading-relaxed">
+      The coordinates you requested do not correlate to any published case study, AI laboratory node, or page in this portfolio network.
     </p>
     <div class="flex items-center justify-center gap-4">
-      <a href="index.html" class="btn-primary">
+      <a href="index.html" class="btn-luxury btn-primary-dark text-xs py-3 px-6">
         <i data-lucide="home" class="w-4 h-4"></i>
-        <span>Return to Mainframe</span>
+        <span>Return to Home</span>
       </a>
-      <a href="contact.html" class="btn-outline">
+      <a href="contact.html" class="btn-luxury btn-outline-editorial text-xs py-3 px-6">
         <i data-lucide="mail" class="w-4 h-4"></i>
-        <span>Report Issue</span>
+        <span>Contact Krish</span>
       </a>
     </div>
   </main>
 
-  <footer class="p-6 text-center text-xs font-mono text-[#64748b] relative z-10 border-t border-white/[0.05]">
-    KRISH TRIVEDI · AI DEVELOPER & TECHNOLOGY ENTHUSIAST
+  <footer class="p-8 text-center text-xs font-mono text-[#777777] border-editorial-t">
+    © 2026 KRISH TRIVEDI · AI DEVELOPER · AHMEDABAD, INDIA
   </footer>
 
   <script src="js/main.js"></script>

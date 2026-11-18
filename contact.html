@@ -1,458 +1,277 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Let’s Build Something Intelligent | Contact Krish Trivedi</title>
-  <meta name="description" content="Connect directly with Krish Trivedi for AI application development, Generative AI integration, website development, and IT infrastructure consulting.">
+  <title>Contact — Krish Trivedi | Let's Build Something Intelligent</title>
+  <meta name="description" content="Get in touch with Krish Trivedi for AI application development, enterprise automation, machine learning projects, and full-stack software consulting.">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Onest:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#F5F3EE',
+            graphite: '#171717',
+            secondary: '#777777',
+            cobalt: '#526BFF',
+            obsidian: '#10131D',
+            hairline: '#E6E4DE',
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Manrope', 'Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-[#070b14] text-[#e2e8f0] font-sans selection:bg-[#f15c24] selection:text-[#070b14] transition-colors duration-300 relative">
+<body class="bg-[#F5F3EE] text-[#171717] font-sans antialiased relative">
 
-  <!-- Background Ambience & Grid -->
-  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-    <div class="absolute inset-0 blueprint-grid opacity-70"></div>
-    <div class="absolute inset-0 blueprint-radial"></div>
-    <div class="absolute -top-36 right-1/4 w-[550px] h-[550px] bg-[#f15c24]/10 rounded-full blur-[150px]"></div>
-    <div class="absolute bottom-1/4 left-10 w-[450px] h-[450px] bg-[#3ee0c5]/08 rounded-full blur-[140px]"></div>
-  </div>
-  <canvas id="neural-canvas" class="neural-canvas"></canvas>
-
-  <aside class="side-rail" aria-hidden="true">
-    <div class="side-rail-track"><div class="side-rail-thumb"></div></div>
-    <div class="side-rail-text">10 · CONTACT</div>
-  </aside>
-
-  <!-- FULLSCREEN OVERLAY MENU (MEET GAJJAR STYLE) -->
+  <!-- Fullscreen Editorial Menu Overlay -->
   <div id="fullscreenMenu" class="fullscreen-menu">
-    <div class="max-w-4xl mx-auto w-full flex flex-col justify-between h-full">
+    <div class="max-w-5xl mx-auto w-full flex flex-col justify-between h-full py-4">
       <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#f15c24] to-[#ff7a45] text-[#070b14] flex items-center justify-center font-display font-black text-sm shadow-lg shadow-[#f15c24]/30">KT</div>
-          <span class="font-display font-bold text-white text-base tracking-wide">PORTFOLIO INDEX</span>
+          <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-9 h-9">
+          <span class="font-display font-bold text-white tracking-wider text-sm">KRISH TRIVEDI // INDEX</span>
         </div>
-        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#9aa6b8] hover:text-white rounded-full bg-white/[0.05] transition-colors">
+        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
       </div>
 
-      <nav class="py-6 space-y-1">
-        <a href="index.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>01 HOME</span>
-          <span class="menu-number">MAIN HUB</span>
+      <nav class="py-8 space-y-1">
+        <a href="index.html" class="menu-item-editorial group">
+          <span class="item-title">01 HOME</span>
+          <span class="item-sub">MAIN HUB</span>
         </a>
-        <a href="about.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>02 ABOUT ME</span>
-          <span class="menu-number">BIOGRAPHY & JOURNEY</span>
+        <a href="about.html" class="menu-item-editorial group">
+          <span class="item-title">02 ABOUT</span>
+          <span class="item-sub">BIOGRAPHY & PHILOSOPHY</span>
         </a>
-        <a href="ai-lab.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>03 AI LAB</span>
-          <span class="menu-number">INTELLIGENT EXPERIMENTS</span>
+        <a href="projects.html" class="menu-item-editorial group">
+          <span class="item-title">03 PROJECTS</span>
+          <span class="item-sub">SELECTED CASE STUDIES</span>
         </a>
-        <a href="projects.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>04 PROJECTS</span>
-          <span class="menu-number">LIVE DEPLOYMENTS</span>
+        <a href="ai-lab.html" class="menu-item-editorial group">
+          <span class="item-title">04 AI LAB</span>
+          <span class="item-sub">INTERACTIVE DEMOS & CLI</span>
         </a>
-        <a href="skills.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>05 SKILLS</span>
-          <span class="menu-number">TECHNICAL ARSENAL</span>
+        <a href="services.html" class="menu-item-editorial group">
+          <span class="item-title">05 SERVICES</span>
+          <span class="item-sub">SOLUTIONS & EXPERTISE</span>
         </a>
-        <a href="experience.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>06 EXPERIENCE</span>
-          <span class="menu-number">CAREER TIMELINE</span>
+        <a href="experience.html" class="menu-item-editorial group">
+          <span class="item-title">06 EXPERIENCE</span>
+          <span class="item-sub">CAREER & SYSTEMS TIMELINE</span>
         </a>
-        <a href="services.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>07 SERVICES</span>
-          <span class="menu-number">SOLUTIONS OFFERED</span>
+        <a href="resume.html" class="menu-item-editorial group">
+          <span class="item-title">07 RESUME</span>
+          <span class="item-sub">CURRICULUM VITAE</span>
         </a>
-        <a href="education.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>08 EDUCATION</span>
-          <span class="menu-number">ACADEMICS & AWS</span>
-        </a>
-        <a href="resume.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>09 RESUME</span>
-          <span class="menu-number">CURRICULUM VITAE</span>
-        </a>
-        <a href="contact.html" class="menu-item group text-[#f15c24]" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>10 CONTACT</span>
-          <span class="menu-number">LET'S CONNECT</span>
+        <a href="contact.html" class="menu-item-editorial group text-[#526BFF]">
+          <span class="item-title">08 CONTACT</span>
+          <span class="item-sub">LET'S CONNECT</span>
         </a>
       </nav>
 
-      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#9aa6b8]">
-        <span>KRISH TRIVEDI · AHMEDABAD, GUJARAT, INDIA</span>
-        <div class="flex items-center gap-4">
-          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white">GITHUB</a>
-          <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#46e3b7]">HPAD APP</a>
-          <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#f15c24]">WHITE SWAN RENDER</a>
+      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#8E95A5]">
+        <span>AHMEDABAD, GUJARAT, INDIA · +91 8849213790</span>
+        <div class="flex items-center gap-6 mt-2 sm:mt-0">
+          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors">EMAIL</a>
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GITHUB</a>
+          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">WHATSAPP</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- FLOATING GLOBAL HEADER -->
-  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#070b14]/85 border-b border-white/[0.08]" id="navbar">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      
-      <!-- Brand Logo -->
-      <a href="index.html" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#f15c24] via-[#ff7a45] to-[#f15c24] flex items-center justify-center font-display font-extrabold text-[#070b14] text-base shadow-lg shadow-[#f15c24]/30 group-hover:scale-105 transition-transform flex-shrink-0">
-          KT
-        </div>
+  <!-- Navigation Bar -->
+  <header class="luxury-navbar" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3.5 group">
+        <img src="img/logo-kt-dark.svg" alt="KT Monogram" class="w-10 h-10 transition-transform group-hover:scale-105">
         <div class="flex flex-col">
-          <div class="flex items-center gap-2">
-            <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-[#f15c24] transition-colors">KRISH TRIVEDI</span>
-            <span class="inline-block w-1.5 h-1.5 rounded-full bg-[#3ee0c5] animate-pulse"></span>
-          </div>
-          <span class="text-[11px] text-[#3ee0c5] font-mono tracking-wider uppercase hidden sm:block">
-            10 // LET'S CONNECT
-          </span>
+          <span class="font-display font-bold text-sm tracking-widest text-[#171717] group-hover:text-[#526BFF] transition-colors">KRISH TRIVEDI</span>
+          <span class="font-mono text-[10px] text-[#777777] tracking-wider uppercase">08 // Direct Communication</span>
         </div>
       </a>
 
-      <!-- Desktop Nav Menu (10 Pages) -->
-      <nav class="hidden xl:flex items-center gap-1">
-        <a href="index.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Home</a>
-        <a href="about.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">About</a>
-        <a href="ai-lab.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">AI Lab</a>
-        <a href="projects.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Projects</a>
-        <a href="skills.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Skills</a>
-        <a href="experience.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Experience</a>
-        <a href="services.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Services</a>
-        <a href="education.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Education</a>
-        <a href="resume.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Resume</a>
-        <a href="contact.html" class="nav-link-item active px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full">Contact</a>
+      <nav class="hidden lg:flex items-center gap-1">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="ai-lab.html" class="nav-link">AI Lab</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="experience.html" class="nav-link">Experience</a>
+        <a href="contact.html" class="nav-link active">Contact</a>
       </nav>
 
-      <!-- Right Action Controls -->
-      <div class="flex items-center gap-2 sm:gap-3">
-        <!-- Audio Status Pill -->
-        <button id="audioToggleBtn" class="audio-toggle-btn hidden md:inline-flex" title="Toggle Sound Effects">
-          <i data-lucide="volume-x" class="w-3.5 h-3.5"></i>
-          <span>AUDIO: OFF</span>
-        </button>
-
-        <!-- Theme Toggle -->
-        <button id="themeToggleBtn" aria-label="Toggle Theme" class="w-9 h-9 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-[#e2e8f0] hover:text-white border border-white/[0.08] flex items-center justify-center transition-colors">
-          <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-300"></i>
-          <i data-lucide="moon" class="w-4 h-4 block dark:hidden text-slate-700"></i>
-        </button>
-
-        <!-- Let's Connect CTA -->
-        <a href="mailto:krish.trivedi28@gmail.com" class="btn-primary text-xs py-2 px-3.5 sm:px-4">
-          <span>Send Mail</span>
-          <i data-lucide="arrow-right" class="w-3.5 h-3.5 hidden sm:inline"></i>
+      <div class="flex items-center gap-3">
+        <a href="Krish-Trivedi-Resume.pdf" target="_blank" class="hidden sm:inline-flex btn-luxury btn-outline-editorial text-xs py-2 px-4">
+          <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
+          <span>Resume</span>
         </a>
-
-        <!-- Hamburger Menu Button -->
-        <button id="menuToggleBtn" aria-label="Open Fullscreen Menu" class="p-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1] transition-colors">
+        <button id="menuToggleBtn" aria-label="Open Navigation Index" class="p-2.5 rounded-sm border border-[#E6E4DE] bg-white text-[#171717] hover:border-[#171717] transition-all">
           <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- MAIN CONTACT CONTENT -->
-  <main class="relative z-10 pt-32 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="mb-14">
-      <div class="section-index text-[#3ee0c5]">10 — DIRECT COMMUNICATION</div>
-      <h1 class="text-4xl sm:text-6xl font-display font-extrabold text-white mt-2">LET’S BUILD SOMETHING INTELLIGENT.</h1>
-      <p class="text-base text-[#3ee0c5] mt-2 font-mono max-w-2xl">
-        Have an idea, an AI project or an engineering challenge? Let’s connect and turn it into something meaningful.
+  <!-- Main Content -->
+  <main class="pt-36 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Editorial Header -->
+    <div class="mb-16">
+      <div class="section-tag">
+        <span class="tag-num">08</span>
+        <span class="tag-line"></span>
+        <span>Let's Connect</span>
+      </div>
+      <h1 class="headline-hero mt-3">
+        Have an idea?<br>
+        <span class="font-serif italic font-normal text-[#526BFF]">Let’s build</span> something intelligent.
+      </h1>
+      <p class="text-lg text-[#777777] mt-4 max-w-2xl leading-relaxed">
+        Whether you are planning an autonomous AI application, looking to automate existing business workflows, or seeking enterprise systems consulting, let's talk.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <!-- Contact Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
       
-      <!-- Left Column: Direct Coordinates (5 cols) -->
-      <div class="lg:col-span-5 space-y-5">
+      <!-- Left Column: Coordinates (5 cols) -->
+      <div class="lg:col-span-5 space-y-6">
         
-        <!-- Email Coordinate -->
-        <div class="card-architect p-6 border-[#f15c24]/20 hover:border-[#f15c24] transition-all">
-          <div class="flex items-center justify-between mb-3">
-            <div class="w-10 h-10 rounded-xl bg-[#f15c24]/10 text-[#3ee0c5] flex items-center justify-center">
-              <i data-lucide="mail" class="w-5 h-5"></i>
-            </div>
-            <span class="text-[11px] font-mono text-[#3ee0c5]">PRIMARY EMAIL</span>
+        <!-- Email -->
+        <div class="luxury-card p-6 bg-white border-editorial">
+          <div class="flex items-center justify-between text-xs font-mono text-[#777777] mb-2">
+            <span>PRIMARY EMAIL</span>
+            <i data-lucide="mail" class="w-4 h-4 text-[#526BFF]"></i>
           </div>
-          <div class="text-xs font-mono text-[#9aa6b8] uppercase mb-1">Direct Inquiries</div>
-          <a href="mailto:krish.trivedi28@gmail.com" class="text-lg font-mono font-bold text-white hover:text-[#3ee0c5] transition-colors break-all">
+          <a href="mailto:krish.trivedi28@gmail.com" class="text-lg sm:text-xl font-display font-bold text-[#171717] hover:text-[#526BFF] transition-colors break-all">
             krish.trivedi28@gmail.com
           </a>
-          <div class="mt-4 pt-3 border-t border-white/[0.08] flex items-center gap-2">
-            <button class="copy-btn btn-outline text-xs py-1.5 px-3 flex-1 justify-center" data-copy="krish.trivedi28@gmail.com">
+          <div class="mt-4 pt-3 border-editorial-t flex items-center gap-2">
+            <button class="copy-btn btn-luxury btn-outline-editorial text-xs py-1.5 px-3 flex-1 justify-center" data-copy="krish.trivedi28@gmail.com">
               <i data-lucide="copy" class="w-3.5 h-3.5"></i>
               <span>Copy Email</span>
             </button>
-            <a href="mailto:krish.trivedi28@gmail.com" class="btn-primary text-xs py-1.5 px-3 flex-1 justify-center">
+            <a href="mailto:krish.trivedi28@gmail.com" class="btn-luxury btn-primary-dark text-xs py-1.5 px-3 flex-1 justify-center">
               <i data-lucide="send" class="w-3.5 h-3.5"></i>
               <span>Compose</span>
             </a>
           </div>
         </div>
 
-        <!-- Phone & WhatsApp Coordinate -->
-        <div class="card-architect p-6 border-emerald-500/20 hover:border-emerald-500 transition-all">
-          <div class="flex items-center justify-between mb-3">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
-              <i data-lucide="phone-call" class="w-5 h-5"></i>
-            </div>
-            <span class="text-[11px] font-mono text-emerald-400">CALL & WHATSAPP</span>
+        <!-- Phone & WhatsApp -->
+        <div class="luxury-card p-6 bg-white border-editorial">
+          <div class="flex items-center justify-between text-xs font-mono text-[#777777] mb-2">
+            <span>TELEPHONE & WHATSAPP</span>
+            <i data-lucide="phone" class="w-4 h-4 text-emerald-500"></i>
           </div>
-          <div class="text-xs font-mono text-[#9aa6b8] uppercase mb-1">Mobile Contact</div>
-          <a href="tel:+918849213790" class="text-lg font-mono font-bold text-white hover:text-emerald-400 transition-colors">
-            +91-8849213790
+          <a href="tel:+918849213790" class="text-lg sm:text-xl font-display font-bold text-[#171717] hover:text-emerald-600 transition-colors">
+            +91 8849213790
           </a>
-          <div class="mt-4 pt-3 border-t border-white/[0.08] flex items-center gap-2">
-            <button class="copy-btn btn-outline text-xs py-1.5 px-3 flex-1 justify-center" data-copy="+918849213790">
+          <div class="mt-4 pt-3 border-editorial-t flex items-center gap-2">
+            <button class="copy-btn btn-luxury btn-outline-editorial text-xs py-1.5 px-3 flex-1 justify-center" data-copy="+918849213790">
               <i data-lucide="copy" class="w-3.5 h-3.5"></i>
               <span>Copy</span>
             </button>
-            <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="btn-outline text-xs py-1.5 px-3 flex-1 justify-center text-emerald-400 border-emerald-500/30 hover:border-emerald-500">
+            <a href="https://wa.me/918849213790" target="_blank" class="btn-luxury btn-outline-editorial text-xs py-1.5 px-3 flex-1 justify-center text-emerald-600 border-emerald-300 hover:border-emerald-600">
               <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
               <span>WhatsApp</span>
             </a>
           </div>
         </div>
 
-        <!-- Social & Deployment Links -->
-        <div class="grid grid-cols-2 gap-4">
-          <!-- GitHub Link -->
-          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="card-architect p-4 block group hover:border-white/40">
-            <div class="flex items-center justify-between mb-2">
-              <i data-lucide="github" class="w-5 h-5 text-white"></i>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-[#9aa6b8] group-hover:text-white"></i>
+        <!-- Location & Professional Networks -->
+        <div class="luxury-card p-6 bg-white border-editorial space-y-4">
+          <div class="flex items-center gap-3">
+            <i data-lucide="map-pin" class="w-4 h-4 text-[#777777]"></i>
+            <div>
+              <span class="text-sm font-mono text-[#171717] block font-bold">Ahmedabad, Gujarat, India</span>
+              <span class="text-xs font-mono text-[#777777]">Indian Standard Time (IST · UTC+5:30)</span>
             </div>
-            <div class="font-display font-bold text-white text-xs">GitHub Profile</div>
-            <div class="text-[10px] font-mono text-[#9aa6b8]">@Krishhtrivedi</div>
-          </a>
-
-          <!-- LinkedIn Link -->
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="card-architect p-4 border-sky-500/20 hover:border-sky-500 block group">
-            <div class="flex items-center justify-between mb-2">
-              <i data-lucide="linkedin" class="w-5 h-5 text-sky-400"></i>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-[#9aa6b8] group-hover:text-sky-400"></i>
-            </div>
-            <div class="font-display font-bold text-white text-xs">LinkedIn Connection</div>
-            <div class="text-[10px] font-mono text-[#9aa6b8]">Professional Network</div>
-          </a>
-
-          <!-- HPAD Live Card -->
-          <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="card-architect p-4 border-[#46e3b7]/20 hover:border-[#46e3b7] block group col-span-2">
-            <div class="flex items-center justify-between mb-1.5">
-              <div class="flex items-center gap-2">
-                <i data-lucide="server" class="w-4 h-4 text-[#46e3b7]"></i>
-                <span class="font-display font-bold text-white text-xs">HPAD Travel System</span>
-              </div>
-              <span class="flex items-center gap-1.5 text-[10px] font-mono text-[#46e3b7]">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#46e3b7] animate-ping"></span>
-                <span>Live on Render ↗</span>
-              </span>
-            </div>
-            <div class="text-[11px] font-mono text-[#9aa6b8]">hpad-travel-jyxx.onrender.com · Next.js 15 & Supabase</div>
-          </a>
-
-          <!-- White Swan Holidays Live Card -->
-          <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="card-architect p-4 border-[#f15c24]/30 hover:border-[#f15c24] block group col-span-2">
-            <div class="flex items-center justify-between mb-1.5">
-              <div class="flex items-center gap-2">
-                <i data-lucide="globe" class="w-4 h-4 text-[#f15c24]"></i>
-                <span class="font-display font-bold text-white text-xs">White Swan Holidays</span>
-              </div>
-              <span class="flex items-center gap-1.5 text-[10px] font-mono text-[#f15c24]">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#f15c24] animate-ping"></span>
-                <span>Live on Render ↗</span>
-              </span>
-            </div>
-            <div class="text-[11px] font-mono text-[#9aa6b8]">whiteswanholidays.onrender.com · Custom Travel Platform</div>
-          </a>
-        </div>
-
-        <!-- Location Specs -->
-        <div class="card-architect p-6 text-xs font-mono space-y-2.5">
-          <div class="flex justify-between">
-            <span class="text-[#9aa6b8]">Location:</span>
-            <span class="text-white font-medium">Ahmedabad, Gujarat, India</span>
           </div>
-          <div class="flex justify-between">
-            <span class="text-[#9aa6b8]">Response Time:</span>
-            <span class="text-emerald-400 font-semibold">Under 24 Hours</span>
-          </div>
-          <div class="flex justify-between">
-            <span class="text-[#9aa6b8]">Consulting Focus:</span>
-            <span class="text-[#3ee0c5]">AI Development & Automation</span>
+          
+          <div class="pt-4 border-editorial-t grid grid-cols-2 gap-3 text-xs font-mono">
+            <a href="https://github.com/Krishhtrivedi" target="_blank" class="p-3 bg-[#F5F3EE] border-editorial rounded-sm text-[#171717] hover:border-[#171717] block">
+              <div class="text-[10px] text-[#777777]">CODEBASE</div>
+              <div class="font-bold mt-0.5">GitHub ↗</div>
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" class="p-3 bg-[#F5F3EE] border-editorial rounded-sm text-[#171717] hover:border-[#171717] block">
+              <div class="text-[10px] text-[#777777]">NETWORK</div>
+              <div class="font-bold mt-0.5">LinkedIn ↗</div>
+            </a>
           </div>
         </div>
 
       </div>
 
-      <!-- Right Column: Interactive Contact Form (7 cols) -->
-      <div class="lg:col-span-7">
-        <div class="card-architect p-8 border-white/[0.1] relative">
-          <h2 class="text-2xl font-display font-bold text-white mb-1">Direct Message Dispatch</h2>
-          <p class="text-xs text-[#9aa6b8] mb-6">
-            Complete the form below to initiate an AI consultation, project inquiry, or technical collaboration.
-          </p>
+      <!-- Right Column: Functional Inquiry Form (7 cols) -->
+      <div class="lg:col-span-7 luxury-card p-8 sm:p-10 bg-white border-editorial">
+        <h2 class="font-display font-bold text-2xl text-[#171717] mb-2">Project Inquiry Form</h2>
+        <p class="text-xs text-[#777777] font-mono mb-6">Fill out the details below to launch direct communication:</p>
 
-          <!-- Contact Form with Client-Side Validation -->
-          <form id="contactForm" class="space-y-4" onsubmit="event.preventDefault(); handleFormSubmit(this);">
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <!-- Name Input -->
-              <div>
-                <label for="contactName" class="block text-xs font-mono text-white uppercase tracking-wider mb-1.5">
-                  Your Full Name <span class="text-[#3ee0c5]">*</span>
-                </label>
-                <input 
-                  type="text" 
-                  id="contactName" 
-                  name="name" 
-                  required 
-                  placeholder="e.g. Alex Morgan"
-                  class="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white placeholder-[#4b5563] text-sm focus:outline-none focus:border-[#f15c24] focus:ring-1 focus:ring-[#3ee0c5] transition-all"
-                >
-              </div>
-
-              <!-- Email Input -->
-              <div>
-                <label for="contactEmail" class="block text-xs font-mono text-white uppercase tracking-wider mb-1.5">
-                  Email Address <span class="text-[#3ee0c5]">*</span>
-                </label>
-                <input 
-                  type="email" 
-                  id="contactEmail" 
-                  name="email" 
-                  required 
-                  placeholder="e.g. alex@company.com"
-                  class="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white placeholder-[#4b5563] text-sm focus:outline-none focus:border-[#f15c24] focus:ring-1 focus:ring-[#3ee0c5] transition-all"
-                >
-              </div>
-            </div>
-
-            <!-- Subject / Project Type Select -->
+        <form id="contactForm" class="space-y-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
-              <label for="contactSubject" class="block text-xs font-mono text-white uppercase tracking-wider mb-1.5">
-                Subject / Project Type <span class="text-[#3ee0c5]">*</span>
-              </label>
-              <select 
-                id="contactSubject" 
-                name="subject" 
-                required
-                class="w-full px-4 py-3 rounded-xl bg-[#090d18] border border-white/[0.1] text-white text-sm focus:outline-none focus:border-[#f15c24] focus:ring-1 focus:ring-[#3ee0c5] transition-all"
-              >
-                <option value="AI Application Development">AI Application Development</option>
-                <option value="Generative AI Integration">Generative AI Integration</option>
-                <option value="Website Development">Website Development</option>
-                <option value="Business Workflow Automation">Business Workflow Automation</option>
-                <option value="API Integration">API Integration</option>
-                <option value="IT Infrastructure Consulting">IT Infrastructure Consulting</option>
-                <option value="Microsoft 365 Support">Microsoft 365 Support</option>
-                <option value="Firewall & Network Configuration">Firewall & Network Configuration</option>
-                <option value="General Collaboration / Other">General Collaboration / Other</option>
-              </select>
+              <label for="contactName" class="block font-mono text-xs text-[#171717] uppercase mb-1.5">Your Name *</label>
+              <input type="text" id="contactName" required placeholder="Alexander Vance" class="w-full px-4 py-3 bg-[#F5F3EE] border border-[#E6E4DE] text-sm text-[#171717] outline-none focus:border-[#171717] rounded-sm transition-colors">
             </div>
-
-            <!-- Message Textarea -->
             <div>
-              <label for="contactMessage" class="block text-xs font-mono text-white uppercase tracking-wider mb-1.5">
-                Message & Project Scope <span class="text-[#3ee0c5]">*</span>
-              </label>
-              <textarea 
-                id="contactMessage" 
-                name="message" 
-                rows="5" 
-                required 
-                placeholder="Describe your project goals, technical requirements, or questions..."
-                class="w-full px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white placeholder-[#4b5563] text-sm focus:outline-none focus:border-[#f15c24] focus:ring-1 focus:ring-[#3ee0c5] transition-all resize-y"
-              ></textarea>
+              <label for="contactEmail" class="block font-mono text-xs text-[#171717] uppercase mb-1.5">Your Email *</label>
+              <input type="email" id="contactEmail" required placeholder="alex@company.com" class="w-full px-4 py-3 bg-[#F5F3EE] border border-[#E6E4DE] text-sm text-[#171717] outline-none focus:border-[#171717] rounded-sm transition-colors">
             </div>
-
-            <!-- Submit Button with Interactive Feedback -->
-            <button 
-              type="submit" 
-              id="submitBtn"
-              class="btn-primary w-full justify-center py-3.5 text-xs font-mono uppercase tracking-wider font-bold"
-            >
-              <i data-lucide="send" class="w-4 h-4"></i>
-              <span id="submitBtnText">Dispatch Message</span>
-            </button>
-          </form>
-
-          <!-- Success Alert Card (Initially Hidden) -->
-          <div id="formSuccessAlert" class="hidden mt-4 p-5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
-            <div class="flex items-center gap-2 font-bold mb-1">
-              <i data-lucide="check-circle" class="w-4 h-4"></i>
-              <span>Message Transmitted Successfully!</span>
-            </div>
-            <p class="text-[#e2e8f0] leading-relaxed">
-              Thank you for reaching out. Your dispatch has been logged. Krish Trivedi will review your inquiry and reply via email within 24 hours.
-            </p>
           </div>
-        </div>
+
+          <div>
+            <label for="contactSubject" class="block font-mono text-xs text-[#171717] uppercase mb-1.5">Project Scope / Subject</label>
+            <input type="text" id="contactSubject" placeholder="AI Application / Next.js Web Portal / Automation" class="w-full px-4 py-3 bg-[#F5F3EE] border border-[#E6E4DE] text-sm text-[#171717] outline-none focus:border-[#171717] rounded-sm transition-colors">
+          </div>
+
+          <div>
+            <label for="contactMessage" class="block font-mono text-xs text-[#171717] uppercase mb-1.5">Message / Requirements *</label>
+            <textarea id="contactMessage" rows="5" required placeholder="Describe your product vision, timeline, architecture expectations, or collaboration goals..." class="w-full px-4 py-3 bg-[#F5F3EE] border border-[#E6E4DE] text-sm text-[#171717] outline-none focus:border-[#171717] rounded-sm transition-colors resize-none"></textarea>
+          </div>
+
+          <button type="submit" class="btn-luxury btn-primary-dark w-full py-4 text-xs">
+            <span>DISPATCH INQUIRY</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </form>
       </div>
 
     </div>
 
-    <!-- Bottom Navigation -->
-    <div class="mt-16 pt-8 border-t border-white/[0.08] flex items-center justify-between">
-      <a href="resume.html" class="btn-outline flex items-center gap-2">
-        <i data-lucide="arrow-left" class="w-4 h-4"></i>
-        <span>09 Executive Resume</span>
-      </a>
-      <a href="index.html" class="btn-primary flex items-center gap-2">
-        <span>01 Return to Home Hub</span>
-        <i data-lucide="home" class="w-4 h-4"></i>
-      </a>
-    </div>
   </main>
 
-  <!-- Global Footer -->
-  <footer class="border-t border-white/[0.08] bg-[#030509] py-12 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-mono text-[#9aa6b8]">
-      <div>KRISH TRIVEDI · DIRECT CONTACT & COMMUNICATION</div>
-      <div class="flex flex-wrap items-center gap-4">
-        <a href="index.html" class="hover:text-white">Home</a>
-        <a href="about.html" class="hover:text-white">About</a>
-        <a href="ai-lab.html" class="hover:text-white">AI Lab</a>
-        <a href="projects.html" class="hover:text-white">Projects</a>
-        <a href="skills.html" class="hover:text-white">Skills</a>
-        <a href="experience.html" class="hover:text-white">Experience</a>
-        <a href="services.html" class="hover:text-white">Services</a>
-        <a href="education.html" class="hover:text-white">Education</a>
-        <a href="resume.html" class="hover:text-white">Resume</a>
-        <a href="contact.html" class="text-[#3ee0c5]">Contact</a>
+  <!-- Footer -->
+  <footer class="bg-[#10131D] text-[#F5F3EE] py-12 border-t border-white/[0.08]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#8E95A5] gap-4">
+      <div class="flex items-center gap-3">
+        <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-7 h-7">
+        <span>© 2026 KRISH TRIVEDI · AI DEVELOPER</span>
       </div>
-      <div>© 2026 Krish Trivedi</div>
+      <div class="flex items-center gap-6">
+        <a href="index.html" class="hover:text-white">Home</a>
+        <a href="projects.html" class="hover:text-white">Projects</a>
+        <a href="ai-lab.html" class="hover:text-white">AI Lab</a>
+        <a href="about.html" class="hover:text-white">About</a>
+      </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
-  <script>
-    function handleFormSubmit(form) {
-      const btn = document.getElementById('submitBtn');
-      const btnText = document.getElementById('submitBtnText');
-      const alertBox = document.getElementById('formSuccessAlert');
-
-      btn.disabled = true;
-      btnText.textContent = "Transmitting Message...";
-      btn.classList.add("opacity-75");
-
-      setTimeout(() => {
-        btn.disabled = false;
-        btnText.textContent = "Dispatch Message";
-        btn.classList.remove("opacity-75");
-        alertBox.classList.remove("hidden");
-        form.reset();
-        lucide.createIcons();
-      }, 700);
-    }
-  </script>
 </body>
 </html>

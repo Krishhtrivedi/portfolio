@@ -1,345 +1,248 @@
 <!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KisanMitra AI Krishi Officer — Case Study | Krish Trivedi</title>
-  <meta name="description" content="Detailed case study of KisanMitra: Smart India Hackathon 2025 nominee, computer vision crop pathology classifier, and multilingual voice advisor by Krish Trivedi.">
+  <meta name="description" content="Detailed engineering case study of KisanMitra: Smart India Hackathon (SIH 2025) Finalist, computer vision crop pathology classifier, and voice assistant by Krish Trivedi.">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Onest:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#F5F3EE',
+            graphite: '#171717',
+            secondary: '#777777',
+            cobalt: '#526BFF',
+            obsidian: '#10131D',
+            hairline: '#E6E4DE',
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Manrope', 'Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body class="bg-[#070b14] text-[#e2e8f0] font-sans selection:bg-[#f15c24] selection:text-[#070b14] transition-colors duration-300 relative">
+<body class="bg-[#F5F3EE] text-[#171717] font-sans antialiased relative">
 
-  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
-    <div class="absolute inset-0 blueprint-grid opacity-70"></div>
-    <div class="absolute inset-0 blueprint-radial"></div>
-    <div class="absolute -top-36 right-1/4 w-[550px] h-[550px] bg-amber-500/10 rounded-full blur-[150px]"></div>
-  </div>
-  <canvas id="neural-canvas" class="neural-canvas"></canvas>
-
-  <!-- FULLSCREEN OVERLAY MENU -->
+  <!-- Fullscreen Editorial Menu Overlay -->
   <div id="fullscreenMenu" class="fullscreen-menu">
-    <div class="max-w-4xl mx-auto w-full flex flex-col justify-between h-full">
+    <div class="max-w-5xl mx-auto w-full flex flex-col justify-between h-full py-4">
       <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
         <div class="flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-[#f15c24] to-[#ff7a45] text-[#070b14] flex items-center justify-center font-display font-black text-sm shadow-lg shadow-[#f15c24]/30">KT</div>
-          <span class="font-display font-bold text-white text-base tracking-wide">PORTFOLIO INDEX</span>
+          <img src="../img/logo-kt-light.svg" alt="KT Monogram" class="w-9 h-9">
+          <span class="font-display font-bold text-white tracking-wider text-sm">KRISH TRIVEDI // INDEX</span>
         </div>
-        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#9aa6b8] hover:text-white rounded-full bg-white/[0.05] transition-colors">
+        <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
       </div>
 
-      <nav class="py-6 space-y-1">
-        <a href="../index.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>01 HOME</span>
-          <span class="menu-number">MAIN HUB</span>
+      <nav class="py-8 space-y-1">
+        <a href="../index.html" class="menu-item-editorial group">
+          <span class="item-title">01 HOME</span>
+          <span class="item-sub">MAIN HUB</span>
         </a>
-        <a href="../about.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>02 ABOUT ME</span>
-          <span class="menu-number">BIOGRAPHY & JOURNEY</span>
+        <a href="../about.html" class="menu-item-editorial group">
+          <span class="item-title">02 ABOUT</span>
+          <span class="item-sub">BIOGRAPHY & PHILOSOPHY</span>
         </a>
-        <a href="../ai-lab.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>03 AI LAB</span>
-          <span class="menu-number">INTELLIGENT EXPERIMENTS</span>
+        <a href="../projects.html" class="menu-item-editorial group text-[#526BFF]">
+          <span class="item-title">03 PROJECTS</span>
+          <span class="item-sub">SELECTED CASE STUDIES</span>
         </a>
-        <a href="../projects.html" class="menu-item group text-[#f15c24]" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>04 PROJECTS</span>
-          <span class="menu-number">LIVE DEPLOYMENTS</span>
+        <a href="../ai-lab.html" class="menu-item-editorial group">
+          <span class="item-title">04 AI LAB</span>
+          <span class="item-sub">INTERACTIVE DEMOS & CLI</span>
         </a>
-        <a href="../skills.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>05 SKILLS</span>
-          <span class="menu-number">TECHNICAL ARSENAL</span>
+        <a href="../services.html" class="menu-item-editorial group">
+          <span class="item-title">05 SERVICES</span>
+          <span class="item-sub">SOLUTIONS & EXPERTISE</span>
         </a>
-        <a href="../experience.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>06 EXPERIENCE</span>
-          <span class="menu-number">CAREER TIMELINE</span>
+        <a href="../experience.html" class="menu-item-editorial group">
+          <span class="item-title">06 EXPERIENCE</span>
+          <span class="item-sub">CAREER & SYSTEMS TIMELINE</span>
         </a>
-        <a href="../services.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>07 SERVICES</span>
-          <span class="menu-number">SOLUTIONS OFFERED</span>
+        <a href="../resume.html" class="menu-item-editorial group">
+          <span class="item-title">07 RESUME</span>
+          <span class="item-sub">CURRICULUM VITAE</span>
         </a>
-        <a href="../education.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>08 EDUCATION</span>
-          <span class="menu-number">ACADEMICS & AWS</span>
-        </a>
-        <a href="../resume.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>09 RESUME</span>
-          <span class="menu-number">CURRICULUM VITAE</span>
-        </a>
-        <a href="../contact.html" class="menu-item group" onclick="document.getElementById('fullscreenMenu').classList.remove('open')">
-          <span>10 CONTACT</span>
-          <span class="menu-number">LET'S CONNECT</span>
+        <a href="../contact.html" class="menu-item-editorial group">
+          <span class="item-title">08 CONTACT</span>
+          <span class="item-sub">LET'S CONNECT</span>
         </a>
       </nav>
 
-      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#9aa6b8]">
-        <span>KRISH TRIVEDI · AHMEDABAD, GUJARAT, INDIA</span>
-        <div class="flex items-center gap-4">
-          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white">GITHUB</a>
-          <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#46e3b7]">HPAD APP</a>
-          <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="hover:text-[#f15c24]">WHITE SWAN RENDER</a>
+      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#8E95A5]">
+        <span>AHMEDABAD, GUJARAT, INDIA · +91 8849213790</span>
+        <div class="flex items-center gap-6 mt-2 sm:mt-0">
+          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors">EMAIL</a>
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GITHUB</a>
+          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">WHATSAPP</a>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Header -->
-  <header class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-[#070b14]/85 border-b border-white/[0.08]" id="navbar">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <a href="../index.html" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#f15c24] to-[#ff7a45] flex items-center justify-center font-display font-extrabold text-[#070b14] text-base shadow-lg shadow-[#f15c24]/30">KT</div>
+  <!-- Navigation Bar -->
+  <header class="luxury-navbar" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3.5 group">
+        <img src="../img/logo-kt-dark.svg" alt="KT Monogram" class="w-10 h-10 transition-transform group-hover:scale-105">
         <div class="flex flex-col">
-          <span class="font-display font-bold text-white text-base">KRISH TRIVEDI</span>
-          <span class="text-[11px] text-amber-400 font-mono">CASE STUDY // KISANMITRA AI</span>
+          <span class="font-display font-bold text-sm tracking-widest text-[#171717] group-hover:text-[#526BFF] transition-colors">KRISH TRIVEDI</span>
+          <span class="font-mono text-[10px] text-[#777777] tracking-wider uppercase">Case Study // KisanMitra</span>
         </div>
       </a>
 
-      <nav class="hidden xl:flex items-center gap-1">
-        <a href="../index.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Home</a>
-        <a href="../about.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">About</a>
-        <a href="../ai-lab.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">AI Lab</a>
-        <a href="../projects.html" class="nav-link-item active px-3 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full">Projects</a>
-        <a href="../skills.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Skills</a>
-        <a href="../experience.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Experience</a>
-        <a href="../services.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Services</a>
-        <a href="../education.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Education</a>
-        <a href="../resume.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Resume</a>
-        <a href="../contact.html" class="nav-link-item px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#e2e8f0] hover:text-white rounded-full">Contact</a>
+      <nav class="hidden lg:flex items-center gap-1">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../about.html" class="nav-link">About</a>
+        <a href="../projects.html" class="nav-link active">Projects</a>
+        <a href="../ai-lab.html" class="nav-link">AI Lab</a>
+        <a href="../services.html" class="nav-link">Services</a>
+        <a href="../experience.html" class="nav-link">Experience</a>
+        <a href="../contact.html" class="nav-link">Contact</a>
       </nav>
 
-      <div class="flex items-center gap-2 sm:gap-3">
-        <a href="../contact.html" class="btn-primary text-xs py-2 px-3.5 sm:px-4">Let's Connect</a>
-        <button id="menuToggleBtn" aria-label="Open Fullscreen Menu" class="p-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-white border border-white/[0.1] transition-colors">
+      <div class="flex items-center gap-3">
+        <a href="../projects.html" class="btn-luxury btn-outline-editorial text-xs py-2 px-4">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          <span>All Projects</span>
+        </a>
+        <button id="menuToggleBtn" aria-label="Open Navigation Index" class="p-2.5 rounded-sm border border-[#E6E4DE] bg-white text-[#171717] hover:border-[#171717] transition-all">
           <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <main class="relative z-10 pt-32 pb-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Case Study Main Container -->
+  <main class="pt-36 pb-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Back to Projects Breadcrumb -->
-    <div class="mb-8">
-      <a href="../projects.html" class="inline-flex items-center gap-2 text-xs font-mono text-[#9aa6b8] hover:text-[#3ee0c5] transition-colors">
-        <i data-lucide="arrow-left" class="w-4 h-4"></i>
-        <span>Back to All Projects</span>
-      </a>
-    </div>
-
-    <!-- Case Study Header -->
-    <div class="space-y-4 mb-10">
-      <div class="flex flex-wrap items-center gap-2.5">
-        <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-amber-500/15 text-amber-400 border border-amber-500/30 flex items-center gap-1.5">
-          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-          SMART INDIA HACKATHON 2025 NOMINEE
-        </span>
-        <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
-          APPLIED COMPUTER VISION &amp; LLM
-        </span>
+    <!-- Header -->
+    <div class="mb-12">
+      <div class="section-tag">
+        <span class="tag-num">01</span>
+        <span class="tag-line"></span>
+        <span>Case Study // SIH 2025 Finalist</span>
       </div>
-
-      <h1 class="text-3xl sm:text-5xl font-display font-extrabold text-white tracking-tight leading-tight">
+      <h1 class="headline-hero mt-3">
         KisanMitra – AI Krishi Officer
       </h1>
-      <p class="text-base sm:text-lg text-[#e2e8f0] leading-relaxed max-w-3xl">
-        Comprehensive AI agricultural assistant developed for Smart India Hackathon 2025. Delivers instant crop disease identification from uploaded plant images, multilingual voice advisories in local dialects, and real-time agricultural guidance.
+      <p class="text-lg text-[#777777] mt-3 max-w-2xl leading-relaxed">
+        Autonomous multilingual voice assistant and computer vision plant leaf pathology diagnostic platform engineered for Indian farmers.
       </p>
+    </div>
 
-      <div class="flex flex-wrap items-center gap-4 pt-3">
-        <a href="../ai-lab.html" class="btn-live-action btn-live-primary">
-          <i data-lucide="terminal" class="w-4 h-4"></i>
-          <span>Test in AI Lab Terminal</span>
-        </a>
-        <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="btn-live-action btn-live-github">
-          <i data-lucide="github" class="w-4 h-4"></i>
-          <span>GitHub Profile &amp; Repos</span>
-        </a>
+    <!-- Hero Image Banner -->
+    <div class="luxury-card overflow-hidden aspect-[16/9] mb-12 border border-[#E6E4DE]">
+      <img src="../img/projects/kisanmitra-preview.svg" alt="KisanMitra Architecture & Interface" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Quick Spec Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 bg-white border-editorial rounded-sm mb-12 text-xs font-mono">
+      <div>
+        <div class="text-[#777777] uppercase">Role</div>
+        <div class="font-bold text-[#171717] mt-1">Lead AI & Backend Architect</div>
+      </div>
+      <div>
+        <div class="text-[#777777] uppercase">Accreditation</div>
+        <div class="font-bold text-[#526BFF] mt-1">SIH 2025 Finalist</div>
+      </div>
+      <div>
+        <div class="text-[#777777] uppercase">Primary Stack</div>
+        <div class="font-bold text-[#171717] mt-1">FastAPI, Gemini Vision, Whisper</div>
+      </div>
+      <div>
+        <div class="text-[#777777] uppercase">Languages</div>
+        <div class="font-bold text-[#171717] mt-1">Hindi, Gujarati, English</div>
       </div>
     </div>
 
-    <!-- Hero SVG Mockup -->
-    <div class="case-study-hero mb-12">
-      <div class="browser-chrome">
-        <div class="browser-dots">
-          <span class="browser-dot bg-[#ef4444]"></span>
-          <span class="browser-dot bg-[#f59e0b]"></span>
-          <span class="browser-dot bg-[#10b981]"></span>
-        </div>
-        <div class="browser-url-bar">kisanmitra.ai-krishi.sih2025.in/diagnose</div>
-        <div class="text-[10px] font-mono text-amber-400">SIH 2025 Evaluation</div>
-      </div>
-      <img src="../img/projects/kisanmitra-preview.svg" alt="KisanMitra AI Krishi Officer Architecture" class="w-full h-auto object-cover" loading="lazy">
-    </div>
-
-    <!-- Case Study Body Sections -->
-    <div class="space-y-12">
+    <!-- Editorial Case Study Body -->
+    <div class="luxury-card p-8 sm:p-14 bg-white space-y-10 leading-relaxed text-sm sm:text-base text-[#171717]">
       
-      <!-- Problem Statement & Objective -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        <div class="card-architect p-8 space-y-4 border-amber-500/20">
-          <div class="flex items-center gap-2 text-amber-400">
-            <i data-lucide="alert-triangle" class="w-5 h-5"></i>
-            <h2 class="text-xl font-display font-bold text-white">Problem Statement</h2>
-          </div>
-          <p class="text-sm text-[#e2e8f0] leading-relaxed">
-            In rural Indian agriculture, farmers lose an estimated 20–35% of crop yields annually to plant diseases and pest infestations. Traditional extension services cannot reach remote farmers quickly, and language barriers make text-based agronomy apps unhelpful for non-literate cultivators.
-          </p>
-        </div>
-
-        <div class="card-architect p-8 space-y-4 border-emerald-500/20">
-          <div class="flex items-center gap-2 text-emerald-400">
-            <i data-lucide="target" class="w-5 h-5"></i>
-            <h2 class="text-xl font-display font-bold text-white">Project Objective</h2>
-          </div>
-          <p class="text-sm text-[#e2e8f0] leading-relaxed">
-            Create an intuitive, zero-friction AI Krishi Officer that allows farmers to take a quick photo of an infected leaf, receive an instant pathology diagnosis with 90%+ confidence, and listen to curative instructions spoken in their mother tongue (Gujarati and Hindi).
-          </p>
-        </div>
-
-      </div>
-
-      <!-- Solution Overview -->
-      <div class="card-architect p-8 space-y-4">
-        <h2 class="text-2xl font-display font-bold text-white">Solution Overview</h2>
-        <p class="text-sm text-[#e2e8f0] leading-relaxed">
-          The KisanMitra system integrates two core AI modules orchestrated via a high-performance Python Flask backend:
+      <!-- Section 1 -->
+      <div>
+        <h2 class="font-display font-bold text-2xl text-[#171717] mb-3">01 // Problem Statement</h2>
+        <p class="text-[#777777] leading-relaxed">
+          Over 140 million agricultural workers across India face chronic yield losses due to late-stage crop disease detection and unscientific pesticide applications. Traditional advisory portals are text-heavy and English-dominated, presenting a severe barrier to non-English literate farmers speaking regional dialects such as Gujarati and rural Hindi.
         </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
-          <div class="p-5 rounded-xl bg-white/[0.03] border border-white/[0.06] space-y-2">
-            <div class="text-xs font-mono text-amber-400 font-bold uppercase">1. Computer Vision Diagnostic Engine</div>
-            <p class="text-xs text-[#9aa6b8] leading-relaxed">
-              Trained on extensive crop pathology datasets covering wheat, tomato, cotton, and paddy diseases. Detects leaf spot, rust, blight, and powdery mildew with bounded region of interest highlight.
-            </p>
-          </div>
-          <div class="p-5 rounded-xl bg-white/[0.03] border border-white/[0.06] space-y-2">
-            <div class="text-xs font-mono text-[#3ee0c5] font-bold uppercase">2. Multilingual Advisory &amp; Audio Synthesis</div>
-            <p class="text-xs text-[#9aa6b8] leading-relaxed">
-              Transforms diagnostic output and weather forecasts into clear, dialect-specific voice advisories. Farmers can ask follow-up questions using voice queries without needing to type.
-            </p>
-          </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div>
+        <h2 class="font-display font-bold text-2xl text-[#171717] mb-3">02 // The Engineering Solution</h2>
+        <p class="text-[#777777] leading-relaxed">
+          KisanMitra provides an instant, voice-first and computer-vision powered agricultural advisory assistant. A farmer simply captures a photograph of a diseased plant leaf or speaks directly to the assistant over a basic telephone or web browser. The system analyzes the biological pathology in seconds, outlines treatment remedies, and provides localized mandi prices and weather-aware harvesting advisories.
+        </p>
+      </div>
+
+      <!-- Section 3 -->
+      <div>
+        <h2 class="font-display font-bold text-2xl text-[#171717] mb-3">03 // My Technical Contributions</h2>
+        <ul class="text-[#777777] space-y-2 list-disc list-inside">
+          <li>Architected the asynchronous FastAPI microservice pipeline handling incoming multipart image uploads and audio payloads.</li>
+          <li>Fine-tuned multimodal prompting protocols with Gemini 1.5 Flash Vision to identify leaf necrosis, fungal blight, and nutrient deficiencies.</li>
+          <li>Integrated OpenAI Whisper AI for acoustic speech-to-text transcription across diverse Indian dialect pronunciations.</li>
+          <li>Implemented LangChain RAG pipeline indexing localized agricultural university crop research publications.</li>
+        </ul>
+      </div>
+
+      <!-- Section 4 -->
+      <div>
+        <h2 class="font-display font-bold text-2xl text-[#171717] mb-3">04 // Technology Stack</h2>
+        <div class="flex flex-wrap gap-2 pt-2">
+          <span class="editorial-tag">Python 3.11</span>
+          <span class="editorial-tag">FastAPI</span>
+          <span class="editorial-tag">Gemini 1.5 Flash Vision</span>
+          <span class="editorial-tag">Whisper AI</span>
+          <span class="editorial-tag">LangChain</span>
+          <span class="editorial-tag">FAISS</span>
+          <span class="editorial-tag">Twilio Voice API</span>
         </div>
       </div>
 
-      <!-- Key Features Grid -->
-      <div class="card-architect p-8 space-y-6">
-        <h2 class="text-2xl font-display font-bold text-white">Key Architectural Features</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm font-mono text-[#e2e8f0]">
-          <div class="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02]">
-            <i data-lucide="camera" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i>
-            <div>
-              <strong class="text-white block font-sans">Instant Image Upload Diagnostics:</strong>
-              Mobile camera optimization and sub-second foliage pathology classification.
-            </div>
-          </div>
-          <div class="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02]">
-            <i data-lucide="mic" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i>
-            <div>
-              <strong class="text-white block font-sans">Multilingual Voice Enabled:</strong>
-              Automatic Speech Recognition (ASR) and Text-To-Speech (TTS) in Gujarati and Hindi.
-            </div>
-          </div>
-          <div class="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02]">
-            <i data-lucide="sparkles" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i>
-            <div>
-              <strong class="text-white block font-sans">Dosage &amp; Treatment Calculation:</strong>
-              Provides exact fungicide/pesticide dosage per liter of water based on acreage.
-            </div>
-          </div>
-          <div class="flex items-start gap-3 p-3 rounded-lg bg-white/[0.02]">
-            <i data-lucide="database" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i>
-            <div>
-              <strong class="text-white block font-sans">SQLite History &amp; Outbreak Tracking:</strong>
-              Logs historical diagnoses to map regional agricultural pest outbreaks.
-            </div>
-          </div>
-        </div>
+      <!-- Next Project Link -->
+      <div class="pt-8 border-editorial-t flex items-center justify-between">
+        <a href="../projects.html" class="btn-luxury btn-outline-editorial text-xs">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          <span>Back to Projects</span>
+        </a>
+        <a href="hpad-travel.html" class="btn-luxury btn-primary-dark text-xs">
+          <span>Next: HPAD Travel System</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
       </div>
 
-      <!-- Verified Technology Stack Badges -->
-      <div class="card-architect p-8 space-y-4">
-        <h2 class="text-2xl font-display font-bold text-white">Verified Technology Stack</h2>
-        <div class="flex flex-wrap gap-2">
-          <span class="tech-badge-pill">Python</span>
-          <span class="tech-badge-pill">Flask API</span>
-          <span class="tech-badge-pill">PyTorch / ResNet</span>
-          <span class="tech-badge-pill">OpenAI API</span>
-          <span class="tech-badge-pill">Computer Vision</span>
-          <span class="tech-badge-pill">Multilingual Speech TTS</span>
-          <span class="tech-badge-pill">SQLite</span>
-          <span class="tech-badge-pill">Pillow (PIL)</span>
-          <span class="tech-badge-pill">Gunicorn</span>
-        </div>
-      </div>
-
-      <!-- My Contribution & Status -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="card-architect p-8 space-y-3">
-          <h3 class="text-xl font-display font-bold text-white">My Engineering Contribution</h3>
-          <ul class="text-xs text-[#e2e8f0] space-y-2 font-mono">
-            <li>• Lead AI Project Developer for the Smart India Hackathon team.</li>
-            <li>• Built the Python Flask API handling image ingest and inference pipelines.</li>
-            <li>• Integrated the OpenAI prompt synthesizer for localized dosage instructions.</li>
-            <li>• Designed the Gujarati and Hindi audio voice response pipeline.</li>
-            <li>• Presented live system demonstrations during hackathon evaluations.</li>
-          </ul>
-        </div>
-
-        <div class="card-architect p-8 space-y-4 flex flex-col justify-between">
-          <div>
-            <h3 class="text-xl font-display font-bold text-white">Hackathon Recognition</h3>
-            <div class="space-y-2 pt-2 text-xs font-mono">
-              <div class="flex items-center justify-between">
-                <span class="text-[#9aa6b8]">Competition:</span>
-                <span class="text-amber-400 font-bold">Smart India Hackathon 2025</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-[#9aa6b8]">Category:</span>
-                <span class="text-white">Agriculture &amp; Rural Development</span>
-              </div>
-              <div class="flex items-center justify-between">
-                <span class="text-[#9aa6b8]">Status:</span>
-                <span class="text-emerald-400">Nominee Finalist</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="pt-4 border-t border-white/[0.08] flex items-center gap-3">
-            <a href="../ai-lab.html" class="btn-live-action btn-live-primary w-full">
-              <i data-lucide="terminal" class="w-4 h-4"></i>
-              <span>Test Simulator in AI Lab</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- Navigation Footer -->
-    <div class="mt-16 pt-8 border-t border-white/[0.08] flex items-center justify-between">
-      <a href="white-swan.html" class="btn-outline text-xs">← White Swan Holidays</a>
-      <a href="../projects.html" class="btn-primary text-xs"><span>View Full Projects Catalog</span><i data-lucide="arrow-right" class="w-4 h-4"></i></a>
     </div>
 
   </main>
 
-  <footer class="border-t border-white/[0.08] bg-[#030509] py-12 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-mono text-[#9aa6b8]">
-      <div>KRISH TRIVEDI · KISANMITRA SIH 2025 CASE STUDY</div>
-      <div class="flex items-center gap-4">
+  <!-- Footer -->
+  <footer class="bg-[#10131D] text-[#F5F3EE] py-12 border-t border-white/[0.08]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#8E95A5] gap-4">
+      <div class="flex items-center gap-3">
+        <img src="../img/logo-kt-light.svg" alt="KT Monogram" class="w-7 h-7">
+        <span>© 2026 KRISH TRIVEDI · AI DEVELOPER</span>
+      </div>
+      <div class="flex items-center gap-6">
         <a href="../index.html" class="hover:text-white">Home</a>
-        <a href="../projects.html" class="text-[#3ee0c5]">Projects</a>
+        <a href="../projects.html" class="hover:text-white">Projects</a>
         <a href="../ai-lab.html" class="hover:text-white">AI Lab</a>
         <a href="../contact.html" class="hover:text-white">Contact</a>
       </div>
-      <div>© 2026 Krish Trivedi</div>
     </div>
   </footer>
 
