@@ -49,10 +49,21 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Custom Design System Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css">
+  <!-- Custom Design System & Animation Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css?v=3.5.0">
 </head>
 <body class="bg-[#F5F3EE] text-[#171717] font-sans antialiased relative">
+
+  <!-- Premium Branded Page Preloader (HPAD Luxury Cinematic Style) -->
+  <div id="pagePreloader" class="fixed inset-0 z-[99999] bg-[#10131D] flex flex-col items-center justify-center transition-all duration-700 ease-out" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #10131D; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div class="preloader-logo-wrap" style="position: relative; width: 64px; height: 64px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center;">
+      <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-14 h-14" style="width: 56px; height: 56px;">
+    </div>
+    <div class="preloader-progress-track" style="width: 140px; height: 2px; background-color: rgba(255, 255, 255, 0.1); position: relative; overflow: hidden; border-radius: 2px;">
+      <div class="preloader-progress-bar" style="position: absolute; top: 0; left: 0; height: 100%; width: 0%; background-color: #526BFF;"></div>
+    </div>
+    <div class="preloader-status" style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: #8E95A5; margin-top: 14px;">INITIALIZING SYSTEM</div>
+  </div>
 
   <!-- Side Progress Rail (HPAD / Meet Gajjar Aesthetic) -->
   <aside class="side-progress-rail" aria-hidden="true">
@@ -167,9 +178,9 @@
   </header>
 
   <!-- ========================================================================
-       HERO SECTION — EDITORIAL LUXURY & INTELLIGENT TECHNOLOGY
+       HERO SECTION — CINEMATIC EDITORIAL REVEAL
        ======================================================================== -->
-  <section class="relative pt-36 pb-20 lg:pt-44 lg:pb-32 border-editorial-b architectural-grid">
+  <section class="relative pt-36 pb-20 lg:pt-44 lg:pb-32 border-editorial-b architectural-grid overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -178,24 +189,24 @@
         <div class="lg:col-span-7 space-y-8">
           
           <!-- Small Label -->
-          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#E6E4DE] bg-white text-xs font-mono text-[#171717] tracking-wider uppercase">
+          <div class="hero-fade-reveal delay-100 inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#E6E4DE] bg-white text-xs font-mono text-[#171717] tracking-wider uppercase">
             <span class="w-2 h-2 rounded-full bg-[#526BFF] animate-pulse"></span>
             <span>INDEPENDENT AI DEVELOPER · AHMEDABAD, INDIA</span>
           </div>
 
-          <!-- Main Headline -->
+          <!-- Main Headline with Cinematic Line Reveals -->
           <h1 class="headline-hero">
-            Building Intelligence.<br>
-            <span class="font-serif italic font-normal text-[#526BFF]">Creating</span> What’s Next.
+            <span class="hero-line-mask"><span class="hero-line-reveal delay-200">Building Intelligence.</span></span>
+            <span class="hero-line-mask"><span class="hero-line-reveal delay-300"><span class="font-serif italic font-normal text-[#526BFF]">Creating</span> What’s Next.</span></span>
           </h1>
 
           <!-- Supporting Text -->
-          <p class="text-lg sm:text-xl text-[#777777] font-normal leading-relaxed max-w-2xl">
+          <p class="hero-fade-reveal delay-400 text-lg sm:text-xl text-[#777777] font-normal leading-relaxed max-w-2xl">
             “I build intelligent applications, AI-powered solutions and automation systems that transform complex ideas into meaningful digital experiences.”
           </p>
 
           <!-- Buttons -->
-          <div class="flex flex-wrap items-center gap-4 pt-2">
+          <div class="hero-fade-reveal delay-500 flex flex-wrap items-center gap-4 pt-2">
             <a href="#projects" class="btn-luxury btn-primary-dark text-xs">
               <span>EXPLORE MY WORK</span>
               <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
@@ -211,7 +222,7 @@
           </div>
 
           <!-- Key Metadata Metrics -->
-          <div class="grid grid-cols-3 gap-6 pt-8 border-editorial-t">
+          <div class="hero-fade-reveal delay-600 grid grid-cols-3 gap-6 pt-8 border-editorial-t">
             <div>
               <div class="font-display font-bold text-2xl sm:text-3xl text-[#171717]">SIH '25</div>
               <div class="font-mono text-xs text-[#777777] uppercase mt-0.5">Finalist (KisanMitra)</div>
@@ -231,8 +242,8 @@
         <!-- Right Hero Architectural Composition (5 cols) -->
         <div class="lg:col-span-5 relative">
           
-          <!-- Editorial Card -->
-          <div class="luxury-card p-8 relative overflow-hidden bg-white shadow-xl shadow-black/[0.03]">
+          <!-- Editorial Card with Clip-Path Reveal -->
+          <div class="luxury-card p-8 relative overflow-hidden bg-white shadow-xl shadow-black/[0.03] hero-fade-reveal delay-300">
             
             <!-- Top Status Bar -->
             <div class="flex items-center justify-between pb-5 border-b border-[#E6E4DE] text-xs font-mono text-[#777777]">
@@ -243,8 +254,8 @@
               <span>v3.4.0</span>
             </div>
 
-            <!-- Profile Imagery & Monogram Composition -->
-            <div class="my-6 relative rounded-sm overflow-hidden bg-[#ECE9E2] border border-[#E6E4DE] aspect-[4/3] flex items-center justify-center">
+            <!-- Profile Imagery & Monogram Composition with Clip-Path Animation -->
+            <div class="my-6 relative rounded-sm overflow-hidden bg-[#ECE9E2] border border-[#E6E4DE] aspect-[4/3] img-reveal-frame auto-reveal">
               <img src="img/projects/portfolio-preview.jpg" alt="Krish Trivedi Engineering Portfolio" class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-gradient-to-t from-[#10131D]/80 via-transparent to-transparent flex items-end p-5">
                 <div>
@@ -286,7 +297,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="mb-14">
+      <div class="mb-14 scroll-reveal">
         <div class="section-tag">
           <span class="tag-num">01</span>
           <span class="tag-line"></span>
@@ -302,7 +313,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         
         <!-- Left Column: Biography (7 cols) -->
-        <div class="lg:col-span-7 space-y-6 text-base sm:text-lg text-[#171717] leading-relaxed">
+        <div class="lg:col-span-7 space-y-6 text-base sm:text-lg text-[#171717] leading-relaxed scroll-reveal-left">
           <p>
             I am <strong class="font-semibold text-black">Krish Trivedi</strong>, an AI developer and software systems engineer based in Ahmedabad, India. My work bridges the gap between deep algorithmic machine learning and robust, production-grade enterprise software.
           </p>
@@ -327,9 +338,9 @@
         </div>
 
         <!-- Right Column: 4 Engineering Pillars (5 cols) -->
-        <div class="lg:col-span-5 space-y-4">
+        <div class="lg:col-span-5 space-y-4 scroll-reveal-right">
           
-          <div class="p-6 border-editorial bg-[#F5F3EE] rounded-sm">
+          <div class="p-6 border-editorial bg-[#F5F3EE] rounded-sm transition-transform hover:-translate-y-1">
             <div class="flex items-center gap-3 mb-2">
               <span class="w-7 h-7 rounded-sm bg-[#171717] text-white flex items-center justify-center font-mono text-xs font-bold">01</span>
               <h3 class="font-display font-bold text-base text-[#171717]">Autonomous AI Systems</h3>
@@ -339,7 +350,7 @@
             </p>
           </div>
 
-          <div class="p-6 border-editorial bg-[#F5F3EE] rounded-sm">
+          <div class="p-6 border-editorial bg-[#F5F3EE] rounded-sm transition-transform hover:-translate-y-1">
             <div class="flex items-center gap-3 mb-2">
               <span class="w-7 h-7 rounded-sm bg-[#526BFF] text-white flex items-center justify-center font-mono text-xs font-bold">02</span>
               <h3 class="font-display font-bold text-base text-[#171717]">Full-Stack Modern Web</h3>
@@ -349,7 +360,7 @@
             </p>
           </div>
 
-          <div class="p-6 border-editorial bg-[#F5F3EE] rounded-sm">
+          <div class="p-6 border-editorial bg-[#F5F3EE] rounded-sm transition-transform hover:-translate-y-1">
             <div class="flex items-center gap-3 mb-2">
               <span class="w-7 h-7 rounded-sm bg-[#171717] text-white flex items-center justify-center font-mono text-xs font-bold">03</span>
               <h3 class="font-display font-bold text-base text-[#171717]">Enterprise Infrastructure</h3>
@@ -359,7 +370,7 @@
             </p>
           </div>
 
-          <div class="p-6 border-editorial bg-[#F5F3EE] rounded-sm">
+          <div class="p-6 border-editorial bg-[#F5F3EE] rounded-sm transition-transform hover:-translate-y-1">
             <div class="flex items-center gap-3 mb-2">
               <span class="w-7 h-7 rounded-sm bg-[#526BFF] text-white flex items-center justify-center font-mono text-xs font-bold">04</span>
               <h3 class="font-display font-bold text-base text-[#171717]">Real Business Utility</h3>
@@ -377,13 +388,13 @@
   </section>
 
   <!-- ========================================================================
-       02 — SELECTED PROJECTS (INTERNATIONAL DESIGN GALLERY)
+       02 — SELECTED PROJECTS (CINEMATIC DESIGN GALLERY)
        ======================================================================== -->
   <section class="py-24 border-editorial-b bg-[#F5F3EE]" id="projects">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header & Filter Controls -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 scroll-reveal">
         <div>
           <div class="section-tag">
             <span class="tag-num">02</span>
@@ -405,7 +416,7 @@
         </div>
       </div>
 
-      <!-- Asymmetrical Project Grid -->
+      <!-- Asymmetrical Project Grid with Scroll Reveals -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
         
         <!-- FEATURED: SmartFin AI (Span 12 Hero Showcase) -->
@@ -458,9 +469,9 @@
         </div>
 
         <!-- PROJECT 1: KisanMitra (Span 7) -->
-        <div class="project-card lg:col-span-7 luxury-card p-6 sm:p-8 flex flex-col justify-between" data-category="ai">
+        <div class="project-card lg:col-span-7 luxury-card p-6 sm:p-8 flex flex-col justify-between scroll-reveal" data-category="ai">
           <div>
-            <div class="project-image-frame aspect-[16/9] mb-6">
+            <div class="project-image-frame aspect-[16/9] mb-6 img-reveal-frame">
               <img src="img/projects/kisanmitra-preview.svg" alt="KisanMitra AI Agricultural Platform" class="w-full h-full object-cover">
             </div>
             <div class="flex items-center justify-between mb-3">
@@ -489,9 +500,9 @@
         </div>
 
         <!-- PROJECT 2: HPAD Travel Management System (Span 5) -->
-        <div class="project-card lg:col-span-5 luxury-card p-6 sm:p-8 flex flex-col justify-between" data-category="web enterprise">
+        <div class="project-card lg:col-span-5 luxury-card p-6 sm:p-8 flex flex-col justify-between scroll-reveal" data-category="web enterprise">
           <div>
-            <div class="project-image-frame aspect-[16/9] mb-6">
+            <div class="project-image-frame aspect-[16/9] mb-6 img-reveal-frame">
               <img src="img/projects/hpad-preview.jpg" alt="HPAD Travel Management System" class="w-full h-full object-cover">
             </div>
             <div class="flex items-center justify-between mb-3">
@@ -519,9 +530,9 @@
         </div>
 
         <!-- PROJECT 3: White Swan Holidays (Span 5) -->
-        <div class="project-card lg:col-span-5 luxury-card p-6 sm:p-8 flex flex-col justify-between" data-category="web">
+        <div class="project-card lg:col-span-5 luxury-card p-6 sm:p-8 flex flex-col justify-between scroll-reveal" data-category="web">
           <div>
-            <div class="project-image-frame aspect-[16/9] mb-6">
+            <div class="project-image-frame aspect-[16/9] mb-6 img-reveal-frame">
               <img src="img/projects/whiteswan-preview.jpg" alt="White Swan Holidays Booking Platform" class="w-full h-full object-cover">
             </div>
             <div class="flex items-center justify-between mb-3">
@@ -549,9 +560,9 @@
         </div>
 
         <!-- PROJECT 4: Loan Default Prediction ML (Span 7) -->
-        <div class="project-card lg:col-span-7 luxury-card p-6 sm:p-8 flex flex-col justify-between" data-category="ai">
+        <div class="project-card lg:col-span-7 luxury-card p-6 sm:p-8 flex flex-col justify-between scroll-reveal" data-category="ai">
           <div>
-            <div class="project-image-frame aspect-[16/9] mb-6">
+            <div class="project-image-frame aspect-[16/9] mb-6 img-reveal-frame">
               <img src="img/projects/loandefault-preview.svg" alt="Loan Default Prediction Machine Learning" class="w-full h-full object-cover">
             </div>
             <div class="flex items-center justify-between mb-3">
@@ -580,9 +591,9 @@
         </div>
 
         <!-- PROJECT 5: AI Psychology & Wellness Chatbot (Span 6) -->
-        <div class="project-card lg:col-span-6 luxury-card p-6 sm:p-8 flex flex-col justify-between" data-category="ai">
+        <div class="project-card lg:col-span-6 luxury-card p-6 sm:p-8 flex flex-col justify-between scroll-reveal" data-category="ai">
           <div>
-            <div class="project-image-frame aspect-[16/9] mb-6">
+            <div class="project-image-frame aspect-[16/9] mb-6 img-reveal-frame">
               <img src="img/projects/psychology-preview.svg" alt="AI Psychology Chatbot" class="w-full h-full object-cover">
             </div>
             <div class="flex items-center justify-between mb-3">
@@ -610,9 +621,9 @@
         </div>
 
         <!-- PROJECT 6: Web Scraping & Data Ingestion (Span 6) -->
-        <div class="project-card lg:col-span-6 luxury-card p-6 sm:p-8 flex flex-col justify-between" data-category="enterprise">
+        <div class="project-card lg:col-span-6 luxury-card p-6 sm:p-8 flex flex-col justify-between scroll-reveal" data-category="enterprise">
           <div>
-            <div class="project-image-frame aspect-[16/9] mb-6">
+            <div class="project-image-frame aspect-[16/9] mb-6 img-reveal-frame">
               <img src="img/projects/scraping-preview.svg" alt="Distributed Web Scraping Pipeline" class="w-full h-full object-cover">
             </div>
             <div class="flex items-center justify-between mb-3">
@@ -642,7 +653,7 @@
       </div>
 
       <!-- Bottom Link -->
-      <div class="mt-12 text-center">
+      <div class="mt-12 text-center scroll-reveal">
         <a href="projects.html" class="btn-luxury btn-outline-editorial text-xs">
           <span>VIEW ALL CASE STUDIES & TECHNICAL ARCHITECTURE</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -659,7 +670,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="mb-16">
+      <div class="mb-16 scroll-reveal">
         <div class="section-tag">
           <span class="tag-num">03</span>
           <span class="tag-line"></span>
@@ -671,8 +682,8 @@
         </h2>
       </div>
 
-      <!-- Services Grid: 9 Areas -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Services Grid: 9 Areas with Stagger Animation -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-container">
         
         <div class="luxury-card p-8 border-editorial">
           <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6">
@@ -776,7 +787,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 scroll-reveal">
         <div>
           <div class="section-tag text-[#8E95A5]">
             <span class="tag-num text-[#526BFF]">LAB</span>
@@ -800,7 +811,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         <!-- Left Column: Interactive ML Credit Calculator (6 cols) -->
-        <div class="lg:col-span-6 luxury-card-dark p-6 sm:p-8">
+        <div class="lg:col-span-6 luxury-card-dark p-6 sm:p-8 scroll-reveal-left">
           <div class="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-6">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -867,7 +878,7 @@
         </div>
 
         <!-- Right Column: Interactive CLI Terminal (6 cols) -->
-        <div class="lg:col-span-6 ai-lab-terminal overflow-hidden flex flex-col h-[520px]">
+        <div class="lg:col-span-6 ai-lab-terminal overflow-hidden flex flex-col h-[520px] scroll-reveal-right">
           
           <!-- Terminal Header -->
           <div class="terminal-header">
@@ -916,7 +927,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="mb-16">
+      <div class="mb-16 scroll-reveal">
         <div class="section-tag">
           <span class="tag-num">04</span>
           <span class="tag-line"></span>
@@ -928,8 +939,8 @@
         </h2>
       </div>
 
-      <!-- 4 Core Competency Categories -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- 4 Core Competency Categories with Stagger Animation -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 stagger-container">
         
         <!-- Category 1 -->
         <div class="luxury-card p-6 border-editorial">
@@ -990,7 +1001,7 @@
       </div>
 
       <!-- Live GitHub Activity Feed -->
-      <div class="mt-16 pt-12 border-editorial-t">
+      <div class="mt-16 pt-12 border-editorial-t scroll-reveal">
         <div class="flex items-center justify-between mb-8">
           <div>
             <span class="font-mono text-xs text-[#526BFF] uppercase tracking-wider">LIVE ACTIVITY</span>
@@ -1002,7 +1013,6 @@
         </div>
 
         <div id="githubReposGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <!-- Populated dynamically via JS or cached projects -->
           <div class="luxury-card p-6">
             <span class="text-xs font-mono text-[#526BFF] font-semibold">Python</span>
             <h4 class="text-base font-display font-bold text-[#171717] mt-1 mb-2">KisanMitra-AI-Platform</h4>
@@ -1031,7 +1041,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="mb-16">
+      <div class="mb-16 scroll-reveal">
         <div class="section-tag">
           <span class="tag-num">05</span>
           <span class="tag-line"></span>
@@ -1047,7 +1057,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         
         <!-- Professional Work Experience (7 cols) -->
-        <div class="lg:col-span-7 space-y-8">
+        <div class="lg:col-span-7 space-y-8 scroll-reveal-left">
           <h3 class="font-display font-bold text-xl text-[#171717] pb-3 border-editorial-b flex items-center justify-between">
             <span>Work Experience</span>
             <span class="font-mono text-xs text-[#777777]">2022 — PRESENT</span>
@@ -1088,7 +1098,7 @@
         </div>
 
         <!-- Academic Foundation & Certifications (5 cols) -->
-        <div class="lg:col-span-5 space-y-8">
+        <div class="lg:col-span-5 space-y-8 scroll-reveal-right">
           <h3 class="font-display font-bold text-xl text-[#171717] pb-3 border-editorial-b flex items-center justify-between">
             <span>Education & Honors</span>
             <span class="font-mono text-xs text-[#777777]">ACADEMICS</span>
@@ -1139,7 +1149,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->
-      <div class="mb-16">
+      <div class="mb-16 scroll-reveal">
         <div class="section-tag">
           <span class="tag-num">06</span>
           <span class="tag-line"></span>
@@ -1155,7 +1165,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         
         <!-- Left Column: Coordinates (5 cols) -->
-        <div class="lg:col-span-5 space-y-6">
+        <div class="lg:col-span-5 space-y-6 scroll-reveal-left">
           
           <!-- Email Box -->
           <div class="luxury-card p-6 border-editorial">
@@ -1220,7 +1230,7 @@
         </div>
 
         <!-- Right Column: Clean Editorial Form (7 cols) -->
-        <div class="lg:col-span-7 luxury-card p-8 border-editorial bg-[#F5F3EE]">
+        <div class="lg:col-span-7 luxury-card p-8 border-editorial bg-[#F5F3EE] scroll-reveal-right">
           <h3 class="font-display font-bold text-xl text-[#171717] mb-2">Send an Inquiry</h3>
           <p class="text-xs text-[#777777] mb-6 font-mono">I usually reply within 24 hours.</p>
 
@@ -1264,7 +1274,7 @@
   <footer class="bg-[#10131D] text-[#F5F3EE] py-16 border-t border-white/[0.08]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/[0.08]">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-white/[0.08] scroll-reveal">
         
         <!-- Brand Summary (5 cols) -->
         <div class="md:col-span-5 space-y-4">
@@ -1324,6 +1334,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=3.5.0"></script>
 </body>
 </html>

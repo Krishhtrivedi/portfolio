@@ -1,8 +1,7 @@
 /* ==========================================================================
-   KRISH TRIVEDI — PREMIUM PERSONAL BRAND DESIGN SYSTEM
-   Editorial Luxury & Intelligent Technology
-   Inspired by HPAD (Architectural Luxury & Quiet Minimalism)
-   & Meet Gajjar (Structural Rigor & Interactive Engineering)
+   KRISH TRIVEDI — PREMIUM PERSONAL BRAND ANIMATION & DESIGN SYSTEM
+   Cinematic, Architectural, and Responsive Micro-Interactions
+   Visual Reference: HPAD (Architectural Quiet Luxury & Cinematic Imagery)
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
@@ -41,6 +40,10 @@
   /* Layout Constants */
   --container-max: 1320px;
   --header-height: 80px;
+
+  /* Easing curves */
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* Base Setup */
@@ -115,6 +118,119 @@ body {
     linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
 }
 
+/* ==========================================================================
+   1. PAGE LOADING ANIMATION (HPAD LUXURY PRELOADER)
+   ========================================================================== */
+#pagePreloader {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-dark);
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.65s var(--ease-cinematic), transform 0.65s var(--ease-cinematic);
+  will-change: opacity, transform;
+}
+
+#pagePreloader.preloader-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+}
+
+.preloader-logo-wrap {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: preloaderPulse 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes preloaderPulse {
+  0% { transform: scale(0.96); opacity: 0.9; }
+  100% { transform: scale(1.02); opacity: 1; }
+}
+
+.preloader-progress-track {
+  width: 140px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.preloader-progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background-color: var(--accent);
+  transition: width 0.5s ease-out;
+}
+
+.preloader-status {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted-dark);
+  margin-top: 14px;
+}
+
+/* ==========================================================================
+   2. HERO ANIMATIONS (CINEMATIC REVEAL)
+   ========================================================================== */
+.hero-line-mask {
+  overflow: hidden;
+  display: block;
+}
+
+.hero-line-reveal {
+  display: inline-block;
+  transform: translateY(105%);
+  opacity: 0;
+  transition: transform 1.1s var(--ease-cinematic), opacity 1s var(--ease-cinematic);
+  will-change: transform, opacity;
+}
+
+body.loaded .hero-line-reveal {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hero-fade-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 1s var(--ease-cinematic), transform 1s var(--ease-cinematic);
+  will-change: opacity, transform;
+}
+
+body.loaded .hero-fade-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero Stagger Delays */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
+.delay-600 { transition-delay: 0.6s; }
+
+/* Subtle Background Parallax Layer */
+.parallax-bg {
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+
 /* Section Index Numbers (Editorial Style) */
 .section-tag {
   display: inline-flex;
@@ -141,6 +257,11 @@ body {
   width: 28px;
   height: 1px;
   background-color: var(--border-light);
+  transition: width 0.6s var(--ease-cinematic);
+}
+
+.is-revealed .section-tag .tag-line {
+  width: 44px;
 }
 
 /* Editorial Headlines */
@@ -162,34 +283,137 @@ body {
   color: var(--text-primary);
 }
 
+/* ==========================================================================
+   3. SCROLL ANIMATIONS & REVEALS
+   ========================================================================== */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s var(--ease-cinematic), transform 0.85s var(--ease-cinematic);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-35px);
+  transition: opacity 0.85s var(--ease-cinematic), transform 0.85s var(--ease-cinematic);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-left.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(35px);
+  transition: opacity 0.85s var(--ease-cinematic), transform 0.85s var(--ease-cinematic);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal-right.is-revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger Children on Reveal */
+.stagger-container.is-revealed > * {
+  animation: staggerItemReveal 0.85s var(--ease-cinematic) forwards;
+}
+
+.stagger-container > * {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.stagger-container.is-revealed > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-container.is-revealed > *:nth-child(2) { animation-delay: 0.15s; }
+.stagger-container.is-revealed > *:nth-child(3) { animation-delay: 0.25s; }
+.stagger-container.is-revealed > *:nth-child(4) { animation-delay: 0.35s; }
+.stagger-container.is-revealed > *:nth-child(5) { animation-delay: 0.45s; }
+.stagger-container.is-revealed > *:nth-child(6) { animation-delay: 0.55s; }
+
+@keyframes staggerItemReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   4. IMAGE ANIMATIONS (HPAD CINEMATIC CLIP & ZOOM)
+   ========================================================================== */
+.img-reveal-frame {
+  position: relative;
+  overflow: hidden;
+  background-color: #ECE9E2;
+  border-radius: 2px;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.1s var(--ease-cinematic);
+  will-change: clip-path;
+}
+
+.img-reveal-frame.is-revealed,
+body.loaded .img-reveal-frame.auto-reveal {
+  clip-path: inset(0 0 0 0);
+}
+
+.img-reveal-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+  transition: transform 1.2s var(--ease-cinematic);
+  will-change: transform;
+}
+
+.img-reveal-frame.is-revealed img,
+body.loaded .img-reveal-frame.auto-reveal img {
+  transform: scale(1);
+}
+
+.img-reveal-frame:hover img {
+  transform: scale(1.045);
+}
+
 /* Luxury Cards */
 .luxury-card {
   background-color: var(--bg-white);
   border: 1px solid var(--border-light);
   border-radius: 4px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.4s var(--ease-cinematic), box-shadow 0.4s var(--ease-cinematic), transform 0.4s var(--ease-cinematic);
+  will-change: transform, box-shadow;
 }
 
 .luxury-card:hover {
   border-color: #D3CFC6;
-  box-shadow: 0 16px 36px -12px rgba(23, 23, 23, 0.06);
-  transform: translateY(-2px);
+  box-shadow: 0 20px 42px -12px rgba(23, 23, 23, 0.07);
+  transform: translateY(-3px);
 }
 
 .luxury-card-dark {
   background-color: var(--bg-dark-card);
   border: 1px solid var(--border-dark);
   border-radius: 4px;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 0.4s var(--ease-cinematic), box-shadow 0.4s var(--ease-cinematic), transform 0.4s var(--ease-cinematic);
+  will-change: transform, box-shadow;
 }
 
 .luxury-card-dark:hover {
   border-color: var(--border-dark-hover);
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.4);
-  transform: translateY(-2px);
+  box-shadow: 0 20px 44px -10px rgba(0, 0, 0, 0.45);
+  transform: translateY(-3px);
 }
 
-/* Luxury Buttons */
+/* ==========================================================================
+   5. LUXURY BUTTONS & MICRO-INTERACTIONS
+   ========================================================================== */
 .btn-luxury {
   display: inline-flex;
   align-items: center;
@@ -203,8 +427,21 @@ body {
   padding: 0.95rem 1.85rem;
   border-radius: 2px;
   text-decoration: none;
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: background-color 0.3s var(--ease-cinematic), border-color 0.3s var(--ease-cinematic), color 0.3s var(--ease-cinematic), transform 0.3s var(--ease-cinematic), box-shadow 0.3s var(--ease-cinematic);
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.btn-luxury i,
+.btn-luxury svg {
+  transition: transform 0.3s var(--ease-cinematic);
+}
+
+.btn-luxury:hover i,
+.btn-luxury:hover svg {
+  transform: translate(2.5px, -2.5px);
 }
 
 .btn-primary-dark {
@@ -216,8 +453,12 @@ body {
 .btn-primary-dark:hover {
   background-color: #000000;
   color: #FFFFFF;
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(23, 23, 23, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(23, 23, 23, 0.16);
+}
+
+.btn-primary-dark:active {
+  transform: translateY(0);
 }
 
 .btn-accent {
@@ -229,8 +470,12 @@ body {
 .btn-accent:hover {
   background-color: var(--accent-hover);
   border-color: var(--accent-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 22px var(--accent-glow);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px var(--accent-glow);
+}
+
+.btn-accent:active {
+  transform: translateY(0);
 }
 
 .btn-outline-editorial {
@@ -242,7 +487,12 @@ body {
 .btn-outline-editorial:hover {
   background-color: var(--bg-white);
   border-color: var(--text-primary);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(23, 23, 23, 0.05);
+}
+
+.btn-outline-editorial:active {
+  transform: translateY(0);
 }
 
 .btn-outline-dark {
@@ -255,28 +505,35 @@ body {
   background-color: rgba(255, 255, 255, 0.08);
   border-color: var(--border-dark-hover);
   color: #FFFFFF;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
-/* Navigation System */
+.btn-outline-dark:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   6. NAVIGATION ANIMATIONS
+   ========================================================================== */
 .luxury-navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: var(--header-height);
-  background-color: rgba(245, 243, 238, 0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background-color: rgba(245, 243, 238, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-light);
   z-index: 900;
-  transition: all 0.3s ease;
+  transition: height 0.4s var(--ease-cinematic), background-color 0.4s var(--ease-cinematic), box-shadow 0.4s var(--ease-cinematic);
+  will-change: height, background-color, box-shadow;
 }
 
 .luxury-navbar.scrolled {
-  height: 70px;
-  background-color: rgba(245, 243, 238, 0.97);
-  box-shadow: 0 4px 20px rgba(23, 23, 23, 0.04);
+  height: 68px;
+  background-color: rgba(245, 243, 238, 0.96);
+  box-shadow: 0 4px 24px rgba(23, 23, 23, 0.05);
 }
 
 .nav-link {
@@ -289,7 +546,7 @@ body {
   text-decoration: none;
   padding: 0.5rem 0.85rem;
   position: relative;
-  transition: color 0.2s ease;
+  transition: color 0.25s var(--ease-cinematic);
 }
 
 .nav-link::after {
@@ -302,7 +559,7 @@ body {
   background-color: var(--accent);
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.25s ease;
+  transition: transform 0.3s var(--ease-cinematic);
 }
 
 .nav-link:hover {
@@ -320,7 +577,7 @@ body {
   font-weight: 600;
 }
 
-/* Side Rail Progress Indicator (Meet Gajjar Style + HPAD Minimalist) */
+/* Side Rail Progress Indicator */
 .side-progress-rail {
   position: fixed;
   left: 24px;
@@ -350,7 +607,7 @@ body {
   height: 35px;
   background-color: var(--accent);
   border-radius: 2px;
-  transition: top 0.1s linear;
+  transition: top 0.08s linear;
 }
 
 .rail-text {
@@ -377,8 +634,8 @@ body {
   padding: 2.5rem;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-10px);
-  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(-12px);
+  transition: opacity 0.4s var(--ease-cinematic), transform 0.4s var(--ease-cinematic);
   overflow-y: auto;
 }
 
@@ -386,6 +643,30 @@ body {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
+}
+
+.fullscreen-menu.open .menu-item-editorial {
+  animation: menuItemSlideIn 0.5s var(--ease-cinematic) forwards;
+}
+
+.fullscreen-menu .menu-item-editorial:nth-child(1) { animation-delay: 0.06s; }
+.fullscreen-menu .menu-item-editorial:nth-child(2) { animation-delay: 0.12s; }
+.fullscreen-menu .menu-item-editorial:nth-child(3) { animation-delay: 0.18s; }
+.fullscreen-menu .menu-item-editorial:nth-child(4) { animation-delay: 0.24s; }
+.fullscreen-menu .menu-item-editorial:nth-child(5) { animation-delay: 0.30s; }
+.fullscreen-menu .menu-item-editorial:nth-child(6) { animation-delay: 0.36s; }
+.fullscreen-menu .menu-item-editorial:nth-child(7) { animation-delay: 0.42s; }
+.fullscreen-menu .menu-item-editorial:nth-child(8) { animation-delay: 0.48s; }
+
+@keyframes menuItemSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .menu-item-editorial {
@@ -396,11 +677,11 @@ body {
   border-bottom: 1px solid var(--border-dark);
   text-decoration: none;
   color: var(--text-on-dark);
-  transition: all 0.25s ease;
+  transition: padding-left 0.3s var(--ease-cinematic), color 0.25s ease, border-bottom-color 0.25s ease;
 }
 
 .menu-item-editorial:hover {
-  padding-left: 1.25rem;
+  padding-left: 1.5rem;
   color: var(--accent);
   border-bottom-color: var(--accent);
 }
@@ -420,11 +701,24 @@ body {
   letter-spacing: 0.08em;
 }
 
-/* Project Gallery Treatments */
+/* ==========================================================================
+   7. PROJECT GALLERY & INTERACTION PATTERNS
+   ========================================================================== */
+.project-card {
+  transition: transform 0.45s var(--ease-cinematic), box-shadow 0.45s var(--ease-cinematic), border-color 0.45s var(--ease-cinematic);
+  will-change: transform;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -12px rgba(23, 23, 23, 0.09);
+  border-color: #D3CFC6;
+}
+
 .project-image-frame {
   position: relative;
   overflow: hidden;
-  background-color: #EAE7DF;
+  background-color: #ECE9E2;
   border-radius: 2px;
 }
 
@@ -432,11 +726,21 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.75s var(--ease-cinematic);
+  will-change: transform;
 }
 
-.luxury-card:hover .project-image-frame img {
-  transform: scale(1.035);
+.project-card:hover .project-image-frame img {
+  transform: scale(1.045);
+}
+
+/* Filter Buttons Transition */
+.filter-btn {
+  transition: background-color 0.28s var(--ease-cinematic), color 0.28s var(--ease-cinematic), border-color 0.28s var(--ease-cinematic), transform 0.2s var(--ease-cinematic);
+}
+
+.filter-btn:active {
+  transform: scale(0.97);
 }
 
 /* Tag Pills */
@@ -454,15 +758,16 @@ body {
   border-radius: 2px;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
 }
 
-.editorial-tag-dark {
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-dark);
-  color: var(--text-on-dark);
+.editorial-tag:hover {
+  border-color: var(--text-primary);
 }
 
-/* Custom Editorial Cursor */
+/* ==========================================================================
+   8. CUSTOM EDITORIAL CURSOR (DESKTOP ONLY)
+   ========================================================================== */
 .custom-cursor-dot {
   position: fixed;
   top: 0;
@@ -483,19 +788,27 @@ body {
   left: 0;
   width: 32px;
   height: 32px;
-  border: 1px solid rgba(23, 23, 23, 0.3);
+  border: 1px solid rgba(23, 23, 23, 0.35);
   border-radius: 50%;
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease;
+  transition: width 0.3s var(--ease-cinematic), height 0.3s var(--ease-cinematic), border-color 0.3s var(--ease-cinematic), background-color 0.3s var(--ease-cinematic);
 }
 
 body.cursor-hover .custom-cursor-ring {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-color: var(--accent);
   background-color: var(--accent-soft);
+}
+
+body.cursor-dark .custom-cursor-dot {
+  background-color: #FFFFFF;
+}
+
+body.cursor-dark .custom-cursor-ring {
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* AI Lab Simulator Interactive Component */
@@ -538,19 +851,14 @@ body.cursor-hover .custom-cursor-ring {
   border: 1px solid var(--border-dark);
   border-radius: 4px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: border-color 0.3s var(--ease-cinematic), background-color 0.3s var(--ease-cinematic), transform 0.3s var(--ease-cinematic);
 }
 
 .pipeline-step:hover,
 .pipeline-step.active {
   border-color: var(--accent);
   background-color: var(--bg-dark-subtle);
-  transform: translateY(-2px);
-}
-
-.pipeline-connector {
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent) 0%, rgba(82, 107, 255, 0.2) 100%);
+  transform: translateY(-3px);
 }
 
 /* Toast Box */
@@ -568,7 +876,7 @@ body.cursor-hover .custom-cursor-ring {
   font-family: var(--font-mono);
   font-size: 0.8125rem;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
-  animation: slideUpToast 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: slideUpToast 0.35s var(--ease-cinematic);
 }
 
 @keyframes slideUpToast {
@@ -576,10 +884,12 @@ body.cursor-hover .custom-cursor-ring {
   to { transform: translateY(0); opacity: 1; }
 }
 
-/* Responsive Hide Rules */
+/* ==========================================================================
+   9. RESPONSIVE OPTIMIZATION (DESKTOP / TABLET / MOBILE)
+   ========================================================================== */
 @media (max-width: 1024px) {
   .side-progress-rail {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -587,18 +897,69 @@ body.cursor-hover .custom-cursor-ring {
   :root {
     --header-height: 70px;
   }
+  
+  /* Disable custom cursor on mobile and touch devices */
   .custom-cursor-dot,
   .custom-cursor-ring {
     display: none !important;
   }
+
+  /* Disable parallax on mobile to prevent performance lag */
+  .parallax-bg {
+    transform: none !important;
+  }
+
+  /* Faster, lighter reveals for mobile */
+  .scroll-reveal,
+  .scroll-reveal-left,
+  .scroll-reveal-right {
+    transform: translateY(16px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  .img-reveal-frame {
+    clip-path: none !important;
+  }
+
+  .img-reveal-frame img {
+    transform: none !important;
+  }
+
+  .btn-luxury:hover {
+    transform: none !important;
+  }
 }
 
-/* Accessibility / Reduced Motion */
+/* ==========================================================================
+   10. REDUCED MOTION SUPPORT (ACCESSIBILITY)
+   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  
+  #pagePreloader {
+    display: none !important;
+  }
+
+  .hero-line-reveal,
+  .hero-fade-reveal,
+  .scroll-reveal,
+  .scroll-reveal-left,
+  .scroll-reveal-right,
+  .stagger-container > * {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .img-reveal-frame {
+    clip-path: none !important;
+  }
+
+  .img-reveal-frame img {
+    transform: none !important;
   }
 }

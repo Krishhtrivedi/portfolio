@@ -1,7 +1,7 @@
 /**
  * KRISH TRIVEDI — PREMIUM PERSONAL BRAND PORTFOLIO ENGINE
- * Inspired by HPAD (Architectural Luxury & Quiet Minimalism)
- * & Meet Gajjar (Structural Precision & Interactive Engineering)
+ * Inspired by HPAD (Architectural Luxury & Cinematic Imagery)
+ * Advanced Scroll-Triggered Animation & Responsive Interaction Architecture
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -11,68 +11,157 @@ document.addEventListener('DOMContentLoaded', () => {
     window.lucide.createIcons();
   }
 
-  // 2. Custom Editorial Cursor
-  const cursorDot = document.createElement('div');
-  const cursorRing = document.createElement('div');
-  cursorDot.className = 'custom-cursor-dot';
-  cursorRing.className = 'custom-cursor-ring';
-  document.body.appendChild(cursorDot);
-  document.body.appendChild(cursorRing);
+  // 2. PAGE PRELOADER & CINEMATIC HERO REVEAL LIFECYCLE
+  const preloader = document.getElementById('pagePreloader');
+  const progressBar = document.querySelector('.preloader-progress-bar');
+  const hasVisited = sessionStorage.getItem('kt_visited') === 'true';
 
-  let mouseX = -100, mouseY = -100;
-  let ringX = -100, ringY = -100;
+  const preloaderDuration = hasVisited ? 400 : 700;
 
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
-  });
-
-  function renderCursor() {
-    ringX += (mouseX - ringX) * 0.16;
-    ringY += (mouseY - ringY) * 0.16;
-    cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
-    requestAnimationFrame(renderCursor);
+  if (progressBar) {
+    progressBar.style.transition = `width ${preloaderDuration * 0.8}ms cubic-bezier(0.16, 1, 0.3, 1)`;
+    progressBar.style.width = '100%';
   }
-  renderCursor();
 
-  function attachCursorInteractions() {
-    const interactives = document.querySelectorAll('a, button, input, select, textarea, .luxury-card, .luxury-card-dark, .copy-btn, .filter-chip, .pipeline-step');
-    interactives.forEach((el) => {
-      el.addEventListener('mouseenter', () => {
-        document.body.classList.add('cursor-hover');
-      });
-      el.addEventListener('mouseleave', () => {
-        document.body.classList.remove('cursor-hover');
-      });
+  function hidePreloader() {
+    if (preloader) {
+      preloader.classList.add('preloader-hidden');
+      preloader.style.opacity = '0';
+      preloader.style.pointerEvents = 'none';
+      preloader.style.transform = 'translateY(-8px)';
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 700);
+    }
+    document.body.classList.add('loaded');
+    sessionStorage.setItem('kt_visited', 'true');
+
+    // Trigger hero element reveal animations
+    const autoReveals = document.querySelectorAll('.auto-reveal');
+    autoReveals.forEach(el => el.classList.add('is-revealed'));
+  }
+
+  setTimeout(hidePreloader, preloaderDuration);
+
+  // Fallback safety: Ensure page is always visible after 1.1s regardless of network
+  setTimeout(hidePreloader, 1100);
+
+  // 3. CUSTOM EDITORIAL CURSOR (DESKTOP ONLY)
+  const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 768;
+
+  if (!isTouchDevice()) {
+    const cursorDot = document.createElement('div');
+    const cursorRing = document.createElement('div');
+    cursorDot.className = 'custom-cursor-dot';
+    cursorRing.className = 'custom-cursor-ring';
+    document.body.appendChild(cursorDot);
+    document.body.appendChild(cursorRing);
+
+    let mouseX = -100, mouseY = -100;
+    let ringX = -100, ringY = -100;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursorDot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
     });
-  }
-  attachCursorInteractions();
 
-  // 3. Navbar Scroll Subtle Transition
+    function renderCursor() {
+      ringX += (mouseX - ringX) * 0.18;
+      ringY += (mouseY - ringY) * 0.18;
+      cursorRing.style.transform = `translate(${ringX}px, ${ringY}px)`;
+      requestAnimationFrame(renderCursor);
+    }
+    renderCursor();
+
+    function attachCursorInteractions() {
+      const interactives = document.querySelectorAll('a, button, input, select, textarea, .luxury-card, .luxury-card-dark, .copy-btn, .filter-btn, .pipeline-step, .terminal-quick-chip');
+      interactives.forEach((el) => {
+        el.addEventListener('mouseenter', () => {
+          document.body.classList.add('cursor-hover');
+        });
+        el.addEventListener('mouseleave', () => {
+          document.body.classList.remove('cursor-hover');
+        });
+      });
+
+      // Dark background detection for cursor contrast
+      const darkSections = document.querySelectorAll('#ai-lab, footer, .luxury-card-dark');
+      darkSections.forEach(section => {
+        section.addEventListener('mouseenter', () => {
+          document.body.classList.add('cursor-dark');
+        });
+        section.addEventListener('mouseleave', () => {
+          document.body.classList.remove('cursor-dark');
+        });
+      });
+    }
+    attachCursorInteractions();
+  }
+
+  // 4. INTERSECTION OBSERVER FOR SCROLL REVEALS (HPAD CINEMATIC STYLE)
+  const revealElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .img-reveal-frame, .stagger-container');
+  
+  if ('IntersectionObserver' in window) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -8% 0px',
+      threshold: 0.1
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    revealElements.forEach(el => revealObserver.observe(el));
+  } else {
+    // Fallback for older browsers
+    revealElements.forEach(el => el.classList.add('is-revealed'));
+  }
+
+  // 5. SUBTLE ARCHITECTURAL PARALLAX (DESKTOP ONLY)
+  if (!isTouchDevice()) {
+    const parallaxElements = document.querySelectorAll('.parallax-bg');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      parallaxElements.forEach(el => {
+        const speed = parseFloat(el.getAttribute('data-speed') || '0.08');
+        el.style.transform = `translateY(${scrolled * speed}px)`;
+      });
+    }, { passive: true });
+  }
+
+  // 6. NAVBAR SCROLL STATE & SIDE RAIL PROGRESS TRACKER
   const navbar = document.getElementById('navbar');
+  const railThumb = document.querySelector('.rail-thumb');
+
   window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    // Navbar height & glass effect
     if (navbar) {
-      if (window.scrollY > 30) {
+      if (scrollY > 30) {
         navbar.classList.add('scrolled');
       } else {
         navbar.classList.remove('scrolled');
       }
     }
-  });
 
-  // 4. Side Rail Scroll Progress Tracker (Meet Gajjar & HPAD hybrid)
-  const railThumb = document.querySelector('.rail-thumb');
-  window.addEventListener('scroll', () => {
+    // Side Rail Scroll Progress
     if (railThumb) {
       const winScroll = document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
       railThumb.style.top = `${Math.min(scrolled * 0.7, 70)}%`;
     }
-  });
+  }, { passive: true });
 
-  // 5. Fullscreen Editorial Navigation
+  // 7. FULLSCREEN EDITORIAL NAVIGATION
   const menuToggleBtn = document.getElementById('menuToggleBtn');
   const closeMenuBtn = document.getElementById('closeMenuBtn');
   const fullscreenMenu = document.getElementById('fullscreenMenu');
@@ -100,13 +189,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Close menu on menu item click
   const menuItems = document.querySelectorAll('.menu-item-editorial');
   menuItems.forEach(item => {
     item.addEventListener('click', closeMenu);
   });
 
-  // 6. Project Filter Logic
+  // 8. PROJECT FILTER CONTROLS & SMOOTH CROSSFADE
   const filterBtns = document.querySelectorAll('.filter-btn');
   const projectCards = document.querySelectorAll('.project-card');
 
@@ -121,16 +209,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const filter = btn.getAttribute('data-filter');
       projectCards.forEach(card => {
+        card.style.transition = 'opacity 0.25s var(--ease-cinematic), transform 0.25s var(--ease-cinematic)';
         if (filter === 'all' || card.getAttribute('data-category')?.includes(filter)) {
           card.style.display = '';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 30);
         } else {
-          card.style.display = 'none';
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(12px)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 250);
         }
       });
     });
   });
 
-  // 7. REAL INTERACTIVE AI LAB: Working ML Credit Risk Calculator
+  // 9. REAL INTERACTIVE AI LAB: Working ML Credit Risk Calculator
   const loanSlider = document.getElementById('mlLoanAmount');
   const incomeSlider = document.getElementById('mlAnnualIncome');
   const creditSlider = document.getElementById('mlCreditScore');
@@ -159,7 +256,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dtiVal) dtiVal.textContent = `${dti}%`;
 
     // Mathematical logistic scoring simulation based on XGBoost feature weights
-    // Lower score is safer; higher score is riskier
     const normLoanIncome = (loan / Math.max(income, 10000)) * 20;
     const normCredit = (850 - score) / 550 * 50;
     const normDti = (dti / 60) * 30;
@@ -199,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   calculateRisk();
 
-  // 8. REAL INTERACTIVE AI LAB: Prompt Playground / AI Engine Simulator
+  // 10. REAL INTERACTIVE AI LAB: Prompt Playground / AI Engine Simulator
   const promptInput = document.getElementById('aiLabPromptInput');
   const runPromptBtn = document.getElementById('aiLabRunPromptBtn');
   const promptOutput = document.getElementById('aiLabPromptOutput');
@@ -289,7 +385,7 @@ Confidence: 98.2% across active validation checks.`;
     runPromptBtn.addEventListener('click', () => executePromptRun());
   }
 
-  // 9. REAL INTERACTIVE AI LAB: Node-based Agent Pipeline Visualizer
+  // 11. NODE-BASED AGENT PIPELINE VISUALIZER
   const pipelineSteps = document.querySelectorAll('.pipeline-step');
   const pipelineInspector = document.getElementById('pipelineInspector');
 
@@ -316,7 +412,7 @@ Confidence: 98.2% across active validation checks.`;
     },
     '5': {
       title: '05 // GUARDRAILS & STRUCTURED DELIVERY',
-      desc: 'Output is validated against schema contracts, toxicity filters, and hallicunation checkers before dispatching to frontend interfaces or API callers.',
+      desc: 'Output is validated against schema contracts, toxicity filters, and hallucination checkers before dispatching to frontend interfaces or API callers.',
       tech: 'JSON Schema · Guardrails AI · WebSockets · Next.js'
     }
   };
@@ -339,7 +435,7 @@ Confidence: 98.2% across active validation checks.`;
     });
   });
 
-  // 10. REAL INTERACTIVE AI LAB: Laboratory Terminal
+  // 12. INTERACTIVE LABORATORY TERMINAL (CLI)
   const terminalInput = document.getElementById('terminalInput');
   const terminalRunBtn = document.getElementById('terminalRunBtn');
   const terminalBody = document.getElementById('terminalBody');
@@ -438,7 +534,7 @@ Input Features: 24 financial covariates, automated SMOTE balancing`
     });
   });
 
-  // 11. GitHub Public Repositories Fetcher
+  // 13. GITHUB PUBLIC REPOSITORIES FETCHER
   const githubContainer = document.getElementById('githubReposGrid');
   async function fetchGitHubRepos() {
     if (!githubContainer) return;
@@ -453,7 +549,7 @@ Input Features: 24 financial covariates, automated SMOTE balancing`
           card.href = repo.html_url;
           card.target = '_blank';
           card.rel = 'noopener noreferrer';
-          card.className = 'luxury-card p-6 block group hover:border-[#171717] transition-all';
+          card.className = 'luxury-card p-6 block group hover:border-[#171717] transition-all scroll-reveal';
           card.innerHTML = `
             <div class="flex items-center justify-between mb-3">
               <span class="text-xs font-mono text-[#526BFF] font-semibold">${repo.language || 'Python'}</span>
@@ -468,16 +564,15 @@ Input Features: 24 financial covariates, automated SMOTE balancing`
           `;
           githubContainer.appendChild(card);
         });
-        attachCursorInteractions();
+        if (!isTouchDevice()) attachCursorInteractions();
       }
     } catch (e) {
-      // Graceful fallback to static verified projects if API is rate-limited
-      console.log('GitHub API offline or rate-limited; verified cached items loaded.');
+      console.log('GitHub API offline or rate-limited; verified static repos displayed.');
     }
   }
   fetchGitHubRepos();
 
-  // 12. Copy Buttons & Toast Notifications
+  // 14. ONE-CLICK COPY & TOAST NOTIFICATIONS
   const copyButtons = document.querySelectorAll('.copy-btn');
   copyButtons.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -511,7 +606,7 @@ Input Features: 24 financial covariates, automated SMOTE balancing`
   }
   window.showToast = showToast;
 
-  // 13. Contact Form Submission
+  // 15. CONTACT FORM HANDLER
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
