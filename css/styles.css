@@ -507,6 +507,19 @@ body.loaded .img-reveal-frame.auto-reveal img {
   transform: translateY(0);
 }
 
+.architectural-studio-card {
+  position: relative;
+  background-color: #FFFFFF;
+  border: 1px solid var(--hairline);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.architectural-studio-card:hover {
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.08);
+  border-color: rgba(23, 23, 23, 0.2);
+}
+
 .btn-accent {
   background-color: var(--accent);
   color: #FFFFFF;

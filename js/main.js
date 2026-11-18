@@ -501,6 +501,225 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize Project Slider
   initProjectSlider();
 
+  // 8B. ARCHITECTURAL AI NEURAL CORE & STUDIO CANVAS (HPAD LUXURY HERO ELEMENT)
+  function initHeroNeuralCanvas() {
+    const canvas = document.getElementById('heroNeuralCanvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    // Real-time Ahmedabad (IST) Clock
+    function updateLiveClock() {
+      const clockEl = document.getElementById('liveClockDisplay');
+      if (!clockEl) return;
+      try {
+        const now = new Date();
+        const options = { timeZone: 'Asia/Kolkata', hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+        const timeStr = now.toLocaleTimeString('en-GB', options);
+        clockEl.textContent = `IST ${timeStr}`;
+      } catch (e) {
+        clockEl.textContent = 'IST ONLINE';
+      }
+    }
+    setInterval(updateLiveClock, 1000);
+    updateLiveClock();
+
+    let width = 480;
+    let height = 360;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      width = rect.width || 480;
+      height = rect.height || 360;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Generate 3D nodes on Fibonacci sphere
+    const NUM_NODES = 58;
+    const RADIUS = Math.min(width, height) * 0.36;
+    const nodes = [];
+
+    const phi = Math.PI * (3 - Math.sqrt(5)); // Golden angle
+    for (let i = 0; i < NUM_NODES; i++) {
+      const y = 1 - (i / (NUM_NODES - 1)) * 2;
+      const radiusAtY = Math.sqrt(Math.max(0, 1 - y * y));
+      const theta = phi * i;
+      const x = Math.cos(theta) * radiusAtY;
+      const z = Math.sin(theta) * radiusAtY;
+
+      nodes.push({
+        origX: x * RADIUS,
+        origY: y * RADIUS,
+        origZ: z * RADIUS,
+        size: Math.random() * 1.4 + 1.8,
+        color: Math.random() > 0.4 ? '#C7A77A' : '#526BFF'
+      });
+    }
+
+    let rotX = 0.25;
+    let rotY = 0;
+    let targetRotX = 0.25;
+    let targetRotY = 0;
+    let isDragging = false;
+    let startPointerX = 0;
+    let startPointerY = 0;
+
+    canvas.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const mouseX = (e.clientX - rect.left) / rect.width - 0.5;
+      const mouseY = (e.clientY - rect.top) / rect.height - 0.5;
+      targetRotY += mouseX * 0.04;
+      targetRotX += -mouseY * 0.04;
+    });
+
+    canvas.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startPointerX = e.clientX;
+      startPointerY = e.clientY;
+    });
+
+    window.addEventListener('mouseup', () => { isDragging = false; });
+    window.addEventListener('mousemove', (e) => {
+      if (isDragging) {
+        const dx = e.clientX - startPointerX;
+        const dy = e.clientY - startPointerY;
+        targetRotY += dx * 0.008;
+        targetRotX += dy * 0.008;
+        startPointerX = e.clientX;
+        startPointerY = e.clientY;
+      }
+    });
+
+    // Mobile touch interaction
+    canvas.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        isDragging = true;
+        startPointerX = e.touches[0].clientX;
+        startPointerY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    canvas.addEventListener('touchmove', (e) => {
+      if (isDragging && e.touches.length === 1) {
+        const dx = e.touches[0].clientX - startPointerX;
+        const dy = e.touches[0].clientY - startPointerY;
+        targetRotY += dx * 0.008;
+        targetRotX += dy * 0.008;
+        startPointerX = e.touches[0].clientX;
+        startPointerY = e.touches[0].clientY;
+      }
+    }, { passive: true });
+
+    canvas.addEventListener('touchend', () => { isDragging = false; });
+
+    let isVisible = true;
+    const observer = new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting;
+    });
+    observer.observe(canvas);
+
+    function render() {
+      if (!isVisible) {
+        requestAnimationFrame(render);
+        return;
+      }
+
+      // Smooth auto-rotation with inertia
+      targetRotY += 0.0035;
+      rotX += (targetRotX - rotX) * 0.08;
+      rotY += (targetRotY - rotY) * 0.08;
+
+      ctx.clearRect(0, 0, width, height);
+
+      const cx = width / 2;
+      const cy = height / 2;
+      const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
+      const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
+
+      const projected = [];
+      for (let i = 0; i < NUM_NODES; i++) {
+        const n = nodes[i];
+        // Rotate around Y
+        const x1 = n.origX * cosY - n.origZ * sinY;
+        const z1 = n.origZ * cosY + n.origX * sinY;
+        // Rotate around X
+        const y2 = n.origY * cosX - z1 * sinX;
+        const z2 = z1 * cosX + n.origY * sinX;
+
+        // Perspective scale
+        const fov = 340;
+        const scale = fov / (fov + z2);
+        const projX = cx + x1 * scale;
+        const projY = cy + y2 * scale;
+        const alpha = Math.max(0.12, Math.min(1, (z2 + RADIUS) / (RADIUS * 2)));
+
+        projected.push({
+          x: projX,
+          y: projY,
+          z: z2,
+          scale: scale,
+          alpha: alpha,
+          size: n.size * scale,
+          color: n.color
+        });
+      }
+
+      // Connect proximal nodes with gold & cobalt filaments
+      const maxDist = RADIUS * 0.68;
+      ctx.lineWidth = 0.8;
+      for (let i = 0; i < projected.length; i++) {
+        for (let j = i + 1; j < projected.length; j++) {
+          const p1 = projected[i];
+          const p2 = projected[j];
+          const dx = p1.x - p2.x;
+          const dy = p1.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < maxDist) {
+            const linkAlpha = (1 - dist / maxDist) * Math.min(p1.alpha, p2.alpha) * 0.42;
+            ctx.strokeStyle = `rgba(199, 167, 122, ${linkAlpha})`;
+            ctx.beginPath();
+            ctx.moveTo(p1.x, p1.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Render glowing nodes
+      for (let i = 0; i < projected.length; i++) {
+        const p = projected[i];
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color === '#C7A77A'
+          ? `rgba(199, 167, 122, ${p.alpha * 0.95})`
+          : `rgba(82, 107, 255, ${p.alpha * 0.85})`;
+        ctx.fill();
+
+        // Ambient depth glow for foreground points
+        if (p.z > 0) {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size * 2.2, 0, Math.PI * 2);
+          ctx.fillStyle = p.color === '#C7A77A'
+            ? `rgba(199, 167, 122, ${p.alpha * 0.18})`
+            : `rgba(82, 107, 255, ${p.alpha * 0.18})`;
+          ctx.fill();
+        }
+      }
+
+      requestAnimationFrame(render);
+    }
+    requestAnimationFrame(render);
+  }
+
+  // Initialize Hero Neural Canvas
+  initHeroNeuralCanvas();
+
   // 9. REAL INTERACTIVE AI LAB: Working ML Credit Risk Calculator
   const loanSlider = document.getElementById('mlLoanAmount');
   const incomeSlider = document.getElementById('mlAnnualIncome');
