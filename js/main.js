@@ -4,7 +4,100 @@
  * Advanced Scroll-Triggered Animation & Responsive Interaction Architecture
  */
 
+// 0. IMMEDIATE THEME REHYDRATION (PREVENT FLASH OF UNSTYLED THEME)
+(function() {
+  try {
+    const saved = localStorage.getItem('kt_theme');
+    const systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (saved === 'dark' || (!saved && systemDark)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  } catch (e) {}
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
+
+  // GLOBAL THEME MANAGER (DARK / LIGHT LUXURY ARCHITECTURAL SWITCH)
+  function initThemeManager() {
+    function applyTheme(theme) {
+      document.documentElement.classList.add('theme-transition');
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('kt_theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('kt_theme', 'light');
+      }
+      setTimeout(() => {
+        document.documentElement.classList.remove('theme-transition');
+      }, 400);
+
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.contains('dark');
+      applyTheme(isDark ? 'light' : 'dark');
+      if (window.showToast) {
+        window.showToast(isDark ? 'Light theme activated' : 'Dark theme activated');
+      }
+    }
+
+    // Auto-inject Theme Toggle Button into Navbar if not already present
+    const navActionContainers = document.querySelectorAll('header .flex.items-center.gap-3, #navbar .flex.items-center.gap-3');
+    navActionContainers.forEach(container => {
+      if (!container.querySelector('.theme-toggle-btn')) {
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'theme-toggle-btn';
+        toggleBtn.setAttribute('aria-label', 'Toggle Dark / Light Theme');
+        toggleBtn.setAttribute('title', 'Toggle Theme');
+        toggleBtn.innerHTML = `
+          <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
+          <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
+        `;
+        // Insert as first action button in container
+        container.insertBefore(toggleBtn, container.firstChild);
+      }
+    });
+
+    // Also inject into Fullscreen Mobile Menu Header if not present
+    const menuHeader = document.querySelector('#fullscreenMenu .flex.items-center.justify-between');
+    if (menuHeader && !menuHeader.querySelector('.theme-toggle-btn')) {
+      const closeBtn = menuHeader.querySelector('#closeMenuBtn');
+      const toggleBtn = document.createElement('button');
+      toggleBtn.className = 'theme-toggle-btn mr-2';
+      toggleBtn.setAttribute('aria-label', 'Toggle Dark / Light Theme');
+      toggleBtn.setAttribute('title', 'Toggle Theme');
+      toggleBtn.innerHTML = `
+        <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
+        <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
+      `;
+      if (closeBtn && closeBtn.parentNode) {
+        closeBtn.parentNode.insertBefore(toggleBtn, closeBtn);
+      }
+    }
+
+    // Attach click listeners to all theme toggle buttons
+    document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+      btn.removeEventListener('click', toggleTheme);
+      btn.addEventListener('click', toggleTheme);
+    });
+
+    // Listen to system OS preference changes if no manual preference stored
+    if (window.matchMedia) {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('kt_theme')) {
+          applyTheme(e.matches ? 'dark' : 'light');
+        }
+      });
+    }
+  }
+
+  initThemeManager();
 
   // 1. Initialize Lucide Icons
   if (window.lucide) {

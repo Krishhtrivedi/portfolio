@@ -1398,3 +1398,335 @@ body.cursor-dark .custom-cursor-ring {
     transform: none !important;
   }
 }
+
+
+/* ==========================================================================
+   12. COMPREHENSIVE GLOBAL DARK THEME SYSTEM
+   Inspired by HPAD Luxury Aesthetics & Architectural Precision
+   ========================================================================== */
+
+/* Global Transition on Theme Switch */
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition: background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Dark Theme Root Token Overrides */
+html.dark {
+  --bg-primary: #080D14;
+  --bg-white: #101822;
+  --bg-secondary: #141E2B;
+  --text-primary: #F5F3EE;
+  --text-secondary: #9AA3B2;
+  --text-tertiary: #6E7687;
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  color-scheme: dark;
+}
+
+/* Base Body in Dark Mode */
+html.dark body {
+  background-color: #080D14 !important;
+  color: #F5F3EE !important;
+}
+
+/* Text Selection in Dark Mode */
+html.dark ::selection {
+  background: #C7A77A !important;
+  color: #080D14 !important;
+}
+
+/* Sticky Navbar & Header in Dark Mode */
+html.dark #navbar,
+html.dark header {
+  background-color: rgba(8, 13, 20, 0.92) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Top Announcement Bar in Dark Mode */
+html.dark .border-editorial-b,
+html.dark .border-editorial-t,
+html.dark .border-editorial {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark .bg-white\/70,
+html.dark .bg-white\/80,
+html.dark .bg-white\/90 {
+  background-color: rgba(16, 24, 34, 0.88) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #9AA3B2 !important;
+}
+
+/* Section Background Overrides */
+html.dark section.bg-\[\#F5F3EE\],
+html.dark section.bg-white,
+html.dark .bg-\[\#F5F3EE\],
+html.dark section#intro,
+html.dark section#expertise,
+html.dark section#experience,
+html.dark div.bg-\[\#F5F3EE\] {
+  background-color: #080D14 !important;
+}
+
+/* Architectural Grid Pattern in Dark Mode */
+html.dark .architectural-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px) !important;
+}
+
+/* Cards & Surface Elevators in Dark Mode */
+html.dark .luxury-card,
+html.dark .architectural-studio-card,
+html.dark .bg-white.border,
+html.dark .bg-white.rounded-sm,
+html.dark div.bg-white:not(.slider-nav-btn) {
+  background-color: #101822 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #F5F3EE !important;
+}
+
+html.dark .luxury-card:hover,
+html.dark .architectural-studio-card:hover {
+  border-color: rgba(199, 167, 122, 0.35) !important;
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Typography Overrides */
+html.dark .text-\[\#171717\],
+html.dark h1, html.dark h2, html.dark h3, html.dark h4, html.dark h5, html.dark h6 {
+  color: #F5F3EE !important;
+}
+
+html.dark .text-\[\#777777\],
+html.dark p.text-\[\#777777\] {
+  color: #9AA3B2 !important;
+}
+
+html.dark .text-\[\#999999\] {
+  color: #6E7687 !important;
+}
+
+html.dark .border-\[\#E6E4DE\] {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark .divide-\[\#E6E4DE\] > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Nav Links & Indicator */
+html.dark .nav-link {
+  color: #9AA3B2 !important;
+}
+html.dark .nav-link:hover,
+html.dark .nav-link.active {
+  color: #FFFFFF !important;
+}
+html.dark .nav-link.active::after {
+  background-color: #526BFF !important;
+}
+
+/* Badges & Eyebrows */
+html.dark .inline-flex.bg-white,
+html.dark span.bg-white {
+  background-color: #121A26 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #9AA3B2 !important;
+}
+
+/* Section Tags */
+html.dark .section-tag {
+  color: #9AA3B2 !important;
+}
+html.dark .section-tag .tag-num {
+  color: #C7A77A !important;
+}
+html.dark .section-tag .tag-line {
+  background-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+/* Interactive Hover States */
+html.dark .hover\:bg-\[\#FAF9F6\]:hover {
+  background-color: rgba(255, 255, 255, 0.035) !important;
+}
+
+/* Primary Dark Buttons (inverts to crisp off-white for high contrast in dark mode) */
+html.dark .btn-primary-dark {
+  background-color: #F5F3EE !important;
+  color: #080D14 !important;
+  border-color: #F5F3EE !important;
+}
+html.dark .btn-primary-dark:hover {
+  background-color: #FFFFFF !important;
+  color: #080D14 !important;
+  box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Outline Editorial Buttons */
+html.dark .btn-outline-editorial {
+  border-color: rgba(255, 255, 255, 0.16) !important;
+  color: #F5F3EE !important;
+  background-color: transparent !important;
+}
+html.dark .btn-outline-editorial:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #FFFFFF !important;
+}
+
+/* Invert Monogram Logos on Dark Background */
+html.dark img[src*="logo-kt-dark.svg"],
+html.dark img[src*="logo-full-dark.svg"] {
+  filter: invert(1) brightness(1.2);
+}
+
+/* Experience & Credential Badges in Dark Mode */
+html.dark .bg-blue-50 {
+  background-color: rgba(82, 107, 255, 0.12) !important;
+  border-color: rgba(82, 107, 255, 0.3) !important;
+}
+html.dark .bg-orange-50 {
+  background-color: rgba(249, 115, 22, 0.12) !important;
+  border-color: rgba(249, 115, 22, 0.3) !important;
+}
+html.dark .bg-emerald-50 {
+  background-color: rgba(16, 185, 129, 0.12) !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+/* Form Inputs in Dark Mode */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #121A26 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #F5F3EE !important;
+}
+html.dark input:focus,
+html.dark textarea:focus,
+html.dark select:focus {
+  border-color: #526BFF !important;
+  outline: none !important;
+}
+
+/* Side Progress Rail in Dark Mode */
+html.dark .side-progress-rail {
+  border-left-color: rgba(255, 255, 255, 0.06) !important;
+}
+html.dark .rail-track {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+html.dark .rail-thumb {
+  background-color: #526BFF !important;
+}
+html.dark .rail-text {
+  color: #6E7687 !important;
+}
+
+/* Custom Cursor in Dark Mode */
+html.dark .custom-cursor-dot {
+  background-color: #F5F3EE !important;
+}
+html.dark .custom-cursor-ring {
+  border-color: rgba(245, 243, 238, 0.35) !important;
+}
+
+/* Fullscreen Menu in Dark Mode */
+html.dark #fullscreenMenu {
+  background-color: rgba(8, 13, 20, 0.98) !important;
+}
+
+/* Mobile Hamburger Trigger in Dark Mode */
+html.dark #menuToggleBtn {
+  background-color: #101822 !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #F5F3EE !important;
+}
+html.dark #menuToggleBtn:hover {
+  border-color: #F5F3EE !important;
+}
+
+/* ==========================================================================
+   THEME TOGGLE BUTTON STYLING (LUXURY ARCHITECTURAL SWITCH)
+   ========================================================================== */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 2px;
+  border: 1px solid var(--border-light);
+  background-color: #FFFFFF;
+  color: #171717;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-cinematic);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.theme-toggle-btn:hover {
+  border-color: #171717;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.theme-toggle-btn:active {
+  transform: translateY(0);
+}
+
+html.dark .theme-toggle-btn {
+  background-color: #101822 !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  color: #C7A77A !important;
+}
+
+html.dark .theme-toggle-btn:hover {
+  border-color: #C7A77A !important;
+  box-shadow: 0 0 15px rgba(199, 167, 122, 0.25) !important;
+}
+
+/* Icon Switching with Smooth Rotation */
+.theme-toggle-btn .icon-moon {
+  display: block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+.theme-toggle-btn .icon-sun {
+  display: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+html.dark .theme-toggle-btn .icon-moon {
+  display: none;
+}
+html.dark .theme-toggle-btn .icon-sun {
+  display: block;
+}
+
+
+/* Filter Buttons in Dark Mode */
+html.dark .filter-btn {
+  background-color: #101822 !important;
+  color: #9AA3B2 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html.dark .filter-btn:hover {
+  border-color: #C7A77A !important;
+  color: #F5F3EE !important;
+}
+
+html.dark .filter-btn.active,
+html.dark .filter-btn.bg-\[\#171717\] {
+  background-color: #F5F3EE !important;
+  color: #080D14 !important;
+  border-color: #F5F3EE !important;
+}
