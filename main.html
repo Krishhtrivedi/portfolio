@@ -50,7 +50,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Custom Design System & Animation Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=3.5.0">
+  <link rel="stylesheet" href="css/styles.css?v=3.6.0">
 </head>
 <body class="bg-[#F5F3EE] text-[#171717] font-sans antialiased relative">
 
@@ -388,276 +388,348 @@
   </section>
 
   <!-- ========================================================================
-       02 — SELECTED PROJECTS (CINEMATIC DESIGN GALLERY)
+       02 — SELECTED PROJECTS (CINEMATIC 3D OVERLAPPING PROJECT SLIDER)
+       Theme: Luxury Midnight Navy (#080D14) & Champagne Gold Accent (#C7A77A)
+       Visual Style: Meet Gajjar Interactive Carousel + HPAD Architectural Elegance
        ======================================================================== -->
-  <section class="py-24 border-editorial-b bg-[#F5F3EE]" id="projects">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="py-24 sm:py-32 relative overflow-hidden bg-[#080D14] text-[#F5F3EE] border-t border-b border-white/[0.08]" id="projects">
+    <!-- Cinematic Background Lighting & Grid -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[550px] bg-[radial-gradient(ellipse_at_center,rgba(199,167,122,0.06),transparent_70%)] blur-3xl"></div>
+      <div class="absolute top-1/4 left-1/4 w-[500px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(82,107,255,0.05),transparent_70%)] blur-3xl"></div>
+      <div class="absolute inset-0 opacity-[0.03]" style="background-size: 44px 44px; background-image: linear-gradient(to right, #FFF 1px, transparent 1px), linear-gradient(to bottom, #FFF 1px, transparent 1px);"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-[#080D14] via-transparent to-[#080D14] opacity-90"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
-      <!-- Section Header & Filter Controls -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 scroll-reveal">
+      <!-- Section Header with Meet Gajjar / HPAD Architectural Typography -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-6 scroll-reveal">
         <div>
-          <div class="section-tag">
-            <span class="tag-num">02</span>
-            <span class="tag-line"></span>
-            <span>Selected Projects</span>
+          <div class="section-tag-gold">
+            <span class="tag-num text-[#C7A77A]">02</span>
+            <span class="tag-line bg-[#C7A77A]/40" style="width: 24px; height: 1px; display: inline-block;"></span>
+            <span class="text-[#A5ADB5] tracking-widest text-xs uppercase font-mono">Interactive Project Showcase</span>
           </div>
-          <h2 class="headline-section mt-3">
+          <h2 class="text-3xl sm:text-5xl font-display font-bold text-[#F5F3EE] mt-3 tracking-tight">
             Crafted for Impact.<br>
-            <span class="font-serif italic font-normal text-[#526BFF]">Engineered</span> for Scale.
+            <span class="font-serif italic font-normal text-[#C7A77A]">Engineered</span> for Scale.
           </h2>
+          <p class="text-xs sm:text-sm text-[#A5ADB5] mt-2 max-w-xl font-sans leading-relaxed">
+            Real-world production platforms, automated machine learning models, and autonomous AI systems engineered by Krish Trivedi.
+          </p>
         </div>
 
-        <!-- Filter Buttons (International Portfolio Style) -->
-        <div class="flex flex-wrap items-center gap-2">
-          <button class="filter-btn text-xs font-mono uppercase px-4 py-2 border rounded-sm transition-all bg-[#171717] text-white border-[#171717]" data-filter="all">All (7)</button>
-          <button class="filter-btn text-xs font-mono uppercase px-4 py-2 border rounded-sm transition-all bg-white text-[#777777] border-[#E6E4DE] hover:border-[#171717]" data-filter="ai">AI & ML (4)</button>
-          <button class="filter-btn text-xs font-mono uppercase px-4 py-2 border rounded-sm transition-all bg-white text-[#777777] border-[#E6E4DE] hover:border-[#171717]" data-filter="web">Web & Cloud (3)</button>
-          <button class="filter-btn text-xs font-mono uppercase px-4 py-2 border rounded-sm transition-all bg-white text-[#777777] border-[#E6E4DE] hover:border-[#171717]" data-filter="enterprise">Enterprise (2)</button>
+        <!-- Slider Navigation Chevrons & Active Counter -->
+        <div class="flex items-center gap-4">
+          <div class="slider-counter font-mono text-xs sm:text-sm tracking-wider flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#101820] border border-white/[0.1]">
+            <span class="slider-current text-[#C7A77A] font-bold">01</span>
+            <span class="text-[#A5ADB5]/50">/</span>
+            <span class="slider-total text-[#A5ADB5]">07</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button id="sliderPrevBtn" aria-label="Previous Project Slide" class="slider-nav-btn">
+              <i data-lucide="arrow-left" class="w-4 h-4"></i>
+            </button>
+            <button id="sliderNextBtn" aria-label="Next Project Slide" class="slider-nav-btn">
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+          </div>
         </div>
       </div>
 
-      <!-- Asymmetrical Project Grid with Scroll Reveals -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
+      <!-- 3D Overlapping Project Slider Stage -->
+      <div id="projectSliderStage" class="project-slider-stage select-none" aria-label="Interactive Project Carousel">
+        <div id="projectSliderTrack" class="project-slider-track">
+          
+          <!-- Slide 1: KisanMitra -->
+          <article class="slider-project-card" data-index="0">
+            <div class="slider-card-media">
+              <img src="img/projects/kisanmitra-preview.svg" alt="KisanMitra AI Agricultural Platform" loading="lazy">
+              <div class="slider-card-media-gradient"></div>
+              <span class="slider-card-badge">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>SIH '25 FINALIST</span>
+              </span>
+              <span class="slider-card-num">01 / 07</span>
+            </div>
+            <div class="slider-card-body">
+              <div>
+                <span class="font-mono text-[10px] text-[#C7A77A] uppercase tracking-wider block mb-1">Multimodal AI &amp; Computer Vision</span>
+                <h3 class="slider-card-title">KisanMitra – AI Krishi Officer</h3>
+                <p class="slider-card-desc">
+                  AI-driven agricultural platform with multilingual voice assistance (Hindi, Gujarati, English) paired with crop pathology diagnostics via Gemini 1.5 Flash Vision.
+                </p>
+                <div class="slider-card-tags">
+                  <span class="slider-card-tag">Python</span>
+                  <span class="slider-card-tag">FastAPI</span>
+                  <span class="slider-card-tag">Gemini Vision</span>
+                  <span class="slider-card-tag">Whisper AI</span>
+                  <span class="slider-card-tag">LangChain</span>
+                </div>
+              </div>
+              <div class="slider-card-footer">
+                <span class="font-mono text-[11px] text-[#A5ADB5]">National Hackathon Finalist</span>
+                <a href="projects/kisanmitra.html" class="slider-card-btn group">
+                  <span>View Case Study</span>
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 2: HPAD Travel Management -->
+          <article class="slider-project-card" data-index="1">
+            <div class="slider-card-media">
+              <img src="img/projects/hpad-preview.jpg" alt="HPAD Travel Management System" loading="lazy">
+              <div class="slider-card-media-gradient"></div>
+              <span class="slider-card-badge">
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                <span>PRODUCTION DEPLOYED</span>
+              </span>
+              <span class="slider-card-num">02 / 07</span>
+            </div>
+            <div class="slider-card-body">
+              <div>
+                <span class="font-mono text-[10px] text-[#C7A77A] uppercase tracking-wider block mb-1">Next.js 15 &amp; Supabase Enterprise</span>
+                <h3 class="slider-card-title">HPAD Travel Management System</h3>
+                <p class="slider-card-desc">
+                  Corporate travel logistics and site-visit administration system engineered for Hiren Patel Architects &amp; Design (HPAD). Multi-role RBAC &amp; automated driver dispatching.
+                </p>
+                <div class="slider-card-tags">
+                  <span class="slider-card-tag">Next.js 15</span>
+                  <span class="slider-card-tag">React 19</span>
+                  <span class="slider-card-tag">Supabase</span>
+                  <span class="slider-card-tag">PostgreSQL</span>
+                  <span class="slider-card-tag">Tailwind</span>
+                </div>
+              </div>
+              <div class="slider-card-footer">
+                <span class="font-mono text-[11px] text-[#A5ADB5]">Enterprise Architecture</span>
+                <a href="projects/hpad-travel.html" class="slider-card-btn group">
+                  <span>View Case Study</span>
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 3: White Swan Holidays -->
+          <article class="slider-project-card" data-index="2">
+            <div class="slider-card-media">
+              <img src="img/projects/whiteswan-preview.jpg" alt="White Swan Holidays Platform" loading="lazy">
+              <div class="slider-card-media-gradient"></div>
+              <span class="slider-card-badge">
+                <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
+                <span>LIVE ON RENDER</span>
+              </span>
+              <span class="slider-card-num">03 / 07</span>
+            </div>
+            <div class="slider-card-body">
+              <div>
+                <span class="font-mono text-[10px] text-[#C7A77A] uppercase tracking-wider block mb-1">Full-Stack Cloud &amp; Travel Portal</span>
+                <h3 class="slider-card-title">White Swan Holidays Platform</h3>
+                <p class="slider-card-desc">
+                  International tour package discovery, automated booking request workflows, and responsive customer portal deployed live on Render cloud infrastructure.
+                </p>
+                <div class="slider-card-tags">
+                  <span class="slider-card-tag">React 18</span>
+                  <span class="slider-card-tag">Node.js</span>
+                  <span class="slider-card-tag">Express</span>
+                  <span class="slider-card-tag">Render Cloud</span>
+                  <span class="slider-card-tag">REST API</span>
+                </div>
+              </div>
+              <div class="slider-card-footer">
+                <span class="font-mono text-[11px] text-[#A5ADB5]">Live Cloud Deployment</span>
+                <a href="projects/white-swan.html" class="slider-card-btn group">
+                  <span>View Case Study</span>
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 4: Loan Default Prediction -->
+          <article class="slider-project-card" data-index="3">
+            <div class="slider-card-media">
+              <img src="img/projects/loandefault-preview.svg" alt="Loan Default Risk Prediction Engine" loading="lazy">
+              <div class="slider-card-media-gradient"></div>
+              <span class="slider-card-badge">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <span>89.4% ROC-AUC</span>
+              </span>
+              <span class="slider-card-num">04 / 07</span>
+            </div>
+            <div class="slider-card-body">
+              <div>
+                <span class="font-mono text-[10px] text-[#C7A77A] uppercase tracking-wider block mb-1">Machine Learning Risk Intelligence</span>
+                <h3 class="slider-card-title">Loan Default Prediction Model</h3>
+                <p class="slider-card-desc">
+                  Credit risk scoring classification model trained on 50,000+ customer records delivering 89.4% ROC-AUC accuracy and real-time inference scoring.
+                </p>
+                <div class="slider-card-tags">
+                  <span class="slider-card-tag">Scikit-Learn</span>
+                  <span class="slider-card-tag">XGBoost</span>
+                  <span class="slider-card-tag">FastAPI</span>
+                  <span class="slider-card-tag">Docker</span>
+                  <span class="slider-card-tag">Pandas</span>
+                </div>
+              </div>
+              <div class="slider-card-footer">
+                <span class="font-mono text-[11px] text-[#A5ADB5]">Financial Risk AI</span>
+                <a href="ai-lab.html" class="slider-card-btn group">
+                  <span>Interactive Demo</span>
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 5: AI Psychology & Wellness Chatbot -->
+          <article class="slider-project-card" data-index="4">
+            <div class="slider-card-media">
+              <img src="img/projects/psychology-preview.svg" alt="AI Psychology Chatbot" loading="lazy">
+              <div class="slider-card-media-gradient"></div>
+              <span class="slider-card-badge">
+                <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                <span>CBT GROUNDED</span>
+              </span>
+              <span class="slider-card-num">05 / 07</span>
+            </div>
+            <div class="slider-card-body">
+              <div>
+                <span class="font-mono text-[10px] text-[#C7A77A] uppercase tracking-wider block mb-1">Conversational Agent &amp; NLP</span>
+                <h3 class="slider-card-title">AI Psychology &amp; Wellness Chatbot</h3>
+                <p class="slider-card-desc">
+                  Empathetic mental health companion providing CBT-grounded dialogue, emotional state tracking, and ethical safety triaging guardrails.
+                </p>
+                <div class="slider-card-tags">
+                  <span class="slider-card-tag">LangChain</span>
+                  <span class="slider-card-tag">Claude 3.5</span>
+                  <span class="slider-card-tag">ChromaDB</span>
+                  <span class="slider-card-tag">FastAPI</span>
+                  <span class="slider-card-tag">React</span>
+                </div>
+              </div>
+              <div class="slider-card-footer">
+                <span class="font-mono text-[11px] text-[#A5ADB5]">Conversational Therapy AI</span>
+                <a href="projects.html" class="slider-card-btn group">
+                  <span>Read Architecture</span>
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 6: Web Scraping & Data Aggregation -->
+          <article class="slider-project-card" data-index="5">
+            <div class="slider-card-media">
+              <img src="img/projects/scraping-preview.svg" alt="Web Scraping Engine" loading="lazy">
+              <div class="slider-card-media-gradient"></div>
+              <span class="slider-card-badge">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                <span>DISTRIBUTED ETL</span>
+              </span>
+              <span class="slider-card-num">06 / 07</span>
+            </div>
+            <div class="slider-card-body">
+              <div>
+                <span class="font-mono text-[10px] text-[#C7A77A] uppercase tracking-wider block mb-1">Distributed Systems &amp; Automation</span>
+                <h3 class="slider-card-title">Web Scraping &amp; Data Aggregation</h3>
+                <p class="slider-card-desc">
+                  High-throughput resilient web extraction engine collecting, normalizing, and structuring multi-source market intelligence across JS-rendered targets.
+                </p>
+                <div class="slider-card-tags">
+                  <span class="slider-card-tag">Python</span>
+                  <span class="slider-card-tag">Playwright</span>
+                  <span class="slider-card-tag">BeautifulSoup</span>
+                  <span class="slider-card-tag">Celery</span>
+                  <span class="slider-card-tag">Redis</span>
+                </div>
+              </div>
+              <div class="slider-card-footer">
+                <span class="font-mono text-[11px] text-[#A5ADB5]">Resilient Data Engine</span>
+                <a href="projects.html" class="slider-card-btn group">
+                  <span>Read Architecture</span>
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Slide 7: SmartFin AI -->
+          <article class="slider-project-card" data-index="6">
+            <div class="slider-card-media">
+              <img src="img/projects/portfolio-preview.jpg" alt="SmartFin AI Platform" loading="lazy">
+              <div class="slider-card-media-gradient"></div>
+              <span class="slider-card-badge">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#E65909]"></span>
+                <span>ENTERPRISE LIVE</span>
+              </span>
+              <span class="slider-card-num">07 / 07</span>
+            </div>
+            <div class="slider-card-body">
+              <div>
+                <span class="font-mono text-[10px] text-[#C7A77A] uppercase tracking-wider block mb-1">Financial ERP &amp; Office Automation</span>
+                <h3 class="slider-card-title">SmartFin AI – Finance Automation</h3>
+                <p class="slider-card-desc">
+                  Enterprise financial automation system: 2-way GST reconciliation, TDS/TCS 26Q compliance, Bank BRS statement matching, and ledger-grounded AI copilot.
+                </p>
+                <div class="slider-card-tags">
+                  <span class="slider-card-tag">FastAPI</span>
+                  <span class="slider-card-tag">React 18</span>
+                  <span class="slider-card-tag">PostgreSQL 18</span>
+                  <span class="slider-card-tag">Docker</span>
+                  <span class="slider-card-tag">OpenPyXL</span>
+                </div>
+              </div>
+              <div class="slider-card-footer">
+                <span class="font-mono text-[11px] text-[#A5ADB5]">Enterprise ERP Live</span>
+                <a href="projects/smartfin-ai.html" class="slider-card-btn group">
+                  <span>View Case Study</span>
+                  <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Floating Desktop Side Chevrons -->
+        <button id="sliderFloatPrev" aria-label="Previous Slide" class="slider-float-arrow slider-float-left">
+          <i data-lucide="chevron-left" class="w-5 h-5"></i>
+        </button>
+        <button id="sliderFloatNext" aria-label="Next Slide" class="slider-float-arrow slider-float-right">
+          <i data-lucide="chevron-right" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Bottom Interactive Controls & Progress Indicators -->
+      <div class="mt-12 sm:mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/[0.08] pt-8">
         
-        <!-- FEATURED: SmartFin AI (Span 12 Hero Showcase) -->
-        <div class="project-card lg:col-span-12 luxury-card p-6 sm:p-10 flex flex-col lg:flex-row gap-8 justify-between bg-white border border-[#E6E4DE]" data-category="ai web enterprise">
-          <div class="lg:w-5/12 bg-[#0D2035] rounded-sm p-8 flex flex-col justify-between text-white relative overflow-hidden">
-            <div class="space-y-4 relative z-10">
-              <div class="flex items-center justify-between">
-                <span class="font-mono text-[10px] text-[#F86927] uppercase tracking-wider font-semibold">Vichar Vimarsh System</span>
-                <span class="px-2 py-0.5 bg-[#E65909] text-white font-mono text-[10px] rounded-sm font-bold">Production Live</span>
-              </div>
-              <h4 class="font-display font-extrabold text-2xl text-white">SmartFin AI</h4>
-              <p class="text-xs text-[#8B97A3] leading-relaxed">
-                Enterprise AI-powered financial automation platform: 2-way GST reconciliation, TDS/TCS 26Q compliance, Bank BRS statement matching, Excel automation, and ledger-grounded AI copilot.
-              </p>
-            </div>
-            <div class="pt-6 border-t border-[#364452] flex items-center justify-between text-xs font-mono text-[#8B97A3] relative z-10">
-              <span>FastAPI · React 18 · Docker</span>
-              <a href="https://smartfin-ai-kg6b.onrender.com" target="_blank" rel="noopener noreferrer" class="text-[#F86927] hover:underline font-bold">Launch App ↗</a>
-            </div>
+        <!-- Progress Bar & Clickable Dot Pills -->
+        <div class="flex items-center gap-6 w-full sm:w-auto">
+          <div class="slider-progress-track">
+            <div id="sliderProgressBar" class="slider-progress-bar"></div>
           </div>
-          <div class="lg:w-7/12 flex flex-col justify-between space-y-4">
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <span class="editorial-tag text-[#E65909] border-[#E65909]/30 font-bold">PRODUCTION ENTERPRISE DEPLOYMENT</span>
-                <span class="font-mono text-xs text-[#777777]">00 // FINANCIAL ERP & AI</span>
-              </div>
-              <h3 class="font-display font-bold text-2xl text-[#171717] mb-2">SmartFin AI – Finance & Office Automation</h3>
-              <p class="text-sm text-[#777777] leading-relaxed mb-4">
-                Engineered for Vichar Vimarsh to automate repetitive accounting, eliminate GSTR-2B Input Tax Credit (ITC) mismatches, verify TDS thresholds (194C, 194J, 194I, 194Q), and streamline multi-department financial ledgers into automated systems running by design.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-4">
-                <span class="editorial-tag">Python / FastAPI</span>
-                <span class="editorial-tag">React 18 / TypeScript</span>
-                <span class="editorial-tag">PostgreSQL 18</span>
-                <span class="editorial-tag">Docker Container</span>
-                <span class="editorial-tag">OpenPyXL</span>
-              </div>
-            </div>
-            <div class="pt-4 border-editorial-t flex items-center justify-between text-xs font-mono">
-              <a href="https://smartfin-ai-kg6b.onrender.com" target="_blank" rel="noopener noreferrer" class="text-[#E65909] hover:underline font-bold inline-flex items-center gap-1">
-                <span>https://smartfin-ai-kg6b.onrender.com</span>
-                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-              </a>
-              <a href="projects/smartfin-ai.html" class="inline-flex items-center gap-1.5 font-bold text-[#171717] hover:text-[#526BFF] transition-colors">
-                <span>Read Full Case Study</span>
-                <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-              </a>
-            </div>
+          <div id="sliderDots" class="flex items-center gap-2">
+            <!-- Rendered dynamically by JavaScript -->
           </div>
         </div>
 
-        <!-- PROJECT 1: KisanMitra (Span 7) -->
-        <div class="project-card lg:col-span-7 luxury-card p-6 sm:p-8 flex flex-col justify-between scroll-reveal" data-category="ai">
-          <div>
-            <div class="project-image-frame aspect-[16/9] mb-6 img-reveal-frame">
-              <img src="img/projects/kisanmitra-preview.svg" alt="KisanMitra AI Agricultural Platform" class="w-full h-full object-cover">
-            </div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="editorial-tag text-[#526BFF] border-[#526BFF]/30 font-bold">SMART INDIA HACKATHON '25 FINALIST</span>
-              <span class="font-mono text-xs text-[#777777]">01 // AI & COMPUTER VISION</span>
-            </div>
-            <h3 class="font-display font-bold text-2xl text-[#171717] mb-2">KisanMitra – AI Krishi Officer</h3>
-            <p class="text-sm text-[#777777] leading-relaxed mb-4">
-              AI-driven agricultural platform delivering multilingual voice conversational assistance in Hindi, Gujarati, and English, paired with crop disease diagnostics via Gemini 1.5 Flash Vision.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="editorial-tag">Python</span>
-              <span class="editorial-tag">FastAPI</span>
-              <span class="editorial-tag">Gemini Vision</span>
-              <span class="editorial-tag">Whisper AI</span>
-              <span class="editorial-tag">LangChain</span>
-            </div>
-          </div>
-          <div class="pt-4 border-editorial-t flex items-center justify-between text-xs font-mono">
-            <span class="text-[#777777]">Multimodal Agricultural LLM</span>
-            <a href="projects/kisanmitra.html" class="inline-flex items-center gap-1.5 font-bold text-[#171717] hover:text-[#526BFF] transition-colors">
-              <span>View Case Study</span>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
+        <!-- Interaction Hint & All Case Studies Link -->
+        <div class="flex items-center justify-between w-full sm:w-auto gap-6 text-xs font-mono text-[#A5ADB5]">
+          <span class="hidden md:inline-flex items-center gap-2 text-[#A5ADB5]/70">
+            <i data-lucide="mouse-pointer" class="w-3.5 h-3.5 text-[#C7A77A]"></i>
+            <span>Drag, swipe or use ← → arrow keys</span>
+          </span>
+          <a href="projects.html" class="inline-flex items-center gap-1.5 text-[#F5F3EE] hover:text-[#C7A77A] transition-colors font-bold group">
+            <span>Explore Complete Projects Archive Grid</span>
+            <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
+          </a>
         </div>
 
-        <!-- PROJECT 2: HPAD Travel Management System (Span 5) -->
-        <div class="project-card lg:col-span-5 luxury-card p-6 sm:p-8 flex flex-col justify-between scroll-reveal" data-category="web enterprise">
-          <div>
-            <div class="project-image-frame aspect-[16/9] mb-6 img-reveal-frame">
-              <img src="img/projects/hpad-preview.jpg" alt="HPAD Travel Management System" class="w-full h-full object-cover">
-            </div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="editorial-tag text-emerald-600 border-emerald-500/30 font-bold">ENTERPRISE PRODUCTION DEPLOYED</span>
-              <span class="font-mono text-xs text-[#777777]">02 // WEB & CLOUD</span>
-            </div>
-            <h3 class="font-display font-bold text-2xl text-[#171717] mb-2">HPAD Travel Management System</h3>
-            <p class="text-sm text-[#777777] leading-relaxed mb-4">
-              Corporate travel logistics platform engineered for Hiren Patel Architects & Design (HPAD). Multi-role authorization, driver dispatching, and Supabase PostgreSQL.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="editorial-tag">Next.js 15</span>
-              <span class="editorial-tag">React 19</span>
-              <span class="editorial-tag">Supabase</span>
-              <span class="editorial-tag">Render Cloud</span>
-            </div>
-          </div>
-          <div class="pt-4 border-editorial-t flex items-center justify-between text-xs font-mono">
-            <a href="https://hpad-travel-jyxx.onrender.com/" target="_blank" class="text-emerald-600 hover:underline">Live Application ↗</a>
-            <a href="projects/hpad-travel.html" class="inline-flex items-center gap-1.5 font-bold text-[#171717] hover:text-[#526BFF] transition-colors">
-              <span>View Case Study</span>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- PROJECT 3: White Swan Holidays (Span 5) -->
-        <div class="project-card lg:col-span-5 luxury-card p-6 sm:p-8 flex flex-col justify-between scroll-reveal" data-category="web">
-          <div>
-            <div class="project-image-frame aspect-[16/9] mb-6 img-reveal-frame">
-              <img src="img/projects/whiteswan-preview.jpg" alt="White Swan Holidays Booking Platform" class="w-full h-full object-cover">
-            </div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="editorial-tag text-[#171717]">COMMERCIAL PLATFORM</span>
-              <span class="font-mono text-xs text-[#777777]">03 // FULL-STACK</span>
-            </div>
-            <h3 class="font-display font-bold text-2xl text-[#171717] mb-2">White Swan Holidays</h3>
-            <p class="text-sm text-[#777777] leading-relaxed mb-4">
-              Digital customer booking portal for a luxury travel consultancy with automated itinerary generation and WhatsApp Business lead integration.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="editorial-tag">React</span>
-              <span class="editorial-tag">Node.js</span>
-              <span class="editorial-tag">Express</span>
-              <span class="editorial-tag">Render</span>
-            </div>
-          </div>
-          <div class="pt-4 border-editorial-t flex items-center justify-between text-xs font-mono">
-            <a href="https://whiteswanholidays.onrender.com/" target="_blank" class="text-[#526BFF] hover:underline">Live Site ↗</a>
-            <a href="projects/white-swan.html" class="inline-flex items-center gap-1.5 font-bold text-[#171717] hover:text-[#526BFF] transition-colors">
-              <span>View Case Study</span>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- PROJECT 4: Loan Default Prediction ML (Span 7) -->
-        <div class="project-card lg:col-span-7 luxury-card p-6 sm:p-8 flex flex-col justify-between scroll-reveal" data-category="ai">
-          <div>
-            <div class="project-image-frame aspect-[16/9] mb-6 img-reveal-frame">
-              <img src="img/projects/loandefault-preview.svg" alt="Loan Default Prediction Machine Learning" class="w-full h-full object-cover">
-            </div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="editorial-tag text-purple-700 border-purple-300">PREDICTIVE ML PIPELINE</span>
-              <span class="font-mono text-xs text-[#777777]">04 // MACHINE LEARNING</span>
-            </div>
-            <h3 class="font-display font-bold text-2xl text-[#171717] mb-2">Financial Loan Default Prediction</h3>
-            <p class="text-sm text-[#777777] leading-relaxed mb-4">
-              Production credit risk assessment pipeline featuring automated SMOTE class imbalance compensation, XGBoost ensemble classification, and interactive Streamlit inference.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="editorial-tag">Python</span>
-              <span class="editorial-tag">Scikit-learn</span>
-              <span class="editorial-tag">XGBoost</span>
-              <span class="editorial-tag">Pandas</span>
-              <span class="editorial-tag">Streamlit</span>
-            </div>
-          </div>
-          <div class="pt-4 border-editorial-t flex items-center justify-between text-xs font-mono">
-            <span class="text-[#777777]">ROC-AUC: 0.894</span>
-            <a href="projects.html" class="inline-flex items-center gap-1.5 font-bold text-[#171717] hover:text-[#526BFF] transition-colors">
-              <span>Explore Architecture</span>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- PROJECT 5: AI Psychology & Wellness Chatbot (Span 6) -->
-        <div class="project-card lg:col-span-6 luxury-card p-6 sm:p-8 flex flex-col justify-between scroll-reveal" data-category="ai">
-          <div>
-            <div class="project-image-frame aspect-[16/9] mb-6 img-reveal-frame">
-              <img src="img/projects/psychology-preview.svg" alt="AI Psychology Chatbot" class="w-full h-full object-cover">
-            </div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="editorial-tag text-teal-700">RAG & EMOTIONAL NLP</span>
-              <span class="font-mono text-xs text-[#777777]">05 // GENERATIVE AI</span>
-            </div>
-            <h3 class="font-display font-bold text-2xl text-[#171717] mb-2">AI Psychology & Wellness Companion</h3>
-            <p class="text-sm text-[#777777] leading-relaxed mb-4">
-              Empathic mental wellness companion integrating Cognitive Behavioral Therapy (CBT) conversational frameworks and vector similarity retrieval for coping strategies.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="editorial-tag">FastAPI</span>
-              <span class="editorial-tag">LangChain</span>
-              <span class="editorial-tag">FAISS</span>
-              <span class="editorial-tag">Llama 3</span>
-            </div>
-          </div>
-          <div class="pt-4 border-editorial-t flex items-center justify-between text-xs font-mono">
-            <span class="text-[#777777]">Privacy-Preserving Architecture</span>
-            <a href="projects.html" class="inline-flex items-center gap-1.5 font-bold text-[#171717] hover:text-[#526BFF] transition-colors">
-              <span>View Specs</span>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- PROJECT 6: Web Scraping & Data Ingestion (Span 6) -->
-        <div class="project-card lg:col-span-6 luxury-card p-6 sm:p-8 flex flex-col justify-between scroll-reveal" data-category="enterprise">
-          <div>
-            <div class="project-image-frame aspect-[16/9] mb-6 img-reveal-frame">
-              <img src="img/projects/scraping-preview.svg" alt="Distributed Web Scraping Pipeline" class="w-full h-full object-cover">
-            </div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="editorial-tag text-blue-700">AUTOMATION & INGESTION</span>
-              <span class="font-mono text-xs text-[#777777]">06 // DATA SYSTEMS</span>
-            </div>
-            <h3 class="font-display font-bold text-2xl text-[#171717] mb-2">Distributed Web Scraping Pipeline</h3>
-            <p class="text-sm text-[#777777] leading-relaxed mb-4">
-              High-concurrency headless extraction cluster utilizing Playwright and Scrapy with rotating proxy topologies and automated database normalization.
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="editorial-tag">Python</span>
-              <span class="editorial-tag">Playwright</span>
-              <span class="editorial-tag">Scrapy</span>
-              <span class="editorial-tag">PostgreSQL</span>
-            </div>
-          </div>
-          <div class="pt-4 border-editorial-t flex items-center justify-between text-xs font-mono">
-            <span class="text-[#777777]">Resilient Anti-Bot Defense</span>
-            <a href="projects.html" class="inline-flex items-center gap-1.5 font-bold text-[#171717] hover:text-[#526BFF] transition-colors">
-              <span>View Details</span>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Bottom Link -->
-      <div class="mt-12 text-center scroll-reveal">
-        <a href="projects.html" class="btn-luxury btn-outline-editorial text-xs">
-          <span>VIEW ALL CASE STUDIES & TECHNICAL ARCHITECTURE</span>
-          <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </a>
       </div>
 
     </div>
@@ -1334,6 +1406,6 @@
   </footer>
 
   <!-- Scripts -->
-  <script src="js/main.js?v=3.5.0"></script>
+  <script src="js/main.js?v=3.6.0"></script>
 </body>
 </html>

@@ -227,6 +227,280 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ========================================================================
+  // 8.1. PREMIUM 3D CINEMATIC PROJECT SLIDER ENGINE (MEET GAJJAR + HPAD)
+  // ========================================================================
+  function initProjectSlider() {
+    const stage = document.getElementById('projectSliderStage');
+    const track = document.getElementById('projectSliderTrack');
+    if (!stage || !track) return;
+
+    const cards = Array.from(track.querySelectorAll('.slider-project-card'));
+    if (cards.length === 0) return;
+
+    const prevBtn = document.getElementById('sliderPrevBtn');
+    const nextBtn = document.getElementById('sliderNextBtn');
+    const floatPrev = document.getElementById('sliderFloatPrev');
+    const floatNext = document.getElementById('sliderFloatNext');
+    const currentEl = document.querySelector('.slider-current');
+    const totalEl = document.querySelector('.slider-total');
+    const progressBar = document.getElementById('sliderProgressBar');
+    const dotsContainer = document.getElementById('sliderDots');
+
+    const N = cards.length;
+    let currentIndex = 0;
+    let isDragging = false;
+    let startX = 0;
+    let currentDeltaX = 0;
+    let autoPlayTimer = null;
+    const AUTOPLAY_INTERVAL = 5500;
+
+    // Set total counter
+    if (totalEl) totalEl.textContent = String(N).padStart(2, '0');
+
+    // Create pagination dot pills
+    if (dotsContainer) {
+      dotsContainer.innerHTML = '';
+      cards.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.className = `slider-dot ${idx === 0 ? 'active' : ''}`;
+        dot.setAttribute('aria-label', `Navigate to project ${idx + 1}`);
+        dot.addEventListener('click', (e) => {
+          e.stopPropagation();
+          goToSlide(idx);
+          resetAutoPlay();
+        });
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateSlider(offsetDelta = 0) {
+      const isMobile = window.innerWidth <= 768;
+      const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
+
+      cards.forEach((card, i) => {
+        let d = (i - currentIndex) % N;
+        if (d > N / 2) d -= N;
+        if (d < -N / 2) d += N;
+
+        if (d === 0) {
+          // Center Active Card
+          card.className = 'slider-project-card is-active';
+          const dragShift = offsetDelta * 0.45;
+          if (isMobile) {
+            card.style.transform = `translate(calc(-50% + ${dragShift}px), -50%) scale(1)`;
+          } else {
+            card.style.transform = `translate(calc(-50% + ${dragShift}px), -50%) translateZ(0px) rotateY(0deg) scale(1)`;
+          }
+        } else if (d === -1) {
+          // Previous Left Card
+          card.className = 'slider-project-card is-prev';
+          const dragShift = offsetDelta * 0.25;
+          if (isMobile) {
+            card.style.transform = `translate(calc(-50% - 78% + ${dragShift}px), -50%) scale(0.88)`;
+          } else if (isTablet) {
+            card.style.transform = `translate(calc(-50% - 250px + ${dragShift}px), -50%) translateZ(-70px) rotateY(10deg) scale(0.86)`;
+          } else {
+            card.style.transform = `translate(calc(-50% - 330px + ${dragShift}px), -50%) translateZ(-90px) rotateY(13deg) scale(0.86)`;
+          }
+        } else if (d === 1) {
+          // Next Right Card
+          card.className = 'slider-project-card is-next';
+          const dragShift = offsetDelta * 0.25;
+          if (isMobile) {
+            card.style.transform = `translate(calc(-50% + 78% + ${dragShift}px), -50%) scale(0.88)`;
+          } else if (isTablet) {
+            card.style.transform = `translate(calc(-50% + 250px + ${dragShift}px), -50%) translateZ(-70px) rotateY(-10deg) scale(0.86)`;
+          } else {
+            card.style.transform = `translate(calc(-50% + 330px + ${dragShift}px), -50%) translateZ(-90px) rotateY(-13deg) scale(0.86)`;
+          }
+        } else {
+          // Offstage Hidden Cards
+          card.className = 'slider-project-card is-hidden';
+          const sign = d > 0 ? 1 : -1;
+          if (isMobile) {
+            card.style.transform = `translate(calc(-50% + ${sign * 120}%), -50%) scale(0.7)`;
+          } else {
+            card.style.transform = `translate(calc(-50% + ${sign * 650}px), -50%) translateZ(-250px) scale(0.7)`;
+          }
+        }
+      });
+
+      // Update Active Slide Index Text
+      if (currentEl) currentEl.textContent = String(currentIndex + 1).padStart(2, '0');
+
+      // Update Horizontal Progress Track
+      if (progressBar) {
+        const pct = ((currentIndex + 1) / N) * 100;
+        progressBar.style.width = `${pct}%`;
+      }
+
+      // Update Pagination Dots
+      if (dotsContainer) {
+        const dots = dotsContainer.querySelectorAll('.slider-dot');
+        dots.forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === currentIndex);
+        });
+      }
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % N;
+      updateSlider(0);
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + N) % N;
+      updateSlider(0);
+    }
+
+    function goToSlide(index) {
+      currentIndex = (index + N) % N;
+      updateSlider(0);
+    }
+
+    // Direct click on side cards to advance
+    cards.forEach((card, idx) => {
+      card.addEventListener('click', (e) => {
+        if (Math.abs(currentDeltaX) > 8) return; // Prevent navigation during drag
+        let d = (idx - currentIndex) % N;
+        if (d > N / 2) d -= N;
+        if (d < -N / 2) d += N;
+
+        if (d === 1) {
+          e.preventDefault();
+          nextSlide();
+          resetAutoPlay();
+        } else if (d === -1) {
+          e.preventDefault();
+          prevSlide();
+          resetAutoPlay();
+        }
+      });
+    });
+
+    // Button Listeners
+    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); prevSlide(); resetAutoPlay(); });
+    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); nextSlide(); resetAutoPlay(); });
+    if (floatPrev) floatPrev.addEventListener('click', (e) => { e.preventDefault(); prevSlide(); resetAutoPlay(); });
+    if (floatNext) floatNext.addEventListener('click', (e) => { e.preventDefault(); nextSlide(); resetAutoPlay(); });
+
+    // Keyboard Arrow Navigation
+    window.addEventListener('keydown', (e) => {
+      const rect = stage.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        if (e.key === 'ArrowRight') {
+          nextSlide();
+          resetAutoPlay();
+        } else if (e.key === 'ArrowLeft') {
+          prevSlide();
+          resetAutoPlay();
+        }
+      }
+    });
+
+    // Mouse Drag Interaction
+    stage.addEventListener('mousedown', (e) => {
+      if (e.target.closest('a, button')) return; // Allow button clicks
+      isDragging = true;
+      startX = e.clientX;
+      currentDeltaX = 0;
+      stage.style.cursor = 'grabbing';
+      stopAutoPlay();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      currentDeltaX = e.clientX - startX;
+      updateSlider(currentDeltaX);
+    });
+
+    window.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      stage.style.cursor = 'grab';
+      if (currentDeltaX < -45) {
+        nextSlide();
+      } else if (currentDeltaX > 45) {
+        prevSlide();
+      } else {
+        updateSlider(0);
+      }
+      currentDeltaX = 0;
+      resetAutoPlay();
+    });
+
+    // Touch Swipe Interaction (Mobile Pan-Y Safe)
+    let touchStartY = 0;
+    let isSwiping = false;
+
+    stage.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        startX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        currentDeltaX = 0;
+        isSwiping = true;
+        stopAutoPlay();
+      }
+    }, { passive: true });
+
+    stage.addEventListener('touchmove', (e) => {
+      if (!isSwiping || e.touches.length !== 1) return;
+      const deltaX = e.touches[0].clientX - startX;
+      const deltaY = e.touches[0].clientY - touchStartY;
+
+      // Only track if horizontal gesture dominates
+      if (Math.abs(deltaX) > Math.abs(deltaY) + 5) {
+        currentDeltaX = deltaX;
+        updateSlider(currentDeltaX);
+      }
+    }, { passive: true });
+
+    stage.addEventListener('touchend', () => {
+      if (!isSwiping) return;
+      isSwiping = false;
+      if (currentDeltaX < -40) {
+        nextSlide();
+      } else if (currentDeltaX > 40) {
+        prevSlide();
+      } else {
+        updateSlider(0);
+      }
+      currentDeltaX = 0;
+      resetAutoPlay();
+    }, { passive: true });
+
+    // Autoplay Timer Management
+    function startAutoPlay() {
+      stopAutoPlay();
+      autoPlayTimer = setInterval(nextSlide, AUTOPLAY_INTERVAL);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayTimer) clearInterval(autoPlayTimer);
+    }
+
+    function resetAutoPlay() {
+      stopAutoPlay();
+      setTimeout(startAutoPlay, 4000);
+    }
+
+    stage.addEventListener('mouseenter', stopAutoPlay);
+    stage.addEventListener('mouseleave', startAutoPlay);
+
+    // Responsive Window Resize Handler
+    window.addEventListener('resize', () => {
+      updateSlider(0);
+    });
+
+    // Initial Execution
+    updateSlider(0);
+    startAutoPlay();
+  }
+
+  // Initialize Project Slider
+  initProjectSlider();
+
   // 9. REAL INTERACTIVE AI LAB: Working ML Credit Risk Calculator
   const loanSlider = document.getElementById('mlLoanAmount');
   const incomeSlider = document.getElementById('mlAnnualIncome');
