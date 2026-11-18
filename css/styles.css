@@ -103,6 +103,18 @@ body {
   border-right: 1px solid var(--border-light);
 }
 
+/* Official KT Monogram Aspect Ratio & Rendering */
+img[src*="logo-kt"] {
+  object-fit: contain;
+  aspect-ratio: 322 / 168;
+}
+
+.preloader-logo-wrap img {
+  width: 68px !important;
+  height: auto !important;
+  aspect-ratio: 322 / 168;
+}
+
 /* Architectural Grid Background (Subtle HPAD style) */
 .architectural-grid {
   background-size: 40px 40px;
