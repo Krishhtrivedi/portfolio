@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartFin AI — Enterprise Finance & Office Automation System | Krish Trivedi</title>
+  <meta name="description" content="Engineering case study of SmartFin AI: AI-powered GST reconciliation, TDS/TCS compliance, Bank BRS, Excel workflow automation, and office ERP for Vichar Vimarsh.">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <!-- Immediate Dark/Light Theme Initializer (Default: Premium Purplish-Black Dark Theme) -->
+  <script>
+    try {
+      const savedTheme = localStorage.getItem('kt_theme');
+      if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    } catch (e) {}
+  </script>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            paper: '#F5F3EE',
+            graphite: '#171717',
+            secondary: '#777777',
+            cobalt: '#526BFF',
+            obsidian: '#10131D',
+            hairline: '#E6E4DE',
+            signal: '#E65909',
+            navy: '#1A2F46',
+          },
+          fontFamily: {
+            display: ['"Space Grotesk"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['Manrope', 'Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="bg-[#F5F3EE] text-[#171717] font-sans antialiased relative">
+
+  <!-- Fullscreen Editorial Menu Overlay -->
+  <div id="fullscreenMenu" class="fullscreen-menu">
+    <div class="max-w-5xl mx-auto w-full flex flex-col justify-between h-full py-4">
+      <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
+        <div class="flex items-center gap-3">
+          <img src="../img/logo-kt-light.svg" alt="KT Monogram" class="w-9 h-9">
+          <span class="font-display font-bold text-white tracking-wider text-sm">KRISH TRIVEDI // INDEX</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="theme-toggle-btn" aria-label="Toggle Dark / Light Theme" title="Toggle Theme">
+            <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
+            <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
+          </button>
+          <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+
+      <nav class="py-8 space-y-1">
+        <a href="../index.html" class="menu-item-editorial group">
+          <span class="item-title">01 HOME</span>
+          <span class="item-sub">MAIN HUB</span>
+        </a>
+        <a href="../about.html" class="menu-item-editorial group">
+          <span class="item-title">02 ABOUT</span>
+          <span class="item-sub">BIOGRAPHY & PHILOSOPHY</span>
+        </a>
+        <a href="../projects.html" class="menu-item-editorial group text-[#526BFF]">
+          <span class="item-title">03 PROJECTS</span>
+          <span class="item-sub">SELECTED CASE STUDIES</span>
+        </a>
+        <a href="../ai-lab.html" class="menu-item-editorial group">
+          <span class="item-title">04 AI LAB</span>
+          <span class="item-sub">INTERACTIVE DEMOS & CLI</span>
+        </a>
+        <a href="../services.html" class="menu-item-editorial group">
+          <span class="item-title">05 SERVICES</span>
+          <span class="item-sub">SOLUTIONS & EXPERTISE</span>
+        </a>
+        <a href="../experience.html" class="menu-item-editorial group">
+          <span class="item-title">06 EXPERIENCE</span>
+          <span class="item-sub">CAREER & SYSTEMS TIMELINE</span>
+        </a>
+        <a href="../resume.html" class="menu-item-editorial group">
+          <span class="item-title">07 RESUME</span>
+          <span class="item-sub">CURRICULUM VITAE</span>
+        </a>
+        <a href="../contact.html" class="menu-item-editorial group">
+          <span class="item-title">08 CONTACT</span>
+          <span class="item-sub">LET'S CONNECT</span>
+        </a>
+      </nav>
+
+      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#8E95A5]">
+        <span>AHMEDABAD, GUJARAT, INDIA · +91 8849213790</span>
+        <div class="flex items-center gap-6 mt-2 sm:mt-0">
+          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors">EMAIL</a>
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GITHUB</a>
+          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">WHATSAPP</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="luxury-navbar" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
+      <a href="../index.html" class="flex items-center gap-3.5 group">
+        <img src="../img/logo-kt-dark.svg" alt="KT Monogram" class="w-10 h-10 transition-transform group-hover:scale-105">
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-sm tracking-widest text-[#171717] group-hover:text-[#526BFF] transition-colors">KRISH TRIVEDI</span>
+          <span class="font-mono text-[10px] text-[#777777] tracking-wider uppercase">Case Study // SmartFin AI</span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-1">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../about.html" class="nav-link">About</a>
+        <a href="../projects.html" class="nav-link active">Projects</a>
+        <a href="../ai-lab.html" class="nav-link">AI Lab</a>
+        <a href="../services.html" class="nav-link">Services</a>
+        <a href="../experience.html" class="nav-link">Experience</a>
+        <a href="../contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <!-- Theme Toggle Switcher -->
+        <button class="theme-toggle-btn" aria-label="Toggle Dark / Light Theme" title="Toggle Theme">
+          <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
+          <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
+        </button>
+        <a href="https://smartfin-ai-kg6b.onrender.com" target="_blank" rel="noopener noreferrer" class="btn-luxury btn-primary-dark text-xs py-2 px-4">
+          <span>Live Demo</span>
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </a>
+        <button id="menuToggleBtn" aria-label="Open Navigation Index" class="p-2.5 rounded-sm border border-[#E6E4DE] bg-white text-[#171717] hover:border-[#171717] transition-all">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Case Study Main Container -->
+  <main class="pt-36 pb-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header -->
+    <div class="mb-12">
+      <div class="section-tag">
+        <span class="tag-num">00</span>
+        <span class="tag-line"></span>
+        <span>Case Study // Enterprise AI & Financial Automation</span>
+      </div>
+      <h1 class="headline-hero mt-3">
+        SmartFin AI – Finance & Office Automation System
+      </h1>
+      <p class="text-lg text-[#777777] mt-3 max-w-3xl leading-relaxed">
+        Enterprise-grade finance automation architecture designed for Vichar Vimarsh. Automating 2-way GST reconciliation, TDS/TCS statutory thresholds, Bank BRS statements, Excel ETL pipelines, and ledger-grounded AI copilot.
+      </p>
+    </div>
+
+    <!-- Metadata Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 bg-white border border-[#E6E4DE] rounded-sm mb-12 font-mono text-xs">
+      <div>
+        <span class="text-[#777777] block text-[10px] uppercase">Client / Partner</span>
+        <span class="font-bold text-[#171717] mt-1 block">Vichar Vimarsh</span>
+      </div>
+      <div>
+        <span class="text-[#777777] block text-[10px] uppercase">Primary Stack</span>
+        <span class="font-bold text-[#171717] mt-1 block">FastAPI, React 18, PostgreSQL</span>
+      </div>
+      <div>
+        <span class="text-[#777777] block text-[10px] uppercase">Deployment</span>
+        <span class="font-bold text-emerald-600 mt-1 block">Render Docker (Live)</span>
+      </div>
+      <div>
+        <span class="text-[#777777] block text-[10px] uppercase">Open Source</span>
+        <a href="https://github.com/Krishhtrivedi/smartfin-ai" target="_blank" class="font-bold text-[#526BFF] hover:underline mt-1 block">GitHub Repository ↗</a>
+      </div>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="space-y-12 text-[#171717] text-base leading-relaxed">
+      
+      <!-- Challenge -->
+      <section class="space-y-4">
+        <h2 class="font-display font-bold text-2xl text-[#171717]">The Operational Challenge</h2>
+        <p class="text-[#777777]">
+          Micro, Small, and Medium Enterprises (MSMEs) consistently face major friction in manual accounting workflows. Chartered Accountants and internal finance teams spend hundreds of hours manually cross-referencing Purchase Registers with GSTR-2B portal data, calculating section-specific TDS liabilities (194C, 194J, 194I, 194Q), matching complex bank statements, and reconciling Excel spreadsheets across multiple departments.
+        </p>
+        <p class="text-[#777777]">
+          Manual errors lead to unclaimed Input Tax Credit (ITC), interest penalties under GST Section 16(2)(aa), late-deposit fines under Income Tax Section 201(1A), and severe owner dependence for routine approvals.
+        </p>
+      </section>
+
+      <!-- Architecture & Innovation -->
+      <section class="space-y-4">
+        <h2 class="font-display font-bold text-2xl text-[#171717]">Architecture & Engineering Solutions</h2>
+        <p class="text-[#777777]">
+          To resolve these pain points, SmartFin AI was engineered as an automated, multi-engine SaaS platform operating on structured systems by design:
+        </p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+          <div class="p-6 bg-white border border-[#E6E4DE] rounded-sm space-y-2">
+            <div class="font-mono text-xs font-bold text-[#E65909]">01 // GST 2-WAY RECONCILIATION</div>
+            <h3 class="font-display font-bold text-lg text-[#171717]">Automated GSTR-2B Matching</h3>
+            <p class="text-xs text-[#777777] leading-relaxed">
+              Normalizes invoice numbers, matches vendor GSTINs, applies configurable ₹1 tax rounding tolerance, and flags missing ITC, duplicate vouchers, and tax mismatches.
+            </p>
+          </div>
+
+          <div class="p-6 bg-white border border-[#E6E4DE] rounded-sm space-y-2">
+            <div class="font-mono text-xs font-bold text-[#1A2F46]">02 // BANK RECONCILIATION (BRS)</div>
+            <h3 class="font-display font-bold text-lg text-[#171717]">Algorithmic Statement Audit</h3>
+            <p class="text-xs text-[#777777] leading-relaxed">
+              Parses bank feeds and accounting ledgers with reference ID matching, configurable ±4 day date tolerance, and automated categorization of bank fees and sweep interest.
+            </p>
+          </div>
+
+          <div class="p-6 bg-white border border-[#E6E4DE] rounded-sm space-y-2">
+            <div class="font-mono text-xs font-bold text-emerald-600">03 // TDS/TCS 26Q COMPLIANCE</div>
+            <h3 class="font-display font-bold text-lg text-[#171717]">Statutory Threshold Verification</h3>
+            <p class="text-xs text-[#777777] leading-relaxed">
+              Maintains verified rates for Sections 194C (contractors), 194J (professional fees), 194I (rent), and 194Q (purchase of goods), automatically flagging shortfalls and late deposits.
+            </p>
+          </div>
+
+          <div class="p-6 bg-white border border-[#E6E4DE] rounded-sm space-y-2">
+            <div class="font-mono text-xs font-bold text-[#526BFF]">04 // EXCEL ETL & AI COPILOT</div>
+            <h3 class="font-display font-bold text-lg text-[#171717]">Automated Workflows & Assistant</h3>
+            <p class="text-xs text-[#777777] leading-relaxed">
+              Cleans, normalizes, and compares Excel workbooks via Pandas & OpenPyXL. Includes a grounded AI copilot that queries live ledger records with verified source citations.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tech Stack -->
+      <section class="space-y-4">
+        <h2 class="font-display font-bold text-2xl text-[#171717]">Technical Specifications</h2>
+        <div class="p-6 bg-[#F5F3EE] border border-[#E6E4DE] rounded-sm">
+          <ul class="space-y-3 font-mono text-xs text-[#171717]">
+            <li><strong class="text-[#777777]">Backend API:</strong> Python 3.9, FastAPI REST framework, SQLAlchemy 2.0 ORM, Pydantic V2</li>
+            <li><strong class="text-[#777777]">Frontend UI:</strong> React 18, TypeScript, Tailwind CSS, Recharts, Lucide Icons, Vite</li>
+            <li><strong class="text-[#777777]">Database & Security:</strong> PostgreSQL 18 on Render, SQLite locally, direct bcrypt hashing, JWT authentication, RBAC (4 roles), immutable audit logging</li>
+            <li><strong class="text-[#777777]">Deployment:</strong> Multi-stage Docker container (Node.js 20 build stage + Python 3.9 runtime), single-service static SPA serving, Render Blueprint automation</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Live CTA -->
+      <div class="pt-8 border-t border-[#E6E4DE] flex flex-wrap items-center justify-between gap-4">
+        <a href="https://smartfin-ai-kg6b.onrender.com" target="_blank" rel="noopener noreferrer" class="btn-luxury btn-primary-dark">
+          <span>Launch Live SmartFin AI Platform</span>
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+        </a>
+        <a href="https://github.com/Krishhtrivedi/smartfin-ai" target="_blank" rel="noopener noreferrer" class="btn-luxury btn-outline-dark">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span>Inspect Source Code</span>
+        </a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-[#E6E4DE] py-12 bg-white text-[#777777] text-xs font-mono">
+    <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <span>© 2026 Krish Trivedi · AI & Systems Engineer</span>
+      <div class="flex items-center gap-6">
+        <a href="https://github.com/Krishhtrivedi" class="hover:text-[#171717]">GitHub</a>
+        <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-[#171717]">Email</a>
+        <a href="https://krishtrivedi.in" class="hover:text-[#171717]">krishtrivedi.in</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+    const menuToggle = document.getElementById('menuToggleBtn');
+    const closeMenu = document.getElementById('closeMenuBtn');
+    const fullscreenMenu = document.getElementById('fullscreenMenu');
+
+    if (menuToggle && fullscreenMenu) {
+      menuToggle.addEventListener('click', () => fullscreenMenu.classList.add('active'));
+    }
+    if (closeMenu && fullscreenMenu) {
+      closeMenu.addEventListener('click', () => fullscreenMenu.classList.remove('active'));
+    }
+  </script>
+</body>
+</html>
