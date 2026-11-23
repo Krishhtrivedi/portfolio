@@ -439,9 +439,10 @@ body.loaded .img-reveal-frame.auto-reveal img {
 }
 
 /* ==========================================================================
-   5. LUXURY BUTTONS & MICRO-INTERACTIONS
+   5. LUXURY GLASSMORPHISM BUTTONS & MICRO-INTERACTIONS
    ========================================================================== */
-.btn-luxury {
+.btn-luxury,
+.btn-glass {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -452,59 +453,79 @@ body.loaded .img-reveal-frame.auto-reveal img {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   padding: 0.95rem 1.85rem;
-  border-radius: 2px;
+  min-height: 44px;
+  min-width: 44px;
+  border-radius: 6px;
   text-decoration: none;
-  transition: background-color 0.3s var(--ease-cinematic), border-color 0.3s var(--ease-cinematic), color 0.3s var(--ease-cinematic), transform 0.3s var(--ease-cinematic), box-shadow 0.3s var(--ease-cinematic);
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  user-select: none;
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.3s ease,
+              border-color 0.3s ease,
+              color 0.3s ease;
   will-change: transform;
 }
 
+.btn-luxury:focus-visible,
+.btn-glass:focus-visible {
+  outline: 2px solid #526BFF;
+  outline-offset: 3px;
+}
+
+.btn-luxury:active,
+.btn-glass:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
 .btn-luxury i,
-.btn-luxury svg {
-  transition: transform 0.3s var(--ease-cinematic);
+.btn-luxury svg,
+.btn-glass i,
+.btn-glass svg {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .btn-luxury:hover i,
-.btn-luxury:hover svg {
+.btn-luxury:hover svg,
+.btn-glass:hover i,
+.btn-glass:hover svg {
   transform: translate(2.5px, -2.5px);
 }
 
+/* Primary Dark / Accent Button (Light Mode: Solid Deep Graphite with Top Specular Highlight) */
 .btn-primary-dark {
-  background-color: var(--text-primary);
-  color: var(--bg-primary);
-  border: 1px solid var(--text-primary);
+  background: #171717;
+  color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 4px 14px rgba(23, 23, 23, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 .btn-primary-dark:hover {
-  background-color: #000000;
+  background: #000000;
   color: #FFFFFF;
   transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(23, 23, 23, 0.16);
+  box-shadow: 0 10px 24px rgba(23, 23, 23, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-.btn-primary-dark:active {
-  transform: translateY(0);
-}
-
+/* Primary Gold Button (Light Mode) */
 .btn-primary-gold {
-  background-color: var(--slider-accent);
+  background: #C7A77A;
   color: #080D14;
-  border: 1px solid var(--slider-accent);
+  border: 1px solid rgba(199, 167, 122, 0.8);
   font-weight: 700;
+  box-shadow: 0 6px 18px rgba(199, 167, 122, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.45);
 }
 
 .btn-primary-gold:hover {
-  background-color: #D6B990;
-  border-color: #D6B990;
+  background: #D8BA8E;
+  border-color: #D8BA8E;
   color: #080D14;
   transform: translateY(-2px);
-  box-shadow: 0 10px 25px -5px rgba(199, 167, 122, 0.45);
-}
-
-.btn-primary-gold:active {
-  transform: translateY(0);
+  box-shadow: 0 12px 28px -4px rgba(199, 167, 122, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .architectural-studio-card {
@@ -537,21 +558,24 @@ body.loaded .img-reveal-frame.auto-reveal img {
   transform: translateY(0);
 }
 
+/* Outline Editorial Secondary Button (Light Mode: Translucent Clean Glass Surface) */
 .btn-outline-editorial {
-  background-color: transparent;
-  color: var(--text-primary);
-  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.85);
+  color: #171717;
+  border: 1px solid rgba(23, 23, 23, 0.16);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
 .btn-outline-editorial:hover {
-  background-color: var(--bg-white);
-  border-color: var(--text-primary);
+  background: #FFFFFF;
+  color: #171717;
+  border-color: rgba(23, 23, 23, 0.38);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(23, 23, 23, 0.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08), inset 0 1px 0 #FFFFFF;
 }
 
 .btn-outline-editorial:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.98);
 }
 
 .btn-outline-dark {
@@ -1342,8 +1366,8 @@ body.cursor-dark .custom-cursor-ring {
   }
 
   .slider-project-card {
-    width: clamp(285px, 80vw, 340px);
-    height: clamp(460px, 58vh, 500px);
+    width: clamp(270px, 86vw, 340px);
+    height: clamp(450px, 58vh, 500px);
     border-radius: 14px;
   }
 
@@ -1362,6 +1386,13 @@ body.cursor-dark .custom-cursor-ring {
 
   .slider-float-arrow {
     display: none; /* Mobile touch swipe replaces floating buttons */
+  }
+}
+
+@media (max-width: 360px) {
+  .slider-project-card {
+    width: 260px !important;
+    height: 440px !important;
   }
 }
 
@@ -1594,29 +1625,52 @@ html.dark .hover\:bg-\[\#FAF9F6\]:hover {
   background-color: rgba(168, 85, 247, 0.06) !important;
 }
 
-/* Primary Dark Buttons (inverts to crisp off-white for high contrast in dark mode) */
+/* Dark Mode Primary Glass Button */
 html.dark .btn-primary-dark {
-  background-color: #FAF7FD !important;
+  background: rgba(250, 247, 253, 0.95) !important;
   color: #0A0612 !important;
-  border-color: #FAF7FD !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
   font-weight: 700;
-}
-html.dark .btn-primary-dark:hover {
-  background-color: #FFFFFF !important;
-  color: #0A0612 !important;
-  box-shadow: 0 10px 25px -5px rgba(168, 85, 247, 0.35) !important;
+  box-shadow: 0 6px 20px rgba(192, 132, 252, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
 }
 
-/* Outline Editorial Buttons */
-html.dark .btn-outline-editorial {
-  border-color: rgba(168, 85, 247, 0.25) !important;
-  color: #FAF7FD !important;
-  background-color: transparent !important;
+html.dark .btn-primary-dark:hover {
+  background: #FFFFFF !important;
+  color: #0A0612 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(192, 132, 252, 0.45), inset 0 1px 0 rgba(255, 255, 255, 1) !important;
 }
+
+/* Dark Mode Outline Editorial Glass Button */
+html.dark .btn-outline-editorial {
+  background: rgba(19, 12, 34, 0.65) !important;
+  color: #FAF7FD !important;
+  border: 1px solid rgba(255, 255, 255, 0.16) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+}
+
 html.dark .btn-outline-editorial:hover {
-  background-color: rgba(168, 85, 247, 0.12) !important;
+  background: rgba(168, 85, 247, 0.16) !important;
   border-color: rgba(192, 132, 252, 0.5) !important;
   color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(168, 85, 247, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+}
+
+/* Dark Mode Primary Gold Glass Button */
+html.dark .btn-primary-gold {
+  background: rgba(199, 167, 122, 0.95) !important;
+  color: #080D14 !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 6px 22px rgba(199, 167, 122, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+html.dark .btn-primary-gold:hover {
+  background: #E0C49B !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+  color: #080D14 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(199, 167, 122, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.7) !important;
 }
 
 /* Invert Monogram Logos on Dark Background */
@@ -1704,60 +1758,86 @@ html.dark footer {
   border-top-color: rgba(168, 85, 247, 0.12) !important;
 }
 
-/* Theme Toggle Button Styling */
+/* ==========================================================================
+   UPGRADED ARCHITECTURAL THEME TOGGLE (PILL WITH SMOOTH INDICATOR)
+   ========================================================================== */
 .theme-toggle-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
-  border-radius: 2px;
-  border: 1px solid var(--border-light);
-  background-color: #FFFFFF;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 9999px;
+  border: 1px solid rgba(23, 23, 23, 0.12);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
   color: #171717;
   cursor: pointer;
-  transition: all 0.25s var(--ease-cinematic);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.25s ease,
+              background-color 0.25s ease;
   position: relative;
   overflow: hidden;
   user-select: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.theme-toggle-btn:focus-visible {
+  outline: 2px solid #526BFF;
+  outline-offset: 3px;
 }
 
 .theme-toggle-btn:hover {
-  border-color: #171717;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-color: rgba(23, 23, 23, 0.3);
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08), inset 0 1px 0 #FFFFFF;
 }
 
 .theme-toggle-btn:active {
-  transform: translateY(0);
+  transform: translateY(0) scale(0.96);
 }
 
 html.dark .theme-toggle-btn {
-  background-color: #150E24 !important;
-  border-color: rgba(168, 85, 247, 0.25) !important;
+  background: rgba(19, 12, 34, 0.85) !important;
+  border-color: rgba(192, 132, 252, 0.24) !important;
   color: #C084FC !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
 }
 
 html.dark .theme-toggle-btn:hover {
-  border-color: #C084FC !important;
-  box-shadow: 0 0 16px rgba(168, 85, 247, 0.35) !important;
+  border-color: rgba(192, 132, 252, 0.5) !important;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
 }
 
-/* Icon Switching with Smooth Rotation */
-.theme-toggle-btn .icon-moon {
-  display: block;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
-}
+/* Icon Switching with Smooth Morph & Rotation */
+.theme-toggle-btn .icon-moon,
 .theme-toggle-btn .icon-sun {
-  display: none;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+  position: absolute;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease;
+}
+
+.theme-toggle-btn .icon-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.theme-toggle-btn .icon-sun {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.5);
 }
 
 html.dark .theme-toggle-btn .icon-moon {
-  display: none;
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.5);
 }
+
 html.dark .theme-toggle-btn .icon-sun {
-  display: block;
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
 }
 
 /* Filter Buttons in Dark Mode */
@@ -1816,4 +1896,61 @@ html.dark .slider-card-media {
 
 html.dark .slider-card-media-gradient {
   background: linear-gradient(to top, #120C1F 0%, rgba(18, 12, 31, 0.4) 50%, transparent 100%) !important;
+}
+
+/* ==========================================================================
+   LIGHT MODE DRAWER & FOOTER CONTRAST ENHANCEMENTS
+   ========================================================================== */
+html:not(.dark) footer {
+  background-color: #EDEAE3 !important;
+  color: #555555 !important;
+  border-top: 1px solid #DCD8CF !important;
+}
+
+html:not(.dark) footer .border-b {
+  border-bottom-color: rgba(23, 23, 23, 0.08) !important;
+}
+
+html:not(.dark) footer .font-display.font-bold.text-white {
+  color: #171717 !important;
+}
+
+html:not(.dark) footer p,
+html:not(.dark) footer .text-\[\#8E95A5\] {
+  color: #555555 !important;
+}
+
+html:not(.dark) footer nav a {
+  color: #555555 !important;
+}
+
+html:not(.dark) footer nav a:hover {
+  color: #526BFF !important;
+}
+
+html:not(.dark) .fullscreen-menu {
+  background-color: rgba(245, 243, 238, 0.98) !important;
+  color: #171717 !important;
+}
+
+html:not(.dark) .fullscreen-menu .border-b,
+html:not(.dark) .fullscreen-menu .border-t {
+  border-color: rgba(23, 23, 23, 0.08) !important;
+}
+
+html:not(.dark) .fullscreen-menu .item-title {
+  color: #171717 !important;
+}
+
+html:not(.dark) .fullscreen-menu .item-sub {
+  color: #777777 !important;
+}
+
+html:not(.dark) .fullscreen-menu .font-display.font-bold.text-white {
+  color: #171717 !important;
+}
+
+html:not(.dark) .fullscreen-menu #closeMenuBtn {
+  background-color: rgba(23, 23, 23, 0.06) !important;
+  color: #171717 !important;
 }

@@ -20,35 +20,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // GLOBAL THEME MANAGER (DARK / LIGHT LUXURY ARCHITECTURAL SWITCH)
   function initThemeManager() {
-    const savedTheme = localStorage.getItem('kt_theme');
-    if (savedTheme === 'light') {
-      document.documentElement.classList.remove('dark');
-    } else {
-      document.documentElement.classList.add('dark');
+    let savedTheme = localStorage.getItem('kt_theme');
+    if (!savedTheme) {
+      const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+      savedTheme = prefersLight ? 'light' : 'dark';
     }
+
+    function updateDynamicLogos(isDark) {
+      const logos = document.querySelectorAll('.kt-logo-dynamic, header img[src*="logo-kt-"], #fullscreenMenu img[src*="logo-kt-"], footer img[src*="logo-kt-"]');
+      logos.forEach(logo => {
+        const targetSrc = isDark ? 'img/logo-kt-light.svg' : 'img/logo-kt-dark.svg';
+        if (!logo.src.endsWith(targetSrc)) {
+          logo.src = targetSrc;
+        }
+      });
+    }
+
     function applyTheme(theme) {
       document.documentElement.classList.add('theme-transition');
-      if (theme === 'dark') {
+      const isDark = theme === 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+      if (isDark) {
         document.documentElement.classList.add('dark');
         localStorage.setItem('kt_theme', 'dark');
       } else {
         document.documentElement.classList.remove('dark');
         localStorage.setItem('kt_theme', 'light');
       }
+      updateDynamicLogos(isDark);
+
       setTimeout(() => {
         document.documentElement.classList.remove('theme-transition');
-      }, 400);
+      }, 350);
 
       if (window.lucide) {
         window.lucide.createIcons();
       }
     }
 
+    // Initialize state
+    applyTheme(savedTheme);
+
     function toggleTheme() {
-      const isDark = document.documentElement.classList.contains('dark');
-      applyTheme(isDark ? 'light' : 'dark');
+      const isCurrentlyDark = document.documentElement.classList.contains('dark') || document.documentElement.getAttribute('data-theme') === 'dark';
+      applyTheme(isCurrentlyDark ? 'light' : 'dark');
       if (window.showToast) {
-        window.showToast(isDark ? 'Light theme activated' : 'Dark theme activated');
+        window.showToast(isCurrentlyDark ? 'Light theme activated' : 'Dark theme activated');
       }
     }
 
@@ -58,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!container.querySelector('.theme-toggle-btn')) {
         const toggleBtn = document.createElement('button');
         toggleBtn.className = 'theme-toggle-btn';
-        toggleBtn.setAttribute('aria-label', 'Toggle Dark / Light Theme');
+        toggleBtn.setAttribute('aria-label', 'Toggle color theme');
         toggleBtn.setAttribute('title', 'Toggle Theme');
         toggleBtn.innerHTML = `
           <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
@@ -75,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const closeBtn = menuHeader.querySelector('#closeMenuBtn');
       const toggleBtn = document.createElement('button');
       toggleBtn.className = 'theme-toggle-btn mr-2';
-      toggleBtn.setAttribute('aria-label', 'Toggle Dark / Light Theme');
+      toggleBtn.setAttribute('aria-label', 'Toggle color theme');
       toggleBtn.setAttribute('title', 'Toggle Theme');
       toggleBtn.innerHTML = `
         <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
@@ -88,6 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Attach click listeners to all theme toggle buttons
     document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+      btn.setAttribute('aria-label', 'Toggle color theme');
       btn.removeEventListener('click', toggleTheme);
       btn.addEventListener('click', toggleTheme);
     });
@@ -109,17 +127,10 @@ document.addEventListener('DOMContentLoaded', () => {
     window.lucide.createIcons();
   }
 
-  // 2. PAGE PRELOADER & CINEMATIC HERO REVEAL LIFECYCLE
+  // 2. PAGE PRELOADER & CINEMATIC HERO REVEAL LIFECYCLE (OPTIMIZED)
   const preloader = document.getElementById('pagePreloader');
   const progressBar = document.querySelector('.preloader-progress-bar');
   const hasVisited = sessionStorage.getItem('kt_visited') === 'true';
-
-  const preloaderDuration = hasVisited ? 400 : 700;
-
-  if (progressBar) {
-    progressBar.style.transition = `width ${preloaderDuration * 0.8}ms cubic-bezier(0.16, 1, 0.3, 1)`;
-    progressBar.style.width = '100%';
-  }
 
   function hidePreloader() {
     if (preloader) {
@@ -129,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
       preloader.style.transform = 'translateY(-8px)';
       setTimeout(() => {
         preloader.style.display = 'none';
-      }, 700);
+      }, 300);
     }
     document.body.classList.add('loaded');
     sessionStorage.setItem('kt_visited', 'true');
@@ -139,10 +150,22 @@ document.addEventListener('DOMContentLoaded', () => {
     autoReveals.forEach(el => el.classList.add('is-revealed'));
   }
 
-  setTimeout(hidePreloader, preloaderDuration);
+  if (hasVisited) {
+    // Already visited in this session: skip preloader instantly (0ms delay)
+    if (preloader) preloader.style.display = 'none';
+    document.body.classList.add('loaded');
+  } else {
+    // First visit in session: cap to ≤ 400ms (350ms duration)
+    const preloaderDuration = 350;
+    if (progressBar) {
+      progressBar.style.transition = 'width 280ms cubic-bezier(0.16, 1, 0.3, 1)';
+      progressBar.style.width = '100%';
+    }
+    setTimeout(hidePreloader, preloaderDuration);
+  }
 
-  // Fallback safety: Ensure page is always visible after 1.1s regardless of network
-  setTimeout(hidePreloader, 1100);
+  // Safety fallback
+  setTimeout(hidePreloader, 600);
 
   // 3. CUSTOM EDITORIAL CURSOR (DESKTOP ONLY)
   const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 768;

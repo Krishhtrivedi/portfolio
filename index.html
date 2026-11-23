@@ -1,36 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Primary Meta Tags -->
-  <title>KRISH TRIVEDI — AI Developer | Intelligent Applications &amp; Automation</title>
-  <meta name="title" content="KRISH TRIVEDI — AI Developer">
-  <meta name="description" content="Independent AI Developer based in Ahmedabad, India. Building intelligent applications, AI-powered solutions, and automation systems that transform complex ideas into meaningful digital experiences.">
-  <meta name="keywords" content="Krish Trivedi, AI Developer, Machine Learning, Generative AI, Python, Ahmedabad, Next.js, Supabase, HPAD, KisanMitra, White Swan Holidays">
+  <title>Krish Trivedi — AI Developer &amp; Full-Stack Systems Architect</title>
+  <meta name="title" content="Krish Trivedi — AI Developer &amp; Full-Stack Systems Architect">
+  <meta name="description" content="AI Developer &amp; Full-Stack Systems Architect based in Ahmedabad, India. Architecting production AI systems, full-stack web applications, and financial automation pipelines that eliminate manual bottlenecks.">
+  <meta name="keywords" content="Krish Trivedi, AI Developer, Full-Stack Systems Architect, Machine Learning, Generative AI, Python, FastAPI, Next.js, Supabase, SmartFin AI, KisanMitra, White Swan Holidays, HPAD">
   <meta name="author" content="Krish Trivedi">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://krishtrivedi.in/">
 
-  <!-- Open Graph / Meta -->
+  <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://krishtrivedi.in/">
-  <meta property="og:title" content="KRISH TRIVEDI — AI Developer">
-  <meta property="og:description" content="Building Intelligence. Creating What’s Next. Portfolio of Krish Trivedi.">
-  <meta property="og:image" content="https://krishtrivedi.in/favicon.svg">
+  <meta property="og:title" content="Krish Trivedi — AI Developer &amp; Full-Stack Systems Architect">
+  <meta property="og:description" content="Architecting production AI systems, full-stack web applications, and financial automation pipelines that eliminate manual bottlenecks.">
+  <meta property="og:image" content="https://krishtrivedi.in/img/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Krish Trivedi — AI Developer &amp; Full-Stack Systems Architect">
+  <meta property="og:site_name" content="Krish Trivedi">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://krishtrivedi.in/">
+  <meta name="twitter:title" content="Krish Trivedi — AI Developer &amp; Full-Stack Systems Architect">
+  <meta name="twitter:description" content="Architecting production AI systems, full-stack web applications, and financial automation pipelines that eliminate manual bottlenecks.">
+  <meta name="twitter:image" content="https://krishtrivedi.in/img/og-preview.png">
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Krish Trivedi",
+    "url": "https://krishtrivedi.in/",
+    "image": "https://krishtrivedi.in/img/og-preview.png",
+    "jobTitle": "AI Developer & Full-Stack Systems Architect",
+    "description": "Architecting production AI systems, full-stack web applications, and financial automation pipelines that eliminate manual bottlenecks.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Ahmedabad",
+      "addressRegion": "Gujarat",
+      "addressCountry": "India"
+    },
+    "sameAs": [
+      "https://github.com/Krishhtrivedi",
+      "https://www.linkedin.com/in/krishhtrivedi"
+    ],
+    "knowsAbout": [
+      "Artificial Intelligence",
+      "Generative AI",
+      "Full-Stack Development",
+      "FastAPI",
+      "Next.js",
+      "Python",
+      "Docker",
+      "Financial Automation"
+    ]
+  }
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <!-- Immediate Dark/Light Theme Initializer (Default: Premium Dark HPAD Theme) -->
+  <!-- Immediate Zero-FOUC Theme & Session Preloader Initializer -->
   <script>
-    try {
-      const savedTheme = localStorage.getItem('kt_theme');
-      if (savedTheme === 'light') {
-        document.documentElement.classList.remove('dark');
-      } else {
-        document.documentElement.classList.add('dark');
-      }
-    } catch (e) {}
+    (function() {
+      try {
+        let theme = localStorage.getItem('kt_theme');
+        if (!theme) {
+          const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          theme = prefersLight ? 'light' : 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        if (sessionStorage.getItem('kt_visited') === 'true') {
+          const s = document.createElement('style');
+          s.id = 'preloader-skip-style';
+          s.textContent = '#pagePreloader { display: none !important; }';
+          document.head.appendChild(s);
+        }
+      } catch (e) {}
+    })();
   </script>
 
   <!-- Tailwind CSS -->
@@ -92,11 +151,11 @@
       <!-- Menu Header -->
       <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
         <div class="flex items-center gap-3">
-          <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-9 h-auto">
+          <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto">
           <span class="font-display font-bold text-white tracking-wider text-sm">KRISH TRIVEDI // INDEX</span>
         </div>
         <div class="flex items-center gap-2">
-          <button class="theme-toggle-btn" aria-label="Toggle Dark / Light Theme" title="Toggle Theme">
+          <button class="theme-toggle-btn" aria-label="Toggle color theme" title="Toggle Theme">
             <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
             <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
           </button>
@@ -106,7 +165,7 @@
         </div>
       </div>
 
-      <!-- Menu Navigation Links (Minimal & Purposeful) -->
+      <!-- Menu Navigation Links (Consistent & Comprehensive) -->
       <nav class="py-8 space-y-1">
         <a href="index.html" class="menu-item-editorial group text-[#526BFF]">
           <span class="item-title">01 HOME</span>
@@ -128,12 +187,16 @@
           <span class="item-title">05 EXPERIENCE</span>
           <span class="item-sub">CAREER &amp; SYSTEMS TIMELINE</span>
         </a>
+        <a href="skills.html" class="menu-item-editorial group">
+          <span class="item-title">06 SKILLS</span>
+          <span class="item-sub">TECHNICAL CAPABILITIES</span>
+        </a>
         <a href="resume.html" class="menu-item-editorial group">
-          <span class="item-title">06 RESUME</span>
+          <span class="item-title">07 RESUME</span>
           <span class="item-sub">CURRICULUM VITAE</span>
         </a>
         <a href="contact.html" class="menu-item-editorial group">
-          <span class="item-title">07 CONTACT</span>
+          <span class="item-title">08 CONTACT</span>
           <span class="item-sub">GET IN TOUCH</span>
         </a>
       </nav>
@@ -143,6 +206,8 @@
         <div>Ahmedabad, Gujarat, India · +91 8849213790</div>
         <div class="flex items-center gap-4">
           <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white">GitHub ↗</a>
+          <!-- TODO: Verify/adjust LinkedIn profile slug if needed -->
+          <a href="https://www.linkedin.com/in/krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white">LinkedIn ↗</a>
           <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">WhatsApp</a>
           <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white">Email</a>
         </div>
@@ -156,20 +221,21 @@
       
       <!-- Official Brand Logo & Wordmark -->
       <a href="index.html" class="flex items-center gap-3.5 group">
-        <img src="img/logo-kt-dark.svg" alt="KT Monogram" class="w-9 h-auto transition-transform group-hover:scale-105">
+        <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
         <div class="flex flex-col">
           <span class="font-display font-bold text-sm tracking-widest text-[#171717] dark:text-[#FAF7FD] group-hover:text-[#526BFF] transition-colors">KRISH TRIVEDI</span>
           <span class="font-mono text-[10px] text-[#777777] dark:text-[#A69DBF] tracking-wider uppercase">AI Developer · Ahmedabad</span>
         </div>
       </a>
 
-      <!-- Desktop Navigation Links (Minimal: Home | About | Projects | AI Lab | Experience | Resume | Contact) -->
+      <!-- Desktop Navigation Links (Consistent: Home | About | Projects | AI Lab | Experience | Skills | Resume | Contact) -->
       <nav class="hidden lg:flex items-center gap-1">
         <a href="index.html" class="nav-link active">Home</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="projects.html" class="nav-link">Projects</a>
         <a href="ai-lab.html" class="nav-link">AI Lab</a>
         <a href="experience.html" class="nav-link">Experience</a>
+        <a href="skills.html" class="nav-link">Skills</a>
         <a href="resume.html" class="nav-link">Resume</a>
         <a href="contact.html" class="nav-link">Contact</a>
       </nav>
@@ -177,11 +243,11 @@
       <!-- Action Buttons -->
       <div class="flex items-center gap-3">
         <!-- Theme Toggle Switcher -->
-        <button class="theme-toggle-btn" aria-label="Toggle Dark / Light Theme" title="Toggle Theme">
+        <button class="theme-toggle-btn" aria-label="Toggle color theme" title="Toggle Theme">
           <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
           <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
         </button>
-        <a href="contact.html" class="hidden sm:inline-flex btn-luxury btn-primary-dark text-xs py-2 px-4">
+        <a href="contact.html" class="hidden sm:inline-flex btn-luxury btn-glass btn-primary-dark text-xs py-2 px-4">
           <span>Let's Talk</span>
         </a>
         <button id="menuToggleBtn" aria-label="Open Navigation Index" class="p-2.5 rounded-sm border border-[#E6E4DE] bg-white text-[#171717] hover:border-[#171717] transition-all">
@@ -222,20 +288,20 @@
             <span class="hero-line-mask"><span class="hero-line-reveal delay-200 font-serif italic font-normal text-[#526BFF] dark:text-[#C7A77A]">Creating What’s Next.</span></span>
           </h1>
 
-          <!-- Short Professional Introduction -->
+          <!-- High-Impact, Results-Driven Introduction -->
           <p class="text-base sm:text-lg text-[#777777] dark:text-[#A69DBF] font-sans max-w-xl leading-relaxed hero-fade-reveal delay-300">
-            I build intelligent applications, AI-powered solutions, and automation systems that transform complex ideas into meaningful digital experiences.
+            I architect production AI systems, full-stack web applications, and financial automation pipelines that eliminate manual bottlenecks.
           </p>
 
-          <!-- Primary Action CTAs -->
+          <!-- Primary Action CTAs with Glassmorphism -->
           <div class="flex flex-wrap items-center gap-3 sm:gap-4 pt-2 hero-fade-reveal delay-400">
-            <a href="#projects" class="btn-luxury btn-primary-dark">
+            <a href="#projects" class="btn-luxury btn-glass btn-primary-dark">
               <span>Explore Projects</span>
               <i data-lucide="arrow-down" class="w-4 h-4"></i>
             </a>
-            <a href="resume.html" class="btn-luxury btn-outline-editorial">
+            <a href="resume.html" class="btn-luxury btn-glass btn-outline-editorial">
               <i data-lucide="file-text" class="w-4 h-4"></i>
-              <span>Download Resume</span>
+              <span>View Resume</span>
             </a>
           </div>
 
@@ -355,7 +421,7 @@
                 <span class="font-mono text-[10px] text-[#C7A77A] uppercase tracking-wider block mb-1">Multimodal AI &amp; Computer Vision</span>
                 <h3 class="slider-card-title">KisanMitra – AI Krishi Officer</h3>
                 <p class="slider-card-desc">
-                  AI agricultural platform with multilingual voice conversational support (Hindi, Gujarati, English) paired with crop disease diagnostics via Gemini 1.5 Flash Vision.
+                  Multilingual AI agronomy assistant (Hindi, Gujarati, English) diagnosing crop diseases via Gemini Vision — selected as a Smart India Hackathon '25 National Finalist.
                 </p>
                 <div class="slider-card-tags">
                   <span class="slider-card-tag">Python</span>
@@ -390,7 +456,7 @@
                 <span class="font-mono text-[10px] text-[#C7A77A] uppercase tracking-wider block mb-1">Next.js 15 &amp; Supabase Enterprise</span>
                 <h3 class="slider-card-title">HPAD Travel Management System</h3>
                 <p class="slider-card-desc">
-                  Corporate travel logistics and site-visit administration system engineered for Hiren Patel Architects &amp; Design (HPAD) with multi-role RBAC &amp; driver dispatch.
+                  Replaced manual dispatch workflows for Hiren Patel Architects &amp; Design with role-based access control, automated vehicle allocation, and real-time site-visit tracking.
                 </p>
                 <div class="slider-card-tags">
                   <span class="slider-card-tag">Next.js 15</span>
@@ -425,7 +491,7 @@
                 <span class="font-mono text-[10px] text-[#C7A77A] uppercase tracking-wider block mb-1">Full-Stack Cloud &amp; Travel Portal</span>
                 <h3 class="slider-card-title">White Swan Holidays</h3>
                 <p class="slider-card-desc">
-                  Dynamic international tour package discovery, automated booking request workflows, and responsive customer portal deployed live on Render cloud.
+                  Full-stack international tour discovery and booking automation platform with responsive client workflows, deployed on Render cloud.
                 </p>
                 <div class="slider-card-tags">
                   <span class="slider-card-tag">React 18</span>
@@ -460,7 +526,7 @@
                 <span class="font-mono text-[10px] text-[#C7A77A] uppercase tracking-wider block mb-1">Financial ERP &amp; Autonomous Systems</span>
                 <h3 class="slider-card-title">SmartFin AI – Finance Automation</h3>
                 <p class="slider-card-desc">
-                  Automated 2-way GSTR-2B reconciliation, ITC tracking under Sec 16(2)(aa), Section 194C/J TDS audits, and bank reconciliation statements.
+                  Cut manual accounting reconciliation hours by automating 2-way GSTR-2B matching, Sec 16(2)(aa) ITC compliance checks, and Section 194C/J TDS audits.
                 </p>
                 <div class="slider-card-tags">
                   <span class="slider-card-tag">FastAPI</span>
@@ -607,10 +673,10 @@
         </div>
       </div>
 
-      <!-- Brief Verified Experience Table -->
+      <!-- Brief Verified Experience Table (Strict Reverse-Chronological Order) -->
       <div class="bg-white border border-[#E6E4DE] rounded-sm divide-y divide-[#E6E4DE] shadow-sm scroll-reveal">
         
-        <!-- Role 1: White Swan Holidays -->
+        <!-- Role 1: White Swan Holidays (Aug 2025 – Present) -->
         <div class="p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[#FAF9F6] transition-colors">
           <div>
             <span class="font-mono text-[10px] text-orange-600 uppercase tracking-wider block mb-1">Technical Engineer</span>
@@ -625,22 +691,7 @@
           </div>
         </div>
 
-        <!-- Role 2: Arterius Solutions -->
-        <div class="p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[#FAF9F6] transition-colors">
-          <div>
-            <span class="font-mono text-[10px] text-emerald-600 uppercase tracking-wider block mb-1">Technical Engineer</span>
-            <h3 class="font-display font-bold text-xl text-[#171717]">Arterius Solutions</h3>
-            <p class="text-xs sm:text-sm text-[#777777] mt-0.5">Enterprise IT Infrastructure &amp; Technical Systems</p>
-          </div>
-          <div class="sm:text-right">
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-emerald-50 text-emerald-700 border border-emerald-200">
-              2024
-            </span>
-            <div class="text-[11px] font-mono text-[#777777] mt-1">Enterprise IT</div>
-          </div>
-        </div>
-
-        <!-- Role 3: Helion Enterprise -->
+        <!-- Role 2: Helion Enterprise (Dec 2024 – Present) -->
         <div class="p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[#FAF9F6] transition-colors">
           <div>
             <span class="font-mono text-[10px] text-[#526BFF] uppercase tracking-wider block mb-1">Founder</span>
@@ -652,6 +703,21 @@
               Dec 2024 – Present
             </span>
             <div class="text-[11px] font-mono text-[#777777] mt-1">Ahmedabad, India</div>
+          </div>
+        </div>
+
+        <!-- Role 3: Arterius Solutions (2024) -->
+        <div class="p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[#FAF9F6] transition-colors">
+          <div>
+            <span class="font-mono text-[10px] text-emerald-600 uppercase tracking-wider block mb-1">Technical Engineer</span>
+            <h3 class="font-display font-bold text-xl text-[#171717]">Arterius Solutions</h3>
+            <p class="text-xs sm:text-sm text-[#777777] mt-0.5">Enterprise IT Infrastructure &amp; Technical Systems</p>
+          </div>
+          <div class="sm:text-right">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-emerald-50 text-emerald-700 border border-emerald-200">
+              2024
+            </span>
+            <div class="text-[11px] font-mono text-[#777777] mt-1">Enterprise IT</div>
           </div>
         </div>
 
@@ -703,7 +769,8 @@
           <i data-lucide="github" class="w-3.5 h-3.5"></i>
           <span>GitHub</span>
         </a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors flex items-center gap-1.5">
+        <!-- TODO: Verify/adjust LinkedIn profile slug if needed -->
+        <a href="https://www.linkedin.com/in/krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors flex items-center gap-1.5">
           <i data-lucide="linkedin" class="w-3.5 h-3.5 text-blue-400"></i>
           <span>LinkedIn</span>
         </a>
@@ -722,7 +789,7 @@
         <!-- KT Logo & Short Brand Description -->
         <div class="space-y-3 max-w-sm">
           <a href="index.html" class="inline-flex items-center gap-3">
-            <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-9 h-auto">
+            <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto">
             <span class="font-display font-bold text-white text-base tracking-wider">KRISH TRIVEDI</span>
           </a>
           <p class="text-xs text-[#8E95A5] leading-relaxed font-sans">
@@ -737,6 +804,7 @@
           <a href="projects.html" class="hover:text-white transition-colors">Projects</a>
           <a href="ai-lab.html" class="hover:text-white transition-colors">AI Lab</a>
           <a href="experience.html" class="hover:text-white transition-colors">Experience</a>
+          <a href="skills.html" class="hover:text-white transition-colors">Skills</a>
           <a href="resume.html" class="hover:text-white transition-colors">Resume</a>
           <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
         </nav>
@@ -744,7 +812,8 @@
         <!-- Social & Direct Channels -->
         <div class="flex items-center gap-4 font-mono text-xs">
           <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub ↗</a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">LinkedIn ↗</a>
+          <!-- TODO: Verify/adjust LinkedIn profile slug if needed -->
+          <a href="https://www.linkedin.com/in/krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">LinkedIn ↗</a>
           <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline font-bold">WhatsApp</a>
           <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors">Email</a>
         </div>
@@ -754,7 +823,7 @@
       <!-- Copyright & Location Bar -->
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-[#8E95A5]/70">
         <div>© 2026 Krish Trivedi. Designed with precision, typography &amp; intelligence.</div>
-        <div>Ahmedabad, Gujarat, India · krishtrivedi.in (HTTPS Enforced)</div>
+        <div>Ahmedabad, Gujarat, India · krishtrivedi.in</div>
       </div>
 
     </div>
