@@ -1,24 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>White Swan Holidays — Case Study | Krish Trivedi</title>
-  <meta name="description" content="Engineering case study of the White Swan Holidays digital booking engine: React, Node.js, Express, Render, and WhatsApp automated lead pipelines by Krish Trivedi.">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 
-  <!-- Immediate Dark/Light Theme Initializer (Default: Premium Purplish-Black Dark Theme) -->
+  <!-- Canonical Hostname Enforcer (Redirect www -> apex) -->
   <script>
-    try {
-      const savedTheme = localStorage.getItem('kt_theme');
-      if (savedTheme === 'light') {
-        document.documentElement.classList.remove('dark');
-      } else {
-        document.documentElement.classList.add('dark');
-      }
-    } catch (e) {}
+    if (window.location.hostname === 'www.krishtrivedi.in') {
+      window.location.replace('https://krishtrivedi.in' + window.location.pathname + window.location.search + window.location.hash);
+    }
   </script>
 
+  <title>White Swan Holidays — Case Study | Krish Trivedi</title>
+  <meta name="description" content="Engineering case study of the White Swan Holidays digital booking engine: React, Node.js, Express, Render, and WhatsApp automated lead pipelines by Krish Trivedi.">
+  <link rel="canonical" href="https://krishtrivedi.in/projects/white-swan.html">
+
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://krishtrivedi.in/projects/white-swan.html">
+  <meta property="og:title" content="White Swan Holidays — Case Study | Krish Trivedi">
+  <meta property="og:description" content="Engineering case study of the White Swan Holidays digital booking engine: React, Node.js, Express, Render, and WhatsApp automated lead pipelines by Krish Trivedi.">
+  <meta property="og:image" content="https://krishtrivedi.in/img/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Krish Trivedi">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://krishtrivedi.in/projects/white-swan.html">
+  <meta name="twitter:title" content="White Swan Holidays — Case Study | Krish Trivedi">
+  <meta name="twitter:description" content="Engineering case study of the White Swan Holidays digital booking engine: React, Node.js, Express, Render, and WhatsApp automated lead pipelines by Krish Trivedi.">
+  <meta name="twitter:image" content="https://krishtrivedi.in/img/og-preview.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Immediate Zero-FOUC Theme & Session Preloader Initializer -->
+  <script>
+    (function() {
+      try {
+        let theme = localStorage.getItem('kt_theme');
+        if (!theme) {
+          const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          theme = prefersLight ? 'light' : 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        if (sessionStorage.getItem('kt_visited') === 'true') {
+          const s = document.createElement('style');
+          s.id = 'preloader-skip-style';
+          s.textContent = '#pagePreloader { display: none !important; }';
+          document.head.appendChild(s);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -45,7 +90,7 @@
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Custom Design System & Animation Stylesheet -->
-  <link rel="stylesheet" href="../css/styles.css?v=3.6.0">
+  <link rel="stylesheet" href="../css/styles.css?v=3.7.0">
 </head>
 <body class="bg-[#F5F3EE] text-[#171717] font-sans antialiased relative">
 
@@ -152,7 +197,7 @@
           <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
           <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
         </button>
-        <a href="https://whiteswanholidays.onrender.com/" target="_blank" class="btn-luxury btn-primary-dark text-xs py-2 px-4">
+        <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn-luxury btn-primary-dark text-xs py-2 px-4">
           <span>Live Site</span>
           <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
         </a>
@@ -183,7 +228,7 @@
 
     <!-- Hero Image Banner -->
     <div class="luxury-card overflow-hidden aspect-[16/9] mb-12 border border-[#E6E4DE]">
-      <img src="../img/projects/whiteswan-preview.jpg" alt="White Swan Holidays Portal" class="w-full h-full object-cover">
+      <img width="1280" height="800" loading="lazy" src="../img/projects/whiteswan-preview.webp" alt="White Swan Holidays Portal" class="w-full h-full object-cover">
     </div>
 
     <!-- Quick Spec Grid -->
@@ -202,7 +247,7 @@
       </div>
       <div>
         <div class="text-[#777777] uppercase">Live Domain</div>
-        <a href="https://whiteswanholidays.onrender.com/" target="_blank" class="font-bold text-emerald-600 hover:underline mt-1 block">Live on Render ↗</a>
+        <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="font-bold text-emerald-600 hover:underline mt-1 block">Live on Render ↗</a>
       </div>
     </div>
 
@@ -281,6 +326,6 @@
     </div>
   </footer>
 
-  <script src="../js/main.js?v=3.6.0"></script>
+  <script src="../js/main.js?v=3.7.0"></script>
 </body>
 </html>

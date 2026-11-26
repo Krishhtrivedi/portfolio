@@ -1,22 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Canonical Hostname Enforcer (Redirect www -> apex) -->
+  <script>
+    if (window.location.hostname === 'www.krishtrivedi.in') {
+      window.location.replace('https://krishtrivedi.in' + window.location.pathname + window.location.search + window.location.hash);
+    }
+  </script>
+
   <title>Contact — Krish Trivedi | Let's Build Something Intelligent</title>
   <meta name="description" content="Get in touch with Krish Trivedi for AI application development, enterprise automation, machine learning projects, and full-stack software consulting.">
+  <link rel="canonical" href="https://krishtrivedi.in/contact.html">
+
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://krishtrivedi.in/contact.html">
+  <meta property="og:title" content="Contact — Krish Trivedi | Let's Build Something Intelligent">
+  <meta property="og:description" content="Get in touch with Krish Trivedi for AI application development, enterprise automation, machine learning projects, and full-stack software consulting.">
+  <meta property="og:image" content="https://krishtrivedi.in/img/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact — Krish Trivedi | Let's Build Something Intelligent">
+  <meta name="twitter:description" content="Get in touch with Krish Trivedi for AI application development, enterprise automation, machine learning projects, and full-stack software consulting.">
+  <meta name="twitter:image" content="https://krishtrivedi.in/img/og-preview.png">
+
+  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-  <!-- Immediate Dark/Light Theme Initializer (Default: Premium Purplish-Black Dark Theme) -->
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Immediate Zero-FOUC Theme & Session Preloader Initializer -->
   <script>
-    try {
-      const savedTheme = localStorage.getItem('kt_theme');
-      if (savedTheme === 'light') {
-        document.documentElement.classList.remove('dark');
-      } else {
-        document.documentElement.classList.add('dark');
-      }
-    } catch (e) {}
+    (function() {
+      try {
+        let theme = localStorage.getItem('kt_theme');
+        if (!theme) {
+          const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          theme = prefersLight ? 'light' : 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        if (sessionStorage.getItem('kt_visited') === 'true') {
+          const s = document.createElement('style');
+          s.id = 'preloader-skip-style';
+          s.textContent = '#pagePreloader { display: none !important; }';
+          document.head.appendChild(s);
+        }
+      } catch (e) {}
+    })();
   </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
@@ -45,7 +87,7 @@
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Custom Design System & Animation Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=3.6.0">
+  <link rel="stylesheet" href="css/styles.css?v=3.7.0">
 </head>
 <body class="bg-[#F5F3EE] text-[#171717] font-sans antialiased relative">
 
@@ -152,7 +194,7 @@
           <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
           <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
         </button>
-        <a href="Krish-Trivedi-Resume.pdf" target="_blank" class="hidden sm:inline-flex btn-luxury btn-outline-editorial text-xs py-2 px-4">
+        <a href="Krish-Trivedi-Resume.pdf" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex btn-luxury btn-outline-editorial text-xs py-2 px-4">
           <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
           <span>Resume</span>
         </a>
@@ -223,7 +265,7 @@
               <i data-lucide="copy" class="w-3.5 h-3.5"></i>
               <span>Copy</span>
             </button>
-            <a href="https://wa.me/918849213790" target="_blank" class="btn-luxury btn-outline-editorial text-xs py-1.5 px-3 flex-1 justify-center text-emerald-600 border-emerald-300 hover:border-emerald-600">
+            <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="btn-luxury btn-outline-editorial text-xs py-1.5 px-3 flex-1 justify-center text-emerald-600 border-emerald-300 hover:border-emerald-600">
               <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
               <span>WhatsApp</span>
             </a>
@@ -241,11 +283,12 @@
           </div>
           
           <div class="pt-4 border-editorial-t grid grid-cols-2 gap-3 text-xs font-mono">
-            <a href="https://github.com/Krishhtrivedi" target="_blank" class="p-3 bg-[#F5F3EE] border-editorial rounded-sm text-[#171717] hover:border-[#171717] block">
+            <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="p-3 bg-[#F5F3EE] border-editorial rounded-sm text-[#171717] hover:border-[#171717] block">
               <div class="text-[10px] text-[#777777]">CODEBASE</div>
               <div class="font-bold mt-0.5">GitHub ↗</div>
             </a>
-            <a href="https://www.linkedin.com" target="_blank" class="p-3 bg-[#F5F3EE] border-editorial rounded-sm text-[#171717] hover:border-[#171717] block">
+            <!-- TODO: Verify/adjust LinkedIn profile slug if needed -->
+            <a href="https://www.linkedin.com/in/krishhtrivedi" target="_blank" rel="noopener noreferrer" class="p-3 bg-[#F5F3EE] border-editorial rounded-sm text-[#171717] hover:border-[#171717] block">
               <div class="text-[10px] text-[#777777]">NETWORK</div>
               <div class="font-bold mt-0.5">LinkedIn ↗</div>
             </a>
@@ -260,6 +303,14 @@
         <p class="text-xs text-[#777777] font-mono mb-6">Fill out the details below to launch direct communication:</p>
 
         <form id="contactForm" class="space-y-5">
+          <!-- Submission Status & Alert Feedback -->
+          <div id="contactStatusAlert" class="hidden mb-6 rounded-sm p-4 text-xs font-mono border transition-all"></div>
+
+          <!-- Anti-Spam Hidden Honeypot Field -->
+          <div class="hidden" style="display:none !important;" aria-hidden="true">
+            <input type="text" id="contactHoneypot" name="user_verification_token" tabindex="-1" autocomplete="off">
+          </div>
+
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
               <label for="contactName" class="block font-mono text-xs text-[#171717] uppercase mb-1.5">Your Name *</label>
@@ -308,6 +359,8 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=3.6.0"></script>
+  <!-- EmailJS CDN & Application Engine -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="js/main.js?v=3.7.0"></script>
 </body>
 </html>

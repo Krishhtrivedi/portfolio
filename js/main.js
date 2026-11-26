@@ -1209,14 +1209,27 @@ Input Features: 24 financial covariates, automated SMOTE balancing`
   }
   fetchGitHubRepos();
 
-  // 14. ONE-CLICK COPY & TOAST NOTIFICATIONS
+  // 14. ONE-CLICK COPY & TOAST NOTIFICATIONS (WITH TACTILE FEEDBACK)
   const copyButtons = document.querySelectorAll('.copy-btn');
   copyButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       const text = btn.getAttribute('data-copy');
       if (text) {
         navigator.clipboard.writeText(text).then(() => {
+          const originalHTML = btn.innerHTML;
+          btn.classList.add('copied');
+          btn.innerHTML = `
+            <svg class="w-3.5 h-3.5 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Copied!</span>
+          `;
           showToast(`Copied to clipboard: ${text}`);
+          setTimeout(() => {
+            btn.classList.remove('copied');
+            btn.innerHTML = originalHTML;
+            if (window.lucide) window.lucide.createIcons();
+          }, 2200);
         }).catch(() => {
           showToast('Failed to copy. Please copy manually.');
         });
@@ -1243,22 +1256,213 @@ Input Features: 24 financial covariates, automated SMOTE balancing`
   }
   window.showToast = showToast;
 
-  // 15. CONTACT FORM HANDLER
+  // 15. CONTACT FORM HANDLER (REAL EMAIL DELIVERY + VALIDATION + HONEYPOT + RATE LIMITING)
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('contactName')?.value.trim() || 'Client';
-      const email = document.getElementById('contactEmail')?.value.trim() || '';
-      const subject = document.getElementById('contactSubject')?.value.trim() || 'AI Project Collaboration';
-      const message = document.getElementById('contactMessage')?.value.trim() || '';
+    const statusAlert = document.getElementById('contactStatusAlert') || (() => {
+      const alert = document.createElement('div');
+      alert.id = 'contactStatusAlert';
+      contactForm.parentNode.insertBefore(alert, contactForm);
+      return alert;
+    })();
 
+    // Ensure honeypot field exists for spam protection
+    let honeypot = document.getElementById('contactHoneypot');
+    if (!honeypot) {
+      const hpWrap = document.createElement('div');
+      hpWrap.style.cssText = 'position:absolute;left:-9999px;opacity:0;pointer-events:none;';
+      hpWrap.setAttribute('aria-hidden', 'true');
+      hpWrap.innerHTML = '<input type="text" name="_gotcha_hp" id="contactHoneypot" tabindex="-1" autocomplete="off">';
+      contactForm.appendChild(hpWrap);
+      honeypot = hpWrap.querySelector('input');
+    }
+
+    function setStatus(type, message, showMailto = false, mailtoData = null) {
+      statusAlert.className = `status-${type}`;
+      statusAlert.innerHTML = message;
+      if (showMailto && mailtoData) {
+        const mailtoBtn = document.createElement('a');
+        mailtoBtn.href = mailtoData;
+        mailtoBtn.className = 'btn-luxury btn-outline-editorial text-xs mt-3 inline-flex items-center gap-1.5 py-1.5 px-3';
+        mailtoBtn.innerHTML = '<span>Open in Email App Instead ↗</span>';
+        statusAlert.appendChild(mailtoBtn);
+      }
+      statusAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    function clearFieldErrors() {
+      contactForm.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+      contactForm.querySelectorAll('.field-error-msg').forEach(el => el.remove());
+    }
+
+    function showFieldError(fieldId, errorMsg) {
+      const field = document.getElementById(fieldId);
+      if (field) {
+        field.classList.add('input-error');
+        const err = document.createElement('span');
+        err.className = 'field-error-msg';
+        err.textContent = errorMsg;
+        field.parentNode.appendChild(err);
+      }
+    }
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearFieldErrors();
+
+      // 1. Spam check (Honeypot)
+      if (honeypot && honeypot.value.trim() !== '') {
+        setStatus('success', '<strong>Inquiry Sent!</strong> Thank you for getting in touch.');
+        contactForm.reset();
+        return;
+      }
+
+      // 2. Extract values
+      const nameInput = document.getElementById('contactName');
+      const emailInput = document.getElementById('contactEmail');
+      const subjectInput = document.getElementById('contactSubject');
+      const messageInput = document.getElementById('contactMessage');
+
+      const name = nameInput?.value.trim() || '';
+      const email = emailInput?.value.trim() || '';
+      const subject = subjectInput?.value.trim() || 'AI Project Collaboration Inquiry';
+      const message = messageInput?.value.trim() || '';
+
+      // 3. Client-side input validation
+      let hasError = false;
+      if (name.length < 2) {
+        showFieldError('contactName', 'Please enter your full name (at least 2 characters).');
+        hasError = true;
+      }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showFieldError('contactEmail', 'Please enter a valid email address.');
+        hasError = true;
+      }
+      if (message.length < 10) {
+        showFieldError('contactMessage', 'Please provide a detailed message (at least 10 characters).');
+        hasError = true;
+      }
+
+      if (hasError) {
+        setStatus('error', 'Please resolve the highlighted fields before submitting.');
+        return;
+      }
+
+      // 4. Rate Limiting Check (3 submissions per 10 mins, min 25s cooldown)
+      const now = Date.now();
+      const rateLimitData = JSON.parse(localStorage.getItem('kt_contact_limit') || '{"timestamps":[]}');
+      rateLimitData.timestamps = rateLimitData.timestamps.filter(t => now - t < 10 * 60 * 1000);
+
+      const lastSubmission = rateLimitData.timestamps[rateLimitData.timestamps.length - 1] || 0;
+      if (now - lastSubmission < 25 * 1000) {
+        const waitSec = Math.ceil((25 * 1000 - (now - lastSubmission)) / 1000);
+        setStatus('error', `Please wait ${waitSec} seconds before dispatching another inquiry.`);
+        return;
+      }
+      if (rateLimitData.timestamps.length >= 3) {
+        setStatus('error', 'Rate limit exceeded: Maximum 3 inquiries per 10 minutes. Please reach out directly at <a href="mailto:krish.trivedi28@gmail.com" class="underline font-bold">krish.trivedi28@gmail.com</a>.');
+        return;
+      }
+
+      // 5. Submit UI State
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalBtnHTML = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span class="btn-spinner"></span><span>TRANSMITTING INQUIRY...</span>';
+      }
+      setStatus('loading', 'Connecting to delivery service and transmitting inquiry securely...');
+
+      // Prepare mailto fallback URL
       const fullBody = `Hello Krish,%0D%0A%0D%0AMy name is ${encodeURIComponent(name)} (${encodeURIComponent(email)}).%0D%0A%0D%0A${encodeURIComponent(message)}`;
       const mailtoUrl = `mailto:krish.trivedi28@gmail.com?subject=${encodeURIComponent(subject)}&body=${fullBody}`;
 
-      window.location.href = mailtoUrl;
-      showToast('Opening native email client to send message...');
+      try {
+        let sent = false;
+
+        // A. EmailJS Integration
+        const emailjsKey = window.EMAILJS_PUBLIC_KEY || '';
+        const emailjsService = window.EMAILJS_SERVICE_ID || '';
+        const emailjsTemplate = window.EMAILJS_TEMPLATE_ID || '';
+
+        if (window.emailjs && emailjsKey && emailjsService && emailjsTemplate) {
+          window.emailjs.init(emailjsKey);
+          await window.emailjs.send(emailjsService, emailjsTemplate, {
+            from_name: name,
+            from_email: email,
+            subject: subject,
+            message: message,
+            to_name: 'Krish Trivedi',
+            reply_to: email,
+          });
+          sent = true;
+        }
+
+        // B. Custom Endpoint / Formspree / Webhook Fallback
+        const endpoint = window.CONTACT_ENDPOINT || '';
+        if (!sent && endpoint) {
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ name, email, subject, message })
+          });
+          if (res.ok) sent = true;
+        }
+
+        if (sent) {
+          rateLimitData.timestamps.push(now);
+          localStorage.setItem('kt_contact_limit', JSON.stringify(rateLimitData));
+          setStatus('success', `
+            <div class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              <div>
+                <strong>Inquiry Transmitted Successfully!</strong><br>
+                Thank you, ${escapeHTML(name)}. Your message has been received. Krish will review your requirements and respond to <strong>${escapeHTML(email)}</strong> within 24 hours.
+              </div>
+            </div>
+          `);
+          contactForm.reset();
+          showToast('Inquiry delivered successfully!');
+        } else {
+          // If no remote service keys are configured, provide transparent instructions + instant mailto fallback
+          rateLimitData.timestamps.push(now);
+          localStorage.setItem('kt_contact_limit', JSON.stringify(rateLimitData));
+          setStatus('success', `
+            <div>
+              <strong>Inquiry Formatted!</strong><br>
+              Click below to deliver directly via your email client, or send to <a href="mailto:krish.trivedi28@gmail.com" class="underline font-bold">krish.trivedi28@gmail.com</a>:
+            </div>
+          `, true, mailtoUrl);
+          window.location.href = mailtoUrl;
+          showToast('Opening native email client with your message...');
+        }
+      } catch (err) {
+        console.error('Contact submission error:', err);
+        setStatus('error', `
+          <div>
+            <strong>Unable to transmit automatically.</strong><br>
+            A network or service disruption occurred. You can dispatch your message directly via your email app:
+          </div>
+        `, true, mailtoUrl);
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnHTML;
+          if (window.lucide) window.lucide.createIcons();
+        }
+      }
     });
+
+    function escapeHTML(str) {
+      return str.replace(/[&<>'"]/g, tag => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        "'": '&#39;',
+        '"': '&quot;'
+      }[tag] || tag));
+    }
   }
 
 });

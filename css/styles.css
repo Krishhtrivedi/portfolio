@@ -4,8 +4,6 @@
    Visual Reference: HPAD (Architectural Quiet Luxury & Cinematic Imagery)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
-
 :root {
   /* Core Color System (Master Prompt Specification) */
   --bg-primary: #F5F3EE;       /* Warm editorial paper/stone */
@@ -1419,6 +1417,7 @@ body.cursor-dark .custom-cursor-ring {
   .stagger-container > * {
     opacity: 1 !important;
     transform: none !important;
+    transition: none !important;
   }
 
   .img-reveal-frame {
@@ -1427,6 +1426,20 @@ body.cursor-dark .custom-cursor-ring {
 
   .img-reveal-frame img {
     transform: none !important;
+  }
+
+  .animate-pulse,
+  .animate-spin,
+  .animate-bounce {
+    animation: none !important;
+  }
+
+  .hero-line-mask {
+    overflow: visible !important;
+  }
+
+  #heroNeuralCanvas {
+    opacity: 0.4 !important;
   }
 }
 
@@ -1953,4 +1966,157 @@ html:not(.dark) .fullscreen-menu .font-display.font-bold.text-white {
 html:not(.dark) .fullscreen-menu #closeMenuBtn {
   background-color: rgba(23, 23, 23, 0.06) !important;
   color: #171717 !important;
+}
+
+/* ==========================================================================
+   BACKDROP-FILTER FALLBACKS (WHEN NOT SUPPORTED)
+   ========================================================================== */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .btn-luxury,
+  .btn-glass {
+    background-color: #171717 !important;
+    color: #FFFFFF !important;
+  }
+  .btn-outline-editorial {
+    background-color: #FFFFFF !important;
+    color: #171717 !important;
+  }
+  html.dark .btn-luxury,
+  html.dark .btn-glass,
+  html.dark .btn-primary-dark {
+    background-color: #FAF7FD !important;
+    color: #0A0612 !important;
+  }
+  html.dark .btn-outline-editorial {
+    background-color: #150E24 !important;
+    color: #FAF7FD !important;
+  }
+  header#navbar,
+  .luxury-navbar {
+    background-color: #F5F3EE !important;
+  }
+  html.dark header#navbar,
+  html.dark .luxury-navbar {
+    background-color: #0A0612 !important;
+  }
+  .theme-toggle-btn {
+    background-color: #FFFFFF !important;
+  }
+  html.dark .theme-toggle-btn {
+    background-color: #150E24 !important;
+  }
+  .slider-float-arrow {
+    background-color: #101820 !important;
+  }
+}
+
+/* ==========================================================================
+   ONE-CLICK COPY FEEDBACK & CONTACT FORM STATUS STYLING
+   ========================================================================== */
+.copy-btn {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  user-select: none;
+}
+
+.copy-btn.copied {
+  background-color: #10B981 !important;
+  border-color: #10B981 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35) !important;
+}
+
+.copy-btn.copied svg,
+.copy-btn.copied i {
+  stroke: #FFFFFF !important;
+}
+
+/* Contact Form Input Validation States */
+.input-error {
+  border-color: #EF4444 !important;
+  background-color: rgba(239, 68, 68, 0.04) !important;
+}
+
+html.dark .input-error {
+  border-color: #F87171 !important;
+  background-color: rgba(239, 68, 68, 0.1) !important;
+}
+
+.field-error-msg {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: #DC2626;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+html.dark .field-error-msg {
+  color: #F87171;
+}
+
+/* Contact Status Alert Banners */
+#contactStatusAlert {
+  display: none;
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  transition: all 0.3s ease;
+}
+
+#contactStatusAlert.status-success {
+  display: block;
+  background-color: #ECFDF5;
+  border: 1px solid #6EE7B7;
+  color: #065F46;
+}
+
+html.dark #contactStatusAlert.status-success {
+  background-color: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
+  color: #34D399;
+}
+
+#contactStatusAlert.status-error {
+  display: block;
+  background-color: #FEF2F2;
+  border: 1px solid #FCA5A5;
+  color: #991B1B;
+}
+
+html.dark #contactStatusAlert.status-error {
+  background-color: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.35);
+  color: #F87171;
+}
+
+#contactStatusAlert.status-loading {
+  display: block;
+  background-color: #EFF6FF;
+  border: 1px solid #93C5FD;
+  color: #1E40AF;
+}
+
+html.dark #contactStatusAlert.status-loading {
+  background-color: rgba(82, 107, 255, 0.12);
+  border-color: rgba(82, 107, 255, 0.35);
+  color: #93C5FD;
+}
+
+/* Button Loading Spinner */
+.btn-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: btnSpin 0.75s linear infinite;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+@keyframes btnSpin {
+  to { transform: rotate(360deg); }
 }

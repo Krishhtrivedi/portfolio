@@ -1,0 +1,5 @@
+# 301 Permanent Redirects for Krish Trivedi Portfolio (krishtrivedi.in)
+# Enforce apex domain (strip www)
+https://www.krishtrivedi.in/* https://krishtrivedi.in/:splat 301!
+http://www.krishtrivedi.in/* https://krishtrivedi.in/:splat 301!
+http://krishtrivedi.in/* https://krishtrivedi.in/:splat 301!

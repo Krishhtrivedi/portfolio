@@ -1,24 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SmartFin AI — Enterprise Finance & Office Automation System | Krish Trivedi</title>
-  <meta name="description" content="Engineering case study of SmartFin AI: AI-powered GST reconciliation, TDS/TCS compliance, Bank BRS, Excel workflow automation, and office ERP for Vichar Vimarsh.">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 
-  <!-- Immediate Dark/Light Theme Initializer (Default: Premium Purplish-Black Dark Theme) -->
+  <!-- Canonical Hostname Enforcer (Redirect www -> apex) -->
   <script>
-    try {
-      const savedTheme = localStorage.getItem('kt_theme');
-      if (savedTheme === 'light') {
-        document.documentElement.classList.remove('dark');
-      } else {
-        document.documentElement.classList.add('dark');
-      }
-    } catch (e) {}
+    if (window.location.hostname === 'www.krishtrivedi.in') {
+      window.location.replace('https://krishtrivedi.in' + window.location.pathname + window.location.search + window.location.hash);
+    }
   </script>
 
+  <title>SmartFin AI — Enterprise Finance & Office Automation System | Krish Trivedi</title>
+  <meta name="description" content="Engineering case study of SmartFin AI: AI-powered GST reconciliation, TDS/TCS compliance, Bank BRS, Excel workflow automation, and office ERP for Vichar Vimarsh.">
+  <link rel="canonical" href="https://krishtrivedi.in/projects/smartfin-ai.html">
+
+  <!-- Open Graph / Social Cards -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://krishtrivedi.in/projects/smartfin-ai.html">
+  <meta property="og:title" content="SmartFin AI — Enterprise Finance & Office Automation System | Krish Trivedi">
+  <meta property="og:description" content="Engineering case study of SmartFin AI: AI-powered GST reconciliation, TDS/TCS compliance, Bank BRS, Excel workflow automation, and office ERP for Vichar Vimarsh.">
+  <meta property="og:image" content="https://krishtrivedi.in/img/og-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Krish Trivedi">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://krishtrivedi.in/projects/smartfin-ai.html">
+  <meta name="twitter:title" content="SmartFin AI — Enterprise Finance & Office Automation System | Krish Trivedi">
+  <meta name="twitter:description" content="Engineering case study of SmartFin AI: AI-powered GST reconciliation, TDS/TCS compliance, Bank BRS, Excel workflow automation, and office ERP for Vichar Vimarsh.">
+  <meta name="twitter:image" content="https://krishtrivedi.in/img/og-preview.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Immediate Zero-FOUC Theme & Session Preloader Initializer -->
+  <script>
+    (function() {
+      try {
+        let theme = localStorage.getItem('kt_theme');
+        if (!theme) {
+          const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          theme = prefersLight ? 'light' : 'dark';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        if (sessionStorage.getItem('kt_visited') === 'true') {
+          const s = document.createElement('style');
+          s.id = 'preloader-skip-style';
+          s.textContent = '#pagePreloader { display: none !important; }';
+          document.head.appendChild(s);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -46,7 +91,7 @@
     }
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
-  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css?v=3.7.0">
 </head>
 <body class="bg-[#F5F3EE] text-[#171717] font-sans antialiased relative">
 
@@ -171,6 +216,11 @@
       </p>
     </div>
 
+        <!-- Hero Image Banner -->
+    <div class="luxury-card overflow-hidden aspect-[16/9] mb-12 border border-[#E6E4DE]">
+      <img src="../img/projects/smartfin-preview.svg" alt="SmartFin AI Finance Automation System Dashboard" width="1280" height="800" class="w-full h-full object-cover">
+    </div>
+
     <!-- Metadata Grid -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 bg-white border border-[#E6E4DE] rounded-sm mb-12 font-mono text-xs">
       <div>
@@ -187,7 +237,7 @@
       </div>
       <div>
         <span class="text-[#777777] block text-[10px] uppercase">Open Source</span>
-        <a href="https://github.com/Krishhtrivedi/smartfin-ai" target="_blank" class="font-bold text-[#526BFF] hover:underline mt-1 block">GitHub Repository ↗</a>
+        <a href="https://github.com/Krishhtrivedi/smartfin-ai" target="_blank" rel="noopener noreferrer" class="font-bold text-[#526BFF] hover:underline mt-1 block">GitHub Repository ↗</a>
       </div>
     </div>
 
