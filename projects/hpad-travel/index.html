@@ -12,14 +12,14 @@
   </script>
 
   <title>HPAD Travel Management System — Case Study | Krish Trivedi</title>
-  <meta name="description" content="Engineering case study of the HPAD Travel Management System: Next.js 15, React 19, Supabase PostgreSQL, and Render cloud deployment for Hiren Patel Architects & Design.">
+  <meta name="description" content="Enterprise travel and vehicle dispatch management platform engineered for Hiren Patel Architects with Next.js 15, React 19, Supabase RLS, and Render.">
   <link rel="canonical" href="https://krishtrivedi.in/projects/hpad-travel.html">
 
   <!-- Open Graph / Social Cards -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://krishtrivedi.in/projects/hpad-travel.html">
   <meta property="og:title" content="HPAD Travel Management System — Case Study | Krish Trivedi">
-  <meta property="og:description" content="Engineering case study of the HPAD Travel Management System: Next.js 15, React 19, Supabase PostgreSQL, and Render cloud deployment for Hiren Patel Architects & Design.">
+  <meta property="og:description" content="Enterprise travel and vehicle dispatch management platform engineered for Hiren Patel Architects with Next.js 15, React 19, Supabase RLS, and Render.">
   <meta property="og:image" content="https://krishtrivedi.in/img/og-preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -29,7 +29,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://krishtrivedi.in/projects/hpad-travel.html">
   <meta name="twitter:title" content="HPAD Travel Management System — Case Study | Krish Trivedi">
-  <meta name="twitter:description" content="Engineering case study of the HPAD Travel Management System: Next.js 15, React 19, Supabase PostgreSQL, and Render cloud deployment for Hiren Patel Architects & Design.">
+  <meta name="twitter:description" content="Enterprise travel and vehicle dispatch management platform engineered for Hiren Patel Architects with Next.js 15, React 19, Supabase RLS, and Render.">
   <meta name="twitter:image" content="https://krishtrivedi.in/img/og-preview.png">
 
   <!-- Favicon -->
@@ -38,7 +38,7 @@
   <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
 
   <!-- Immediate Zero-FOUC Theme & Session Preloader Initializer -->
   <script>
@@ -71,17 +71,22 @@
       theme: {
         extend: {
           colors: {
-            paper: '#F5F3EE',
-            graphite: '#171717',
-            secondary: '#777777',
-            cobalt: '#526BFF',
-            obsidian: '#10131D',
-            hairline: '#E6E4DE',
+            'bg-primary': 'var(--bg-primary)',
+            'bg-secondary': 'var(--bg-secondary)',
+            'text-primary': 'var(--text-primary)',
+            'text-secondary': 'var(--text-secondary)',
+            'accent-primary': 'var(--accent-primary)',
+            'accent-secondary': 'var(--accent-secondary)',
+            'accent-spark': 'var(--accent-spark)',
+            paper: 'var(--bg-primary)',
+            graphite: 'var(--text-primary)',
+            secondary: 'var(--text-secondary)',
+            cobalt: 'var(--accent-secondary)',
+            obsidian: 'var(--bg-primary)',
           },
           fontFamily: {
-            display: ['"Space Grotesk"', 'sans-serif'],
-            serif: ['"Playfair Display"', 'serif'],
-            sans: ['Manrope', 'Inter', 'sans-serif'],
+            display: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
           }
         }
@@ -92,16 +97,7 @@
   <!-- Custom Design System & Animation Stylesheet -->
   <link rel="stylesheet" href="../css/styles.css?v=3.7.0">
 </head>
-<body class="bg-[#F5F3EE] text-[#171717] font-sans antialiased relative">
-
-  <!-- Premium Branded Page Preloader (HPAD Luxury Cinematic Style) -->
-  <div id="pagePreloader" class="fixed inset-0 z-[99999] bg-[#10131D] flex flex-col items-center justify-center transition-all duration-700 ease-out" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #10131D; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-    <div class="preloader-logo-wrap" style="position: relative; width: 64px; height: 64px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center;">
-      <img src="../img/logo-kt-light.svg" alt="KT Monogram" class="w-14 h-14" style="width: 56px; height: 56px;">
-    </div>
-    <div class="preloader-progress-track" style="width: 140px; height: 2px; background-color: rgba(255, 255, 255, 0.1); position: relative; overflow: hidden; border-radius: 2px;">
-      <div class="preloader-progress-bar" style="position: absolute; top: 0; left: 0; height: 100%; width: 0%; background-color: #526BFF;"></div>
-    </div>
+<body class="bg-[#FAF9FE] text-[#141024] font-sans antialiased relative">
     <div class="preloader-status" style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: #8E95A5; margin-top: 14px;">INITIALIZING SYSTEM</div>
   </div>
 
@@ -131,30 +127,34 @@
         </a>
         <a href="../about.html" class="menu-item-editorial group">
           <span class="item-title">02 ABOUT</span>
-          <span class="item-sub">BIOGRAPHY & PHILOSOPHY</span>
+          <span class="item-sub">BIOGRAPHY &amp; PHILOSOPHY</span>
         </a>
-        <a href="../projects.html" class="menu-item-editorial group text-[#526BFF]">
+        <a href="../projects.html" class="menu-item-editorial group text-[#8B5CF6] dark:text-[#C084FC]">
           <span class="item-title">03 PROJECTS</span>
           <span class="item-sub">SELECTED CASE STUDIES</span>
         </a>
         <a href="../ai-lab.html" class="menu-item-editorial group">
           <span class="item-title">04 AI LAB</span>
-          <span class="item-sub">INTERACTIVE DEMOS & CLI</span>
-        </a>
-        <a href="../services.html" class="menu-item-editorial group">
-          <span class="item-title">05 SERVICES</span>
-          <span class="item-sub">SOLUTIONS & EXPERTISE</span>
+          <span class="item-sub">INTERACTIVE DEMOS &amp; CLI</span>
         </a>
         <a href="../experience.html" class="menu-item-editorial group">
-          <span class="item-title">06 EXPERIENCE</span>
-          <span class="item-sub">CAREER & SYSTEMS TIMELINE</span>
+          <span class="item-title">05 EXPERIENCE</span>
+          <span class="item-sub">CAREER &amp; SYSTEMS TIMELINE</span>
+        </a>
+        <a href="../skills.html" class="menu-item-editorial group">
+          <span class="item-title">06 SKILLS</span>
+          <span class="item-sub">TECHNICAL CAPABILITIES</span>
+        </a>
+        <a href="../services.html" class="menu-item-editorial group">
+          <span class="item-title">07 SERVICES</span>
+          <span class="item-sub">SOLUTIONS &amp; EXPERTISE</span>
         </a>
         <a href="../resume.html" class="menu-item-editorial group">
-          <span class="item-title">07 RESUME</span>
+          <span class="item-title">08 RESUME</span>
           <span class="item-sub">CURRICULUM VITAE</span>
         </a>
         <a href="../contact.html" class="menu-item-editorial group">
-          <span class="item-title">08 CONTACT</span>
+          <span class="item-title">09 CONTACT</span>
           <span class="item-sub">LET'S CONNECT</span>
         </a>
       </nav>
@@ -186,8 +186,10 @@
         <a href="../about.html" class="nav-link">About</a>
         <a href="../projects.html" class="nav-link active">Projects</a>
         <a href="../ai-lab.html" class="nav-link">AI Lab</a>
-        <a href="../services.html" class="nav-link">Services</a>
         <a href="../experience.html" class="nav-link">Experience</a>
+        <a href="../skills.html" class="nav-link">Skills</a>
+        <a href="../services.html" class="nav-link">Services</a>
+        <a href="../resume.html" class="nav-link">Resume</a>
         <a href="../contact.html" class="nav-link">Contact</a>
       </nav>
 
@@ -310,6 +312,15 @@
     </div>
 
   </main>
+
+  <!-- Premium Branded Page Preloader (HPAD Luxury Cinematic Style) -->
+  <div id="pagePreloader" aria-hidden="true" class="fixed inset-0 z-[99999] bg-[#0B0814] flex flex-col items-center justify-center transition-all duration-700 ease-out" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #0B0814; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div class="preloader-logo-wrap" style="position: relative; width: 64px; height: 64px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center;">
+      <img src="../img/logo-kt-light.svg" alt="KT Monogram" class="w-14 h-14" style="width: 56px; height: 56px;">
+    </div>
+    <div class="preloader-progress-track" style="width: 140px; height: 2px; background-color: rgba(255, 255, 255, 0.1); position: relative; overflow: hidden; border-radius: 2px;">
+      <div class="preloader-progress-bar" style="position: absolute; top: 0; left: 0; height: 100%; width: 0%; background-color: #8B5CF6;"></div>
+    </div>
 
   <!-- Footer -->
   <footer class="bg-[#10131D] text-[#F5F3EE] py-12 border-t border-white/[0.08]">

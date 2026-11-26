@@ -667,8 +667,8 @@ document.addEventListener('DOMContentLoaded', () => {
     resize();
     window.addEventListener('resize', resize);
 
-    // Generate 3D nodes on Fibonacci sphere
-    const NUM_NODES = 58;
+    // Generate 3D nodes on Fibonacci sphere (Violet-Cyan Palette)
+    const NUM_NODES = 60;
     const RADIUS = Math.min(width, height) * 0.36;
     const nodes = [];
 
@@ -684,8 +684,11 @@ document.addEventListener('DOMContentLoaded', () => {
         origX: x * RADIUS,
         origY: y * RADIUS,
         origZ: z * RADIUS,
-        size: Math.random() * 1.4 + 1.8,
-        color: Math.random() > 0.4 ? '#C7A77A' : '#526BFF'
+        currX: x * RADIUS,
+        currY: y * RADIUS,
+        currZ: z * RADIUS,
+        size: Math.random() * 1.5 + 1.8,
+        colorType: Math.random() > 0.45 ? 'cyan' : 'violet'
       });
     }
 
@@ -696,13 +699,22 @@ document.addEventListener('DOMContentLoaded', () => {
     let isDragging = false;
     let startPointerX = 0;
     let startPointerY = 0;
+    let cursorLocalX = -999;
+    let cursorLocalY = -999;
 
     canvas.addEventListener('mousemove', (e) => {
       const rect = canvas.getBoundingClientRect();
+      cursorLocalX = e.clientX - rect.left;
+      cursorLocalY = e.clientY - rect.top;
       const mouseX = (e.clientX - rect.left) / rect.width - 0.5;
       const mouseY = (e.clientY - rect.top) / rect.height - 0.5;
       targetRotY += mouseX * 0.04;
       targetRotX += -mouseY * 0.04;
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      cursorLocalX = -999;
+      cursorLocalY = -999;
     });
 
     canvas.addEventListener('mousedown', (e) => {
@@ -746,14 +758,24 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.addEventListener('touchend', () => { isDragging = false; });
 
     let isVisible = true;
+    let animId = null;
+
     const observer = new IntersectionObserver((entries) => {
-      isVisible = entries[0].isIntersecting;
-    });
+      const entry = entries[0];
+      const wasVisible = isVisible;
+      isVisible = entry.isIntersecting;
+      if (isVisible && !wasVisible && !animId) {
+        animId = requestAnimationFrame(render);
+      } else if (!isVisible && animId) {
+        cancelAnimationFrame(animId);
+        animId = null;
+      }
+    }, { threshold: 0.05 });
     observer.observe(canvas);
 
     function render() {
       if (!isVisible) {
-        requestAnimationFrame(render);
+        animId = null;
         return;
       }
 
@@ -772,6 +794,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const projected = [];
       for (let i = 0; i < NUM_NODES; i++) {
         const n = nodes[i];
+
         // Rotate around Y
         const x1 = n.origX * cosY - n.origZ * sinY;
         const z1 = n.origZ * cosY + n.origX * sinY;
@@ -782,9 +805,22 @@ document.addEventListener('DOMContentLoaded', () => {
         // Perspective scale
         const fov = 340;
         const scale = fov / (fov + z2);
-        const projX = cx + x1 * scale;
-        const projY = cy + y2 * scale;
-        const alpha = Math.max(0.12, Math.min(1, (z2 + RADIUS) / (RADIUS * 2)));
+        let projX = cx + x1 * scale;
+        let projY = cy + y2 * scale;
+
+        // Subtle proximity displacement if cursor is near projected point
+        if (cursorLocalX > 0 && cursorLocalY > 0) {
+          const cdx = projX - cursorLocalX;
+          const cdy = projY - cursorLocalY;
+          const cdist = Math.sqrt(cdx * cdx + cdy * cdy);
+          if (cdist < 85) {
+            const force = (1 - cdist / 85) * 14;
+            projX += (cdx / (cdist || 1)) * force;
+            projY += (cdy / (cdist || 1)) * force;
+          }
+        }
+
+        const alpha = Math.max(0.14, Math.min(1, (z2 + RADIUS) / (RADIUS * 2)));
 
         projected.push({
           x: projX,
@@ -793,15 +829,15 @@ document.addEventListener('DOMContentLoaded', () => {
           scale: scale,
           alpha: alpha,
           size: n.size * scale,
-          color: n.color
+          colorType: n.colorType
         });
       }
 
-      const isDark = document.documentElement.classList.contains('dark');
+      const isDark = document.documentElement.classList.contains('dark') || document.documentElement.getAttribute('data-theme') === 'dark';
 
-      // Connect proximal nodes with gold & cobalt / purple filaments
+      // Connect proximal nodes with violet and cyan filaments
       const maxDist = RADIUS * 0.68;
-      ctx.lineWidth = 0.8;
+      ctx.lineWidth = 0.85;
       for (let i = 0; i < projected.length; i++) {
         for (let j = i + 1; j < projected.length; j++) {
           const p1 = projected[i];
@@ -811,10 +847,16 @@ document.addEventListener('DOMContentLoaded', () => {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxDist) {
-            const linkAlpha = (1 - dist / maxDist) * Math.min(p1.alpha, p2.alpha) * 0.42;
-            ctx.strokeStyle = isDark
-              ? `rgba(168, 85, 247, ${linkAlpha * 1.3})`
-              : `rgba(199, 167, 122, ${linkAlpha})`;
+            const linkAlpha = (1 - dist / maxDist) * Math.min(p1.alpha, p2.alpha) * 0.45;
+            if (isDark) {
+              ctx.strokeStyle = p1.colorType === 'cyan'
+                ? `rgba(6, 182, 212, ${linkAlpha * 1.35})`
+                : `rgba(139, 92, 246, ${linkAlpha * 1.35})`;
+            } else {
+              ctx.strokeStyle = p1.colorType === 'cyan'
+                ? `rgba(2, 132, 199, ${linkAlpha * 1.1})`
+                : `rgba(109, 40, 217, ${linkAlpha * 1.1})`;
+            }
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
@@ -829,36 +871,36 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         if (isDark) {
-          ctx.fillStyle = p.color === '#C7A77A'
-            ? `rgba(199, 167, 122, ${p.alpha * 0.95})`
-            : `rgba(192, 132, 252, ${p.alpha * 0.95})`;
+          ctx.fillStyle = p.colorType === 'cyan'
+            ? `rgba(6, 182, 212, ${p.alpha * 0.95})`
+            : `rgba(139, 92, 246, ${p.alpha * 0.95})`;
         } else {
-          ctx.fillStyle = p.color === '#C7A77A'
-            ? `rgba(199, 167, 122, ${p.alpha * 0.95})`
-            : `rgba(82, 107, 255, ${p.alpha * 0.85})`;
+          ctx.fillStyle = p.colorType === 'cyan'
+            ? `rgba(2, 132, 199, ${p.alpha * 0.92})`
+            : `rgba(109, 40, 217, ${p.alpha * 0.92})`;
         }
         ctx.fill();
 
         // Ambient depth glow for foreground points
         if (p.z > 0) {
           ctx.beginPath();
-          ctx.arc(p.x, p.y, p.size * 2.2, 0, Math.PI * 2);
+          ctx.arc(p.x, p.y, p.size * 2.4, 0, Math.PI * 2);
           if (isDark) {
-            ctx.fillStyle = p.color === '#C7A77A'
-              ? `rgba(199, 167, 122, ${p.alpha * 0.22})`
-              : `rgba(168, 85, 247, ${p.alpha * 0.28})`;
+            ctx.fillStyle = p.colorType === 'cyan'
+              ? `rgba(6, 182, 212, ${p.alpha * 0.32})`
+              : `rgba(139, 92, 246, ${p.alpha * 0.32})`;
           } else {
-            ctx.fillStyle = p.color === '#C7A77A'
-              ? `rgba(199, 167, 122, ${p.alpha * 0.18})`
-              : `rgba(82, 107, 255, ${p.alpha * 0.18})`;
+            ctx.fillStyle = p.colorType === 'cyan'
+              ? `rgba(2, 132, 199, ${p.alpha * 0.22})`
+              : `rgba(109, 40, 217, ${p.alpha * 0.22})`;
           }
           ctx.fill();
         }
       }
 
-      requestAnimationFrame(render);
+      animId = requestAnimationFrame(render);
     }
-    requestAnimationFrame(render);
+    animId = requestAnimationFrame(render);
   }
 
   // Initialize Hero Neural Canvas
@@ -1462,6 +1504,56 @@ Input Features: 24 financial covariates, automated SMOTE balancing`
         "'": '&#39;',
         '"': '&quot;'
       }[tag] || tag));
+    }
+  }
+
+  // 16. CURSOR-TRACKING SPOTLIGHT BORDERS & MAGNETIC FROSTED BUTTONS
+  const isReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // A. Pointer Coordinates on Bento / Project / Luxury Cards
+  const spotlightElements = document.querySelectorAll('.spotlight-card, .luxury-card, .slider-project-card, .project-card, .bento-card');
+  spotlightElements.forEach(card => {
+    card.addEventListener('pointermove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+
+  // B. Magnetic Hover Pull on Frosted Action Buttons
+  if (!isReducedMotion) {
+    const magneticBtns = document.querySelectorAll('.btn-luxury, .btn-primary-dark, .btn-primary-gold, .btn-magnetic');
+    magneticBtns.forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = (e.clientX - rect.left - rect.width / 2) * 0.16;
+        const y = (e.clientY - rect.top - rect.height / 2) * 0.16;
+        btn.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate3d(0, 0, 0)';
+      });
+    });
+  }
+
+  // C. 60fps GPU Composited Scroll Reveal
+  const revealElements = document.querySelectorAll('.scroll-reveal');
+  if (revealElements.length > 0) {
+    if ('IntersectionObserver' in window && !isReducedMotion) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+      revealElements.forEach(el => el.classList.add('revealed'));
     }
   }
 
