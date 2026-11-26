@@ -139,11 +139,9 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Custom Design System & Animation Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=3.7.0">
+  <link rel="stylesheet" href="css/styles.css?v=3.8.0">
 </head>
 <body class="bg-[#FAF9FE] text-[#141024] font-sans antialiased relative">
-    <div class="preloader-status" style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: #8E95A5; margin-top: 14px;">INITIALIZING SYSTEM</div>
-  </div>
 
   <!-- Side Progress Rail (HPAD / Meet Gajjar Aesthetic) -->
   <aside class="side-progress-rail" aria-hidden="true">
@@ -232,11 +230,11 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
       
       <!-- Official Brand Logo & Wordmark -->
-      <a href="index.html" class="flex items-center gap-3.5 group">
+      <a href="index.html" class="flex items-center gap-3.5 group flex-shrink-0">
         <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
-        <div class="flex flex-col">
-          <span class="font-display font-bold text-sm tracking-widest text-[#171717] dark:text-[#FAF7FD] group-hover:text-[#526BFF] transition-colors">KRISH TRIVEDI</span>
-          <span class="font-mono text-[10px] text-[#777777] dark:text-[#A69DBF] tracking-wider uppercase">AI Developer · Ahmedabad</span>
+        <div class="flex flex-col whitespace-nowrap">
+          <span class="font-display font-bold text-sm tracking-widest text-[#171717] dark:text-[#FAF7FD] group-hover:text-[#526BFF] transition-colors whitespace-nowrap">KRISH TRIVEDI</span>
+          <span class="font-mono text-[10px] text-[#777777] dark:text-[#A69DBF] tracking-wider uppercase whitespace-nowrap">AI Developer · Ahmedabad</span>
         </div>
       </a>
 
@@ -916,9 +914,7 @@
     </div>
   </footer>
 
-  <!-- Main JavaScript Engine -->
-  <script src="js/main.js?v=3.7.0"></script>
-  <!-- Premium Branded Page Preloader (HPAD Luxury Cinematic Style) -->
+    <!-- Premium Branded Page Preloader (HPAD Luxury Cinematic Style) -->
   <div id="pagePreloader" aria-hidden="true" class="fixed inset-0 z-[99999] bg-[#0B0814] flex flex-col items-center justify-center transition-all duration-700 ease-out" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #0B0814; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center;">
     <div class="preloader-logo-wrap" style="position: relative; width: 84px; height: 48px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center;">
       <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-20 h-auto" style="width: 76px; height: auto;">
@@ -926,5 +922,10 @@
     <div class="preloader-progress-track" style="width: 140px; height: 2px; background-color: rgba(255, 255, 255, 0.1); position: relative; overflow: hidden; border-radius: 2px;">
       <div class="preloader-progress-bar" style="position: absolute; top: 0; left: 0; height: 100%; width: 0%; background-color: #8B5CF6;"></div>
     </div>
+    <div class="preloader-status" style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: #8E95A5; margin-top: 14px;">INITIALIZING SYSTEM</div>
+  </div>
+
+  <!-- Main JavaScript Engine -->
+  <script src="js/main.js?v=3.8.0"></script>
 </body>
 </html>

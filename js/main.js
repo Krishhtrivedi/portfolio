@@ -128,18 +128,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 2. PAGE PRELOADER & CINEMATIC HERO REVEAL LIFECYCLE (OPTIMIZED)
-  const preloader = document.getElementById('pagePreloader');
-  const progressBar = document.querySelector('.preloader-progress-bar');
+  const getPreloader = () => document.getElementById('pagePreloader');
+  const getProgressBar = () => document.querySelector('.preloader-progress-bar');
   const hasVisited = sessionStorage.getItem('kt_visited') === 'true';
 
   function hidePreloader() {
-    if (preloader) {
-      preloader.classList.add('preloader-hidden');
-      preloader.style.opacity = '0';
-      preloader.style.pointerEvents = 'none';
-      preloader.style.transform = 'translateY(-8px)';
+    const p = getPreloader();
+    if (p) {
+      p.classList.add('preloader-hidden');
+      p.style.opacity = '0';
+      p.style.pointerEvents = 'none';
+      p.style.transform = 'translateY(-8px)';
       setTimeout(() => {
-        preloader.style.display = 'none';
+        p.style.display = 'none';
       }, 300);
     }
     document.body.classList.add('loaded');
@@ -152,19 +153,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (hasVisited) {
     // Already visited in this session: skip preloader instantly (0ms delay)
-    if (preloader) preloader.style.display = 'none';
+    const p = getPreloader();
+    if (p) p.style.display = 'none';
     document.body.classList.add('loaded');
   } else {
     // First visit in session: cap to ≤ 400ms (350ms duration)
     const preloaderDuration = 350;
-    if (progressBar) {
-      progressBar.style.transition = 'width 280ms cubic-bezier(0.16, 1, 0.3, 1)';
-      progressBar.style.width = '100%';
+    const bar = getProgressBar();
+    if (bar) {
+      bar.style.transition = 'width 280ms cubic-bezier(0.16, 1, 0.3, 1)';
+      bar.style.width = '100%';
     }
     setTimeout(hidePreloader, preloaderDuration);
   }
 
-  // Safety fallback
+  // Safety fallback - guarantees preloader disappears even under slow network
   setTimeout(hidePreloader, 600);
 
   // 3. CUSTOM EDITORIAL CURSOR (DESKTOP ONLY)
@@ -1539,21 +1542,21 @@ Input Features: 24 financial covariates, automated SMOTE balancing`
   }
 
   // C. 60fps GPU Composited Scroll Reveal
-  const revealElements = document.querySelectorAll('.scroll-reveal');
-  if (revealElements.length > 0) {
+  const gpuRevealElements = document.querySelectorAll('.scroll-reveal');
+  if (gpuRevealElements.length > 0) {
     if ('IntersectionObserver' in window && !isReducedMotion) {
-      const revealObserver = new IntersectionObserver((entries) => {
+      const gpuRevealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('revealed');
-            revealObserver.unobserve(entry.target);
+            gpuRevealObserver.unobserve(entry.target);
           }
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-      revealElements.forEach(el => revealObserver.observe(el));
+      gpuRevealElements.forEach(el => gpuRevealObserver.observe(el));
     } else {
-      revealElements.forEach(el => el.classList.add('revealed'));
+      gpuRevealElements.forEach(el => el.classList.add('revealed'));
     }
   }
 

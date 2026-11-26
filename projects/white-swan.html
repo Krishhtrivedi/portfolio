@@ -95,11 +95,9 @@
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Custom Design System & Animation Stylesheet -->
-  <link rel="stylesheet" href="../css/styles.css?v=3.7.0">
+  <link rel="stylesheet" href="../css/styles.css?v=3.8.0">
 </head>
 <body class="bg-[#FAF9FE] text-[#141024] font-sans antialiased relative">
-    <div class="preloader-status" style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: #8E95A5; margin-top: 14px;">INITIALIZING SYSTEM</div>
-  </div>
 
   <!-- Fullscreen Editorial Menu Overlay -->
   <div id="fullscreenMenu" class="fullscreen-menu">
@@ -312,14 +310,7 @@
 
   </main>
 
-  <!-- Premium Branded Page Preloader (HPAD Luxury Cinematic Style) -->
-  <div id="pagePreloader" aria-hidden="true" class="fixed inset-0 z-[99999] bg-[#0B0814] flex flex-col items-center justify-center transition-all duration-700 ease-out" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #0B0814; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-    <div class="preloader-logo-wrap" style="position: relative; width: 64px; height: 64px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center;">
-      <img src="../img/logo-kt-light.svg" alt="KT Monogram" class="w-14 h-14" style="width: 56px; height: 56px;">
-    </div>
-    <div class="preloader-progress-track" style="width: 140px; height: 2px; background-color: rgba(255, 255, 255, 0.1); position: relative; overflow: hidden; border-radius: 2px;">
-      <div class="preloader-progress-bar" style="position: absolute; top: 0; left: 0; height: 100%; width: 0%; background-color: #8B5CF6;"></div>
-    </div>
+  
 
   <!-- Footer -->
   <footer class="bg-[#10131D] text-[#F5F3EE] py-12 border-t border-white/[0.08]">
@@ -337,6 +328,16 @@
     </div>
   </footer>
 
-  <script src="../js/main.js?v=3.7.0"></script>
+  <script src="../js/main.js?v=3.8.0"></script>
+  <!-- Premium Branded Page Preloader (HPAD Luxury Cinematic Style) -->
+  <div id="pagePreloader" aria-hidden="true" class="fixed inset-0 z-[99999] bg-[#0B0814] flex flex-col items-center justify-center transition-all duration-700 ease-out" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #0B0814; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <div class="preloader-logo-wrap" style="position: relative; width: 84px; height: 48px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center;">
+      <img src="../img/logo-kt-light.svg" alt="KT Monogram" class="w-20 h-auto" style="width: 76px; height: auto;">
+    </div>
+    <div class="preloader-progress-track" style="width: 140px; height: 2px; background-color: rgba(255, 255, 255, 0.1); position: relative; overflow: hidden; border-radius: 2px;">
+      <div class="preloader-progress-bar" style="position: absolute; top: 0; left: 0; height: 100%; width: 0%; background-color: #8B5CF6;"></div>
+    </div>
+    <div class="preloader-status" style="font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; letter-spacing: 0.14em; text-transform: uppercase; color: #8E95A5; margin-top: 14px;">INITIALIZING SYSTEM</div>
+  </div>
 </body>
 </html>
