@@ -226,20 +226,20 @@
   </div>
 
   <!-- Sticky Minimal Navbar -->
-  <header class="sticky top-0 z-40 bg-[#F5F3EE]/90 dark:bg-[#0A0612]/90 backdrop-blur-md border-editorial-b h-[76px] transition-all" id="navbar">
+  <header class="luxury-navbar" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
       
       <!-- Official Brand Logo & Wordmark -->
       <a href="index.html" class="flex items-center gap-3.5 group flex-shrink-0">
         <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
         <div class="flex flex-col whitespace-nowrap">
-          <span class="font-display font-bold text-sm tracking-widest text-[#171717] dark:text-[#FAF7FD] group-hover:text-[#526BFF] transition-colors whitespace-nowrap">KRISH TRIVEDI</span>
-          <span class="font-mono text-[10px] text-[#777777] dark:text-[#A69DBF] tracking-wider uppercase whitespace-nowrap">AI Developer · Ahmedabad</span>
+          <span class="navbar-brand-title">KRISH TRIVEDI</span>
+          <span class="navbar-brand-sub">AI Developer · Ahmedabad</span>
         </div>
       </a>
 
-      <!-- Desktop Navigation Links (Consistent: Home | About | Projects | AI Lab | Experience | Skills | Resume | Contact) -->
-      <nav class="hidden lg:flex items-center gap-1">
+      <!-- Desktop Navigation Links (Consistent: Home | About | Projects | AI Lab | Experience | Skills | Services | Resume | Contact) -->
+      <nav class="hidden lg:flex items-center desktop-nav-rail">
         <a href="index.html" class="nav-link active">Home</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="projects.html" class="nav-link">Projects</a>
@@ -258,10 +258,10 @@
           <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
           <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
         </button>
-        <a href="contact.html" class="hidden sm:inline-flex btn-luxury btn-glass btn-primary-dark text-xs py-2 px-4">
+        <a href="contact.html" class="hidden sm:inline-flex btn-nav-cta">
           <span>Let's Talk</span>
         </a>
-        <button id="menuToggleBtn" aria-label="Open Navigation Index" class="p-2.5 rounded-sm border border-[#E6E4DE] bg-white text-[#171717] hover:border-[#171717] transition-all">
+        <button id="menuToggleBtn" aria-label="Open Navigation Index" class="menu-toggle-btn">
           <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
       </div>
@@ -373,13 +373,12 @@
   <!-- ========================================================================
        2. FEATURED PROJECTS (MAIN VISUAL FEATURE – 3D CINEMATIC SLIDER)
        ======================================================================== -->
-  <section class="py-24 sm:py-32 relative overflow-hidden bg-[#0A0612] text-[#F5F3EE] border-t border-b border-white/[0.08]" id="projects">
+  <section class="py-24 sm:py-32 relative overflow-hidden bg-[var(--bg-secondary)] text-[var(--text-primary)] border-t border-b border-[var(--border-glass)]" id="projects">
     <!-- Ambient Diffuse Glow & Grid -->
     <div class="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[550px] bg-[radial-gradient(ellipse_at_center,rgba(192,132,252,0.08),transparent_70%)] blur-3xl"></div>
-      <div class="absolute top-1/4 left-1/4 w-[500px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.06),transparent_70%)] blur-3xl"></div>
-      <div class="absolute inset-0 opacity-[0.03]" style="background-size: 44px 44px; background-image: linear-gradient(to right, #FFF 1px, transparent 1px), linear-gradient(to bottom, #FFF 1px, transparent 1px);"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-[#0A0612] via-transparent to-[#0A0612] opacity-90"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[550px] bg-[radial-gradient(ellipse_at_center,rgba(109,40,217,0.08),transparent_70%)] blur-3xl"></div>
+      <div class="absolute top-1/4 left-1/4 w-[500px] h-[400px] bg-[radial-gradient(ellipse_at_center,rgba(2,132,199,0.06),transparent_70%)] blur-3xl"></div>
+      <div class="absolute inset-0 opacity-[0.03]" style="background-size: 44px 44px; background-image: linear-gradient(to right, currentColor 1px, transparent 1px), linear-gradient(to bottom, currentColor 1px, transparent 1px);"></div>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -387,26 +386,26 @@
       <!-- Section Header -->
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-14 gap-6 scroll-reveal">
         <div>
-          <div class="section-tag-gold">
-            <span class="tag-num text-[#C7A77A]">02</span>
-            <span class="tag-line bg-[#C7A77A]/40" style="width: 24px; height: 1px; display: inline-block;"></span>
-            <span class="text-[#A5ADB5] tracking-widest text-xs uppercase font-mono">Featured Projects</span>
+          <div class="section-tag">
+            <span class="tag-num">02</span>
+            <span class="tag-line"></span>
+            <span>Featured Projects</span>
           </div>
-          <h2 class="text-3xl sm:text-5xl font-display font-bold text-[#F5F3EE] mt-3 tracking-tight">
+          <h2 class="headline-section mt-3">
             Crafted for Impact.<br>
-            <span class="font-serif italic font-normal text-[#C7A77A]">Engineered</span> for Scale.
+            <span class="font-serif italic font-normal text-gradient-primary">Engineered</span> for Scale.
           </h2>
-          <p class="text-xs sm:text-sm text-[#A5ADB5] mt-2 max-w-xl font-sans leading-relaxed">
+          <p class="text-xs sm:text-sm text-[var(--text-secondary)] mt-2 max-w-xl font-sans leading-relaxed">
             Interactive 3D carousel showcasing key production deployments and autonomous AI systems.
           </p>
         </div>
 
         <!-- Slider Navigation Controls & Dynamic Counter -->
         <div class="flex items-center gap-4">
-          <div class="slider-counter font-mono text-xs sm:text-sm tracking-wider flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#130C22] border border-white/[0.1]">
-            <span class="slider-current text-[#C7A77A] font-bold">01</span>
-            <span class="text-[#A5ADB5]/50">/</span>
-            <span class="slider-total text-[#A5ADB5]">04</span>
+          <div class="slider-counter font-mono text-xs sm:text-sm tracking-wider flex items-center gap-1.5 px-4 py-2 rounded-full">
+            <span class="slider-current text-[var(--accent-primary)] font-bold">01</span>
+            <span class="text-[var(--text-secondary)]/50">/</span>
+            <span class="slider-total text-[var(--text-secondary)]">04</span>
           </div>
           <div class="flex items-center gap-2">
             <button id="sliderPrevBtn" aria-label="Previous Project Slide" class="slider-nav-btn">
@@ -574,89 +573,89 @@
         </button>
       </div>
 
-      <!-- Dynamic Progress Track & Pagination Dots -->
-      <div class="flex flex-col items-center gap-3 my-6">
-        <div class="w-48 sm:w-64 h-1 bg-white/10 rounded-full overflow-hidden relative">
-          <div id="sliderProgressBar" class="h-full bg-gradient-to-r from-[#6D28D9] to-[#0284C7] dark:from-[#8B5CF6] dark:to-[#06B6D4] rounded-full transition-all duration-500 ease-out" style="width: 25%;"></div>
-        </div>
-        <div id="sliderDots" class="flex items-center gap-2"></div>
-      </div>
-
-            <!-- Interactive Vector Architecture Flow Diagram (SmartFin AI Blueprint) -->
-      <div class="luxury-card p-6 sm:p-8 bg-white/70 dark:bg-[#130E24]/75 border border-[#E6E4DE] dark:border-purple-500/20 rounded-xl overflow-hidden scroll-reveal my-10">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#E6E4DE] dark:border-white/[0.08] mb-6 gap-2">
-          <div class="flex items-center gap-2.5">
-            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
-            <h3 class="font-mono text-xs uppercase tracking-wider text-[#141024] dark:text-[#F6F4FF] font-bold">SYSTEM ARCHITECTURE BLUEPRINT // SMARTFIN AI</h3>
+      <!-- Unified Slider Progress, Dots & View All Projects Controls Dock -->
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[var(--border-glass)] pt-6">
+        <div class="flex items-center gap-4">
+          <div class="w-36 sm:w-48 h-1.5 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden relative">
+            <div id="sliderProgressBar" class="h-full bg-gradient-to-r from-[#6D28D9] to-[#0284C7] dark:from-[#8B5CF6] dark:to-[#06B6D4] rounded-full transition-all duration-500 ease-out" style="width: 25%;"></div>
           </div>
-          <div class="text-[11px] font-mono text-[#57506E] dark:text-[#A69EC4]">EVENT-DRIVEN ETL &middot; ASYNC WORKFLOW &middot; 60FPS VECTOR PULSE</div>
+          <div id="sliderDots" class="flex items-center gap-2"></div>
         </div>
 
-        <div class="overflow-x-auto py-2">
-          <svg class="w-full min-w-[620px] h-[160px]" viewBox="0 0 680 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="flowGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stop-color="#8B5CF6"/>
-                <stop offset="100%" stop-color="#06B6D4"/>
-              </linearGradient>
-              <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
-                <feGaussianBlur stdDeviation="3" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
-
-            <!-- Connecting Flow Lines -->
-            <path d="M 175 80 L 265 80" stroke="rgba(139, 92, 246, 0.3)" stroke-width="2"/>
-            <path d="M 175 80 L 265 80" stroke="#06B6D4" stroke-width="2.5" class="flow-pulse-line" filter="url(#cyanGlow)"/>
-
-            <path d="M 445 80 L 535 80" stroke="rgba(139, 92, 246, 0.3)" stroke-width="2"/>
-            <path d="M 445 80 L 535 80" stroke="#06B6D4" stroke-width="2.5" class="flow-pulse-line" filter="url(#cyanGlow)"/>
-
-            <!-- Stage 1: WhatsApp Webhook / Ingestion API -->
-            <g transform="translate(15, 30)">
-              <rect width="160" height="100" rx="8" fill="rgba(30, 21, 56, 0.6)" stroke="rgba(167, 139, 250, 0.3)" stroke-width="1.2"/>
-              <circle cx="28" cy="30" r="12" fill="rgba(16, 185, 129, 0.15)"/>
-              <path d="M 23 30 L 27 34 L 34 26" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="48" y="34" fill="#A69EC4" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" letter-spacing="0.08em">STAGE 01</text>
-              <text x="20" y="62" fill="#F6F4FF" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700">WhatsApp Webhook</text>
-              <text x="20" y="80" fill="#57506E" font-family="'JetBrains Mono', monospace" font-size="9.5">Async Ingestion &middot; HMAC</text>
-            </g>
-
-            <!-- Stage 2: Automation Engine (FastAPI) -->
-            <g transform="translate(265, 20)">
-              <rect width="180" height="120" rx="8" fill="rgba(30, 21, 56, 0.75)" stroke="url(#flowGrad1)" stroke-width="1.8"/>
-              <circle cx="30" cy="32" r="14" fill="rgba(139, 92, 246, 0.25)"/>
-              <circle cx="30" cy="32" r="5" fill="#8B5CF6" class="flow-pulse-dot"/>
-              <text x="52" y="36" fill="#C084FC" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="700" letter-spacing="0.08em">CORE ENGINE 02</text>
-              <text x="22" y="66" fill="#F6F4FF" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="800">FastAPI &middot; ETL Engine</text>
-              <text x="22" y="85" fill="#A69EC4" font-family="'JetBrains Mono', monospace" font-size="10">2-Way GSTR Matching</text>
-              <text x="22" y="102" fill="#06B6D4" font-family="'JetBrains Mono', monospace" font-size="9.5">&plusmn;&#8377;1 Rounding &middot; TDS 26Q</text>
-            </g>
-
-            <!-- Stage 3: GST / Tax Portal & Accounting Ledgers -->
-            <g transform="translate(535, 30)">
-              <rect width="135" height="100" rx="8" fill="rgba(30, 21, 56, 0.6)" stroke="rgba(6, 182, 212, 0.35)" stroke-width="1.2"/>
-              <circle cx="26" cy="30" r="12" fill="rgba(6, 182, 212, 0.15)"/>
-              <path d="M 21 34 L 26 25 L 31 34 Z" stroke="#06B6D4" stroke-width="1.5" fill="none"/>
-              <text x="46" y="34" fill="#A69EC4" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" letter-spacing="0.08em">DEST 03</text>
-              <text x="18" y="62" fill="#F6F4FF" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700">GST Portal &amp; BRS</text>
-              <text x="18" y="80" fill="#57506E" font-family="'JetBrains Mono', monospace" font-size="9.5">Statutory Audit Logs</text>
-            </g>
-          </svg>
-        </div>
-      </div>
-
-      <!-- Bottom Interactive Controls & View All Projects Button -->
-      <div class="mt-8 sm:mt-12 flex items-center justify-center border-t border-white/[0.08] pt-8">
-        <!-- CTA: View All Projects -->
         <div>
           <a href="projects.html" class="btn-luxury btn-primary-gold text-xs">
             <span>View All Projects</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
+        </div>
+      </div>
+
+      <!-- Interactive Vector Architecture Flow Diagram (SmartFin AI Blueprint) -->
+      <div class="mt-14 pt-10 border-t border-[var(--border-glass)]">
+        <div class="luxury-card p-6 sm:p-8 bg-white/70 dark:bg-[#130E24]/75 border border-[var(--border-glass)] rounded-xl overflow-hidden scroll-reveal">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[var(--border-glass)] mb-6 gap-2">
+            <div class="flex items-center gap-2.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+              <h3 class="font-mono text-xs uppercase tracking-wider text-[var(--text-primary)] font-bold">SYSTEM ARCHITECTURE BLUEPRINT // SMARTFIN AI</h3>
+            </div>
+            <div class="text-[11px] font-mono text-[var(--text-secondary)]">EVENT-DRIVEN ETL &middot; ASYNC WORKFLOW &middot; 60FPS VECTOR PULSE</div>
+          </div>
+
+          <div class="overflow-x-auto py-2">
+            <svg class="w-full min-w-[620px] h-[160px]" viewBox="0 0 680 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="flowGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#8B5CF6"/>
+                  <stop offset="100%" stop-color="#06B6D4"/>
+                </linearGradient>
+                <filter id="cyanGlow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="3" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <!-- Connecting Flow Lines -->
+              <path d="M 175 80 L 265 80" stroke="rgba(139, 92, 246, 0.3)" stroke-width="2"/>
+              <path d="M 175 80 L 265 80" stroke="#06B6D4" stroke-width="2.5" class="flow-pulse-line" filter="url(#cyanGlow)"/>
+
+              <path d="M 445 80 L 535 80" stroke="rgba(139, 92, 246, 0.3)" stroke-width="2"/>
+              <path d="M 445 80 L 535 80" stroke="#06B6D4" stroke-width="2.5" class="flow-pulse-line" filter="url(#cyanGlow)"/>
+
+              <!-- Stage 1: WhatsApp Webhook / Ingestion API -->
+              <g transform="translate(15, 30)">
+                <rect width="160" height="100" rx="8" fill="rgba(30, 21, 56, 0.6)" stroke="rgba(167, 139, 250, 0.3)" stroke-width="1.2"/>
+                <circle cx="28" cy="30" r="12" fill="rgba(16, 185, 129, 0.15)"/>
+                <path d="M 23 30 L 27 34 L 34 26" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="48" y="34" fill="#A69EC4" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" letter-spacing="0.08em">STAGE 01</text>
+                <text x="20" y="62" fill="#F6F4FF" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700">WhatsApp Webhook</text>
+                <text x="20" y="80" fill="#57506E" font-family="'JetBrains Mono', monospace" font-size="9.5">Async Ingestion &middot; HMAC</text>
+              </g>
+
+              <!-- Stage 2: Automation Engine (FastAPI) -->
+              <g transform="translate(265, 20)">
+                <rect width="180" height="120" rx="8" fill="rgba(30, 21, 56, 0.75)" stroke="url(#flowGrad1)" stroke-width="1.8"/>
+                <circle cx="30" cy="32" r="14" fill="rgba(139, 92, 246, 0.25)"/>
+                <circle cx="30" cy="32" r="5" fill="#8B5CF6" class="flow-pulse-dot"/>
+                <text x="52" y="36" fill="#C084FC" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="700" letter-spacing="0.08em">CORE ENGINE 02</text>
+                <text x="22" y="66" fill="#F6F4FF" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="800">FastAPI &middot; ETL Engine</text>
+                <text x="22" y="85" fill="#A69EC4" font-family="'JetBrains Mono', monospace" font-size="10">2-Way GSTR Matching</text>
+                <text x="22" y="102" fill="#06B6D4" font-family="'JetBrains Mono', monospace" font-size="9.5">&plusmn;&#8377;1 Rounding &middot; TDS 26Q</text>
+              </g>
+
+              <!-- Stage 3: GST / Tax Portal & Accounting Ledgers -->
+              <g transform="translate(535, 30)">
+                <rect width="135" height="100" rx="8" fill="rgba(30, 21, 56, 0.6)" stroke="rgba(6, 182, 212, 0.35)" stroke-width="1.2"/>
+                <circle cx="26" cy="30" r="12" fill="rgba(6, 182, 212, 0.15)"/>
+                <path d="M 21 34 L 26 25 L 31 34 Z" stroke="#06B6D4" stroke-width="1.5" fill="none"/>
+                <text x="46" y="34" fill="#A69EC4" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="600" letter-spacing="0.08em">DEST 03</text>
+                <text x="18" y="62" fill="#F6F4FF" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="700">GST Portal &amp; BRS</text>
+                <text x="18" y="80" fill="#57506E" font-family="'JetBrains Mono', monospace" font-size="9.5">Statutory Audit Logs</text>
+              </g>
+            </svg>
+          </div>
         </div>
       </div>
 

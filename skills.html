@@ -104,7 +104,7 @@
     <div class="max-w-5xl mx-auto w-full flex flex-col justify-between h-full py-4">
       <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
         <div class="flex items-center gap-3">
-          <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-9 h-9">
+          <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
           <span class="font-display font-bold text-white tracking-wider text-sm">KRISH TRIVEDI // INDEX</span>
         </div>
         <div class="flex items-center gap-2">
@@ -172,14 +172,14 @@
   <header class="luxury-navbar" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3.5 group">
-        <img src="img/logo-kt-dark.svg" alt="KT Monogram" class="w-10 h-10 transition-transform group-hover:scale-105">
+        <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
         <div class="flex flex-col">
-          <span class="font-display font-bold text-sm tracking-widest text-[#171717] group-hover:text-[#526BFF] transition-colors">KRISH TRIVEDI</span>
-          <span class="font-mono text-[10px] text-[#777777] tracking-wider uppercase">Technical Arsenal & Stack</span>
+          <span class="navbar-brand-title">KRISH TRIVEDI</span>
+          <span class="navbar-brand-sub">Technical Arsenal & Stack</span>
         </div>
       </a>
 
-      <nav class="hidden lg:flex items-center gap-1">
+      <nav class="hidden lg:flex items-center desktop-nav-rail">
         <a href="index.html" class="nav-link">Home</a>
         <a href="about.html" class="nav-link">About</a>
         <a href="projects.html" class="nav-link">Projects</a>
@@ -197,11 +197,11 @@
           <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
           <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
         </button>
-        <a href="Krish-Trivedi-Resume.pdf" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex btn-luxury btn-outline-editorial text-xs py-2 px-4">
+        <a href="Krish-Trivedi-Resume.pdf" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex btn-nav-cta">
           <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
           <span>Resume</span>
         </a>
-        <button id="menuToggleBtn" aria-label="Open Navigation Index" class="p-2.5 rounded-sm border border-[#E6E4DE] bg-white text-[#171717] hover:border-[#171717] transition-all">
+        <button id="menuToggleBtn" aria-label="Open Navigation Index" class="menu-toggle-btn">
           <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
       </div>
@@ -318,7 +318,7 @@
   <footer class="bg-[#10131D] text-[#F5F3EE] py-12 border-t border-white/[0.08]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#8E95A5] gap-4">
       <div class="flex items-center gap-3">
-        <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-7 h-7">
+        <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
         <span>© 2026 KRISH TRIVEDI · AI DEVELOPER</span>
       </div>
       <div class="flex items-center gap-6">

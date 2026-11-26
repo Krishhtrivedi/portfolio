@@ -29,9 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateDynamicLogos(isDark) {
       const logos = document.querySelectorAll('.kt-logo-dynamic, header img[src*="logo-kt-"], #fullscreenMenu img[src*="logo-kt-"], footer img[src*="logo-kt-"]');
       logos.forEach(logo => {
-        const targetSrc = isDark ? 'img/logo-kt-light.svg' : 'img/logo-kt-dark.svg';
-        if (!logo.src.endsWith(targetSrc)) {
-          logo.src = targetSrc;
+        const rawSrc = logo.getAttribute('src') || '';
+        const match = rawSrc.match(/^(.*?)(?:logo-kt-(?:light|dark)\.svg)$/);
+        const prefix = match ? match[1] : (rawSrc.includes('../') ? '../img/' : 'img/');
+        const filename = isDark ? 'logo-kt-light.svg' : 'logo-kt-dark.svg';
+        const targetSrc = prefix + filename;
+        if (logo.getAttribute('src') !== targetSrc) {
+          logo.setAttribute('src', targetSrc);
         }
       });
     }
@@ -420,7 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (isMobile) {
             card.style.transform = `translate(calc(-50% + ${dragShift}px), -50%) scale(1)`;
           } else {
-            card.style.transform = `translate(calc(-50% + ${dragShift}px), -50%) translateZ(0px) rotateY(0deg) scale(1)`;
+            card.style.transform = `translate(calc(-50% + ${dragShift}px), -50%) translateZ(40px) rotateY(0deg) scale(1)`;
           }
         } else if (d === -1) {
           // Previous Left Card
@@ -429,9 +433,9 @@ document.addEventListener('DOMContentLoaded', () => {
           if (isMobile) {
             card.style.transform = `translate(calc(-50% - 75% + ${dragShift}px), -50%) scale(0.88)`;
           } else if (isTablet) {
-            card.style.transform = `translate(calc(-50% - 240px + ${dragShift}px), -50%) translateZ(-70px) rotateY(10deg) scale(0.86)`;
+            card.style.transform = `translate(calc(-50% - 250px + ${dragShift}px), -50%) translateZ(-90px) rotateY(18deg) scale(0.85)`;
           } else {
-            card.style.transform = `translate(calc(-50% - 330px + ${dragShift}px), -50%) translateZ(-90px) rotateY(12deg) scale(0.86)`;
+            card.style.transform = `translate(calc(-50% - 340px + ${dragShift}px), -50%) translateZ(-110px) rotateY(22deg) scale(0.84)`;
           }
         } else if (d === 1) {
           // Next Right Card
@@ -440,9 +444,9 @@ document.addEventListener('DOMContentLoaded', () => {
           if (isMobile) {
             card.style.transform = `translate(calc(-50% + 75% + ${dragShift}px), -50%) scale(0.88)`;
           } else if (isTablet) {
-            card.style.transform = `translate(calc(-50% + 240px + ${dragShift}px), -50%) translateZ(-70px) rotateY(-10deg) scale(0.86)`;
+            card.style.transform = `translate(calc(-50% + 250px + ${dragShift}px), -50%) translateZ(-90px) rotateY(-18deg) scale(0.85)`;
           } else {
-            card.style.transform = `translate(calc(-50% + 330px + ${dragShift}px), -50%) translateZ(-90px) rotateY(-12deg) scale(0.86)`;
+            card.style.transform = `translate(calc(-50% + 340px + ${dragShift}px), -50%) translateZ(-110px) rotateY(-22deg) scale(0.84)`;
           }
         } else {
           // Offstage Hidden Card (d === 2 or d === -2)
@@ -453,7 +457,7 @@ document.addEventListener('DOMContentLoaded', () => {
           if (isMobile) {
             card.style.transform = `translate(calc(-50% + ${sign * 125}%), -50%) scale(0.7)`;
           } else {
-            card.style.transform = `translate(calc(-50% + ${sign * 680}px), -50%) translateZ(-250px) scale(0.7)`;
+            card.style.transform = `translate(calc(-50% + ${sign * 680}px), -50%) translateZ(-260px) scale(0.68)`;
           }
         }
       });
