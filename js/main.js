@@ -377,7 +377,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let startX = 0;
     let currentDeltaX = 0;
     let autoPlayTimer = null;
-    const AUTOPLAY_INTERVAL = 5500;
+    let isHovered = false;
+    let isVisible = true;
+    const AUTOPLAY_INTERVAL = 3800;
 
     // Set total counter
     if (totalEl) totalEl.textContent = String(N).padStart(2, '0');
@@ -392,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
         dot.addEventListener('click', (e) => {
           e.stopPropagation();
           goToSlide(idx);
-          resetAutoPlay();
+          restartAutoPlay();
         });
         dotsContainer.appendChild(dot);
       });
@@ -403,9 +405,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const isTablet = window.innerWidth > 768 && window.innerWidth <= 1024;
 
       cards.forEach((card, i) => {
-        let d = (i - currentIndex) % N;
+        let diff = (i - currentIndex) % N;
+        if (diff < 0) diff += N;
+        let d = diff;
         if (d > N / 2) d -= N;
-        if (d < -N / 2) d += N;
+
+        const prevD = card._lastD !== undefined ? card._lastD : d;
+        card._lastD = d;
 
         if (d === 0) {
           // Center Active Card
@@ -421,31 +427,33 @@ document.addEventListener('DOMContentLoaded', () => {
           card.className = 'slider-project-card is-prev';
           const dragShift = offsetDelta * 0.25;
           if (isMobile) {
-            card.style.transform = `translate(calc(-50% - 78% + ${dragShift}px), -50%) scale(0.88)`;
+            card.style.transform = `translate(calc(-50% - 75% + ${dragShift}px), -50%) scale(0.88)`;
           } else if (isTablet) {
-            card.style.transform = `translate(calc(-50% - 250px + ${dragShift}px), -50%) translateZ(-70px) rotateY(10deg) scale(0.86)`;
+            card.style.transform = `translate(calc(-50% - 240px + ${dragShift}px), -50%) translateZ(-70px) rotateY(10deg) scale(0.86)`;
           } else {
-            card.style.transform = `translate(calc(-50% - 330px + ${dragShift}px), -50%) translateZ(-90px) rotateY(13deg) scale(0.86)`;
+            card.style.transform = `translate(calc(-50% - 330px + ${dragShift}px), -50%) translateZ(-90px) rotateY(12deg) scale(0.86)`;
           }
         } else if (d === 1) {
           // Next Right Card
           card.className = 'slider-project-card is-next';
           const dragShift = offsetDelta * 0.25;
           if (isMobile) {
-            card.style.transform = `translate(calc(-50% + 78% + ${dragShift}px), -50%) scale(0.88)`;
+            card.style.transform = `translate(calc(-50% + 75% + ${dragShift}px), -50%) scale(0.88)`;
           } else if (isTablet) {
-            card.style.transform = `translate(calc(-50% + 250px + ${dragShift}px), -50%) translateZ(-70px) rotateY(-10deg) scale(0.86)`;
+            card.style.transform = `translate(calc(-50% + 240px + ${dragShift}px), -50%) translateZ(-70px) rotateY(-10deg) scale(0.86)`;
           } else {
-            card.style.transform = `translate(calc(-50% + 330px + ${dragShift}px), -50%) translateZ(-90px) rotateY(-13deg) scale(0.86)`;
+            card.style.transform = `translate(calc(-50% + 330px + ${dragShift}px), -50%) translateZ(-90px) rotateY(-12deg) scale(0.86)`;
           }
         } else {
-          // Offstage Hidden Cards
+          // Offstage Hidden Card (d === 2 or d === -2)
           card.className = 'slider-project-card is-hidden';
-          const sign = d > 0 ? 1 : -1;
+          // Place card according to where it naturally moves to prevent crossover flashes
+          const exitLeft = prevD === -1 || (prevD === 0 && d === 2);
+          const sign = exitLeft ? -1 : 1;
           if (isMobile) {
-            card.style.transform = `translate(calc(-50% + ${sign * 120}%), -50%) scale(0.7)`;
+            card.style.transform = `translate(calc(-50% + ${sign * 125}%), -50%) scale(0.7)`;
           } else {
-            card.style.transform = `translate(calc(-50% + ${sign * 650}px), -50%) translateZ(-250px) scale(0.7)`;
+            card.style.transform = `translate(calc(-50% + ${sign * 680}px), -50%) translateZ(-250px) scale(0.7)`;
           }
         }
       });
@@ -487,18 +495,19 @@ document.addEventListener('DOMContentLoaded', () => {
     cards.forEach((card, idx) => {
       card.addEventListener('click', (e) => {
         if (Math.abs(currentDeltaX) > 8) return; // Prevent navigation during drag
-        let d = (idx - currentIndex) % N;
+        let diff = (idx - currentIndex) % N;
+        if (diff < 0) diff += N;
+        let d = diff;
         if (d > N / 2) d -= N;
-        if (d < -N / 2) d += N;
 
         if (d === 1) {
           e.preventDefault();
           nextSlide();
-          resetAutoPlay();
+          restartAutoPlay();
         } else if (d === -1) {
           e.preventDefault();
           prevSlide();
-          resetAutoPlay();
+          restartAutoPlay();
         } else if (d === 0) {
           if (!e.target.closest('a, button')) {
             const href = card.getAttribute('data-href');
@@ -511,10 +520,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Button Listeners
-    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); prevSlide(); resetAutoPlay(); });
-    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); nextSlide(); resetAutoPlay(); });
-    if (floatPrev) floatPrev.addEventListener('click', (e) => { e.preventDefault(); prevSlide(); resetAutoPlay(); });
-    if (floatNext) floatNext.addEventListener('click', (e) => { e.preventDefault(); nextSlide(); resetAutoPlay(); });
+    if (prevBtn) prevBtn.addEventListener('click', (e) => { e.preventDefault(); prevSlide(); restartAutoPlay(); });
+    if (nextBtn) nextBtn.addEventListener('click', (e) => { e.preventDefault(); nextSlide(); restartAutoPlay(); });
+    if (floatPrev) floatPrev.addEventListener('click', (e) => { e.preventDefault(); prevSlide(); restartAutoPlay(); });
+    if (floatNext) floatNext.addEventListener('click', (e) => { e.preventDefault(); nextSlide(); restartAutoPlay(); });
 
     // Keyboard Arrow Navigation
     window.addEventListener('keydown', (e) => {
@@ -522,17 +531,17 @@ document.addEventListener('DOMContentLoaded', () => {
       if (rect.top < window.innerHeight && rect.bottom > 0) {
         if (e.key === 'ArrowRight') {
           nextSlide();
-          resetAutoPlay();
+          restartAutoPlay();
         } else if (e.key === 'ArrowLeft') {
           prevSlide();
-          resetAutoPlay();
+          restartAutoPlay();
         }
       }
     });
 
     // Mouse Drag Interaction
     stage.addEventListener('mousedown', (e) => {
-      if (e.target.closest('a, button')) return; // Allow button clicks
+      if (e.target.closest('a, button')) return;
       isDragging = true;
       startX = e.clientX;
       currentDeltaX = 0;
@@ -558,7 +567,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSlider(0);
       }
       currentDeltaX = 0;
-      resetAutoPlay();
+      restartAutoPlay();
     });
 
     // Touch Swipe Interaction (Mobile Pan-Y Safe)
@@ -580,7 +589,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const deltaX = e.touches[0].clientX - startX;
       const deltaY = e.touches[0].clientY - touchStartY;
 
-      // Only track if horizontal gesture dominates
       if (Math.abs(deltaX) > Math.abs(deltaY) + 5) {
         currentDeltaX = deltaX;
         updateSlider(currentDeltaX);
@@ -598,26 +606,65 @@ document.addEventListener('DOMContentLoaded', () => {
         updateSlider(0);
       }
       currentDeltaX = 0;
-      resetAutoPlay();
+      restartAutoPlay();
     }, { passive: true });
 
-    // Autoplay Timer Management
+    // Robust Autoplay Timer Management
     function startAutoPlay() {
       stopAutoPlay();
-      autoPlayTimer = setInterval(nextSlide, AUTOPLAY_INTERVAL);
+      if (isHovered || !isVisible) return;
+      autoPlayTimer = setInterval(() => {
+        nextSlide();
+      }, AUTOPLAY_INTERVAL);
     }
 
     function stopAutoPlay() {
-      if (autoPlayTimer) clearInterval(autoPlayTimer);
+      if (autoPlayTimer) {
+        clearInterval(autoPlayTimer);
+        autoPlayTimer = null;
+      }
     }
 
-    function resetAutoPlay() {
+    function restartAutoPlay() {
       stopAutoPlay();
-      setTimeout(startAutoPlay, 4000);
+      startAutoPlay();
     }
 
-    stage.addEventListener('mouseenter', stopAutoPlay);
-    stage.addEventListener('mouseleave', startAutoPlay);
+    // Hover pauses autoplay only on mouse/desktop devices
+    if (window.matchMedia('(hover: hover)').matches) {
+      stage.addEventListener('mouseenter', () => {
+        isHovered = true;
+        stopAutoPlay();
+      });
+      stage.addEventListener('mouseleave', () => {
+        isHovered = false;
+        startAutoPlay();
+      });
+    }
+
+    // Pause autoplay when scrolled offscreen to conserve GPU / battery
+    if ('IntersectionObserver' in window) {
+      const sliderObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          isVisible = entry.isIntersecting;
+          if (isVisible) {
+            startAutoPlay();
+          } else {
+            stopAutoPlay();
+          }
+        });
+      }, { threshold: 0.15 });
+      sliderObserver.observe(stage);
+    }
+
+    // Pause when browser tab is inactive
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        stopAutoPlay();
+      } else {
+        startAutoPlay();
+      }
+    });
 
     // Responsive Window Resize Handler
     window.addEventListener('resize', () => {

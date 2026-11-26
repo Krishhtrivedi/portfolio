@@ -139,7 +139,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Custom Design System & Animation Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=3.8.0">
+  <link rel="stylesheet" href="css/styles.css?v=3.9.0">
 </head>
 <body class="bg-[#FAF9FE] text-[#141024] font-sans antialiased relative">
 
@@ -574,6 +574,14 @@
         </button>
       </div>
 
+      <!-- Dynamic Progress Track & Pagination Dots -->
+      <div class="flex flex-col items-center gap-3 my-6">
+        <div class="w-48 sm:w-64 h-1 bg-white/10 rounded-full overflow-hidden relative">
+          <div id="sliderProgressBar" class="h-full bg-gradient-to-r from-[#6D28D9] to-[#0284C7] dark:from-[#8B5CF6] dark:to-[#06B6D4] rounded-full transition-all duration-500 ease-out" style="width: 25%;"></div>
+        </div>
+        <div id="sliderDots" class="flex items-center gap-2"></div>
+      </div>
+
             <!-- Interactive Vector Architecture Flow Diagram (SmartFin AI Blueprint) -->
       <div class="luxury-card p-6 sm:p-8 bg-white/70 dark:bg-[#130E24]/75 border border-[#E6E4DE] dark:border-purple-500/20 rounded-xl overflow-hidden scroll-reveal my-10">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#E6E4DE] dark:border-white/[0.08] mb-6 gap-2">
@@ -642,18 +650,7 @@
       </div>
 
       <!-- Bottom Interactive Controls & View All Projects Button -->
-      <div class="mt-12 sm:mt-16 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-white/[0.08] pt-8">
-        
-        <!-- Progress Bar & Clickable Dot Pills -->
-        <div class="flex items-center gap-6 w-full sm:w-auto">
-          <div class="slider-progress-track">
-            <div id="sliderProgressBar" class="slider-progress-bar"></div>
-          </div>
-          <div id="sliderDots" class="flex items-center gap-2">
-            <!-- Rendered dynamically by JavaScript -->
-          </div>
-        </div>
-
+      <div class="mt-8 sm:mt-12 flex items-center justify-center border-t border-white/[0.08] pt-8">
         <!-- CTA: View All Projects -->
         <div>
           <a href="projects.html" class="btn-luxury btn-primary-gold text-xs">
@@ -661,7 +658,6 @@
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
         </div>
-
       </div>
 
     </div>
@@ -926,6 +922,6 @@
   </div>
 
   <!-- Main JavaScript Engine -->
-  <script src="js/main.js?v=3.8.0"></script>
+  <script src="js/main.js?v=3.9.0"></script>
 </body>
 </html>

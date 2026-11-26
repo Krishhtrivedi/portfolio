@@ -1065,9 +1065,9 @@ body.cursor-dark .custom-cursor-ring {
 }
 
 .slider-project-card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
   width: clamp(380px, 32vw, 470px);
   height: clamp(520px, 58vh, 570px);
   background-color: var(--slider-card-bg);
@@ -1341,10 +1341,10 @@ body.cursor-dark .custom-cursor-ring {
 }
 
 .slider-dot {
-  width: 8px;
-  height: 8px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.25);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   border: none;
@@ -1352,10 +1352,10 @@ body.cursor-dark .custom-cursor-ring {
 }
 
 .slider-dot.active {
-  width: 24px;
-  border-radius: 4px;
-  background-color: var(--slider-accent);
-  box-shadow: 0 0 12px rgba(199, 167, 122, 0.4);
+  width: 26px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #8B5CF6, #06B6D4);
+  box-shadow: 0 0 14px rgba(139, 92, 246, 0.6);
 }
 
 /* Responsive Slider Breakpoints */
@@ -2240,7 +2240,6 @@ html.dark #contactStatusAlert.status-loading {
 /* Cursor-Tracking Spotlight Borders on Bento Cards & Sliders */
 .spotlight-card,
 .luxury-card,
-.slider-project-card,
 .project-card,
 .bento-card {
   position: relative;
