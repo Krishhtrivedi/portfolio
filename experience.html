@@ -13,6 +13,7 @@
 
   <title>Experience — Krish Trivedi | AI Developer & Systems Architect</title>
   <meta name="description" content="Verified career track record of Krish Trivedi: Technical Engineer at White Swan Holidays, Founder at Helion Enterprise, and Systems Engineer at Arterius.">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://krishtrivedi.in/experience.html">
 
   <!-- Open Graph / Social Cards -->
@@ -58,7 +59,19 @@
         } else {
           document.documentElement.classList.remove('dark');
         }
-        if (sessionStorage.getItem('kt_visited') === 'true') {
+        const ua = navigator.userAgent || '';
+        const isBot = /bot|google|crawl|spider|slurp|bing|duckduck|yandex|baidu|lighthouse|pagespeed|chrome-lighthouse|headless|inspectiontool|ptst|applebot|facebookexternalhit|twitterbot|linkedinbot/i.test(ua) || !!navigator.webdriver;
+        const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const visited = sessionStorage.getItem('kt_visited') === 'true';
+        if (isBot || reducedMotion) {
+          document.documentElement.classList.add('seo-instant');
+        } else {
+          document.documentElement.classList.add('kt-animate-pending');
+          if (!visited) {
+            document.documentElement.classList.add('kt-preloader-active');
+          }
+        }
+        if (isBot || reducedMotion || visited) {
           const s = document.createElement('style');
           s.id = 'preloader-skip-style';
           s.textContent = '#pagePreloader { display: none !important; }';
@@ -67,6 +80,7 @@
       } catch (e) {}
     })();
   </script>
+  <noscript><style>#pagePreloader { display: none !important; } .hero-line-reveal, .hero-fade-reveal, .scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .stagger-container > * { opacity: 1 !important; transform: none !important; }</style></noscript>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -98,7 +112,7 @@
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Custom Design System & Animation Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=3.9.1">
+  <link rel="stylesheet" href="css/styles.css?v=3.9.2">
 </head>
 <body class="bg-[#FAF9FE] text-[#141024] font-sans antialiased relative">
 
@@ -107,7 +121,7 @@
     <div class="max-w-5xl mx-auto w-full flex flex-col justify-between h-full py-4">
       <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
         <div class="flex items-center gap-3">
-          <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
+          <img src="img/logo-kt-light.svg" alt="Krish Trivedi — KT Monogram Logo" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
           <span class="font-display font-bold text-white tracking-wider text-sm">KRISH TRIVEDI // INDEX</span>
         </div>
         <div class="flex items-center gap-2">
@@ -177,7 +191,7 @@
   <header class="luxury-navbar" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3.5 group">
-        <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
+        <img src="img/logo-kt-light.svg" alt="Krish Trivedi — KT Monogram Logo" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
         <div class="flex flex-col">
           <span class="navbar-brand-title">KRISH TRIVEDI</span>
           <span class="navbar-brand-sub hidden sm:block">06 // Professional Journey</span>
@@ -344,7 +358,7 @@
   <footer class="bg-[#10131D] text-[#F5F3EE] py-12 border-t border-white/[0.08]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#8E95A5] gap-4">
       <div class="flex items-center gap-3">
-        <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
+        <img src="img/logo-kt-light.svg" alt="Krish Trivedi — KT Monogram Logo" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
         <span>© 2026 KRISH TRIVEDI · AI DEVELOPER</span>
       </div>
       <div class="flex items-center gap-6">
@@ -356,11 +370,11 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=3.9.1"></script>
+  <script src="js/main.js?v=3.9.2"></script>
   <!-- Premium Branded Page Preloader (HPAD Luxury Cinematic Style) -->
-  <div id="pagePreloader" aria-hidden="true" class="fixed inset-0 z-[99999] bg-[#0B0814] flex flex-col items-center justify-center transition-all duration-700 ease-out" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #0B0814; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+  <div id="pagePreloader" aria-hidden="true">
     <div class="preloader-logo-wrap" style="position: relative; width: 84px; height: 48px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center;">
-      <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-20 h-auto" style="width: 76px; height: auto;">
+      <img src="img/logo-kt-light.svg" alt="Krish Trivedi — KT Monogram Logo" class="w-20 h-auto" style="width: 76px; height: auto;">
     </div>
     <div class="preloader-progress-track" style="width: 140px; height: 2px; background-color: rgba(255, 255, 255, 0.1); position: relative; overflow: hidden; border-radius: 2px;">
       <div class="preloader-progress-bar" style="position: absolute; top: 0; left: 0; height: 100%; width: 0%; background-color: #8B5CF6;"></div>

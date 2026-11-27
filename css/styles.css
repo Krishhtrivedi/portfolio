@@ -186,12 +186,16 @@ img[src*="logo-kt"] {
   inset: 0;
   background-color: var(--bg-dark);
   z-index: 99999;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   transition: opacity 0.65s var(--ease-cinematic), transform 0.65s var(--ease-cinematic);
   will-change: opacity, transform;
+}
+
+html.kt-preloader-active:not(.seo-instant) #pagePreloader {
+  display: flex;
 }
 
 #pagePreloader.preloader-hidden {
@@ -254,27 +258,27 @@ img[src*="logo-kt"] {
 
 .hero-line-reveal {
   display: inline-block;
-  transform: translateY(105%);
-  opacity: 0;
-  transition: transform 1.1s var(--ease-cinematic), opacity 1s var(--ease-cinematic);
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.9s var(--ease-cinematic), opacity 0.8s var(--ease-cinematic);
   will-change: transform, opacity;
 }
 
-body.loaded .hero-line-reveal {
-  transform: translateY(0);
-  opacity: 1;
+html.kt-animate-pending:not(.seo-instant) body:not(.loaded) .hero-line-reveal {
+  transform: translateY(105%);
+  opacity: 0;
 }
 
 .hero-fade-reveal {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 1s var(--ease-cinematic), transform 1s var(--ease-cinematic);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.85s var(--ease-cinematic), transform 0.85s var(--ease-cinematic);
   will-change: opacity, transform;
 }
 
-body.loaded .hero-fade-reveal {
-  opacity: 1;
-  transform: translateY(0);
+html.kt-animate-pending:not(.seo-instant) body:not(.loaded) .hero-fade-reveal {
+  opacity: 0;
+  transform: translateY(22px);
 }
 
 /* Hero Stagger Delays */
@@ -346,48 +350,36 @@ body.loaded .hero-fade-reveal {
 /* ==========================================================================
    3. SCROLL ANIMATIONS & REVEALS
    ========================================================================== */
-.scroll-reveal {
+.scroll-reveal,
+.scroll-reveal-left,
+.scroll-reveal-right {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.8s var(--ease-cinematic), transform 0.8s var(--ease-cinematic);
+  will-change: opacity, transform;
+}
+
+html.kt-animate-pending:not(.seo-instant) .scroll-reveal:not(.is-revealed) {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.85s var(--ease-cinematic), transform 0.85s var(--ease-cinematic);
-  will-change: opacity, transform;
 }
 
-.scroll-reveal.is-revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.scroll-reveal-left {
+html.kt-animate-pending:not(.seo-instant) .scroll-reveal-left:not(.is-revealed) {
   opacity: 0;
   transform: translateX(-35px);
-  transition: opacity 0.85s var(--ease-cinematic), transform 0.85s var(--ease-cinematic);
-  will-change: opacity, transform;
 }
 
-.scroll-reveal-left.is-revealed {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.scroll-reveal-right {
+html.kt-animate-pending:not(.seo-instant) .scroll-reveal-right:not(.is-revealed) {
   opacity: 0;
   transform: translateX(35px);
-  transition: opacity 0.85s var(--ease-cinematic), transform 0.85s var(--ease-cinematic);
-  will-change: opacity, transform;
-}
-
-.scroll-reveal-right.is-revealed {
-  opacity: 1;
-  transform: translateX(0);
 }
 
 /* Stagger Children on Reveal */
-.stagger-container.is-revealed > * {
-  animation: staggerItemReveal 0.85s var(--ease-cinematic) forwards;
+html.kt-animate-pending:not(.seo-instant) .stagger-container.is-revealed > * {
+  animation: staggerItemReveal 0.8s var(--ease-cinematic) forwards;
 }
 
-.stagger-container > * {
+html.kt-animate-pending:not(.seo-instant) .stagger-container:not(.is-revealed) > * {
   opacity: 0;
   transform: translateY(24px);
 }
@@ -1265,7 +1257,7 @@ body.cursor-dark .custom-cursor-ring {
 /* ==========================================================================
    9. RESPONSIVE OPTIMIZATION (DESKTOP / TABLET / MOBILE)
    ========================================================================== */
-@media (max-width: 1024px) {
+@media (max-width: 1380px) {
   .side-progress-rail {
     display: none !important;
   }

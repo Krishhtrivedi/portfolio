@@ -131,12 +131,14 @@ document.addEventListener('DOMContentLoaded', () => {
     window.lucide.createIcons();
   }
 
-  // 2. PAGE PRELOADER & CINEMATIC HERO REVEAL LIFECYCLE (OPTIMIZED)
+  // 2. PAGE PRELOADER & CINEMATIC HERO REVEAL LIFECYCLE (CRAWLER-SAFE & OPTIMIZED)
   const getPreloader = () => document.getElementById('pagePreloader');
   const getProgressBar = () => document.querySelector('.preloader-progress-bar');
+  const isSeoInstant = document.documentElement.classList.contains('seo-instant');
   const hasVisited = sessionStorage.getItem('kt_visited') === 'true';
 
   function hidePreloader() {
+    document.documentElement.classList.remove('kt-preloader-active');
     const p = getPreloader();
     if (p) {
       p.classList.add('preloader-hidden');
@@ -148,31 +150,36 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 300);
     }
     document.body.classList.add('loaded');
-    sessionStorage.setItem('kt_visited', 'true');
+    if (!isSeoInstant) {
+      try {
+        sessionStorage.setItem('kt_visited', 'true');
+      } catch (e) {}
+    }
 
     // Trigger hero element reveal animations
     const autoReveals = document.querySelectorAll('.auto-reveal');
     autoReveals.forEach(el => el.classList.add('is-revealed'));
   }
 
-  if (hasVisited) {
-    // Already visited in this session: skip preloader instantly (0ms delay)
+  if (isSeoInstant || hasVisited) {
+    // Search crawlers, reduced-motion, or returning session: instant content visibility (0ms)
+    document.documentElement.classList.remove('kt-preloader-active');
     const p = getPreloader();
     if (p) p.style.display = 'none';
     document.body.classList.add('loaded');
   } else {
-    // First visit in session: cap to ≤ 400ms (350ms duration)
-    const preloaderDuration = 350;
+    // First visit in interactive human session: brief branded reveal (300ms)
+    const preloaderDuration = 300;
     const bar = getProgressBar();
     if (bar) {
-      bar.style.transition = 'width 280ms cubic-bezier(0.16, 1, 0.3, 1)';
+      bar.style.transition = 'width 240ms cubic-bezier(0.16, 1, 0.3, 1)';
       bar.style.width = '100%';
     }
     setTimeout(hidePreloader, preloaderDuration);
   }
 
-  // Safety fallback - guarantees preloader disappears even under slow network
-  setTimeout(hidePreloader, 600);
+  // Safety fallback - guarantees preloader disappears quickly
+  setTimeout(hidePreloader, 500);
 
   // 3. CUSTOM EDITORIAL CURSOR (DESKTOP ONLY)
   const isTouchDevice = () => !(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches);
@@ -230,7 +237,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 4. INTERSECTION OBSERVER FOR SCROLL REVEALS (HPAD CINEMATIC STYLE)
   const revealElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .img-reveal-frame, .stagger-container');
   
-  if ('IntersectionObserver' in window) {
+  if (isSeoInstant || !('IntersectionObserver' in window)) {
+    revealElements.forEach(el => el.classList.add('is-revealed'));
+  } else {
     const observerOptions = {
       root: null,
       rootMargin: '0px 0px -8% 0px',
@@ -247,9 +256,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, observerOptions);
 
     revealElements.forEach(el => revealObserver.observe(el));
-  } else {
-    // Fallback for older browsers
-    revealElements.forEach(el => el.classList.add('is-revealed'));
   }
 
   // 5. SUBTLE ARCHITECTURAL PARALLAX (DESKTOP ONLY)

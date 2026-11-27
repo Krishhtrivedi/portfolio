@@ -17,10 +17,10 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
 
   <!-- Primary Meta Tags -->
-  <title>Krish Trivedi — AI Developer &amp; Full-Stack Systems Architect</title>
-  <meta name="title" content="Krish Trivedi — AI Developer &amp; Full-Stack Systems Architect">
+  <title>Krish Trivedi — AI Developer &amp; Systems Architect</title>
+  <meta name="title" content="Krish Trivedi — AI Developer &amp; Systems Architect">
   <meta name="description" content="Krish Trivedi — AI Developer & Full-Stack Systems Architect in Ahmedabad. Building autonomous agent systems, Next.js portals, and enterprise automation.">
-  <meta name="keywords" content="Krish Trivedi, AI Developer, Full-Stack Systems Architect, Machine Learning, Generative AI, Python, FastAPI, Next.js, Supabase, SmartFin AI, KisanMitra, White Swan Holidays, HPAD">
+  <meta name="keywords" content="Krish Trivedi, AI Developer, Systems Architect, Full-Stack Systems Architect, Machine Learning, Generative AI, Python, FastAPI, Next.js, Supabase, SmartFin AI, KisanMitra, White Swan Holidays, HPAD">
   <meta name="author" content="Krish Trivedi">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://krishtrivedi.in/">
@@ -28,31 +28,40 @@
   <!-- Open Graph / Facebook / LinkedIn -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://krishtrivedi.in/">
-  <meta property="og:title" content="Krish Trivedi — AI Developer &amp; Full-Stack Systems Architect">
+  <meta property="og:title" content="Krish Trivedi — AI Developer &amp; Systems Architect">
   <meta property="og:description" content="Krish Trivedi — AI Developer & Full-Stack Systems Architect in Ahmedabad. Building autonomous agent systems, Next.js portals, and enterprise automation.">
   <meta property="og:image" content="https://krishtrivedi.in/img/og-preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Krish Trivedi — AI Developer &amp; Full-Stack Systems Architect">
+  <meta property="og:image:alt" content="Krish Trivedi — AI Developer &amp; Systems Architect">
   <meta property="og:site_name" content="Krish Trivedi">
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://krishtrivedi.in/">
-  <meta name="twitter:title" content="Krish Trivedi — AI Developer &amp; Full-Stack Systems Architect">
+  <meta name="twitter:title" content="Krish Trivedi — AI Developer &amp; Systems Architect">
   <meta name="twitter:description" content="Krish Trivedi — AI Developer & Full-Stack Systems Architect in Ahmedabad. Building autonomous agent systems, Next.js portals, and enterprise automation.">
   <meta name="twitter:image" content="https://krishtrivedi.in/img/og-preview.png">
 
-  <!-- Structured Data (JSON-LD) -->
+  <!-- Structured Data (JSON-LD): Person & WebSite -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://krishtrivedi.in/#person",
     "name": "Krish Trivedi",
     "url": "https://krishtrivedi.in/",
     "image": "https://krishtrivedi.in/img/og-preview.png",
-    "jobTitle": "AI Developer & Full-Stack Systems Architect",
-    "description": "Architecting production AI systems, full-stack web applications, and financial automation pipelines that eliminate manual bottlenecks.",
+    "jobTitle": "AI Developer & Systems Architect",
+    "description": "AI Developer & Full-Stack Systems Architect in Ahmedabad building production AI systems, autonomous agent workflows, Next.js portals, and enterprise automation.",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "JG University"
+    },
+    "homeLocation": {
+      "@type": "Place",
+      "name": "Ahmedabad, India"
+    },
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Ahmedabad",
@@ -66,13 +75,33 @@
     "knowsAbout": [
       "Artificial Intelligence",
       "Generative AI",
+      "Autonomous Agents",
       "Full-Stack Development",
+      "Machine Learning",
       "FastAPI",
       "Next.js",
       "Python",
+      "TypeScript",
       "Docker",
+      "Supabase",
       "Financial Automation"
     ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://krishtrivedi.in/#website",
+    "name": "Krish Trivedi",
+    "alternateName": "krishtrivedi.in",
+    "url": "https://krishtrivedi.in/",
+    "description": "Official portfolio of Krish Trivedi — AI Developer & Systems Architect based in Ahmedabad, India.",
+    "publisher": {
+      "@type": "Person",
+      "@id": "https://krishtrivedi.in/#person",
+      "name": "Krish Trivedi"
+    }
   }
   </script>
 
@@ -97,7 +126,19 @@
         } else {
           document.documentElement.classList.remove('dark');
         }
-        if (sessionStorage.getItem('kt_visited') === 'true') {
+        const ua = navigator.userAgent || '';
+        const isBot = /bot|google|crawl|spider|slurp|bing|duckduck|yandex|baidu|lighthouse|pagespeed|chrome-lighthouse|headless|inspectiontool|ptst|applebot|facebookexternalhit|twitterbot|linkedinbot/i.test(ua) || !!navigator.webdriver;
+        const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const visited = sessionStorage.getItem('kt_visited') === 'true';
+        if (isBot || reducedMotion) {
+          document.documentElement.classList.add('seo-instant');
+        } else {
+          document.documentElement.classList.add('kt-animate-pending');
+          if (!visited) {
+            document.documentElement.classList.add('kt-preloader-active');
+          }
+        }
+        if (isBot || reducedMotion || visited) {
           const s = document.createElement('style');
           s.id = 'preloader-skip-style';
           s.textContent = '#pagePreloader { display: none !important; }';
@@ -106,6 +147,7 @@
       } catch (e) {}
     })();
   </script>
+  <noscript><style>#pagePreloader { display: none !important; } .hero-line-reveal, .hero-fade-reveal, .scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .stagger-container > * { opacity: 1 !important; transform: none !important; }</style></noscript>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -142,7 +184,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Custom Design System & Animation Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=3.9.1">
+  <link rel="stylesheet" href="css/styles.css?v=3.9.2">
 </head>
 <body class="bg-[#FAF9FE] text-[#141024] font-sans antialiased relative">
 
@@ -160,7 +202,7 @@
       <!-- Menu Header -->
       <div class="flex items-center justify-between pb-4 sm:pb-6 border-b border-white/[0.08]">
         <div class="flex items-center gap-3">
-          <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-8 sm:w-9 h-auto">
+          <img src="img/logo-kt-light.svg" alt="Krish Trivedi — KT Monogram Logo" class="kt-logo-dynamic w-8 sm:w-9 h-auto">
           <span class="font-display font-bold text-white tracking-wider text-sm">KRISH TRIVEDI // INDEX</span>
         </div>
         <div class="flex items-center gap-2.5">
@@ -234,7 +276,7 @@
       
       <!-- Official Brand Logo & Wordmark -->
       <a href="index.html" class="flex items-center gap-3.5 group flex-shrink-0">
-        <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-8 sm:w-9 h-auto transition-transform group-hover:scale-105">
+        <img src="img/logo-kt-light.svg" alt="Krish Trivedi — KT Monogram Logo" class="kt-logo-dynamic w-8 sm:w-9 h-auto transition-transform group-hover:scale-105">
         <div class="flex flex-col whitespace-nowrap">
           <span class="navbar-brand-title">KRISH TRIVEDI</span>
           <span class="navbar-brand-sub hidden sm:block">AI Developer · Ahmedabad</span>
@@ -303,13 +345,13 @@
 
           <!-- Main Headline (Editorial Typography) -->
           <h1 class="font-display font-extrabold text-[clamp(2.1rem,8.5vw,4.75rem)] tracking-tight leading-[1.08] text-[var(--text-primary)]">
-            <span class="hero-line-mask"><span class="hero-line-reveal">Building Intelligence.</span></span><br>
-            <span class="hero-line-mask"><span class="hero-line-reveal delay-200 font-serif italic font-normal text-gradient-primary">Creating What’s Next.</span></span>
+            <span class="hero-line-mask"><span class="hero-line-reveal">Krish Trivedi.</span></span><br>
+            <span class="hero-line-mask"><span class="hero-line-reveal delay-200 font-serif italic font-normal text-gradient-primary">Building Intelligence.</span></span>
           </h1>
 
           <!-- High-Impact, Results-Driven Introduction -->
           <p class="text-base sm:text-lg text-[var(--text-secondary)] font-sans max-w-xl leading-relaxed hero-fade-reveal delay-300">
-            I build intelligent applications, AI-powered solutions and automation systems that transform complex ideas into meaningful digital experiences.
+            I build intelligent applications, autonomous AI agents, and automation systems that transform complex ideas into what’s next.
           </p>
 
           <!-- Primary Action CTAs with Stacked Mobile Full-Width Layout -->
@@ -342,7 +384,7 @@
 
               <!-- Center Floating Monogram Pill -->
               <div class="px-2.5 py-1 rounded-full bg-[#130C22]/85 backdrop-blur-md border border-white/10 flex items-center gap-1.5 shadow-md transform group-hover:scale-105 transition-transform duration-300">
-                <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-4 h-auto">
+                <img src="img/logo-kt-light.svg" alt="Krish Trivedi KT Logo" class="w-4 h-auto">
                 <span class="font-display font-semibold text-[10px] text-white tracking-wider">KRISH TRIVEDI</span>
               </div>
 
@@ -426,7 +468,7 @@
           <!-- Slide 1: KisanMitra -->
           <article class="slider-project-card" data-index="0" data-href="projects/kisanmitra.html">
             <div class="slider-card-media">
-              <img src="img/projects/kisanmitra-preview.svg" alt="KisanMitra AI Agricultural Platform" width="1280" height="800" loading="lazy">
+              <img src="img/projects/kisanmitra-preview.svg" alt="KisanMitra AI Agricultural Platform built by Krish Trivedi" width="1280" height="800" loading="lazy">
               <div class="slider-card-media-gradient"></div>
               <span class="slider-card-badge">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -461,7 +503,7 @@
           <!-- Slide 2: HPAD Travel Management -->
           <article class="slider-project-card" data-index="1" data-href="projects/hpad-travel.html">
             <div class="slider-card-media">
-              <img src="img/projects/hpad-preview.webp" alt="HPAD Travel Management System" width="1280" height="800" loading="lazy">
+              <img src="img/projects/hpad-preview.webp" alt="HPAD Travel Management System built by Krish Trivedi" width="1280" height="800" loading="lazy">
               <div class="slider-card-media-gradient"></div>
               <span class="slider-card-badge">
                 <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
@@ -496,7 +538,7 @@
           <!-- Slide 3: White Swan Holidays -->
           <article class="slider-project-card" data-index="2" data-href="projects/white-swan.html">
             <div class="slider-card-media">
-              <img src="img/projects/whiteswan-preview.webp" alt="White Swan Holidays Platform" width="1280" height="800" loading="lazy">
+              <img src="img/projects/whiteswan-preview.webp" alt="White Swan Holidays Cloud Portal engineered by Krish Trivedi" width="1280" height="800" loading="lazy">
               <div class="slider-card-media-gradient"></div>
               <span class="slider-card-badge">
                 <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
@@ -531,7 +573,7 @@
           <!-- Slide 4: SmartFin AI -->
           <article class="slider-project-card" data-index="3" data-href="projects/smartfin-ai.html">
             <div class="slider-card-media">
-              <img src="img/projects/smartfin-preview.svg" alt="SmartFin AI Finance Automation System" width="1280" height="800" loading="lazy">
+              <img src="img/projects/smartfin-preview.svg" alt="SmartFin AI Finance Automation System architected by Krish Trivedi" width="1280" height="800" loading="lazy">
               <div class="slider-card-media-gradient"></div>
               <span class="slider-card-badge">
                 <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
@@ -922,7 +964,7 @@
         <!-- KT Logo & Short Brand Description -->
         <div class="space-y-3 max-w-sm">
           <a href="index.html" class="inline-flex items-center gap-3">
-            <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto">
+            <img src="img/logo-kt-light.svg" alt="Krish Trivedi — KT Monogram Logo" class="kt-logo-dynamic w-9 h-auto">
             <span class="font-display font-bold text-white text-base tracking-wider">KRISH TRIVEDI</span>
           </a>
           <p class="text-xs text-[#8E95A5] leading-relaxed font-sans">
@@ -964,9 +1006,9 @@
   </footer>
 
     <!-- Premium Branded Page Preloader (HPAD Luxury Cinematic Style) -->
-  <div id="pagePreloader" aria-hidden="true" class="fixed inset-0 z-[99999] bg-[#0B0814] flex flex-col items-center justify-center transition-all duration-700 ease-out" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #0B0814; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+  <div id="pagePreloader" aria-hidden="true">
     <div class="preloader-logo-wrap" style="position: relative; width: 84px; height: 48px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center;">
-      <img src="img/logo-kt-light.svg" alt="KT Monogram" class="w-20 h-auto" style="width: 76px; height: auto;">
+      <img src="img/logo-kt-light.svg" alt="Krish Trivedi — KT Monogram Logo" class="w-20 h-auto" style="width: 76px; height: auto;">
     </div>
     <div class="preloader-progress-track" style="width: 140px; height: 2px; background-color: rgba(255, 255, 255, 0.1); position: relative; overflow: hidden; border-radius: 2px;">
       <div class="preloader-progress-bar" style="position: absolute; top: 0; left: 0; height: 100%; width: 0%; background-color: #8B5CF6;"></div>
@@ -975,6 +1017,6 @@
   </div>
 
   <!-- Main JavaScript Engine -->
-  <script src="js/main.js?v=3.9.1"></script>
+  <script src="js/main.js?v=3.9.2"></script>
 </body>
 </html>
