@@ -33,7 +33,7 @@
   <meta name="twitter:image" content="https://krishtrivedi.in/img/og-preview.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 
   <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -95,7 +95,7 @@
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Custom Design System & Animation Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=3.9.0">
+  <link rel="stylesheet" href="../css/styles.css?v=3.9.1">
 </head>
 <body class="bg-[#FAF9FE] text-[#141024] font-sans antialiased relative">
 
@@ -104,7 +104,7 @@
     <div class="max-w-5xl mx-auto w-full flex flex-col justify-between h-full py-4">
       <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
         <div class="flex items-center gap-3">
-          <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
+          <img src="../img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
           <span class="font-display font-bold text-white tracking-wider text-sm">KRISH TRIVEDI // INDEX</span>
         </div>
         <div class="flex items-center gap-2">
@@ -112,57 +112,59 @@
             <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
             <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
           </button>
-          <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
-            <i data-lucide="x" class="w-6 h-6"></i>
+          <button id="closeMenuBtn" aria-label="Close Navigation" class="w-11 h-11 min-w-[44px] min-h-[44px] inline-flex items-center justify-center text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
+            <i data-lucide="x" class="w-5 h-5"></i>
           </button>
         </div>
       </div>
 
-      <nav class="py-8 space-y-1">
-        <a href="index.html" class="menu-item-editorial group">
-          <span class="item-title">01 HOME</span>
+      <nav class="py-4 sm:py-8 space-y-0.5 sm:space-y-1 flex-1 overflow-y-auto">
+        <a href="../index.html" class="menu-item-editorial group">
+          <span class="item-title text-lg sm:text-3xl font-bold">01 HOME</span>
           <span class="item-sub">MAIN HUB</span>
         </a>
-        <a href="about.html" class="menu-item-editorial group">
-          <span class="item-title">02 ABOUT</span>
+        <a href="../about.html" class="menu-item-editorial group">
+          <span class="item-title text-lg sm:text-3xl font-bold">02 ABOUT</span>
           <span class="item-sub">BIOGRAPHY &amp; PHILOSOPHY</span>
         </a>
-        <a href="projects.html" class="menu-item-editorial group">
-          <span class="item-title">03 PROJECTS</span>
+        <a href="../projects.html" class="menu-item-editorial group">
+          <span class="item-title text-lg sm:text-3xl font-bold">03 PROJECTS</span>
           <span class="item-sub">SELECTED CASE STUDIES</span>
         </a>
-        <a href="ai-lab.html" class="menu-item-editorial group">
-          <span class="item-title">04 AI LAB</span>
+        <a href="../ai-lab.html" class="menu-item-editorial group">
+          <span class="item-title text-lg sm:text-3xl font-bold">04 AI LAB</span>
           <span class="item-sub">INTERACTIVE DEMOS &amp; CLI</span>
         </a>
-        <a href="experience.html" class="menu-item-editorial group">
-          <span class="item-title">05 EXPERIENCE</span>
+        <a href="../experience.html" class="menu-item-editorial group">
+          <span class="item-title text-lg sm:text-3xl font-bold">05 EXPERIENCE</span>
           <span class="item-sub">CAREER &amp; SYSTEMS TIMELINE</span>
         </a>
-        <a href="skills.html" class="menu-item-editorial group">
-          <span class="item-title">06 SKILLS</span>
+        <a href="../skills.html" class="menu-item-editorial group">
+          <span class="item-title text-lg sm:text-3xl font-bold">06 SKILLS</span>
           <span class="item-sub">TECHNICAL CAPABILITIES</span>
         </a>
-        <a href="services.html" class="menu-item-editorial group text-[#8B5CF6] dark:text-[#C084FC]">
-          <span class="item-title">07 SERVICES</span>
+        <a href="../services.html" class="menu-item-editorial group text-[#6D28D9] dark:text-[#C084FC]">
+          <span class="item-title text-lg sm:text-3xl font-bold">07 SERVICES</span>
           <span class="item-sub">SOLUTIONS &amp; EXPERTISE</span>
         </a>
-        <a href="resume.html" class="menu-item-editorial group">
-          <span class="item-title">08 RESUME</span>
+        <a href="../resume.html" class="menu-item-editorial group">
+          <span class="item-title text-lg sm:text-3xl font-bold">08 RESUME</span>
           <span class="item-sub">CURRICULUM VITAE</span>
         </a>
-        <a href="contact.html" class="menu-item-editorial group">
-          <span class="item-title">09 CONTACT</span>
+        <a href="../contact.html" class="menu-item-editorial group">
+          <span class="item-title text-lg sm:text-3xl font-bold">09 CONTACT</span>
           <span class="item-sub">LET'S CONNECT</span>
         </a>
       </nav>
 
-      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#8E95A5]">
+      <div class="pt-4 sm:pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 text-xs font-mono text-[#8E95A5]">
         <span>AHMEDABAD, GUJARAT, INDIA · +91 8849213790</span>
-        <div class="flex items-center gap-6 mt-2 sm:mt-0">
-          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors">EMAIL</a>
-          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GITHUB</a>
-          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">WHATSAPP</a>
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-5">
+          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors inline-flex items-center min-h-[44px] px-1">EMAIL</a>
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors inline-flex items-center min-h-[44px] px-1">GITHUB</a>
+          <!-- TODO: Verify/adjust LinkedIn profile slug if needed -->
+          <a href="https://www.linkedin.com/in/krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors inline-flex items-center min-h-[44px] px-1">LINKEDIN</a>
+          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline inline-flex items-center min-h-[44px] px-1">WHATSAPP</a>
         </div>
       </div>
     </div>
@@ -171,24 +173,24 @@
   <!-- Navigation Bar -->
   <header class="luxury-navbar" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-      <a href="index.html" class="flex items-center gap-3.5 group">
-        <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
+      <a href="../index.html" class="flex items-center gap-3.5 group">
+        <img src="../img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
         <div class="flex flex-col">
           <span class="navbar-brand-title">KRISH TRIVEDI</span>
-          <span class="navbar-brand-sub">05 // Services & Offerings</span>
+          <span class="navbar-brand-sub hidden sm:block">05 // Services & Offerings</span>
         </div>
       </a>
 
       <nav class="hidden lg:flex items-center desktop-nav-rail">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="about.html" class="nav-link">About</a>
-        <a href="projects.html" class="nav-link">Projects</a>
-        <a href="ai-lab.html" class="nav-link">AI Lab</a>
-        <a href="experience.html" class="nav-link">Experience</a>
-        <a href="skills.html" class="nav-link">Skills</a>
-        <a href="services.html" class="nav-link active">Services</a>
-        <a href="resume.html" class="nav-link">Resume</a>
-        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../about.html" class="nav-link">About</a>
+        <a href="../projects.html" class="nav-link">Projects</a>
+        <a href="../ai-lab.html" class="nav-link">AI Lab</a>
+        <a href="../experience.html" class="nav-link">Experience</a>
+        <a href="../skills.html" class="nav-link">Skills</a>
+        <a href="../services.html" class="nav-link active">Services</a>
+        <a href="../resume.html" class="nav-link">Resume</a>
+        <a href="../contact.html" class="nav-link">Contact</a>
       </nav>
 
       <div class="flex items-center gap-3">
@@ -197,7 +199,7 @@
           <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
           <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
         </button>
-        <a href="../Krish-Trivedi-Resume.pdf" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex btn-nav-cta">
+        <a href="../Krish-Trivedi-Resume.pdf" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex btn-nav-cta">
           <i data-lucide="file-text" class="w-3.5 h-3.5"></i>
           <span>Resume</span>
         </a>
@@ -209,7 +211,7 @@
   </header>
 
   <!-- Main Content -->
-  <main class="pt-36 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <main class="pt-24 sm:pt-28 md:pt-36 pb-16 sm:pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Editorial Header -->
     <div class="mb-16">
@@ -231,7 +233,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
       
       <!-- 1 -->
-      <div class="luxury-card p-8 bg-white flex flex-col justify-between">
+      <div class="luxury-card p-5 sm:p-8 bg-white flex flex-col justify-between">
         <div>
           <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6 font-mono text-sm font-bold">01</div>
           <h2 class="font-display font-bold text-xl text-[#171717] mb-3">AI Application Development</h2>
@@ -245,7 +247,7 @@
       </div>
 
       <!-- 2 -->
-      <div class="luxury-card p-8 bg-white flex flex-col justify-between">
+      <div class="luxury-card p-5 sm:p-8 bg-white flex flex-col justify-between">
         <div>
           <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6 font-mono text-sm font-bold">02</div>
           <h2 class="font-display font-bold text-xl text-[#171717] mb-3">Generative AI Integration</h2>
@@ -259,7 +261,7 @@
       </div>
 
       <!-- 3 -->
-      <div class="luxury-card p-8 bg-white flex flex-col justify-between">
+      <div class="luxury-card p-5 sm:p-8 bg-white flex flex-col justify-between">
         <div>
           <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6 font-mono text-sm font-bold">03</div>
           <h2 class="font-display font-bold text-xl text-[#171717] mb-3">Intelligent Chatbots & RAG</h2>
@@ -273,7 +275,7 @@
       </div>
 
       <!-- 4 -->
-      <div class="luxury-card p-8 bg-white flex flex-col justify-between">
+      <div class="luxury-card p-5 sm:p-8 bg-white flex flex-col justify-between">
         <div>
           <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6 font-mono text-sm font-bold">04</div>
           <h2 class="font-display font-bold text-xl text-[#171717] mb-3">Business Process Automation</h2>
@@ -287,7 +289,7 @@
       </div>
 
       <!-- 5 -->
-      <div class="luxury-card p-8 bg-white flex flex-col justify-between">
+      <div class="luxury-card p-5 sm:p-8 bg-white flex flex-col justify-between">
         <div>
           <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6 font-mono text-sm font-bold">05</div>
           <h2 class="font-display font-bold text-xl text-[#171717] mb-3">Python Systems Development</h2>
@@ -301,7 +303,7 @@
       </div>
 
       <!-- 6 -->
-      <div class="luxury-card p-8 bg-white flex flex-col justify-between">
+      <div class="luxury-card p-5 sm:p-8 bg-white flex flex-col justify-between">
         <div>
           <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6 font-mono text-sm font-bold">06</div>
           <h2 class="font-display font-bold text-xl text-[#171717] mb-3">API Integration & Design</h2>
@@ -315,7 +317,7 @@
       </div>
 
       <!-- 7 -->
-      <div class="luxury-card p-8 bg-white flex flex-col justify-between">
+      <div class="luxury-card p-5 sm:p-8 bg-white flex flex-col justify-between">
         <div>
           <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6 font-mono text-sm font-bold">07</div>
           <h2 class="font-display font-bold text-xl text-[#171717] mb-3">Web Application Engineering</h2>
@@ -329,7 +331,7 @@
       </div>
 
       <!-- 8 -->
-      <div class="luxury-card p-8 bg-white flex flex-col justify-between">
+      <div class="luxury-card p-5 sm:p-8 bg-white flex flex-col justify-between">
         <div>
           <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6 font-mono text-sm font-bold">08</div>
           <h2 class="font-display font-bold text-xl text-[#171717] mb-3">IT Infrastructure Consulting</h2>
@@ -343,7 +345,7 @@
       </div>
 
       <!-- 9 -->
-      <div class="luxury-card p-8 bg-white flex flex-col justify-between">
+      <div class="luxury-card p-5 sm:p-8 bg-white flex flex-col justify-between">
         <div>
           <div class="w-10 h-10 rounded-sm bg-[#F5F3EE] border border-[#E6E4DE] text-[#526BFF] flex items-center justify-center mb-6 font-mono text-sm font-bold">09</div>
           <h2 class="font-display font-bold text-xl text-[#171717] mb-3">Microsoft 365 Solutions</h2>
@@ -359,7 +361,7 @@
     </div>
 
     <!-- Engagement Callout -->
-    <div class="p-10 bg-[#10131D] text-white rounded-sm flex flex-col md:flex-row items-center justify-between gap-8">
+    <div class="p-6 sm:p-10 bg-[#10131D] text-white rounded-sm flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8">
       <div>
         <div class="font-mono text-xs text-[#526BFF] uppercase tracking-wider mb-2">ENGAGEMENT MODEL</div>
         <h3 class="font-display font-bold text-2xl text-white">Have a technical project ready to build?</h3>
@@ -367,7 +369,7 @@
           From full-cycle product delivery to architectural consultations, let's explore how we can engineer your intelligent solution.
         </p>
       </div>
-      <a href="contact.html" class="btn-luxury btn-accent text-xs py-3 px-6 shrink-0">
+      <a href="../contact.html" class="btn-luxury btn-accent text-xs w-full md:w-auto justify-center min-h-[48px] py-3 px-6 shrink-0">
         <span>LET'S CONNECT</span>
         <i data-lucide="arrow-right" class="w-4 h-4"></i>
       </a>
@@ -381,19 +383,19 @@
   <footer class="bg-[#10131D] text-[#F5F3EE] py-12 border-t border-white/[0.08]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-[#8E95A5] gap-4">
       <div class="flex items-center gap-3">
-        <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
+        <img src="../img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
         <span>© 2026 KRISH TRIVEDI · AI DEVELOPER</span>
       </div>
       <div class="flex items-center gap-6">
-        <a href="index.html" class="hover:text-white">Home</a>
-        <a href="projects.html" class="hover:text-white">Projects</a>
-        <a href="ai-lab.html" class="hover:text-white">AI Lab</a>
-        <a href="contact.html" class="hover:text-white">Contact</a>
+        <a href="../index.html" class="hover:text-white">Home</a>
+        <a href="../projects.html" class="hover:text-white">Projects</a>
+        <a href="../ai-lab.html" class="hover:text-white">AI Lab</a>
+        <a href="../contact.html" class="hover:text-white">Contact</a>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js?v=3.9.0"></script>
+  <script src="../js/main.js?v=3.9.1"></script>
   <!-- Premium Branded Page Preloader (HPAD Luxury Cinematic Style) -->
   <div id="pagePreloader" aria-hidden="true" class="fixed inset-0 z-[99999] bg-[#0B0814] flex flex-col items-center justify-center transition-all duration-700 ease-out" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #0B0814; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center;">
     <div class="preloader-logo-wrap" style="position: relative; width: 84px; height: 48px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center;">

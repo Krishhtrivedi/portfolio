@@ -139,7 +139,7 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Custom Design System & Animation Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=3.9.0">
+  <link rel="stylesheet" href="css/styles.css?v=3.9.1">
 </head>
 <body class="bg-[#FAF9FE] text-[#141024] font-sans antialiased relative">
 
@@ -155,71 +155,71 @@
   <div id="fullscreenMenu" class="fullscreen-menu">
     <div class="max-w-5xl mx-auto w-full flex flex-col justify-between h-full py-4">
       <!-- Menu Header -->
-      <div class="flex items-center justify-between pb-6 border-b border-white/[0.08]">
+      <div class="flex items-center justify-between pb-4 sm:pb-6 border-b border-white/[0.08]">
         <div class="flex items-center gap-3">
-          <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto">
+          <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-8 sm:w-9 h-auto">
           <span class="font-display font-bold text-white tracking-wider text-sm">KRISH TRIVEDI // INDEX</span>
         </div>
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2.5">
           <button class="theme-toggle-btn" aria-label="Toggle color theme" title="Toggle Theme">
             <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
             <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
           </button>
-          <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
-            <i data-lucide="x" class="w-6 h-6"></i>
+          <button id="closeMenuBtn" aria-label="Close Navigation" class="w-11 h-11 min-w-[44px] min-h-[44px] inline-flex items-center justify-center text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
+            <i data-lucide="x" class="w-5 h-5"></i>
           </button>
         </div>
       </div>
 
       <!-- Menu Navigation Links (Consistent & Comprehensive) -->
-      <nav class="py-8 space-y-1">
-        <a href="index.html" class="menu-item-editorial group text-[#8B5CF6] dark:text-[#C084FC]">
-          <span class="item-title">01 HOME</span>
+      <nav class="py-4 sm:py-8 space-y-0.5 sm:space-y-1 flex-1 overflow-y-auto">
+        <a href="index.html" class="menu-item-editorial group text-[#6D28D9] dark:text-[#C084FC]">
+          <span class="item-title text-lg sm:text-3xl font-bold">01 HOME</span>
           <span class="item-sub">MAIN HUB</span>
         </a>
         <a href="about.html" class="menu-item-editorial group">
-          <span class="item-title">02 ABOUT</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">02 ABOUT</span>
           <span class="item-sub">BIOGRAPHY &amp; PHILOSOPHY</span>
         </a>
         <a href="projects.html" class="menu-item-editorial group">
-          <span class="item-title">03 PROJECTS</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">03 PROJECTS</span>
           <span class="item-sub">SELECTED CASE STUDIES</span>
         </a>
         <a href="ai-lab.html" class="menu-item-editorial group">
-          <span class="item-title">04 AI LAB</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">04 AI LAB</span>
           <span class="item-sub">INTERACTIVE DEMOS &amp; CLI</span>
         </a>
         <a href="experience.html" class="menu-item-editorial group">
-          <span class="item-title">05 EXPERIENCE</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">05 EXPERIENCE</span>
           <span class="item-sub">CAREER &amp; SYSTEMS TIMELINE</span>
         </a>
         <a href="skills.html" class="menu-item-editorial group">
-          <span class="item-title">06 SKILLS</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">06 SKILLS</span>
           <span class="item-sub">TECHNICAL CAPABILITIES</span>
         </a>
         <a href="services.html" class="menu-item-editorial group">
-          <span class="item-title">07 SERVICES</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">07 SERVICES</span>
           <span class="item-sub">SOLUTIONS &amp; EXPERTISE</span>
         </a>
         <a href="resume.html" class="menu-item-editorial group">
-          <span class="item-title">08 RESUME</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">08 RESUME</span>
           <span class="item-sub">CURRICULUM VITAE</span>
         </a>
         <a href="contact.html" class="menu-item-editorial group">
-          <span class="item-title">09 CONTACT</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">09 CONTACT</span>
           <span class="item-sub">LET'S CONNECT</span>
         </a>
       </nav>
 
       <!-- Menu Footer -->
-      <div class="pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#8E95A5]">
+      <div class="pt-4 sm:pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 text-xs font-mono text-[#8E95A5]">
         <div>Ahmedabad, Gujarat, India · +91 8849213790</div>
-        <div class="flex items-center gap-4">
-          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white">GitHub ↗</a>
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-5">
+          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white inline-flex items-center min-h-[44px] px-1">Email</a>
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white inline-flex items-center min-h-[44px] px-1">GitHub ↗</a>
           <!-- TODO: Verify/adjust LinkedIn profile slug if needed -->
-          <a href="https://www.linkedin.com/in/krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white">LinkedIn ↗</a>
-          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">WhatsApp</a>
-          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white">Email</a>
+          <a href="https://www.linkedin.com/in/krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white inline-flex items-center min-h-[44px] px-1">LinkedIn ↗</a>
+          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline inline-flex items-center min-h-[44px] px-1">WhatsApp</a>
         </div>
       </div>
     </div>
@@ -231,10 +231,10 @@
       
       <!-- Official Brand Logo & Wordmark -->
       <a href="index.html" class="flex items-center gap-3.5 group flex-shrink-0">
-        <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
+        <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-8 sm:w-9 h-auto transition-transform group-hover:scale-105">
         <div class="flex flex-col whitespace-nowrap">
           <span class="navbar-brand-title">KRISH TRIVEDI</span>
-          <span class="navbar-brand-sub">AI Developer · Ahmedabad</span>
+          <span class="navbar-brand-sub hidden sm:block">AI Developer · Ahmedabad</span>
         </div>
       </a>
 
@@ -252,13 +252,13 @@
       </nav>
 
       <!-- Action Buttons -->
-      <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2 sm:gap-3">
         <!-- Theme Toggle Switcher -->
         <button class="theme-toggle-btn" aria-label="Toggle color theme" title="Toggle Theme">
           <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
           <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
         </button>
-        <a href="contact.html" class="hidden sm:inline-flex btn-nav-cta">
+        <a href="contact.html" class="hidden lg:inline-flex btn-nav-cta">
           <span>Let's Talk</span>
         </a>
         <button id="menuToggleBtn" aria-label="Open Navigation Index" class="menu-toggle-btn">
@@ -272,7 +272,7 @@
   <!-- ========================================================================
        1. HERO SECTION (MINIMAL, EDITORIAL & FOCUSED)
        ======================================================================== -->
-  <section class="pt-16 pb-20 sm:pt-24 sm:pb-28 border-editorial-b relative overflow-hidden architectural-grid" id="hero">
+  <section class="pt-24 pb-16 sm:pt-32 sm:pb-24 lg:pt-36 lg:pb-28 border-editorial-b relative overflow-hidden architectural-grid" id="hero">
     <!-- Ambient Depth Aurora Orbs & SVG Noise Texture -->
     <div class="ambient-aurora-bg" aria-hidden="true">
       <div class="aurora-orb-violet"></div>
@@ -285,39 +285,37 @@
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
         
         <!-- Left Hero Column (7 cols): Identity, Headline, Intro & CTAs -->
-        <div class="lg:col-span-7 space-y-6 sm:space-y-7">
+        <div class="lg:col-span-7 space-y-5 sm:space-y-7">
           
           <!-- Eyebrow Tag -->
-          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-[#E6E4DE] dark:border-purple-500/20 bg-white dark:bg-[#130C22] text-xs font-mono text-[#777777] dark:text-[#A69DBF] hero-fade-reveal">
-            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span class="font-bold text-[#171717] dark:text-[#FAF7FD]">KRISH TRIVEDI</span>
-            <span class="opacity-40">|</span>
-            <span>AHMEDABAD, INDIA</span>
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[var(--border-glass)] bg-[var(--glass-surface)] text-[10.5px] sm:text-xs font-mono text-[var(--text-secondary)] max-w-full hero-fade-reveal">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
+            <span class="font-bold text-[var(--text-primary)] truncate">AVAILABLE FOR AI ARCHITECTURE · AHMEDABAD</span>
           </div>
 
           <!-- Professional Subtitle -->
-          <div class="font-mono text-xs sm:text-sm tracking-wider uppercase text-[#526BFF] dark:text-[#C084FC] font-semibold hero-fade-reveal delay-100">
+          <div class="font-mono text-xs sm:text-sm tracking-wider uppercase text-[#6D28D9] dark:text-[#C084FC] font-semibold hero-fade-reveal delay-100">
             AI Developer | Intelligent Applications | Automation
           </div>
 
           <!-- Main Headline (Editorial Typography) -->
-          <h1 class="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-[1.08] text-[#171717] dark:text-[#FAF7FD]">
+          <h1 class="font-display font-extrabold text-[clamp(2.1rem,8.5vw,4.75rem)] tracking-tight leading-[1.08] text-[var(--text-primary)]">
             <span class="hero-line-mask"><span class="hero-line-reveal">Building Intelligence.</span></span><br>
-            <span class="hero-line-mask"><span class="hero-line-reveal delay-200 font-serif italic font-normal text-[#526BFF] dark:text-[#C7A77A]">Creating What’s Next.</span></span>
+            <span class="hero-line-mask"><span class="hero-line-reveal delay-200 font-serif italic font-normal text-gradient-primary">Creating What’s Next.</span></span>
           </h1>
 
           <!-- High-Impact, Results-Driven Introduction -->
-          <p class="text-base sm:text-lg text-[#777777] dark:text-[#A69DBF] font-sans max-w-xl leading-relaxed hero-fade-reveal delay-300">
-            I architect production AI systems, full-stack web applications, and financial automation pipelines that eliminate manual bottlenecks.
+          <p class="text-base sm:text-lg text-[var(--text-secondary)] font-sans max-w-xl leading-relaxed hero-fade-reveal delay-300">
+            I build intelligent applications, AI-powered solutions and automation systems that transform complex ideas into meaningful digital experiences.
           </p>
 
-          <!-- Primary Action CTAs with Glassmorphism -->
-          <div class="flex flex-wrap items-center gap-3 sm:gap-4 pt-2 hero-fade-reveal delay-400">
-            <a href="#projects" class="btn-luxury btn-glass btn-primary-dark">
+          <!-- Primary Action CTAs with Stacked Mobile Full-Width Layout -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2 hero-fade-reveal delay-400">
+            <a href="#projects" class="btn-luxury btn-primary-gradient w-full sm:w-auto justify-center min-h-[48px] text-sm">
               <span>Explore Projects</span>
               <i data-lucide="arrow-down" class="w-4 h-4"></i>
             </a>
-            <a href="resume.html" class="btn-luxury btn-glass btn-outline-editorial">
+            <a href="resume.html" class="btn-luxury btn-outline-editorial w-full sm:w-auto justify-center min-h-[48px] text-sm">
               <i data-lucide="file-text" class="w-4 h-4"></i>
               <span>View Resume</span>
             </a>
@@ -327,10 +325,10 @@
 
         <!-- Right Hero Column (5 cols): Compact 3D Neural Lattice -->
         <div class="lg:col-span-5 flex items-center justify-center lg:justify-end hero-fade-reveal delay-300">
-          <div class="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] rounded-2xl bg-[#0A0612] border border-[#E6E4DE] dark:border-purple-500/20 shadow-2xl overflow-hidden flex items-center justify-center group cursor-grab active:cursor-grabbing">
+          <div class="relative w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] mx-auto lg:mx-0 mt-4 lg:mt-0 rounded-2xl bg-[#0A0612] border border-[var(--border-glass)] shadow-2xl overflow-hidden flex items-center justify-center group cursor-grab active:cursor-grabbing" style="touch-action: pan-y;">
             
             <!-- 3D Particle Neural Lattice Canvas -->
-            <canvas id="heroNeuralCanvas" class="w-full h-full block" width="280" height="280"></canvas>
+            <canvas id="heroNeuralCanvas" class="w-full h-full block" width="280" height="280" style="touch-action: pan-y;"></canvas>
             
             <!-- Subtle Center Monogram Badge -->
             <div class="absolute inset-0 pointer-events-none flex flex-col items-center justify-between p-3.5 bg-gradient-to-t from-[#0A0612]/70 via-transparent to-[#0A0612]/30">
@@ -356,12 +354,12 @@
       </div>
 
       <!-- Subtle Scroll Down Interaction Indicator -->
-      <div class="mt-12 pt-6 border-t border-[#E6E4DE] dark:border-white/[0.08] flex items-center justify-between text-xs font-mono text-[#777777] dark:text-[#A69DBF] hero-fade-reveal delay-500">
+      <div class="mt-12 pt-6 border-t border-[var(--border-glass)] flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-[var(--text-secondary)] hero-fade-reveal delay-500">
         <div class="flex items-center gap-2">
           <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
           <span>AVAILABLE FOR SELECTIVE AI ARCHITECTURE · 2026</span>
         </div>
-        <a href="#projects" class="inline-flex items-center gap-2 hover:text-[#526BFF] dark:hover:text-[#C7A77A] transition-colors group">
+        <a href="#projects" class="inline-flex items-center gap-2 min-h-[44px] hover:text-[#6D28D9] dark:hover:text-[#A78BFA] transition-colors group">
           <span>SCROLL TO EXPLORE</span>
           <i data-lucide="arrow-down" class="w-3.5 h-3.5 transition-transform group-hover:translate-y-1"></i>
         </a>
@@ -450,7 +448,7 @@
               <div class="slider-card-footer">
                 <span class="font-mono text-[11px] text-[#A5ADB5]">National Finalist</span>
                 <a href="projects/kisanmitra.html" class="slider-card-btn group">
-                  <span>View Project</span>
+                  <span>View Case Study</span>
                   <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                 </a>
               </div>
@@ -485,7 +483,7 @@
               <div class="slider-card-footer">
                 <span class="font-mono text-[11px] text-[#A5ADB5]">Enterprise Logistics</span>
                 <a href="projects/hpad-travel.html" class="slider-card-btn group">
-                  <span>View Project</span>
+                  <span>View Case Study</span>
                   <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                 </a>
               </div>
@@ -520,7 +518,7 @@
               <div class="slider-card-footer">
                 <span class="font-mono text-[11px] text-[#A5ADB5]">Cloud Application</span>
                 <a href="projects/white-swan.html" class="slider-card-btn group">
-                  <span>View Project</span>
+                  <span>View Case Study</span>
                   <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                 </a>
               </div>
@@ -555,7 +553,7 @@
               <div class="slider-card-footer">
                 <span class="font-mono text-[11px] text-[#A5ADB5]">Vichar Vimarsh ERP</span>
                 <a href="projects/smartfin-ai.html" class="slider-card-btn group">
-                  <span>View Project</span>
+                  <span>View Case Study</span>
                   <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"></i>
                 </a>
               </div>
@@ -575,24 +573,30 @@
 
       <!-- Unified Slider Progress, Dots & View All Projects Controls Dock -->
       <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[var(--border-glass)] pt-6">
-        <div class="flex items-center gap-4">
-          <div class="w-36 sm:w-48 h-1.5 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden relative">
+        <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-4 w-full sm:w-auto">
+          <div class="w-32 sm:w-44 h-1.5 bg-black/10 dark:bg-white/10 rounded-full overflow-hidden relative">
             <div id="sliderProgressBar" class="h-full bg-gradient-to-r from-[#6D28D9] to-[#0284C7] dark:from-[#8B5CF6] dark:to-[#06B6D4] rounded-full transition-all duration-500 ease-out" style="width: 25%;"></div>
           </div>
-          <div id="sliderDots" class="flex items-center gap-2"></div>
+          <div id="sliderDots" class="flex items-center gap-1"></div>
         </div>
 
-        <div>
-          <a href="projects.html" class="btn-luxury btn-primary-gold text-xs">
+        <div class="w-full sm:w-auto">
+          <a href="projects.html" class="btn-luxury btn-primary-gradient text-xs w-full sm:w-auto min-h-[44px] justify-center">
             <span>View All Projects</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
         </div>
       </div>
 
-      <!-- Interactive Vector Architecture Flow Diagram (SmartFin AI Blueprint) -->
-      <div class="mt-14 pt-10 border-t border-[var(--border-glass)]">
-        <div class="luxury-card p-6 sm:p-8 bg-white/70 dark:bg-[#130E24]/75 border border-[var(--border-glass)] rounded-xl overflow-hidden scroll-reveal">
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       2B. STANDALONE SMARTFIN AI SYSTEM ARCHITECTURE BLUEPRINT
+       ======================================================================== -->
+  <section class="py-12 sm:py-20 border-editorial-b" id="architecture">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="luxury-card p-5 sm:p-8 lg:p-10 bg-white/70 dark:bg-[#130E24]/75 border border-[var(--border-glass)] rounded-xl overflow-hidden scroll-reveal">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[var(--border-glass)] mb-6 gap-2">
             <div class="flex items-center gap-2.5">
               <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
@@ -601,7 +605,55 @@
             <div class="text-[11px] font-mono text-[var(--text-secondary)]">EVENT-DRIVEN ETL &middot; ASYNC WORKFLOW &middot; 60FPS VECTOR PULSE</div>
           </div>
 
-          <div class="overflow-x-auto py-2">
+          <!-- Vertical Flow Diagram for Mobile (< 768px, Zero Horizontal Scroll) -->
+          <div class="md:hidden space-y-3 py-2">
+            <!-- Stage 1 -->
+            <div class="p-4 rounded-lg bg-[var(--glass-surface)] border border-[var(--border-glass)] relative">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-mono text-[10px] font-semibold text-emerald-500 uppercase tracking-wider">STAGE 01</span>
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              </div>
+              <h4 class="font-display font-bold text-sm text-[var(--text-primary)]">WhatsApp Webhook</h4>
+              <p class="font-mono text-xs text-[var(--text-secondary)] mt-0.5">Async Ingestion &middot; HMAC Signature</p>
+            </div>
+
+            <!-- Connector Down Pulse -->
+            <div class="flex justify-center py-0.5" aria-hidden="true">
+              <div class="w-0.5 h-6 bg-gradient-to-b from-purple-500 to-cyan-400 relative">
+                <div class="w-1.5 h-1.5 rounded-full bg-cyan-400 -left-[2px] relative animate-ping"></div>
+              </div>
+            </div>
+
+            <!-- Stage 2 -->
+            <div class="p-4 rounded-lg bg-[var(--glass-surface)] border border-purple-500/30 relative shadow-sm">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-mono text-[10px] font-bold text-purple-400 uppercase tracking-wider">CORE ENGINE 02</span>
+                <span class="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></span>
+              </div>
+              <h4 class="font-display font-bold text-sm text-[var(--text-primary)]">FastAPI &middot; ETL Engine</h4>
+              <p class="font-mono text-xs text-[var(--text-secondary)] mt-0.5">2-Way GSTR Matching &middot; &plusmn;&#8377;1 Rounding &middot; TDS 26Q</p>
+            </div>
+
+            <!-- Connector Down Pulse -->
+            <div class="flex justify-center py-0.5" aria-hidden="true">
+              <div class="w-0.5 h-6 bg-gradient-to-b from-purple-500 to-cyan-400 relative">
+                <div class="w-1.5 h-1.5 rounded-full bg-cyan-400 -left-[2px] relative animate-ping"></div>
+              </div>
+            </div>
+
+            <!-- Stage 3 -->
+            <div class="p-4 rounded-lg bg-[var(--glass-surface)] border border-[var(--border-glass)] relative">
+              <div class="flex items-center justify-between mb-1.5">
+                <span class="font-mono text-[10px] font-semibold text-cyan-400 uppercase tracking-wider">DEST 03</span>
+                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              </div>
+              <h4 class="font-display font-bold text-sm text-[var(--text-primary)]">GST Portal &amp; BRS</h4>
+              <p class="font-mono text-xs text-[var(--text-secondary)] mt-0.5">Statutory Audit Logs &middot; Automated Export</p>
+            </div>
+          </div>
+
+          <!-- Desktop Horizontal SVG Vector Blueprint (>= 768px) -->
+          <div class="hidden md:block overflow-x-auto py-2">
             <svg class="w-full min-w-[620px] h-[160px]" viewBox="0 0 680 160" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="flowGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -656,16 +708,14 @@
               </g>
             </svg>
           </div>
-        </div>
       </div>
-
     </div>
   </section>
 
   <!-- ========================================================================
        4. EXPERTISE PREVIEW (ELEGANT TYPOGRAPHIC PRESENTATION)
        ======================================================================== -->
-  <section class="py-20 sm:py-28 border-editorial-b bg-white" id="expertise">
+  <section class="py-16 sm:py-24 lg:py-28 border-editorial-b" id="expertise">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6 scroll-reveal">
@@ -676,7 +726,7 @@
             <span>Core Disciplines</span>
           </div>
           <h2 class="headline-section mt-3">
-            Specialized Engineering <span class="font-serif italic font-normal text-[#526BFF]">Expertise.</span>
+            Specialized Engineering <span class="font-serif italic font-normal text-gradient-primary">Expertise.</span>
           </h2>
         </div>
         <div>
@@ -688,37 +738,37 @@
       </div>
 
       <!-- Typographic Three Disciplines List -->
-      <div class="divide-y divide-[#E6E4DE] border-t border-b border-[#E6E4DE] scroll-reveal">
+      <div class="divide-y divide-[var(--border-glass)] border-t border-b border-[var(--border-glass)] scroll-reveal">
         
         <!-- Area 1: Artificial Intelligence -->
-        <div class="py-7 sm:py-8 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-6 items-center group hover:bg-[#FAF9F6] transition-colors px-3 sm:px-4 -mx-3 sm:-mx-4">
-          <div class="md:col-span-1 font-mono text-xs text-[#777777]">01</div>
-          <div class="md:col-span-5 font-display font-bold text-xl sm:text-2xl text-[#171717] group-hover:text-[#526BFF] transition-colors">
+        <div class="py-6 sm:py-7 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-6 items-center group hover:bg-[var(--glass-surface)] transition-colors p-4 sm:p-5 rounded-lg">
+          <div class="md:col-span-1 font-mono text-xs text-[var(--text-secondary)]">01</div>
+          <div class="md:col-span-5 font-display font-bold text-xl sm:text-2xl text-[var(--text-primary)] group-hover:text-[#6D28D9] dark:group-hover:text-[#C084FC] transition-colors">
             Artificial Intelligence
           </div>
-          <div class="md:col-span-6 text-sm text-[#777777] font-sans leading-relaxed">
+          <div class="md:col-span-6 text-sm text-[var(--text-secondary)] font-sans leading-relaxed">
             Generative AI orchestration, multimodal computer vision, retrieval-augmented generation (RAG), and domain-specific LLM agents.
           </div>
         </div>
 
         <!-- Area 2: Intelligent Application Development -->
-        <div class="py-7 sm:py-8 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-6 items-center group hover:bg-[#FAF9F6] transition-colors px-3 sm:px-4 -mx-3 sm:-mx-4">
-          <div class="md:col-span-1 font-mono text-xs text-[#777777]">02</div>
-          <div class="md:col-span-5 font-display font-bold text-xl sm:text-2xl text-[#171717] group-hover:text-[#526BFF] transition-colors">
+        <div class="py-6 sm:py-7 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-6 items-center group hover:bg-[var(--glass-surface)] transition-colors p-4 sm:p-5 rounded-lg">
+          <div class="md:col-span-1 font-mono text-xs text-[var(--text-secondary)]">02</div>
+          <div class="md:col-span-5 font-display font-bold text-xl sm:text-2xl text-[var(--text-primary)] group-hover:text-[#6D28D9] dark:group-hover:text-[#C084FC] transition-colors">
             Intelligent Application Development
           </div>
-          <div class="md:col-span-6 text-sm text-[#777777] font-sans leading-relaxed">
+          <div class="md:col-span-6 text-sm text-[var(--text-secondary)] font-sans leading-relaxed">
             Production full-stack software built with Next.js 15, FastAPI, React 19, Supabase, and high-concurrency microservices.
           </div>
         </div>
 
         <!-- Area 3: Automation & Technology -->
-        <div class="py-7 sm:py-8 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-6 items-center group hover:bg-[#FAF9F6] transition-colors px-3 sm:px-4 -mx-3 sm:-mx-4">
-          <div class="md:col-span-1 font-mono text-xs text-[#777777]">03</div>
-          <div class="md:col-span-5 font-display font-bold text-xl sm:text-2xl text-[#171717] group-hover:text-[#526BFF] transition-colors">
+        <div class="py-6 sm:py-7 grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-6 items-center group hover:bg-[var(--glass-surface)] transition-colors p-4 sm:p-5 rounded-lg">
+          <div class="md:col-span-1 font-mono text-xs text-[var(--text-secondary)]">03</div>
+          <div class="md:col-span-5 font-display font-bold text-xl sm:text-2xl text-[var(--text-primary)] group-hover:text-[#6D28D9] dark:group-hover:text-[#C084FC] transition-colors">
             Automation &amp; Technology
           </div>
-          <div class="md:col-span-6 text-sm text-[#777777] font-sans leading-relaxed">
+          <div class="md:col-span-6 text-sm text-[var(--text-secondary)] font-sans leading-relaxed">
             Enterprise financial reconciliations (GST &amp; TDS), distributed ETL web scrapers, Docker containerization, and secure cloud infrastructure.
           </div>
         </div>
@@ -731,7 +781,7 @@
   <!-- ========================================================================
        5. EXPERIENCE PREVIEW (BRIEF VERIFIED SUMMARY - 3 ROLES)
        ======================================================================== -->
-  <section class="py-20 sm:py-28 border-editorial-b bg-[#F5F3EE]" id="experience">
+  <section class="py-16 sm:py-24 lg:py-28 border-editorial-b" id="experience">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 gap-6 scroll-reveal">
@@ -742,7 +792,7 @@
             <span>Career Overview</span>
           </div>
           <h2 class="headline-section mt-3">
-            Professional <span class="font-serif italic font-normal text-[#526BFF]">Track Record.</span>
+            Professional <span class="font-serif italic font-normal text-gradient-primary">Track Record.</span>
           </h2>
         </div>
         <div>
@@ -754,50 +804,50 @@
       </div>
 
       <!-- Brief Verified Experience Table (Strict Reverse-Chronological Order) -->
-      <div class="bg-white border border-[#E6E4DE] rounded-sm divide-y divide-[#E6E4DE] shadow-sm scroll-reveal">
+      <div class="luxury-card divide-y divide-[var(--border-glass)] border border-[var(--border-glass)] rounded-xl overflow-hidden shadow-sm scroll-reveal">
         
         <!-- Role 1: White Swan Holidays (Aug 2025 – Present) -->
-        <div class="p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[#FAF9F6] transition-colors">
+        <div class="p-5 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[var(--glass-surface)] transition-colors">
           <div>
-            <span class="font-mono text-[10px] text-orange-600 uppercase tracking-wider block mb-1">Technical Engineer</span>
-            <h3 class="font-display font-bold text-xl text-[#171717]">White Swan Holidays</h3>
-            <p class="text-xs sm:text-sm text-[#777777] mt-0.5">Enterprise Digital Solutions &amp; Platform Infrastructure</p>
+            <span class="font-mono text-[10px] text-orange-600 dark:text-orange-400 uppercase tracking-wider block mb-1">Technical Engineer</span>
+            <h3 class="font-display font-bold text-lg sm:text-xl text-[var(--text-primary)]">White Swan Holidays</h3>
+            <p class="text-xs sm:text-sm text-[var(--text-secondary)] mt-0.5">Enterprise Digital Solutions &amp; Platform Infrastructure</p>
           </div>
           <div class="sm:text-right">
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-orange-50 text-orange-600 border border-orange-200">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20">
               Aug 2025 – Present
             </span>
-            <div class="text-[11px] font-mono text-[#777777] mt-1">International Operations</div>
+            <div class="text-[11px] font-mono text-[var(--text-secondary)] mt-1">International Operations</div>
           </div>
         </div>
 
         <!-- Role 2: Helion Enterprise (Dec 2024 – Present) -->
-        <div class="p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[#FAF9F6] transition-colors">
+        <div class="p-5 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[var(--glass-surface)] transition-colors">
           <div>
-            <span class="font-mono text-[10px] text-[#526BFF] uppercase tracking-wider block mb-1">Founder</span>
-            <h3 class="font-display font-bold text-xl text-[#171717]">Helion Enterprise</h3>
-            <p class="text-xs sm:text-sm text-[#777777] mt-0.5">Electronics Retail Business &amp; Technology Solutions</p>
+            <span class="font-mono text-[10px] text-[#6D28D9] dark:text-purple-400 uppercase tracking-wider block mb-1">Founder</span>
+            <h3 class="font-display font-bold text-lg sm:text-xl text-[var(--text-primary)]">Helion Enterprise</h3>
+            <p class="text-xs sm:text-sm text-[var(--text-secondary)] mt-0.5">Electronics Retail Business &amp; Technology Solutions</p>
           </div>
           <div class="sm:text-right">
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-blue-50 text-[#526BFF] border border-blue-200">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-purple-500/10 text-[#6D28D9] dark:text-purple-400 border border-purple-500/20">
               Dec 2024 – Present
             </span>
-            <div class="text-[11px] font-mono text-[#777777] mt-1">Ahmedabad, India</div>
+            <div class="text-[11px] font-mono text-[var(--text-secondary)] mt-1">Ahmedabad, India</div>
           </div>
         </div>
 
         <!-- Role 3: Arterius Solutions (May 2025 – Aug 2025) -->
-        <div class="p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[#FAF9F6] transition-colors">
+        <div class="p-5 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-[var(--glass-surface)] transition-colors">
           <div>
-            <span class="font-mono text-[10px] text-emerald-600 uppercase tracking-wider block mb-1">Technical Engineer</span>
-            <h3 class="font-display font-bold text-xl text-[#171717]">Arterius Solutions</h3>
-            <p class="text-xs sm:text-sm text-[#777777] mt-0.5">Enterprise IT Infrastructure &amp; Technical Systems</p>
+            <span class="font-mono text-[10px] text-emerald-600 dark:text-emerald-400 uppercase tracking-wider block mb-1">Technical Engineer</span>
+            <h3 class="font-display font-bold text-lg sm:text-xl text-[var(--text-primary)]">Arterius Solutions</h3>
+            <p class="text-xs sm:text-sm text-[var(--text-secondary)] mt-0.5">Enterprise IT Infrastructure &amp; Technical Systems</p>
           </div>
           <div class="sm:text-right">
-            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-emerald-50 text-emerald-700 border border-emerald-200">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
               May 2025 – Aug 2025
             </span>
-            <div class="text-[11px] font-mono text-[#777777] mt-1">Enterprise IT</div>
+            <div class="text-[11px] font-mono text-[var(--text-secondary)] mt-1">Enterprise IT</div>
           </div>
         </div>
 
@@ -828,29 +878,29 @@
         Currently available for selective AI engineering projects, intelligent application architecture, and technical consulting.
       </p>
 
-      <div class="pt-4">
-        <a href="contact.html" class="btn-luxury btn-primary-gold text-xs px-8 py-4">
+      <div class="pt-4 max-w-xs mx-auto sm:max-w-none">
+        <a href="contact.html" class="btn-luxury btn-primary-gold text-xs w-full sm:w-auto justify-center min-h-[48px] px-8 py-3.5">
           <span>Get in Touch</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
       </div>
 
       <!-- Direct Contact Channels -->
-      <div class="pt-6 flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-xs font-mono text-[#A5ADB5]">
-        <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors flex items-center gap-1.5">
+      <div class="pt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-8 text-xs font-mono text-[#A5ADB5]">
+        <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors inline-flex items-center gap-1.5 min-h-[44px] px-2">
           <i data-lucide="mail" class="w-3.5 h-3.5 text-[#C7A77A]"></i>
           <span>krish.trivedi28@gmail.com</span>
         </a>
-        <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+        <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors inline-flex items-center gap-1.5 min-h-[44px] px-2">
           <i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i>
           <span>+91 8849213790</span>
         </a>
-        <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center gap-1.5">
+        <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors inline-flex items-center gap-1.5 min-h-[44px] px-2">
           <i data-lucide="github" class="w-3.5 h-3.5"></i>
           <span>GitHub</span>
         </a>
         <!-- TODO: Verify/adjust LinkedIn profile slug if needed -->
-        <a href="https://www.linkedin.com/in/krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors flex items-center gap-1.5">
+        <a href="https://www.linkedin.com/in/krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition-colors inline-flex items-center gap-1.5 min-h-[44px] px-2">
           <i data-lucide="linkedin" class="w-3.5 h-3.5 text-blue-400"></i>
           <span>LinkedIn</span>
         </a>
@@ -878,24 +928,25 @@
         </div>
 
         <!-- Main Minimal Navigation Links -->
-        <nav class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-mono">
-          <a href="index.html" class="text-white hover:text-[#526BFF] transition-colors">Home</a>
-          <a href="about.html" class="hover:text-white transition-colors">About</a>
-          <a href="projects.html" class="hover:text-white transition-colors">Projects</a>
-          <a href="ai-lab.html" class="hover:text-white transition-colors">AI Lab</a>
-          <a href="experience.html" class="hover:text-white transition-colors">Experience</a>
-          <a href="skills.html" class="hover:text-white transition-colors">Skills</a>
-          <a href="resume.html" class="hover:text-white transition-colors">Resume</a>
-          <a href="contact.html" class="hover:text-white transition-colors">Contact</a>
+        <nav class="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs font-mono">
+          <a href="index.html" class="text-white hover:text-[#6D28D9] dark:hover:text-[#A78BFA] transition-colors inline-flex items-center min-h-[44px]">Home</a>
+          <a href="about.html" class="hover:text-white transition-colors inline-flex items-center min-h-[44px]">About</a>
+          <a href="projects.html" class="hover:text-white transition-colors inline-flex items-center min-h-[44px]">Projects</a>
+          <a href="ai-lab.html" class="hover:text-white transition-colors inline-flex items-center min-h-[44px]">AI Lab</a>
+          <a href="experience.html" class="hover:text-white transition-colors inline-flex items-center min-h-[44px]">Experience</a>
+          <a href="skills.html" class="hover:text-white transition-colors inline-flex items-center min-h-[44px]">Skills</a>
+          <a href="services.html" class="hover:text-white transition-colors inline-flex items-center min-h-[44px]">Services</a>
+          <a href="resume.html" class="hover:text-white transition-colors inline-flex items-center min-h-[44px]">Resume</a>
+          <a href="contact.html" class="hover:text-white transition-colors inline-flex items-center min-h-[44px]">Contact</a>
         </nav>
 
         <!-- Social & Direct Channels -->
-        <div class="flex items-center gap-4 font-mono text-xs">
-          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub ↗</a>
+        <div class="flex flex-wrap items-center gap-4 font-mono text-xs">
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors inline-flex items-center min-h-[44px]">GitHub ↗</a>
           <!-- TODO: Verify/adjust LinkedIn profile slug if needed -->
-          <a href="https://www.linkedin.com/in/krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">LinkedIn ↗</a>
-          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline font-bold">WhatsApp</a>
-          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors">Email</a>
+          <a href="https://www.linkedin.com/in/krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors inline-flex items-center min-h-[44px]">LinkedIn ↗</a>
+          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline font-bold inline-flex items-center min-h-[44px]">WhatsApp</a>
+          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors inline-flex items-center min-h-[44px]">Email</a>
         </div>
 
       </div>
@@ -921,6 +972,6 @@
   </div>
 
   <!-- Main JavaScript Engine -->
-  <script src="js/main.js?v=3.9.0"></script>
+  <script src="js/main.js?v=3.9.1"></script>
 </body>
 </html>

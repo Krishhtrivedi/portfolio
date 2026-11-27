@@ -95,7 +95,7 @@
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Custom Design System & Animation Stylesheet -->
-  <link rel="stylesheet" href="../css/styles.css?v=3.9.0">
+  <link rel="stylesheet" href="../css/styles.css?v=3.9.1">
 </head>
 <body class="bg-[#FAF9FE] text-[#141024] font-sans antialiased relative">
 
@@ -112,57 +112,59 @@
             <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
             <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
           </button>
-          <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
-            <i data-lucide="x" class="w-6 h-6"></i>
+          <button id="closeMenuBtn" aria-label="Close Navigation" class="w-11 h-11 min-w-[44px] min-h-[44px] inline-flex items-center justify-center text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
+            <i data-lucide="x" class="w-5 h-5"></i>
           </button>
         </div>
       </div>
 
-      <nav class="py-8 space-y-1">
+      <nav class="py-4 sm:py-8 space-y-0.5 sm:space-y-1 flex-1 overflow-y-auto">
         <a href="../index.html" class="menu-item-editorial group">
-          <span class="item-title">01 HOME</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">01 HOME</span>
           <span class="item-sub">MAIN HUB</span>
         </a>
         <a href="../about.html" class="menu-item-editorial group">
-          <span class="item-title">02 ABOUT</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">02 ABOUT</span>
           <span class="item-sub">BIOGRAPHY &amp; PHILOSOPHY</span>
         </a>
-        <a href="../projects.html" class="menu-item-editorial group text-[#8B5CF6] dark:text-[#C084FC]">
-          <span class="item-title">03 PROJECTS</span>
+        <a href="../projects.html" class="menu-item-editorial group text-[#6D28D9] dark:text-[#C084FC]">
+          <span class="item-title text-lg sm:text-3xl font-bold">03 PROJECTS</span>
           <span class="item-sub">SELECTED CASE STUDIES</span>
         </a>
         <a href="../ai-lab.html" class="menu-item-editorial group">
-          <span class="item-title">04 AI LAB</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">04 AI LAB</span>
           <span class="item-sub">INTERACTIVE DEMOS &amp; CLI</span>
         </a>
         <a href="../experience.html" class="menu-item-editorial group">
-          <span class="item-title">05 EXPERIENCE</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">05 EXPERIENCE</span>
           <span class="item-sub">CAREER &amp; SYSTEMS TIMELINE</span>
         </a>
         <a href="../skills.html" class="menu-item-editorial group">
-          <span class="item-title">06 SKILLS</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">06 SKILLS</span>
           <span class="item-sub">TECHNICAL CAPABILITIES</span>
         </a>
         <a href="../services.html" class="menu-item-editorial group">
-          <span class="item-title">07 SERVICES</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">07 SERVICES</span>
           <span class="item-sub">SOLUTIONS &amp; EXPERTISE</span>
         </a>
         <a href="../resume.html" class="menu-item-editorial group">
-          <span class="item-title">08 RESUME</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">08 RESUME</span>
           <span class="item-sub">CURRICULUM VITAE</span>
         </a>
         <a href="../contact.html" class="menu-item-editorial group">
-          <span class="item-title">09 CONTACT</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">09 CONTACT</span>
           <span class="item-sub">LET'S CONNECT</span>
         </a>
       </nav>
 
-      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#8E95A5]">
+      <div class="pt-4 sm:pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 text-xs font-mono text-[#8E95A5]">
         <span>AHMEDABAD, GUJARAT, INDIA · +91 8849213790</span>
-        <div class="flex items-center gap-6 mt-2 sm:mt-0">
-          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors">EMAIL</a>
-          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GITHUB</a>
-          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">WHATSAPP</a>
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-5">
+          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors inline-flex items-center min-h-[44px] px-1">EMAIL</a>
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors inline-flex items-center min-h-[44px] px-1">GITHUB</a>
+          <!-- TODO: Verify/adjust LinkedIn profile slug if needed -->
+          <a href="https://www.linkedin.com/in/krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors inline-flex items-center min-h-[44px] px-1">LINKEDIN</a>
+          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline inline-flex items-center min-h-[44px] px-1">WHATSAPP</a>
         </div>
       </div>
     </div>
@@ -175,7 +177,7 @@
         <img src="../img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
         <div class="flex flex-col">
           <span class="navbar-brand-title">KRISH TRIVEDI</span>
-          <span class="navbar-brand-sub">Case Study // White Swan</span>
+          <span class="navbar-brand-sub hidden sm:block">Case Study // White Swan</span>
         </div>
       </a>
 
@@ -197,7 +199,7 @@
           <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
           <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
         </button>
-        <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex btn-nav-cta">
+        <a href="https://whiteswanholidays.onrender.com/" target="_blank" rel="noopener noreferrer" class="hidden lg:inline-flex btn-nav-cta">
           <span>Live Site</span>
           <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
         </a>
@@ -209,7 +211,7 @@
   </header>
 
   <!-- Case Study Main Container -->
-  <main class="pt-36 pb-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+  <main class="pt-24 sm:pt-28 md:pt-36 pb-16 sm:pb-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Header -->
     <div class="mb-12">
@@ -232,7 +234,7 @@
     </div>
 
     <!-- Quick Spec Grid -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 bg-white border-editorial rounded-sm mb-12 text-xs font-mono">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5 sm:p-6 bg-white border-editorial rounded-sm mb-12 text-xs font-mono">
       <div>
         <div class="text-[#777777] uppercase">Client</div>
         <div class="font-bold text-[#171717] mt-1">White Swan Holidays</div>
@@ -252,7 +254,7 @@
     </div>
 
     <!-- Editorial Case Study Body -->
-    <div class="luxury-card p-8 sm:p-14 bg-white space-y-10 leading-relaxed text-sm sm:text-base text-[#171717]">
+    <div class="luxury-card p-5 sm:p-10 lg:p-14 bg-white space-y-10 leading-relaxed text-sm sm:text-base text-[#171717]">
       
       <!-- Section 1 -->
       <div>
@@ -295,12 +297,12 @@
       </div>
 
       <!-- Next Project Link -->
-      <div class="pt-8 border-editorial-t flex items-center justify-between">
-        <a href="hpad-travel.html" class="btn-luxury btn-outline-editorial text-xs">
+      <div class="pt-8 border-editorial-t flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+        <a href="hpad-travel.html" class="btn-luxury btn-outline-editorial w-full sm:w-auto justify-center min-h-[48px] text-xs">
           <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
           <span>Previous: HPAD Travel</span>
         </a>
-        <a href="../projects.html" class="btn-luxury btn-primary-dark text-xs">
+        <a href="../projects.html" class="btn-luxury btn-primary-dark w-full sm:w-auto justify-center min-h-[48px] text-xs">
           <span>All Case Studies</span>
           <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
         </a>
@@ -328,7 +330,7 @@
     </div>
   </footer>
 
-  <script src="../js/main.js?v=3.9.0"></script>
+  <script src="../js/main.js?v=3.9.1"></script>
   <!-- Premium Branded Page Preloader (HPAD Luxury Cinematic Style) -->
   <div id="pagePreloader" aria-hidden="true" class="fixed inset-0 z-[99999] bg-[#0B0814] flex flex-col items-center justify-center transition-all duration-700 ease-out" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #0B0814; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center;">
     <div class="preloader-logo-wrap" style="position: relative; width: 84px; height: 48px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center;">

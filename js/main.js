@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Auto-inject Theme Toggle Button into Navbar if not already present
-    const navActionContainers = document.querySelectorAll('header .flex.items-center.gap-3, #navbar .flex.items-center.gap-3');
+    const navActionContainers = document.querySelectorAll('header .flex.items-center.gap-3, header .flex.items-center.gap-2, #navbar .flex.items-center.gap-3, #navbar .flex.items-center.gap-2');
     navActionContainers.forEach(container => {
       if (!container.querySelector('.theme-toggle-btn')) {
         const toggleBtn = document.createElement('button');
@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(hidePreloader, 600);
 
   // 3. CUSTOM EDITORIAL CURSOR (DESKTOP ONLY)
-  const isTouchDevice = () => window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 768;
+  const isTouchDevice = () => !(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches);
 
   if (!isTouchDevice()) {
     const cursorDot = document.createElement('div');
@@ -421,6 +421,9 @@ document.addEventListener('DOMContentLoaded', () => {
           // Center Active Card
           card.className = 'slider-project-card is-active';
           const dragShift = offsetDelta * 0.45;
+          card.style.opacity = '1';
+          card.style.pointerEvents = 'auto';
+          card.style.zIndex = '30';
           if (isMobile) {
             card.style.transform = `translate(calc(-50% + ${dragShift}px), -50%) scale(1)`;
           } else {
@@ -431,27 +434,47 @@ document.addEventListener('DOMContentLoaded', () => {
           card.className = 'slider-project-card is-prev';
           const dragShift = offsetDelta * 0.25;
           if (isMobile) {
-            card.style.transform = `translate(calc(-50% - 75% + ${dragShift}px), -50%) scale(0.88)`;
+            card.style.transform = `translate(calc(-50% - 115% + ${dragShift}px), -50%) scale(0.92)`;
+            card.style.opacity = '0';
+            card.style.pointerEvents = 'none';
+            card.style.zIndex = '10';
           } else if (isTablet) {
             card.style.transform = `translate(calc(-50% - 250px + ${dragShift}px), -50%) translateZ(-90px) rotateY(18deg) scale(0.85)`;
+            card.style.opacity = '0.75';
+            card.style.pointerEvents = 'auto';
+            card.style.zIndex = '20';
           } else {
             card.style.transform = `translate(calc(-50% - 340px + ${dragShift}px), -50%) translateZ(-110px) rotateY(22deg) scale(0.84)`;
+            card.style.opacity = '0.75';
+            card.style.pointerEvents = 'auto';
+            card.style.zIndex = '20';
           }
         } else if (d === 1) {
           // Next Right Card
           card.className = 'slider-project-card is-next';
           const dragShift = offsetDelta * 0.25;
           if (isMobile) {
-            card.style.transform = `translate(calc(-50% + 75% + ${dragShift}px), -50%) scale(0.88)`;
+            card.style.transform = `translate(calc(-50% + 115% + ${dragShift}px), -50%) scale(0.92)`;
+            card.style.opacity = '0';
+            card.style.pointerEvents = 'none';
+            card.style.zIndex = '10';
           } else if (isTablet) {
             card.style.transform = `translate(calc(-50% + 250px + ${dragShift}px), -50%) translateZ(-90px) rotateY(-18deg) scale(0.85)`;
+            card.style.opacity = '0.75';
+            card.style.pointerEvents = 'auto';
+            card.style.zIndex = '20';
           } else {
             card.style.transform = `translate(calc(-50% + 340px + ${dragShift}px), -50%) translateZ(-110px) rotateY(-22deg) scale(0.84)`;
+            card.style.opacity = '0.75';
+            card.style.pointerEvents = 'auto';
+            card.style.zIndex = '20';
           }
         } else {
           // Offstage Hidden Card (d === 2 or d === -2)
           card.className = 'slider-project-card is-hidden';
-          // Place card according to where it naturally moves to prevent crossover flashes
+          card.style.opacity = '0';
+          card.style.pointerEvents = 'none';
+          card.style.zIndex = '5';
           const exitLeft = prevD === -1 || (prevD === 0 && d === 2);
           const sign = exitLeft ? -1 : 1;
           if (isMobile) {
@@ -461,6 +484,17 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
       });
+
+      // Dynamically size mobile stage height to active card to prevent clipping or dead space
+      if (isMobile) {
+        const activeCard = cards[currentIndex];
+        if (activeCard) {
+          const cardHeight = activeCard.offsetHeight;
+          stage.style.height = `${Math.max(495, cardHeight + 28)}px`;
+        }
+      } else {
+        stage.style.height = '';
+      }
 
       // Update Active Slide Index Text
       if (currentEl) currentEl.textContent = String(currentIndex + 1).padStart(2, '0');
@@ -677,6 +711,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial Execution
     updateSlider(0);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => updateSlider(0));
+    }
     startAutoPlay();
   }
 
@@ -706,26 +743,14 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(updateLiveClock, 1000);
     updateLiveClock();
 
-    let width = 480;
-    let height = 360;
+    let width = 280;
+    let height = 280;
+    let currentRadius = 100;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-    function resize() {
-      const rect = canvas.getBoundingClientRect();
-      width = rect.width || 480;
-      height = rect.height || 360;
-      canvas.width = width * dpr;
-      canvas.height = height * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    }
-    resize();
-    window.addEventListener('resize', resize);
-
-    // Generate 3D nodes on Fibonacci sphere (Violet-Cyan Palette)
-    const NUM_NODES = 60;
-    const RADIUS = Math.min(width, height) * 0.36;
+    // Generate normalized 3D nodes on Fibonacci sphere (Violet-Cyan Palette)
+    const NUM_NODES = window.innerWidth <= 768 ? 48 : 60;
     const nodes = [];
-
     const phi = Math.PI * (3 - Math.sqrt(5)); // Golden angle
     for (let i = 0; i < NUM_NODES; i++) {
       const y = 1 - (i / (NUM_NODES - 1)) * 2;
@@ -735,16 +760,33 @@ document.addEventListener('DOMContentLoaded', () => {
       const z = Math.sin(theta) * radiusAtY;
 
       nodes.push({
-        origX: x * RADIUS,
-        origY: y * RADIUS,
-        origZ: z * RADIUS,
-        currX: x * RADIUS,
-        currY: y * RADIUS,
-        currZ: z * RADIUS,
-        size: Math.random() * 1.5 + 1.8,
+        nx: x,
+        ny: y,
+        nz: z,
+        origX: x * currentRadius,
+        origY: y * currentRadius,
+        origZ: z * currentRadius,
+        size: Math.random() * 1.4 + 1.6,
         colorType: Math.random() > 0.45 ? 'cyan' : 'violet'
       });
     }
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      width = rect.width || 220;
+      height = rect.height || 220;
+      currentRadius = Math.min(width, height) * 0.36;
+      nodes.forEach(n => {
+        n.origX = n.nx * currentRadius;
+        n.origY = n.ny * currentRadius;
+        n.origZ = n.nz * currentRadius;
+      });
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
 
     let rotX = 0.25;
     let rotY = 0;
@@ -756,20 +798,23 @@ document.addEventListener('DOMContentLoaded', () => {
     let cursorLocalX = -999;
     let cursorLocalY = -999;
 
-    canvas.addEventListener('mousemove', (e) => {
-      const rect = canvas.getBoundingClientRect();
-      cursorLocalX = e.clientX - rect.left;
-      cursorLocalY = e.clientY - rect.top;
-      const mouseX = (e.clientX - rect.left) / rect.width - 0.5;
-      const mouseY = (e.clientY - rect.top) / rect.height - 0.5;
-      targetRotY += mouseX * 0.04;
-      targetRotX += -mouseY * 0.04;
-    });
+    const canvasFinePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (canvasFinePointer) {
+      canvas.addEventListener('mousemove', (e) => {
+        const rect = canvas.getBoundingClientRect();
+        cursorLocalX = e.clientX - rect.left;
+        cursorLocalY = e.clientY - rect.top;
+        const mouseX = (e.clientX - rect.left) / rect.width - 0.5;
+        const mouseY = (e.clientY - rect.top) / rect.height - 0.5;
+        targetRotY += mouseX * 0.04;
+        targetRotX += -mouseY * 0.04;
+      });
 
-    canvas.addEventListener('mouseleave', () => {
-      cursorLocalX = -999;
-      cursorLocalY = -999;
-    });
+      canvas.addEventListener('mouseleave', () => {
+        cursorLocalX = -999;
+        cursorLocalY = -999;
+      });
+    }
 
     canvas.addEventListener('mousedown', (e) => {
       isDragging = true;
@@ -874,7 +919,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
 
-        const alpha = Math.max(0.14, Math.min(1, (z2 + RADIUS) / (RADIUS * 2)));
+        const alpha = Math.max(0.14, Math.min(1, (z2 + currentRadius) / (currentRadius * 2)));
 
         projected.push({
           x: projX,
@@ -890,7 +935,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const isDark = document.documentElement.classList.contains('dark') || document.documentElement.getAttribute('data-theme') === 'dark';
 
       // Connect proximal nodes with violet and cyan filaments
-      const maxDist = RADIUS * 0.68;
+      const maxDist = currentRadius * 0.68;
       ctx.lineWidth = 0.85;
       for (let i = 0; i < projected.length; i++) {
         for (let j = i + 1; j < projected.length; j++) {
@@ -952,9 +997,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      animId = requestAnimationFrame(render);
+      const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduceMotion) {
+        animId = requestAnimationFrame(render);
+      }
     }
-    animId = requestAnimationFrame(render);
+    render();
   }
 
   // Initialize Hero Neural Canvas
@@ -1561,35 +1609,38 @@ Input Features: 24 financial covariates, automated SMOTE balancing`
     }
   }
 
-  // 16. CURSOR-TRACKING SPOTLIGHT BORDERS & MAGNETIC FROSTED BUTTONS
+  // 16. CURSOR-TRACKING SPOTLIGHT BORDERS & MAGNETIC FROSTED BUTTONS (DESKTOP ONLY)
   const isReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hasFinePointer = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  // A. Pointer Coordinates on Bento / Project / Luxury Cards
-  const spotlightElements = document.querySelectorAll('.spotlight-card, .luxury-card, .slider-project-card, .project-card, .bento-card');
-  spotlightElements.forEach(card => {
-    card.addEventListener('pointermove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      card.style.setProperty('--mouse-x', `${x}px`);
-      card.style.setProperty('--mouse-y', `${y}px`);
-    });
-  });
-
-  // B. Magnetic Hover Pull on Frosted Action Buttons
-  if (!isReducedMotion) {
-    const magneticBtns = document.querySelectorAll('.btn-luxury, .btn-primary-dark, .btn-primary-gold, .btn-magnetic');
-    magneticBtns.forEach(btn => {
-      btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = (e.clientX - rect.left - rect.width / 2) * 0.16;
-        const y = (e.clientY - rect.top - rect.height / 2) * 0.16;
-        btn.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-      });
-      btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'translate3d(0, 0, 0)';
+  if (hasFinePointer) {
+    // A. Pointer Coordinates on Bento / Project / Luxury Cards
+    const spotlightElements = document.querySelectorAll('.spotlight-card, .luxury-card, .slider-project-card, .project-card, .bento-card');
+    spotlightElements.forEach(card => {
+      card.addEventListener('pointermove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
       });
     });
+
+    // B. Magnetic Hover Pull on Frosted Action Buttons
+    if (!isReducedMotion) {
+      const magneticBtns = document.querySelectorAll('.btn-luxury, .btn-primary-dark, .btn-primary-gold, .btn-magnetic');
+      magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = (e.clientX - rect.left - rect.width / 2) * 0.16;
+          const y = (e.clientY - rect.top - rect.height / 2) * 0.16;
+          btn.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = 'translate3d(0, 0, 0)';
+        });
+      });
+    }
   }
 
   // C. 60fps GPU Composited Scroll Reveal

@@ -95,7 +95,7 @@
   </script>
   <script src="https://unpkg.com/lucide@latest"></script>
   <!-- Custom Design System & Animation Stylesheet -->
-  <link rel="stylesheet" href="css/styles.css?v=3.9.0">
+  <link rel="stylesheet" href="css/styles.css?v=3.9.1">
 </head>
 <body class="bg-[#10131D] text-[#F5F3EE] font-sans antialiased relative architectural-grid-dark">
 
@@ -112,57 +112,59 @@
             <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
             <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
           </button>
-          <button id="closeMenuBtn" aria-label="Close Navigation" class="p-2 text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
-            <i data-lucide="x" class="w-6 h-6"></i>
+          <button id="closeMenuBtn" aria-label="Close Navigation" class="w-11 h-11 min-w-[44px] min-h-[44px] inline-flex items-center justify-center text-[#8E95A5] hover:text-white rounded-full bg-white/[0.06] transition-colors">
+            <i data-lucide="x" class="w-5 h-5"></i>
           </button>
         </div>
       </div>
 
-      <nav class="py-8 space-y-1">
+      <nav class="py-4 sm:py-8 space-y-0.5 sm:space-y-1 flex-1 overflow-y-auto">
         <a href="index.html" class="menu-item-editorial group">
-          <span class="item-title">01 HOME</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">01 HOME</span>
           <span class="item-sub">MAIN HUB</span>
         </a>
         <a href="about.html" class="menu-item-editorial group">
-          <span class="item-title">02 ABOUT</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">02 ABOUT</span>
           <span class="item-sub">BIOGRAPHY &amp; PHILOSOPHY</span>
         </a>
         <a href="projects.html" class="menu-item-editorial group">
-          <span class="item-title">03 PROJECTS</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">03 PROJECTS</span>
           <span class="item-sub">SELECTED CASE STUDIES</span>
         </a>
-        <a href="ai-lab.html" class="menu-item-editorial group text-[#8B5CF6] dark:text-[#C084FC]">
-          <span class="item-title">04 AI LAB</span>
+        <a href="ai-lab.html" class="menu-item-editorial group text-[#6D28D9] dark:text-[#C084FC]">
+          <span class="item-title text-lg sm:text-3xl font-bold">04 AI LAB</span>
           <span class="item-sub">INTERACTIVE DEMOS &amp; CLI</span>
         </a>
         <a href="experience.html" class="menu-item-editorial group">
-          <span class="item-title">05 EXPERIENCE</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">05 EXPERIENCE</span>
           <span class="item-sub">CAREER &amp; SYSTEMS TIMELINE</span>
         </a>
         <a href="skills.html" class="menu-item-editorial group">
-          <span class="item-title">06 SKILLS</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">06 SKILLS</span>
           <span class="item-sub">TECHNICAL CAPABILITIES</span>
         </a>
         <a href="services.html" class="menu-item-editorial group">
-          <span class="item-title">07 SERVICES</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">07 SERVICES</span>
           <span class="item-sub">SOLUTIONS &amp; EXPERTISE</span>
         </a>
         <a href="resume.html" class="menu-item-editorial group">
-          <span class="item-title">08 RESUME</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">08 RESUME</span>
           <span class="item-sub">CURRICULUM VITAE</span>
         </a>
         <a href="contact.html" class="menu-item-editorial group">
-          <span class="item-title">09 CONTACT</span>
+          <span class="item-title text-lg sm:text-3xl font-bold">09 CONTACT</span>
           <span class="item-sub">LET'S CONNECT</span>
         </a>
       </nav>
 
-      <div class="flex flex-wrap items-center justify-between pt-6 border-t border-white/[0.08] text-xs font-mono text-[#8E95A5]">
+      <div class="pt-4 sm:pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4 text-xs font-mono text-[#8E95A5]">
         <span>AHMEDABAD, GUJARAT, INDIA · +91 8849213790</span>
-        <div class="flex items-center gap-6 mt-2 sm:mt-0">
-          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors">EMAIL</a>
-          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GITHUB</a>
-          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline">WHATSAPP</a>
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-5">
+          <a href="mailto:krish.trivedi28@gmail.com" class="hover:text-white transition-colors inline-flex items-center min-h-[44px] px-1">EMAIL</a>
+          <a href="https://github.com/Krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors inline-flex items-center min-h-[44px] px-1">GITHUB</a>
+          <!-- TODO: Verify/adjust LinkedIn profile slug if needed -->
+          <a href="https://www.linkedin.com/in/krishhtrivedi" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors inline-flex items-center min-h-[44px] px-1">LINKEDIN</a>
+          <a href="https://wa.me/918849213790" target="_blank" rel="noopener noreferrer" class="text-emerald-400 hover:underline inline-flex items-center min-h-[44px] px-1">WHATSAPP</a>
         </div>
       </div>
     </div>
@@ -175,7 +177,7 @@
         <img src="img/logo-kt-light.svg" alt="KT Monogram" class="kt-logo-dynamic w-9 h-auto transition-transform group-hover:scale-105">
         <div class="flex flex-col">
           <span class="navbar-brand-title">KRISH TRIVEDI</span>
-          <span class="navbar-brand-sub">04 // Experimental AI Lab</span>
+          <span class="navbar-brand-sub hidden sm:block">04 // Experimental AI Lab</span>
         </div>
       </a>
 
@@ -197,7 +199,7 @@
           <i data-lucide="moon" class="w-4 h-4 icon-moon"></i>
           <i data-lucide="sun" class="w-4 h-4 icon-sun"></i>
         </button>
-        <span class="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.05] border border-white/[0.1] text-xs font-mono text-emerald-400">
+        <span class="hidden lg:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.05] border border-white/[0.1] text-xs font-mono text-emerald-400">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           <span>Inference Online</span>
         </span>
@@ -209,7 +211,7 @@
   </header>
 
   <!-- Main Content -->
-  <main class="pt-36 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <main class="pt-24 sm:pt-28 md:pt-36 pb-16 sm:pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Lab Header -->
     <div class="mb-16">
@@ -229,7 +231,7 @@
 
     <!-- 1. INTERACTIVE PROMPT PLAYGROUND -->
     <section class="mb-16">
-      <div class="luxury-card-dark p-8 sm:p-10">
+      <div class="luxury-card-dark p-5 sm:p-8 lg:p-10">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-white/[0.08] mb-6 gap-4">
           <div>
             <div class="text-xs font-mono text-[#526BFF] uppercase tracking-wider">LABORATORY EXPERIMENT 01</div>
@@ -247,13 +249,13 @@
 
         <!-- Presets -->
         <div class="flex flex-wrap gap-2 mb-4">
-          <button class="prompt-preset-chip px-3 py-1.5 rounded-sm bg-white/[0.06] hover:bg-[#526BFF]/20 border border-white/[0.1] text-xs font-mono text-[#F5F3EE] transition-colors" data-preset="agent-architect">
+          <button class="prompt-preset-chip min-h-[44px] flex items-center px-3.5 py-2 rounded-sm bg-white/[0.06] hover:bg-[#526BFF]/20 border border-white/[0.1] text-xs font-mono text-[#F5F3EE] transition-colors" data-preset="agent-architect">
             🤖 Multi-Agent RAG Topology
           </button>
-          <button class="prompt-preset-chip px-3 py-1.5 rounded-sm bg-white/[0.06] hover:bg-[#526BFF]/20 border border-white/[0.1] text-xs font-mono text-[#F5F3EE] transition-colors" data-preset="security-audit">
+          <button class="prompt-preset-chip min-h-[44px] flex items-center px-3.5 py-2 rounded-sm bg-white/[0.06] hover:bg-[#526BFF]/20 border border-white/[0.1] text-xs font-mono text-[#F5F3EE] transition-colors" data-preset="security-audit">
             🛡️ LLM Token & Security Audit
           </button>
-          <button class="prompt-preset-chip px-3 py-1.5 rounded-sm bg-white/[0.06] hover:bg-[#526BFF]/20 border border-white/[0.1] text-xs font-mono text-[#F5F3EE] transition-colors" data-preset="data-pipeline">
+          <button class="prompt-preset-chip min-h-[44px] flex items-center px-3.5 py-2 rounded-sm bg-white/[0.06] hover:bg-[#526BFF]/20 border border-white/[0.1] text-xs font-mono text-[#F5F3EE] transition-colors" data-preset="data-pipeline">
             ⚡ Playwright Ingestion Cluster
           </button>
         </div>
@@ -263,7 +265,7 @@
           <textarea id="aiLabPromptInput" rows="3" placeholder="Enter an AI systems prompt or click a preset above..." class="w-full px-4 py-3 bg-[#0E121D] border border-white/[0.1] rounded-sm text-sm font-mono text-white placeholder-white/30 outline-none focus:border-[#526BFF] transition-colors resize-none">Design a resilient multi-agent architecture for enterprise customer logistics and invoice reconciliation.</textarea>
           
           <div class="flex justify-end">
-            <button id="aiLabRunPromptBtn" class="btn-luxury btn-accent text-xs py-2.5 px-6">
+            <button id="aiLabRunPromptBtn" class="btn-luxury btn-accent text-xs w-full sm:w-auto min-h-[48px] justify-center py-2.5 px-6">
               <span>RUN INFERENCE PIPELINE</span>
               <i data-lucide="play" class="w-3.5 h-3.5"></i>
             </button>
@@ -273,7 +275,7 @@
         <!-- Live Output Terminal -->
         <div class="mt-6">
           <div class="text-xs font-mono text-[#8E95A5] uppercase tracking-wider mb-2">SYNTHESIZED ARCHITECTURE OUTPUT:</div>
-          <pre id="aiLabPromptOutput" class="p-6 bg-[#0B0E17] border border-white/[0.08] rounded-sm font-mono text-xs sm:text-sm text-emerald-400 overflow-x-auto leading-relaxed whitespace-pre-wrap">[ARCHITECTURE BLUEPRINT: DUAL-AGENT RAG TOPOLOGY]
+          <pre id="aiLabPromptOutput" class="p-4 sm:p-6 bg-[#0B0E17] border border-white/[0.08] rounded-sm font-mono text-xs sm:text-sm text-emerald-400 overflow-x-auto leading-relaxed whitespace-pre-wrap break-words">[ARCHITECTURE BLUEPRINT: DUAL-AGENT RAG TOPOLOGY]
 ------------------------------------------------------------
 1. INGESTION AGENT:
    - Polling: AWS S3 bucket / Webhook listener for incoming PDF invoices.
@@ -299,7 +301,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
       
       <!-- Left: Real ML Scoring Model (6 cols) -->
-      <div class="lg:col-span-6 luxury-card-dark p-8">
+      <div class="lg:col-span-6 luxury-card-dark p-5 sm:p-8">
         <div class="flex items-center justify-between pb-4 border-b border-white/[0.08] mb-6">
           <div>
             <div class="text-xs font-mono text-[#526BFF] uppercase tracking-wider">LABORATORY EXPERIMENT 02</div>
@@ -372,30 +374,30 @@
           <span class="text-[10px] text-emerald-400 font-mono">ONLINE</span>
         </div>
 
-        <div class="p-3 bg-[#0E121D] border-b border-white/[0.06] flex flex-wrap gap-2 text-[11px] font-mono">
-          <span class="text-[#8E95A5] self-center">Commands:</span>
-          <button class="terminal-quick-chip px-2 py-1 rounded bg-white/[0.05] hover:bg-[#526BFF]/20 text-[#526BFF] border border-white/[0.08]" data-cmd="skills">skills</button>
-          <button class="terminal-quick-chip px-2 py-1 rounded bg-white/[0.05] hover:bg-[#526BFF]/20 text-[#526BFF] border border-white/[0.08]" data-cmd="projects">projects</button>
-          <button class="terminal-quick-chip px-2 py-1 rounded bg-white/[0.05] hover:bg-[#526BFF]/20 text-[#526BFF] border border-white/[0.08]" data-cmd="hpad --status">hpad --status</button>
-          <button class="terminal-quick-chip px-2 py-1 rounded bg-white/[0.05] hover:bg-[#526BFF]/20 text-[#526BFF] border border-white/[0.08]" data-cmd="kisanmitra --status">kisanmitra</button>
+        <div class="p-3 bg-[#0E121D] border-b border-white/[0.06] flex flex-nowrap sm:flex-wrap overflow-x-auto scrollbar-none items-center gap-2 text-xs font-mono">
+          <span class="text-[#8E95A5] self-center flex-shrink-0">Commands:</span>
+          <button class="terminal-quick-chip flex-shrink-0 whitespace-nowrap min-h-[44px] px-3 py-1.5 rounded bg-white/[0.05] hover:bg-[#526BFF]/20 text-[#526BFF] border border-white/[0.08]" data-cmd="skills">skills</button>
+          <button class="terminal-quick-chip flex-shrink-0 whitespace-nowrap min-h-[44px] px-3 py-1.5 rounded bg-white/[0.05] hover:bg-[#526BFF]/20 text-[#526BFF] border border-white/[0.08]" data-cmd="projects">projects</button>
+          <button class="terminal-quick-chip flex-shrink-0 whitespace-nowrap min-h-[44px] px-3 py-1.5 rounded bg-white/[0.05] hover:bg-[#526BFF]/20 text-[#526BFF] border border-white/[0.08]" data-cmd="hpad --status">hpad --status</button>
+          <button class="terminal-quick-chip flex-shrink-0 whitespace-nowrap min-h-[44px] px-3 py-1.5 rounded bg-white/[0.05] hover:bg-[#526BFF]/20 text-[#526BFF] border border-white/[0.08]" data-cmd="kisanmitra --status">kisanmitra</button>
         </div>
 
-        <div id="terminalBody" class="flex-1 p-4 overflow-y-auto font-mono text-xs text-[#F5F3EE] space-y-2">
+        <div id="terminalBody" class="flex-1 p-4 overflow-y-auto font-mono text-xs sm:text-sm text-[#F5F3EE] space-y-2">
           <div class="text-[#8E95A5]">Krish Trivedi AI Laboratory Environment initialized.</div>
           <div class="text-[#8E95A5]">Type <span class="text-[#526BFF] font-bold">'help'</span> to inspect available laboratory tools.</div>
         </div>
 
         <div class="p-3 bg-[#121622] border-t border-white/[0.08] flex items-center gap-2">
-          <span class="text-[#526BFF] font-mono text-xs">krish@ai-lab:~$</span>
-          <input type="text" id="terminalInput" placeholder="Type command here..." class="flex-1 bg-transparent border-0 outline-none text-xs font-mono text-white placeholder-white/30">
-          <button id="terminalRunBtn" class="px-3 py-1 bg-[#526BFF] text-white text-xs font-mono rounded hover:bg-[#3E54E6]">Run</button>
+          <span class="text-[#526BFF] font-mono text-xs hidden sm:inline">krish@ai-lab:~$</span>
+          <input type="text" id="terminalInput" placeholder="Type command here..." class="flex-1 bg-transparent border-0 outline-none text-base font-mono text-white placeholder-white/30">
+          <button id="terminalRunBtn" class="px-4 min-h-[44px] bg-[#526BFF] text-white text-xs font-mono rounded hover:bg-[#3E54E6]">Run</button>
         </div>
       </div>
 
     </div>
 
     <!-- 3. NODE-BASED AGENT PIPELINE VISUALIZER -->
-    <section class="luxury-card-dark p-8 sm:p-10 mb-16">
+    <section class="luxury-card-dark p-5 sm:p-8 lg:p-10 mb-16">
       <div class="pb-6 border-b border-white/[0.08] mb-8">
         <div class="text-xs font-mono text-[#526BFF] uppercase tracking-wider">LABORATORY EXPERIMENT 03</div>
         <h2 class="font-display font-bold text-2xl text-white mt-1">Intelligent Workflow & Agent Pipeline Architecture</h2>
@@ -469,7 +471,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js?v=3.9.0"></script>
+  <script src="js/main.js?v=3.9.1"></script>
   <!-- Premium Branded Page Preloader (HPAD Luxury Cinematic Style) -->
   <div id="pagePreloader" aria-hidden="true" class="fixed inset-0 z-[99999] bg-[#0B0814] flex flex-col items-center justify-center transition-all duration-700 ease-out" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #0B0814; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center;">
     <div class="preloader-logo-wrap" style="position: relative; width: 84px; height: 48px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center;">
